@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-<!--Data Guru-->
+                <!--Data Guru-->
                 <div class="card-body">
                     <table class="table">
                         <thead class="bg-primary text-white">
