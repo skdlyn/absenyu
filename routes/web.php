@@ -6,6 +6,8 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\LoginController; 
 use App\Http\Controllers\GuruController; 
+use App\Http\Controllers\DashboardController; 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +37,7 @@ Route::middleware('guest')->group(function () {
 
 //admin
 Route::middleware('auth')->group(function () {
+    Route::resource('dashboard', DashboardController::class);
     Route::resource('absen', SiswaController::class);
     Route::resource('datasiswa', DataController::class);
 
