@@ -21,7 +21,7 @@ class LoginController extends Controller
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('absen');
+            return redirect()->intended('dashboard');
         }
  
         return back()->with('loginError' , 'Login Anda Gagal');
