@@ -2,10 +2,20 @@
 @extends('layout.admin')
 {{-- @extends('home') --}}
 @section('title', 'Dashboard')
-@section('content-title', 'Dashboard')
+@section('content-title')
 @section('content')
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3 style="font-family: Times New Roman">
+                    <p>Selamat Datang {{Auth::user()->name}} !!!</p>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="row">
-
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
