@@ -24,7 +24,7 @@
     <hr class="sidebar-divider">
 
     <li class="nav-item">
-        <a class="nav-link" href="/absen">
+        <a class="nav-link" href="/listkelas">
             <i class="fas fa-fw fa-calendar"></i>
             <span>Absen</span></a>
     </li>

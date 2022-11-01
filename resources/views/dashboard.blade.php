@@ -4,13 +4,22 @@
 @section('title', 'Dashboard')
 @section('content-title')
 @section('content')
-<div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h3 style="font-family: Times New Roman">
-                    <p>Selamat Datang {{Auth::user()->name}} !!!</p>
-                </h3>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="/dashboard"><em class="fa fa-home"></em></a> Dashboard</li>
+            {{-- <li class="active">  Dashboard</li> --}}
+        </ol>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>
+                        <p>Selamat Datang {{Auth::user()->name}} !!!</p>
+                    </h3>
+                </div>
             </div>
         </div>
     </div>
