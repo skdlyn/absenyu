@@ -13,5 +13,14 @@ class Kelas extends Model
     protected $primaryKey = 'id_kelas';
     protected $fillable = ['tingkat_kelas', 'nama_kelas', 'kuota', 'tahun_masuk', 'tahun_keluar'];
     public $timestamps = false;
+
+    public function Siswa()
+    {
+        return $this->belongsToMany('App\Models\Siswa', 'siswa_kelas', 'kelas_id', 'siswa_id')->withPivot('id_siswa_kelas');
+    }
+    public function absen()
+    {    
+        return $this->belongsToMany('App\Models\Siswa', 'absensi', 'kelas_id', 'siswa_id')->withPivot('status', 'tanggal', 'keterangan')->wherePivot('tanggal', Carbon::now('Asia/Jakarta')->format('Y-m-d'));
+    }
     
 }

@@ -6,7 +6,8 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\LoginController; 
 use App\Http\Controllers\GuruController; 
-use App\Http\Controllers\DashboardController; 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KelasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,9 @@ Route::get('/', function () {
 Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'authenticate']);
-    Route::get('/absen', function () {
-        return view('absen');
-    });
+    // Route::get('/absen', function () {
+    //     return view('absen');
+    // });
     Route::get('/datasiswa', function () {
         return view('datasiswa');
     });
@@ -40,6 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('absen', SiswaController::class);
     Route::resource('datasiswa', DataController::class);
+
+    Route::resource('listkelas', KelasController::class);
 
     Route::get('rekapdata', [RekapController::class, 'index']);
     Route::get('rekapdata/{table}', [RekapController::class, 'show']);
