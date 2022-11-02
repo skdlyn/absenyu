@@ -21,7 +21,7 @@ use App\Http\Controllers\KelasController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 //guest
 Route::middleware('guest')->group(function () {
@@ -30,9 +30,6 @@ Route::middleware('guest')->group(function () {
     // Route::get('/absen', function () {
     //     return view('absen');
     // });
-    Route::get('/datasiswa', function () {
-        return view('datasiswa');
-    });
 });
 
 
