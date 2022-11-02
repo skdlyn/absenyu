@@ -3,9 +3,15 @@
 @section('content-title')
 @section('content')
 <div class="row">
+    <ol class="breadcrumb">
+        <li><a href="/dashboard"><em class="fa fa-home"></em></a> Daftar Kelas</li>
+        {{-- <li class="active">  Dashboard</li> --}}
+    </ol>
+</div>
+<div class="row">
     <div class="col-lg-12">
         <div class="panel panel-primary">
-            <div class="panel-heading">Daftar Kelas</div>
+            <div class="panel-heading bg-primary text-white text-center">Daftar Kelas</div>
             <div class="panel-body">
                 <div class="table-responsive">
                     <div class="table-responsive">

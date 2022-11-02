@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title', 'Data Guru')
-@section('content-title', 'Data Guru')
+@section('content-title')
 @section('content')
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
@@ -20,6 +20,14 @@
             <strong>{{ $message }}</strong>
         </div>
     @endif
+
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data Guru</li>
+            {{-- <li class="active">  Dashboard</li> --}}
+        </ol>
+    </div>
+
 <!--Modal Tambah Data Guru-->
     <div class="row">
         <div class="col-lg-12">
