@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id('id_siswa');
             $table->char('nisn');
             $table->string('nama');
-            // $table->unsignedBigInteger('kelas_id');
-            // $table->foreign('kelas_id')->references('id_kelas')->on('kelas');
+            $table->string('kelas');
             $table->string('alamat');
             $table->char('jk');
             $table->timestamps();

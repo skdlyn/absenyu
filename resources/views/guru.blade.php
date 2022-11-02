@@ -28,7 +28,7 @@
         </ol>
     </div>
 
-<!--Modal Tambah Data Guru-->
+    <!--Modal Tambah Data Guru-->
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
@@ -49,7 +49,7 @@
                                 <form method="post" enctype="multipart/form-data" action="{{ route('guru.store') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="Nama">Nama</label>
+                                        <label for="nama">Nama</label>
                                         <input type="text" class="form-control" id="nama" name='nama'
                                             value="{{ old('nama') }}">
                                     </div>
@@ -93,7 +93,7 @@
                                     <th scope="row">{{ ++$i }}</th>
                                     <td>{{ $item->nip }}</td>
                                     <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->jk }} </td>
+                                    <td>{{ $item->jenis_kelamin }} </td>
                                     <td>
                                         <a class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
                                         <a class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>

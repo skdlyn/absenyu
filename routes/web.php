@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('absen', SiswaController::class);
     Route::resource('datasiswa', DataController::class);
-
+    Route::resource('guru', GuruController::class);
     Route::resource('listkelas', KelasController::class);
 
     Route::get('rekapdata', [RekapController::class, 'index']);
@@ -46,10 +46,6 @@ Route::middleware('auth')->group(function () {
     Route::post('rekapd/pribadipdf/', [RekapController::class, 'pdf']);
     Route::get('rekapdatakelas/{id}', [RekapController::class, 'rekap']);
     Route::post('rekapdata', [RekapController::class, 'hitung']);
-
-    Route::resource('guru', GuruController::class);
-    Route::resource('guru', GuruController::class);
-
 
     Route::post('logout', [LoginController::class, 'logout']);
 });

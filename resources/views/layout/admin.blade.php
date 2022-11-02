@@ -3,7 +3,7 @@
 
     <head>
 
-        <title>Absensi XII RPL 2 - @yield('title')</title>
+        <title>Aplikasi Absensi RPL - @yield('title')</title>
         @include('layout.head')
     </head>
 

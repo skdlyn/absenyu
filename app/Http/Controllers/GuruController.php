@@ -50,15 +50,14 @@ class GuruController extends Controller
         ], $message);
 
         //insert data
-        // Guru::create($validatedData);
-        // Guru::create([
-        //     'nip' => $request->nip,
-        //     'nama' => $request->nama,
-        //     'jenis_kelamin' => $request->jenis_kelamin,
-        // ]);
+           Guru::create([
+            'nip' => $request->nip,
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+        ]);
 
         Session::flash('success', 'Selamat!!! Data Anda Berhasil Ditambahkan');
-        // return redirect('/guru');
+        return redirect('/guru');
     }
 
     /**
