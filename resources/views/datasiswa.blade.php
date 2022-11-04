@@ -44,7 +44,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form method="post" enctype="multipart/form-data" action="{{ route('datasiswa.store') }}">
+                                <form method="post" action="{{ route('datasiswa.store') }}">
                                     @csrf
                                     <div class="form-group">
                                         <label for="Nama">Nama</label>
@@ -57,14 +57,15 @@
                                             value="{{ old('nisn') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="kelas">Kelas</label>
-                                        <select class="form-select form-control" id="kelas" name='kelas'
-                                            value="{{ old('kelas') }}">
-                                            <option value="X">X</option>
-                                            <option value="XI">XI</option>
-                                            <option value="XII">XII</option>
-                                        </select>
-                                    </div>
+                                        {{-- <input type="hidden" name="siswa_id" value="{{ $siswa->id }}"> --}}
+                                            <label for="kelas_id">Kelas</label>
+                                            <select class="form-select form-control" id="id_kelas" name='id_kelas'>
+                                                <option value="">Pilih Kelas</option>
+                                                @foreach ($kelas as $item)
+                                                    <option value="{{ $item->id  }}">{{ $item->nama_kelas }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     <div class="form-group">
                                         <label for="jk">Jenis Kelamin</label>
                                         <select class="form-select form-control" id="jk" name='jk'
@@ -80,7 +81,7 @@
                                             value="{{ old('alamat') }}">
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="/datasiswa"type="button" class="btn btn-danger">Batal</a>
+                                        <a href="{{ route('datasiswa.index') }}"type="button" class="btn btn-danger">Batal</a>
                                         <input type="submit" class="btn btn-success" value="Simpan">
                                     </div>
                                 </form>
@@ -102,7 +103,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $i => $item)
+                            @foreach ($siswa as $i => $item)
                                 <tr>
                                     <th scope="row">{{ ++$i }}</th>
                                     <td>{{ $item->nama }}</td>
@@ -110,8 +111,8 @@
                                     <td>{{ $item->alamat }} </td>
                                     <td>{{ $item->jk }} </td>
                                     <td>
-                                        <a class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                                        <a class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                        {{-- <a href="{{route('datasiswa.edit'), $item -> id}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a> --}}
+                                        <a href="{{ route('datasiswa.hapus', $item -> id) }}" class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                         </tbody>

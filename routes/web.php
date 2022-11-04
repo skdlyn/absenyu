@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\RekapController;
-use App\Http\Controllers\LoginController; 
-use App\Http\Controllers\GuruController; 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\DataKelasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('absen', SiswaController::class);
     Route::resource('datasiswa', DataController::class);
+    Route::resource('datakelas', DataKelasController::class);
+    Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
+    Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
+    // Route::get('/datakelas', function () {return view('datakelas');});
+    // route::get('datasiswa/{id_siswa}/edit', [DataController::class,'edit'])->name('datasiswa.edit');
     Route::resource('guru', GuruController::class);
     Route::resource('listkelas', KelasController::class);
 

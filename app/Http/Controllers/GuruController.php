@@ -15,8 +15,8 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $data = Guru::all();
-        return view('guru', compact('data'));
+        $guru = Guru::all();
+        return view('guru', compact('guru'));
     }
 
     /**
@@ -26,7 +26,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('guru');
+        // return view('guru');
     }
 
     /**
@@ -43,17 +43,17 @@ class GuruController extends Controller
             'max' => 'attribute makasimal :max karakter gaess',
         ];
 
-        $validatedData =  $this->validate($request, [
-            'nama' => 'required|min:7|max:30',
+        $this->validate($request, [
             'nip' => 'required|numeric|max:25',
-            'jenis_kelamin' => 'required',
+            'nama' => 'required|min:7|max:30',
+            'jenis_kelamin' => 'required'
         ], $message);
 
         //insert data
-           Guru::create([
+            Guru::create([
             'nip' => $request->nip,
             'nama' => $request->nama,
-            'jenis_kelamin' => $request->jenis_kelamin,
+            'jenis_kelamin' => $request->jenis_kelamin
         ]);
 
         Session::flash('success', 'Selamat!!! Data Anda Berhasil Ditambahkan');
@@ -103,5 +103,9 @@ class GuruController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function hapus()
+    {
     }
 }

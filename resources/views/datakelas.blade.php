@@ -1,5 +1,5 @@
 @extends('layout.admin')
-@section('title', 'Data Siswa')
+@section('title', 'Data Kelas')
 @section('content-title')
 @section('content')
     @if ($message = Session::get('success'))
@@ -44,40 +44,37 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form method="post" enctype="multipart/form-data" action="{{ route('datasiswa.store') }}">
+                                <form method="post" enctype="multipart/form-data" action="{{ route('datakelas.store') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="Nama">Nama</label>
+                                        <label for="Nama">Nama Kelas</label>
                                         <input type="text" class="form-control" id="nama" name='nama'
-                                            value="{{ old('nama') }}">
+                                            value="{{ old('nama_kelas') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nisn">Nisn</label>
+                                        <label for="nisn">Kuota Siswa</label>
                                         <input type="text" class="form-control" id="nisn" name='nisn'
-                                            value="{{ old('nisn') }}">
+                                            value="{{ old('kuota') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="kelas">Kelas</label>
-                                        <select class="form-select form-control" id="kelas" name='kelas'
-                                            value="{{ old('kelas') }}">
-                                            <option value="X">X</option>
-                                            <option value="XI">XI</option>
-                                            <option value="XII">XII</option>
+                                        {{-- <input type="hidden" name="siswa_id" value="{{ $siswa->id }}"> --}}
+                                        <label for="kelas_id">Wali Kelas</label>
+                                        <select class="form-select form-control" id="id_kelas" name='id_kelas'>
+                                            <option value="">Pilih Nama Wali Kelas</option>
+                                            @foreach ($guru as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="jk">Jenis Kelamin</label>
-                                        <select class="form-select form-control" id="jk" name='jk'
-                                            value="{{ old('jk') }}">
-                                            <option value="Laki - Laki">Laki - Laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                        </select>
+                                        <label for="alamat">Tahun Masuk</label>
+                                        <input type="date" class="form-control" id="alamat" name="alamat"
+                                            value="{{ old('tahun_masuk') }}">
                                     </div>
-
                                     <div class="form-group">
-                                        <label for="alamat">Alamat</label>
-                                        <input type="text" class="form-control" id="alamat" name="alamat"
-                                            value="{{ old('alamat') }}">
+                                        <label for="alamat">Tahun Keluar</label>
+                                        <input type="date" class="form-control" id="alamat" name="alamat"
+                                            value="{{ old('tahun_keluar') }}">
                                     </div>
                                     <div class="modal-footer">
                                         <a href="/datasiswa"type="button" class="btn btn-danger">Batal</a>
@@ -94,24 +91,27 @@
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th scope="col">NO</th>
-                                <th scope="col">NAMA</th>
-                                <th scope="col">NISN</th>
-                                <th scope="col">ALAMAT</th>
-                                <th scope="col">JENIS KELAMIN</th>
+                                <th scope="col">NAMA KELAS</th>
+                                <th scope="col">KUOTA</th>
+                                <th scope="col">WALI KELAS</th>
+                                <th scope="col">TAHUN MASUK</th>
+                                <th scope="col">TAHUN KELUAR</th>
                                 <th scope="col">ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $i => $item)
+                            @foreach ($kelas as $i => $item)
                                 <tr>
                                     <th scope="row">{{ ++$i }}</th>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->nisn }}</td>
-                                    <td>{{ $item->alamat }} </td>
-                                    <td>{{ $item->jk }} </td>
+                                    <td>{{ $item->nama_kelas }}</td>
+                                    <td>{{ $item->kuota }}</td>
+                                    <td>{{ $item->guru }} </td>
+                                    <td>{{ $item->tahun_masuk }}</td>
+                                    <td>{{ $item->tahun_keluar }}</td>
                                     <td>
                                         <a class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                                        <a class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                        <a href="{{ route('datakelas.hapus', $item->id) }}"
+                                            class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                         </tbody>

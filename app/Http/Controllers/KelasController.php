@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kelas;
+use App\Models\siswa;
 use Illuminate\Support\Facades\Session;
 
 class KelasController extends Controller
@@ -15,8 +16,8 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $resource = Kelas::paginate(4);
-        return view('listkelas', ['resource'=>$resource]);
+        $kelas = kelas::paginate(4);
+        return view('listkelas', compact('kelas'));
     }
 
     /**
