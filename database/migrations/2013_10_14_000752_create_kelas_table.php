@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('kelas', function (Blueprint $table) {
-            $table->id('id_kelas');
-            $table->enum('tingkat_kelas', ['X' , 'XI', 'XII']);
+            $table->id('id');
+            // $table->enum('tingkat_kelas', ['X' , 'XI', 'XII']);
             $table->char('nama_kelas');
             $table->integer('kuota');
-            $table->year('tahun_masuk');
-            $table->year('tahun_keluar');
+            $table->date('tahun_masuk');
+            $table->date('tahun_keluar');
             $table->unsignedBigInteger('id_guru');
-            $table->foreign('id_guru')->references('id_guru')->on('guru');
+            $table->foreign('id_guru')->references('id')->on('guru');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

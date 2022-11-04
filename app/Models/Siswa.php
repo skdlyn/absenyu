@@ -13,7 +13,7 @@ class siswa extends Model
         'nisn',
         'nama',
         'alamat',
-        'kelas',
+        'id_kelas',
         'jk',
 
     ];

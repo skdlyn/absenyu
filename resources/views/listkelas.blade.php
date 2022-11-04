@@ -25,13 +25,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($resource as $index => $res)
+                                @foreach ($kelas as $index => $res)
                                 <tr>
                                     <td class="text-center">{{ $index+1 }}</td>
                                     @if($res->nama_kelas > 1)
-                                    <td><a href="{{url('absen'.$res->id_kelas)}}">{{ $res->tingkat_kelas.'-'.$res->jurusan." ".$res->nama_kelas }}</a></td>
+                                    <td><a href="{{url('absen'.$res->id_kelas)}}">{{ $res->nama_kelas }}</a></td>
                                     @else
-                                    <td><a href="{{url('absen'.$res->id_kelas)}}">{{ $res->tingkat_kelas.'-'.$res->jurusan}}</a></td>
+                                    <td><a href="{{url('absen'.$res->id_kelas)}}">{{ $res->jurusan}}</a></td>
                                     @endif
                                     <td class="text-center">{{$res->kuota}}</td>
                                     <td class="text-center">{{$res->tahun_masuk."/".$res->tahun_keluar}}</td>
@@ -41,7 +41,7 @@
                         </table>
                     </div>
                     <ul class="pagination pull-right">
-                        {!! $resource->render() !!}
+                        {!! $kelas->render() !!}
                     </ul>
                 </div>
             </div>

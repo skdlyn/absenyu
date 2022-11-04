@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\Guru;
+use App\Models\Kelas;
 
 class DashboardController extends Controller
 {
@@ -17,8 +18,9 @@ class DashboardController extends Controller
     {
         $jumlah = guru::all()->count();
         $jumlah2 = siswa::all()->count();
+        $jumlah3 = kelas::all()->count();
         // return ($jumlah);
-        return view('dashboard', compact('jumlah', 'jumlah2'));
+        return view('dashboard', compact('jumlah', 'jumlah2', 'jumlah3'));
     }
 
     /**

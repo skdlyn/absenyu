@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\siswa;
-use App\Models\Absen;
-use App\Models\Kelas;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Session;
-use PDF;
-class SiswaController extends Controller
 
+use App\Models\siswa;
+use App\Models\Guru;
+use App\Models\Kelas;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
+
+class DataKelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +17,9 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $data = siswa::all();
-        return view('absen', compact('data'));
+        $kelas = kelas::all();
+        $guru = guru::all();
+        return view('datakelas', compact('kelas', 'guru'));
     }
 
     /**
@@ -29,8 +29,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        $kelas = kelas::all();
-        return view('datasiswa', compact('siswa', 'kelas'));
+        // $guru = guru::all();
+        // return view('datasiswa', compact('guru'));
     }
 
     /**
@@ -45,18 +45,27 @@ class SiswaController extends Controller
             'required' => ':attribute harus diisi gaess',
             'min' => ':attribute minimal :min karakter ya coy',
             'max' => 'attribute makasimal :max karakter gaess',
-            'numeric' => ':attribute kudu diisi angka cak!!'
         ];
 
         $this->validate($request, [
-            'nama' => 'required|min:7|max:30',
-            'nisn' => 'required|numeric',
-            'kelas' => 'required',
-            'alamat' => 'required',
-            'jk' => 'required',
+            'nama_kelas' => 'required|min:7|max:30',
+            'kuota' => 'required|numeric',
+            'id_guru' => 'required',
+            'tahun_masuk' => 'required',
+            'tahun_keluar' => 'required',
         ], $message);
 
-        
+        //insert data
+        siswa::create([
+            'nama_kelas' => $request->nama_kelas,
+            'kuota' => $request->kuota,
+            'id_guru' => $request->id_guru,
+            'tahun_masuk' => $request->tahun_masuk,
+            'tahun_keluar' => $request->tahun_keluar,
+        ]);
+
+        Session::flash('success', 'Selamat!!! Data Anda Berhasil Ditambahkan');
+        return redirect('/datakelas');
     }
 
     /**
@@ -103,5 +112,11 @@ class SiswaController extends Controller
     {
         //
     }
-    
+
+    public function hapus($id)
+    {
+        Kelas::find($id)->delete();
+        Session::flash('danger', 'Data Berhasil Dihapus');
+        return redirect('datakelas');
+    }
 }

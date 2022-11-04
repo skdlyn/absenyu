@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('absen', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_siswa');
-            $table->foreign('id_siswa')->references('id_siswa')->on('siswa');
+            $table->foreign('id_siswa')->references('id')->on('siswa');
             $table->date('tanggal');
             $table->enum('status', ['Alfa' , 'Izin' , 'Hadir' , 'Sakit']);
             $table->text('keterangan');

@@ -15,5 +15,8 @@ class Guru extends Model
 
     ];
     protected $table = 'guru';
-    protected $primaryKey = 'id_guru';
+
+    public function kelas(){
+        return $this->belongsTo('App\Models\kelas', 'id_guru');
+    }
 }

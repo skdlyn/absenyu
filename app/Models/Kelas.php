@@ -11,7 +11,7 @@ class Kelas extends Model
 {
     protected $table = 'kelas';
     protected $primaryKey = 'id_kelas';
-    protected $fillable = ['tingkat_kelas', 'nama_kelas', 'kuota', 'tahun_masuk', 'tahun_keluar'];
+    protected $fillable = ['nama_kelas', 'kuota', 'id_guru','tahun_masuk', 'tahun_keluar'];
     public $timestamps = false;
 
     public function Siswa()

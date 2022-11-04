@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\siswa;
+use App\Models\Kelas;
 use Illuminate\Support\Facades\Session;
+
 class DataController extends Controller
 {
     /**
@@ -14,8 +16,9 @@ class DataController extends Controller
      */
     public function index()
     {
-        $data = siswa::all();
-        return view('datasiswa', compact('data'));
+        $siswa = siswa::all();
+        $kelas = Kelas::all();
+        return view('datasiswa', compact('siswa', 'kelas'));
     }
 
     /**
@@ -25,7 +28,8 @@ class DataController extends Controller
      */
     public function create()
     {
-        return view('tambahdata');
+        $kelas = Kelas::all();
+        return view('datasiswa', compact('kelas'));
     }
 
     /**
@@ -46,7 +50,7 @@ class DataController extends Controller
             'nama' => 'required|min:7|max:30',
             'nisn' => 'required|numeric',
             'alamat' => 'required',
-            'kelas' => 'required',
+            'id_kelas' => 'required',
             'jk' => 'required',
         ], $message);
 
@@ -55,7 +59,7 @@ class DataController extends Controller
             'nama' => $request->nama,
             'nisn' => $request->nisn,
             'alamat' => $request->alamat,
-            'kelas' => $request->kelas,
+            'id_kelas' => $request->id_kelas,
             'jk' => $request->jk,
         ]);
 
@@ -82,7 +86,8 @@ class DataController extends Controller
      */
     public function edit($id)
     {
-        //
+        $siswa = siswa::find($id);
+        return view('editsiswa', compact('siswa'));
     }
 
     /**
@@ -94,7 +99,7 @@ class DataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -103,8 +108,15 @@ class DataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        
+    }
+
+    public function hapus($id)
+    {
+        $siswa = siswa::find($id)->delete();
+        Session::flash('danger', 'Data Berhasil Dihapus');
+        return redirect('/datasiswa');
     }
 }
