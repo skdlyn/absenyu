@@ -40,8 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('absen', SiswaController::class);
     Route::resource('datasiswa', DataController::class);
     Route::resource('datakelas', DataKelasController::class);
-    Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
     Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
+    Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
+    
     // Route::get('/datakelas', function () {return view('datakelas');});
     // route::get('datasiswa/{id_siswa}/edit', [DataController::class,'edit'])->name('datasiswa.edit');
     Route::resource('guru', GuruController::class);

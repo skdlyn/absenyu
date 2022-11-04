@@ -87,7 +87,7 @@ class DataKelasController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('editkelas');
     }
 
     /**

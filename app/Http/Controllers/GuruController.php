@@ -79,7 +79,7 @@ class GuruController extends Controller
      */
     public function edit($id)
     {
-        return view('editsiswa');
+        return view('editguru');
     }
 
     /**
