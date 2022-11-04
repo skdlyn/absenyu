@@ -37,7 +37,7 @@
                                         <th scope="col">NO</th>
                                         <th scope="col">NAMA</th>
                                         <th scope="col">NISN</th>
-                                        <th scope="col">ACTION</th>
+                                        <th scope="col">STATUS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
