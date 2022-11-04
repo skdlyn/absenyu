@@ -3,6 +3,6 @@
 @section('content-title')
 @section('content')
 
-
+<h1>awokawokwao</h1>
 
 @endsection

@@ -32,7 +32,7 @@ class SiswaController extends Controller
         $kelas = kelas::all();
         return view('datasiswa', compact('siswa', 'kelas'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -78,7 +78,7 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view ('editsiswa');
     }
 
     /**

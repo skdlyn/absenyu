@@ -20,6 +20,7 @@
             <strong>{{ $message }}</strong>
         </div>
     @endif
+    
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data Siswa</li>
