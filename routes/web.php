@@ -45,8 +45,9 @@ Route::middleware('auth')->group(function () {
     // Route::get('/datakelas', function () {return view('datakelas');});
     // route::get('datasiswa/{id_siswa}/edit', [DataController::class,'edit'])->name('datasiswa.edit');
     Route::resource('guru', GuruController::class);
+    Route::get('guru/{id}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
     Route::resource('listkelas', KelasController::class);
-
+    
     Route::get('rekapdata', [RekapController::class, 'index']);
     Route::get('rekapdata/{table}', [RekapController::class, 'show']);
     Route::post('rekapd/pribadipdf/', [RekapController::class, 'pdf']);

@@ -44,8 +44,8 @@ class GuruController extends Controller
         ];
 
         $this->validate($request, [
-            'nip' => 'required|numeric|max:25',
-            'nama' => 'required|min:7|max:30',
+            'nip' => 'required|min:8|max:100',
+            'nama' => 'required|min:5|max:255',
             'jenis_kelamin' => 'required'
         ], $message);
 
@@ -105,7 +105,8 @@ class GuruController extends Controller
         //
     }
 
-    public function hapus()
+    public function hapus($id)
     {
+        $guru = guru::find($id)->delete();
     }
 }

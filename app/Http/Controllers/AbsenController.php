@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 
-class AbsensiController extends Controller
+class AbsenController extends Controller
 {
     // public function index(){
     //     $resource = Kelas::paginate(10);
