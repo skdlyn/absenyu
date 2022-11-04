@@ -38,7 +38,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Siswa</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kelas</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -47,19 +47,19 @@
                                 <form method="post" enctype="multipart/form-data" action="{{ route('datakelas.store') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="Nama">Nama Kelas</label>
-                                        <input type="text" class="form-control" id="nama" name='nama'
+                                        <label for="nama_kelas">Nama Kelas</label>
+                                        <input type="text" class="form-control" id="nama_kelas" name='nama_kelas'
                                             value="{{ old('nama_kelas') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nisn">Kuota Siswa</label>
-                                        <input type="text" class="form-control" id="nisn" name='nisn'
+                                        <label for="kuota">Kuota Siswa</label>
+                                        <input type="text" class="form-control" id="kuota" name='kuota'
                                             value="{{ old('kuota') }}">
                                     </div>
                                     <div class="form-group">
                                         {{-- <input type="hidden" name="siswa_id" value="{{ $siswa->id }}"> --}}
-                                        <label for="kelas_id">Wali Kelas</label>
-                                        <select class="form-select form-control" id="id_kelas" name='id_kelas'>
+                                        <label for="id_guru">Wali Kelas</label>
+                                        <select class="form-select form-control" id="id_guru" name='id_guru'>
                                             <option value="">Pilih Nama Wali Kelas</option>
                                             @foreach ($guru as $item)
                                                 <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -67,13 +67,13 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="alamat">Tahun Masuk</label>
-                                        <input type="date" class="form-control" id="alamat" name="alamat"
+                                        <label for="tahun_masuk">Tahun Masuk</label>
+                                        <input type="date" class="form-control" id="tahun_masuk" name="tahun_masuk"
                                             value="{{ old('tahun_masuk') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="alamat">Tahun Keluar</label>
-                                        <input type="date" class="form-control" id="alamat" name="alamat"
+                                        <label for="tahun_keluar">Tahun Keluar</label>
+                                        <input type="date" class="form-control" id="tahun_keluar" name="tahun_keluar"
                                             value="{{ old('tahun_keluar') }}">
                                     </div>
                                     <div class="modal-footer">
@@ -105,7 +105,7 @@
                                     <th scope="row">{{ ++$i }}</th>
                                     <td>{{ $item->nama_kelas }}</td>
                                     <td>{{ $item->kuota }}</td>
-                                    <td>{{ $item->guru }} </td>
+                                    <td>{{ $item->id_guru }} </td>
                                     <td>{{ $item->tahun_masuk }}</td>
                                     <td>{{ $item->tahun_keluar }}</td>
                                     <td>

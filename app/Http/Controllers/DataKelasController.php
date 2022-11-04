@@ -50,18 +50,18 @@ class DataKelasController extends Controller
         $this->validate($request, [
             'nama_kelas' => 'required|min:7|max:30',
             'kuota' => 'required|numeric',
-            'id_guru' => 'required',
             'tahun_masuk' => 'required',
             'tahun_keluar' => 'required',
+            'id_guru' => 'required',
         ], $message);
 
         //insert data
-        siswa::create([
+        Kelas::create([
             'nama_kelas' => $request->nama_kelas,
             'kuota' => $request->kuota,
-            'id_guru' => $request->id_guru,
             'tahun_masuk' => $request->tahun_masuk,
             'tahun_keluar' => $request->tahun_keluar,
+            'id_guru' => $request->id_guru,
         ]);
 
         Session::flash('success', 'Selamat!!! Data Anda Berhasil Ditambahkan');

@@ -44,20 +44,20 @@ class GuruController extends Controller
         ];
 
         $this->validate($request, [
-            'nip' => 'required|numeric|max:25',
+            'nip' => 'required|min:10|max:100',
             'nama' => 'required|min:7|max:30',
             'jenis_kelamin' => 'required'
         ], $message);
 
         //insert data
-            Guru::create([
+        guru::create([
             'nip' => $request->nip,
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin
         ]);
 
-        Session::flash('success', 'Selamat!!! Data Anda Berhasil Ditambahkan');
-        return redirect('/guru');
+        Session::flash('input_guru', 'Selamat!!! Data Anda Berhasil Ditambahkan');
+        return redirect('guru');
     }
 
     /**
@@ -105,7 +105,10 @@ class GuruController extends Controller
         //
     }
 
-    public function hapus()
+    public function hapus($id)
     {
+        $guru = guru::find($id)->delete();
+        Session::flash('guru_hapus', 'Data Berhasil Dihapus :(');
+        return redirect('guru');
     }
 }
