@@ -87,7 +87,8 @@ class DataKelasController extends Controller
      */
     public function edit($id)
     {
-        return view('editkelas');
+        $guru = guru::all();
+        return view('editkelas', compact('guru'));
     }
 
     /**

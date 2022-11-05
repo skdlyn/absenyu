@@ -56,7 +56,7 @@ class GuruController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin
         ]);
 
-        Session::flash('input_guru', 'Selamat!!! Data Anda Berhasil Ditambahkan');
+        Session::flash('input_guru', 'Wali Kelas berhasil Di data !!!');
         return redirect('guru');
     }
 
@@ -79,7 +79,8 @@ class GuruController extends Controller
      */
     public function edit($id)
     {
-        return view('editguru');
+        $guru = guru::find($id);
+        return view('editguru', compact('guru'));
     }
 
     /**
@@ -109,6 +110,8 @@ class GuruController extends Controller
         $guru->jenis_kelamin = $request->jenis_kelamin;
         $guru -> save();
         return redirect ('guru');
+        Session::flash('update_guru', 'Wali kelas Berhasil Di update!!!');
+        return redirect('guru');
     }
 
     /**
@@ -125,5 +128,7 @@ class GuruController extends Controller
     public function hapus($id)
     {
         $guru = Guru::find($id)->delete();
+        Session::flash('hapus_guru','Wali kelas Berhasil Di hapus!!!');
+        return redirect('guru');
     }
 }
