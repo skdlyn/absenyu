@@ -87,7 +87,7 @@ class DataController extends Controller
     public function edit($id)
     {
         $siswa = siswa::find($id);
-        return view('editsiswa', compact('siswa'));
+        return view('datasiswa', compact('siswa'));
     }
 
     /**
@@ -99,7 +99,7 @@ class DataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**

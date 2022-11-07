@@ -9,6 +9,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
+use App\Http\Controllers\AbsenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,21 +40,19 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('absen', SiswaController::class);
     Route::resource('datasiswa', DataController::class);
+
+    
+    
+
+    Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
     Route::resource('datakelas', DataKelasController::class);
     Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
-    Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
-    
-    // Route::get('/datakelas', function () {return view('datakelas');});
-    // route::get('datasiswa/{id_siswa}/edit', [DataController::class,'edit'])->name('datasiswa.edit');
     Route::resource('guru', GuruController::class);
-    Route::get('guru/{id}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
+    Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
     Route::resource('listkelas', KelasController::class);
+    Route::resource('rekapdata', AbsenController::class);
     
-    Route::get('rekapdata', [RekapController::class, 'index']);
-    Route::get('rekapdata/{table}', [RekapController::class, 'show']);
-    Route::post('rekapd/pribadipdf/', [RekapController::class, 'pdf']);
-    Route::get('rekapdatakelas/{id}', [RekapController::class, 'rekap']);
-    Route::post('rekapdata', [RekapController::class, 'hitung']);
+
 
     Route::post('logout', [LoginController::class, 'logout']);
     // cobaroute

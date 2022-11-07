@@ -9,8 +9,8 @@
             <div class="panel-heading">Rekap Absensi Kelas</div>
             <div class="panel-body">
                 <form action="/rekap/pribadipdf/" method="post">
-                    {{ csrf_field()}}
-                    <input type="hidden" name="id" value="{{$resource->id_kelas}}">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$kelas->id}}">
                     <input type="hidden" name="tanggal_awal">
                     <input type="hidden" name="tanggal_akhir">
                     <div class="table-responsive">
