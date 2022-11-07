@@ -56,4 +56,5 @@ Route::middleware('auth')->group(function () {
     Route::post('rekapdata', [RekapController::class, 'hitung']);
 
     Route::post('logout', [LoginController::class, 'logout']);
+    // cobaroute
 });
