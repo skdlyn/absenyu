@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('datakelas', DataKelasController::class);
     Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
     Route::resource('guru', GuruController::class);
-    Route::get('guru/{id_guru}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
+    Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
     Route::resource('listkelas', KelasController::class);
     Route::resource('rekapdata', AbsenController::class);
     

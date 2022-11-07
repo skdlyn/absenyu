@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <form action="/rekap/pribadipdf/" method="post">
                     @csrf
-                    <input type="hidden" name="id" value="{{$kelas->id_kelas}}">
+                    <input type="hidden" name="id" value="{{$kelas->id}}">
                     <input type="hidden" name="tanggal_awal">
                     <input type="hidden" name="tanggal_akhir">
                     <div class="table-responsive">

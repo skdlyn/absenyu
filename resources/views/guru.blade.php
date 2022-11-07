@@ -92,7 +92,7 @@
                                     <td>{{ $item->jenis_kelamin }} </td>
                                     <td>
                                         {{-- <a href="{{route('datasiswa.edit'), $item -> id}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a> --}}
-                                        <a href="{{ route('guru.hapus', $item->id) }}"
+                                        <a href="{{ route('guru.hapus', $item->nama) }}"
                                             class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>

@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class Absen extends Model
 {
-    protected $table='absensi';
+    protected $table='absen';
     protected $primaryKey = 'id_absensi';
     
     public function siswa()
