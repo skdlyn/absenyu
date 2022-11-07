@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\siswa;
 use App\Models\Absen;
 use App\Models\Kelas;
+use App\Models\Guru;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
@@ -32,7 +33,7 @@ class SiswaController extends Controller
         $kelas = kelas::all();
         return view('datasiswa', compact('siswa', 'kelas'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -78,7 +79,10 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guru = guru::all();
+        $kelas = kelas::all();
+        $siswa = siswa::find($id);
+        return view ('editsiswa' ,compact('guru', 'siswa','kelas'));
     }
 
     /**

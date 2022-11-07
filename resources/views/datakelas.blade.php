@@ -1,37 +1,37 @@
-@extends('layout.admin')
-@section('title', 'Data Kelas')
-@section('content-title')
-@section('content')
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert"></button>
-            <strong>{{ $message }}</strong>
+    @extends('layout.admin')
+    @section('title', 'Data Kelas')
+    @section('content-title')
+    @section('content')
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert"></button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
+        @if ($message = Session::get('danger'))
+            <div class="alert alert-danger alert-block">
+                <button type="button" class="close" data-dismiss="alert"></button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
+        @if ($message = Session::get('berhasil'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert"></button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data kelas</li>
+                {{-- <li class="active">  Dashboard</li> --}}
+            </ol>
         </div>
-    @endif
-    @if ($message = Session::get('danger'))
-        <div class="alert alert-danger alert-block">
-            <button type="button" class="close" data-dismiss="alert"></button>
-            <strong>{{ $message }}</strong>
-        </div>
-    @endif
-    @if ($message = Session::get('berhasil'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert"></button>
-            <strong>{{ $message }}</strong>
-        </div>
-    @endif
-    <div class="row">
-        <ol class="breadcrumb">
-            <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data Siswa</li>
-            {{-- <li class="active">  Dashboard</li> --}}
-        </ol>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card shadow mb-4">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    data-whatever>Tambah Data</button>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card shadow mb-4">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        data-whatever>Tambah Data</button>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -84,42 +84,42 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card-body">
-                    <table class="table">
-                        <thead class="bg-primary text-white">
-                            <tr>
-                                <th scope="col">NO</th>
-                                <th scope="col">NAMA KELAS</th>
-                                <th scope="col">KUOTA</th>
-                                <th scope="col">WALI KELAS</th>
-                                <th scope="col">TAHUN MASUK</th>
-                                <th scope="col">TAHUN KELUAR</th>
-                                <th scope="col">ACTION</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($kelas as $i => $item)
+                    <div class="card-body">
+                        <table class="table">
+                            <thead class="bg-primary text-white">
                                 <tr>
-                                    <th scope="row">{{ ++$i }}</th>
-                                    <td>{{ $item->nama_kelas }}</td>
-                                    <td>{{ $item->kuota }}</td>
-                                    <td>{{ $item->id_guru }} </td>
-                                    <td>{{ $item->tahun_masuk }}</td>
-                                    <td>{{ $item->tahun_keluar }}</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('datakelas.hapus', $item->id) }}"
-                                            class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
-                                    </td>
+                                    <th scope="col">NO</th>
+                                    <th scope="col">NAMA KELAS</th>
+                                    <th scope="col">KUOTA</th>
+                                    <th scope="col">WALI KELAS</th>
+                                    <th scope="col">TAHUN MASUK</th>
+                                    <th scope="col">TAHUN KELUAR</th>
+                                    <th scope="col">ACTION</th>
                                 </tr>
-                        </tbody>
-                        @endforeach
-                    </table>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($kelas as $i => $item)
+                                    <tr>
+                                        <th scope="row">{{ ++$i }}</th>
+                                        <td>{{ $item->nama_kelas }}</td>
+                                        <td>{{ $item->kuota }}</td>
+                                        <td>{{ $item->id_guru }} </td>
+                                        <td>{{ $item->tahun_masuk }}</td>
+                                        <td>{{ $item->tahun_keluar }}</td>
+                                        <td>
+                                            <a href="{{ route('datakelas.edit', $item->id) }}"
+                                                class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('datakelas.hapus', $item->id) }}"
+                                                class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                            @endforeach
+                        </table>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

@@ -8,7 +8,13 @@
             <strong>{{ $message }}</strong>
         </div>
     @endif
-    @if ($message = Session::get('guru_hapus'))
+    @if ($message = Session::get('update_guru'))
+        <div class="alert alert-warning alert-block">
+            <button type="button" class="close" data-dismiss="alert"></button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+    @if ($message = Session::get('hapus_guru'))
         <div class="alert alert-danger alert-block">
             <button type="button" class="close" data-dismiss="alert"></button>
             <strong>{{ $message }}</strong>
@@ -16,7 +22,7 @@
     @endif
     <div class="row">
         <ol class="breadcrumb">
-            <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data Siswa</li>
+            <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data Guru</li>
             {{-- <li class="active">  Dashboard</li> --}}
         </ol>
     </div>
@@ -91,14 +97,14 @@
                                     {{-- <td>{{ $item->alamat }} </td> --}}
                                     <td>{{ $item->jenis_kelamin }} </td>
                                     <td>
-                                        {{-- <a href="{{route('datasiswa.edit'), $item -> id}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a> --}}
-                                        <a href="{{ route('guru.hapus', $item->nama) }}"
-                                            class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                        <a href="{{ route('guru.edit', $item->id) }}"
+                                            class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('guru.hapus', $item->id) }}"
+                                      class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                         </tbody>
                         @endforeach
-                    </table>
                     </table>
                 </div>
             </div>

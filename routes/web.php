@@ -40,6 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('absen', SiswaController::class);
     Route::resource('datasiswa', DataController::class);
+
+    
+    
+
     Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
     Route::resource('datakelas', DataKelasController::class);
     Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
@@ -49,5 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('rekapdata', AbsenController::class);
     
 
+
     Route::post('logout', [LoginController::class, 'logout']);
+    // cobaroute
 });
