@@ -19,7 +19,7 @@ class AbsenController extends Controller
     {
         $kelas = Kelas::all();
         $absen = absen::all();
-        return view('', compact('kelas', 'absen'));
+        return view('rekaplist', compact('kelas', 'absen'));
     }
 
     public function tanggal(request $request)

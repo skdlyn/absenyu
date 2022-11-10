@@ -51,6 +51,9 @@ Route::middleware('auth')->group(function () {
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
     Route::resource('listkelas', KelasController::class);
     Route::resource('rekapdata', AbsenController::class);
+    // route::get('/rekaplist', function(){
+    //     return view('rekaplist');
+    // });
     
 
 
