@@ -3,8 +3,8 @@
 @section('content-title')
 @section('content')
 
-<h1>awokawokwao</h1>
-@extends('layout.admin')
+    <h1>awokawokwao</h1>
+    @extends('layout.admin')
 @section('title', 'Data Siswa')
 @section('content-title')
 @section('content')
@@ -48,7 +48,5 @@
             </div>
         </form>
     </div>
-
-@endsection
 
 @endsection

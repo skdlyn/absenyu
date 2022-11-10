@@ -43,7 +43,6 @@
                                         <th scope="col">NAMA</th>
                                         <th scope="col">NISN</th>
                                         <th scope="col">STATUS</th>
-                                        <th scope="col">KET</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,74 +91,6 @@
                                                     </label>
                                                 @endif
                                             </td>
-                                            <td>
-                                                @if ($loop->last)
-                                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                                        <label class="nav-item" role="presentation">
-                                                            <input class="nav-link" id="home-tab" data-bs-toggle="tab"
-                                                                data-bs-target="#home" type="radio" role="tab"
-                                                                aria-controls="home" aria-selected="false">Home
-                                                        </label>
-                                                        <li class="nav-item" role="presentation">
-                                                            <input class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                                                data-bs-target="#profile" type="radio" role="tab"
-                                                                aria-controls="profile" aria-selected="false">Profile
-                                                        </li>
-                                                        <li class="nav-item" role="presentation">
-                                                            <input class="nav-link" id="messages-tab" data-bs-toggle="tab"
-                                                                data-bs-target="#messages" type="radio" role="tab"
-                                                                aria-controls="messages" aria-selected="false">Messages
-                                                        </li>
-                                                        <li class="nav-item" role="presentation">
-                                                            <input class="nav-link" id="settings-tab"
-                                                                data-bs-toggle="tab" data-bs-target="#settings"
-                                                                type="radio" role="tab" aria-controls="settings"
-                                                                aria-selected="false">Settings
-                                                        </li>
-                                                    </ul>
-
-                                                    <div class="tab-content">
-                                                        <div class="tab-pane active" id="home" role="tabpanel"
-                                                            aria-labelledby="home-tab">1</div>
-                                                        <div class="tab-pane" id="profile" role="tabpanel"
-                                                            aria-labelledby="profile-tab">2</div>
-                                                        <div class="tab-pane" id="messages" role="tabpanel"
-                                                            aria-labelledby="messages-tab">3</div>
-                                                        <div class="tab-pane" id="settings" role="tabpanel"
-                                                            aria-labelledby="settings-tab">4</div>
-                                                    @else
-                                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                                            <label class="nav-item" role="presentation">
-                                                                <input class="nav-link" id="home-tab"
-                                                                    data-bs-toggle="tab" data-bs-target="#home"
-                                                                    type="radio" role="tab" aria-controls="home"
-                                                                    aria-selected="false">Home
-                                                            </label>
-                                                            <li class="nav-item" role="presentation">
-                                                                <input class="nav-link" id="profile-tab"
-                                                                    data-bs-toggle="tab" data-bs-target="#profile"
-                                                                    type="radio" role="tab" aria-controls="profile"
-                                                                    aria-selected="false">Profile
-                                                            </li>
-                                                            <li class="nav-item" role="presentation">
-                                                                <input class="nav-link" id="messages-tab"
-                                                                    data-bs-toggle="tab" data-bs-target="#messages"
-                                                                    type="radio" role="tab"
-                                                                    aria-controls="messages"
-                                                                    aria-selected="false">Messages
-                                                            </li>
-                                                            <li class="nav-item" role="presentation">
-                                                                <input class="nav-link" id="settings-tab"
-                                                                    data-bs-toggle="tab" data-bs-target="#settings"
-                                                                    type="radio" role="tab"
-                                                                    aria-controls="settings"
-                                                                    aria-selected="false">Settings
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-                                                @endif
-                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -185,8 +116,7 @@
                                         Apakah Sudah Yakin ?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         <input type="submit" class="btn btn-primary" value="Save">
                                     </div>
                                 </div>
