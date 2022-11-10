@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer('kuota');
             $table->date('tahun_masuk');
             $table->date('tahun_keluar');
-            $table->string('id_guru');
-            $table->foreign('id_guru')->references('nama')->on('guru');
+            $table->unsignedBigInteger('id_guru');
+            $table->foreign('id_guru')->references('id')->on('guru');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

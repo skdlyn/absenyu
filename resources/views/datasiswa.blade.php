@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title', 'Data Siswa')
-@section('content-title')
+@section('content-title', 'Data Siswa')
 @section('content')
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">

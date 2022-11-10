@@ -3,6 +3,12 @@
 @section('content-title')
 @section('content')
 
+<h1>awokawokwao</h1>
+@extends('layout.admin')
+@section('title', 'Data Siswa')
+@section('content-title')
+@section('content')
+
     <div class="card-body">
         <form method="post" action="">
             @csrf
@@ -42,5 +48,7 @@
             </div>
         </form>
     </div>
+
+@endsection
 
 @endsection
