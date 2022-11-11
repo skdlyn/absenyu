@@ -20,7 +20,7 @@
             <strong>{{ $message }}</strong>
         </div>
     @endif
-    
+
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data Siswa</li>
@@ -59,14 +59,14 @@
                                     </div>
                                     <div class="form-group">
                                         {{-- <input type="hidden" name="siswa_id" value="{{ $siswa->id }}"> --}}
-                                            <label for="kelas_id">Kelas</label>
-                                            <select class="form-select form-control" id="id_kelas" name='id_kelas'>
-                                                <option value="">Pilih Kelas</option>
-                                                @foreach ($kelas as $item)
-                                                    <option value="{{ $item->id  }}">{{ $item->nama_kelas }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                        <label for="id_kelas">Kelas</label>
+                                        <select class="form-select form-control" id="id_kelas" name='id_kelas'>
+                                            <option value="">Pilih Kelas</option>
+                                            @foreach ($kelas as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama_kelas }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <label for="jk">Jenis Kelamin</label>
                                         <select class="form-select form-control" id="jk" name='jk'
@@ -81,8 +81,10 @@
                                         <input type="text" class="form-control" id="alamat" name="alamat"
                                             value="{{ old('alamat') }}">
                                     </div>
+                                    
                                     <div class="modal-footer">
-                                        <a href="{{ route('datasiswa.index') }}"type="button" class="btn btn-danger">Batal</a>
+                                        <a href="{{ route('datasiswa.index') }}"type="button"
+                                            class="btn btn-danger">Batal</a>
                                         <input type="submit" class="btn btn-success" value="Simpan">
                                     </div>
                                 </form>
@@ -112,13 +114,14 @@
                                     <td>{{ $item->alamat }} </td>
                                     <td>{{ $item->jk }} </td>
                                     <td>
-                                        <a href="{{route('datasiswa.edit', $item->id)}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('datasiswa.hapus', $item->id) }}" class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                        <a href="{{ route('datasiswa.edit', $item->id) }}"
+                                            class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('datasiswa.hapus', $item->id) }}"
+                                            class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
-                    </table>
                     </table>
                 </div>
             </div>

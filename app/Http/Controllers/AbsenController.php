@@ -7,6 +7,8 @@ use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
+use App\Models\Siswa;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class AbsenController extends Controller
 {
@@ -17,9 +19,28 @@ class AbsenController extends Controller
      */
     public function index()
     {
-        $kelas = Kelas::all();
-        $absen = absen::all();
-        return view('rekaplist', compact('kelas', 'absen'));
+
+        $kelas = kelas::all();
+        $siswa = siswa::all();
+        return view('absen', compact('kelas', 'siswa'));
+    }
+
+    public function list()
+    {
+        $kelas = kelas::all();
+        return view('list', compact('kelas'));
+    }
+
+    public function listkelas()
+    {
+        $kelas = kelas::all();
+        return view('listkelas', compact('kelas'));
+    }
+
+    public function pending()
+    {
+        $kelas = kelas::all();
+        return view('pending', compact('kelas'));
     }
 
     public function tanggal(request $request)
@@ -40,7 +61,7 @@ class AbsenController extends Controller
                 return redirect('listkelas');
             }
         }
-        return redirect('/absen');
+        return redirect('absen');
     }
 
     /**
@@ -63,7 +84,19 @@ class AbsenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pesan = [
+            'required' => ':attribute harus diisi gaess',
+            'min' => ':attribute minimal :min karakter ya coy',
+            'max' => 'attribute makasimal :max karakter gaess',
+        ];
+
+        $this->validate($request, [
+            'tanggal' => 'required',
+            'status' => 'required',
+            'keterangan' => 'required'
+        ], $pesan);
+
+        return view('list');
     }
 
     /**
@@ -109,5 +142,9 @@ class AbsenController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function hapus($id)
+    {
     }
 }

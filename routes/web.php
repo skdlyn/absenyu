@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SiswaController;
+// use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\LoginController;
@@ -37,11 +37,18 @@ Route::middleware('guest')->group(function () {
 
 //admin
 Route::middleware('auth')->group(function () {
-    Route::resource('dashboard', DashboardController::class);
-    Route::resource('absen', SiswaController::class);
-    Route::resource('datasiswa', DataController::class);
-
+    // absen
+    Route::resource('absen', AbsenController::class);
+    Route::get('list', [AbsenController::class, 'list'])->name('absen.list');
+    Route::get('listkelas', [AbsenController::class, 'listkelas'])->name('absen.listkelas');
+    Route::get('pending', [AbsenController::class, 'pending'])->name('absen.pending');
+    // route::get('/list', function(){
+    //     return view('absen.list');
+    // });
     
+
+    Route::resource('dashboard', DashboardController::class);
+    Route::resource('datasiswa', DataController::class);
     
 
     Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
@@ -50,7 +57,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
     Route::resource('listkelas', KelasController::class);
-    Route::resource('rekapdata', AbsenController::class);
     // route::get('/rekaplist', function(){
     //     return view('rekaplist');
     // });
