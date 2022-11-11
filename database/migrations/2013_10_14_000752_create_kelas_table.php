@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->id('id');
             // $table->enum('tingkat_kelas', ['X' , 'XI', 'XII']);
+            #
             $table->char('nama_kelas');
             $table->integer('kuota');
             $table->date('tahun_masuk');

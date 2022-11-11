@@ -96,7 +96,13 @@ class AbsenController extends Controller
             'keterangan' => 'required'
         ], $pesan);
 
-        return view('list');
+        Absen::create([
+            'tanggal' => $request->tanggal,
+            'status' => $request->status,
+            'keterangan' => $request->keterangan,
+        ]);
+
+        return ('ok');
     }
 
     /**
