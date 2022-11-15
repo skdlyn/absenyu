@@ -20,6 +20,7 @@ class DataKelasController extends Controller
         $kelas = kelas::all();
         $guru = guru::all();
         return view('datakelas', compact('kelas', 'guru'));
+
     }
 
     /**

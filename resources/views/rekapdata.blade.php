@@ -33,7 +33,6 @@
                                 </tr>
                                 <tr>
                                     <th width="3%" class="text-center">No</th>
-                                   <!--  <th width="20%">QR</th> -->
                                     <th width="20%">NIS</th>
                                     <th width="20%">Nama Siswa</th>
                                     <th width="20%">Alfa</th>
@@ -41,3 +40,24 @@
                                     <th width="20%">Sakit</th>
                                 </tr>
                             </thead>
+
+                            <tbody id="isi">
+                                @foreach ($siswa as  $index => $res)
+                                <tr>
+                                    <td class="text-center">{{ $index+1 }}</td>
+                                    <td>{{ $res->nis}}</td>
+                                    <td>{{ $res->nama}}</td>
+                                    <td>{{ count(App\Absen::where(['siswa_id'=>$res->id, 'status'=>'Alfa'])->get()) }}</td>
+                                    <td>{{ count(App\Absen::where(['siswa_id'=>$res->id, 'status'=>'Izin'])->get()) }}</td>
+                                    <td>{{ count(App\Absen::where(['siswa_id'=>$res->id, 'status'=>'Sakit'])->get()) }}</td>
+
+                                </tr>
+
+                                @endforeach
+                            </tbody>
+
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>

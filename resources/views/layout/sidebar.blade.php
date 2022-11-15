@@ -47,7 +47,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/rekapdata">
+        <a class="nav-link" href="/listkelas2">
             <i class="fas fa-fw fa-folder-open"></i>
             <span>Rekap Data</span></a>
     </li>

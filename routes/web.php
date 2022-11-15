@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\RekapabsenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
     Route::resource('listkelas', KelasController::class);
-    Route::resource('rekapdata', AbsenController::class);
+    Route::resource('listkelas2', KelasController::class);
+    Route::resource('rekapdata', RekapabsenController::class);
     
 
 

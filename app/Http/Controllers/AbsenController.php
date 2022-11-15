@@ -12,7 +12,7 @@ class AbsenController extends Controller
     public function index(){
         $kelas = Kelas::all();
         $absen = absen::all();
-        return view('rekapdata', compact('kelas', 'absen'));
+        return view('listkelas2', compact('kelas', 'absen'));
     }
     // public function show($id){
     //     $resource = Kelas::find($id);

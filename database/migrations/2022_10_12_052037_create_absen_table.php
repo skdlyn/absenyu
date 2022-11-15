@@ -17,9 +17,13 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_siswa');
             $table->foreign('id_siswa')->references('id')->on('siswa');
-            $table->date('tanggal');
-            $table->enum('status', ['Alfa' , 'Izin' , 'Hadir' , 'Sakit']);
+            // $table->string('tanggal');
+            $table->enum('status', ['Alfa', 'Izin', 'Hadir', 'Sakit']);
             $table->text('keterangan');
+            $table->unsignedBigInteger('id_tanggal');
+            $table->foreign('id_tanggal')->references('id')->on('rekapabsen')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

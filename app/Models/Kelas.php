@@ -28,7 +28,8 @@ class Kelas extends Model
         return $this->belongsToMany('App\Models\Siswa', 'absensi', 'kelas_id', 'siswa_id')->withPivot('status', 'tanggal', 'keterangan')->wherePivot('tanggal', Carbon::now('Asia/Jakarta')->format('Y-m-d'));
     }
 
-    public function guru(){
-        return $this->hasMany('App\Models\guru', 'nama');
+    public function guru()
+    {
+        return $this->hasOne(Guru::class);
     }
 }

@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title', 'Data Siswa')
-@section('content-title', 'edit guru '. $guru->nama)
+@section('content-title', 'edit guru')
 @section('content')
 
     <div class="card-body">

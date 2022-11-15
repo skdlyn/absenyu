@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-bordered">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th scope="col">No.</th>
@@ -97,10 +97,10 @@
                                     {{-- <td>{{ $item->alamat }} </td> --}}
                                     <td>{{ $item->jenis_kelamin }} </td>
                                     <td>
-                                        <a href="{{ route('guru.edit', $item->id) }}"
+                                        <a href="{{ route('guru.edit', $item->nama) }}"
                                             class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('guru.hapus', $item->id) }}"
-                                      class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                        <a href="{{ route('guru.hapus', $item->nama) }}"
+                                            class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                         </tbody>
