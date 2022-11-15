@@ -17,10 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_siswa');
             $table->foreign('id_siswa')->references('id')->on('siswa');
-            $table->unsignedBigInteger('id_kelas');
-            $table->foreign('id_kelas')->references('id')->on('kelas');
             $table->date('tanggal');
-            $table->char('status');
             $table->text('keterangan');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();

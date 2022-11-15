@@ -34,7 +34,6 @@
                 <h6 class="collapse-header">Pilihan Menu :</h6>
                 <a class="collapse-item" href="/absen">Absen hari ini</a>
                 <a class="collapse-item" href="/list">List absen</a>
-                <a class="collapse-item" href="/listkelas">List Kelas</a>
                 <a class="collapse-item" href="/pending">Absen Pending</a>
             </div>
         </div>
@@ -58,6 +57,7 @@
                 <a class="collapse-item" href="/datasiswa">Data Siswa</a>
                 <a class="collapse-item" href="/datakelas">Data Kelas</a>
                 <a class="collapse-item" href="/guru">Data Guru</a>
+                <a class="collapse-item" href="/listkelas">List kelas</a>
             </div>
         </div>
     </li>

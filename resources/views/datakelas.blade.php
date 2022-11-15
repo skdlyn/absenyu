@@ -92,7 +92,9 @@
                             <thead class="bg-primary text-white">
                                 <tr>
                                     <th scope="col">NO</th>
-                                    <th scope="col">NAMA KELAS</th>
+                                    {{-- <th scope="col">NAMA KELAS</th> --}}
+                                    <th scope="col">KELAS</th>
+                                    {{-- <th scope="col">JURUSAN</th> --}}
                                     <th scope="col">KUOTA</th>
                                     <th scope="col">WALI KELAS</th>
                                     <th scope="col">TAHUN MASUK</th>
@@ -104,9 +106,11 @@
                                 @foreach ($kelas as $i => $item)
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
-                                        <td>{{ $item->nama_kelas }}</td>
+                                        {{-- <td>{{ $item->nama_kelas }}</td> --}}
+                                        <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td>
+                                        {{-- <td></td> --}}
                                         <td>{{ $item->kuota }}</td>
-                                        <td>{{ $item->id_guru }} </td>
+                                        <td>{{ $item->id_guru}} </td>
                                         <td>{{ $item->tahun_masuk }}</td>
                                         <td>{{ $item->tahun_keluar }}</td>
                                         <td>

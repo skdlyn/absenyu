@@ -45,18 +45,29 @@ Route::middleware('auth')->group(function () {
     // route::get('/list', function(){
     //     return view('absen.list');
     // });
-    
+
+    // list kelas
+    Route::resource('listkelas', KelasController::class);
+
+
 
     Route::resource('dashboard', DashboardController::class);
     Route::resource('datasiswa', DataController::class);
     
 
-    Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
+
+        // data kelas
     Route::resource('datakelas', DataKelasController::class);
+    route::get('datakelas/{}');
     Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
+
+
+    Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
+    
+    
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
-    Route::resource('listkelas', KelasController::class);
+    
     // route::get('/rekaplist', function(){
     //     return view('rekaplist');
     // });

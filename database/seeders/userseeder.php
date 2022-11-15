@@ -18,33 +18,32 @@ class userseeder extends Seeder
      */
     public function run()
     {
-        user::create([
+        User::create([
             'name' => 'ilham',
-            'email' => 'ilham@admin.com',
-            'password' => bcrypt('12345'),
+            'email' => 'ilham@gmail.com',
+            'password' => bcrypt("12345"),
             'role' => 'user'
         ]);
 
-        guru::create([
-            'nip' => 1,
-            'nama' => 'satu',
-            'jenis_kelamin' => 'laki-laki'
-        ]);
-        
-        kelas::create([
-            'nama' => 'kelas barbar',
-            'kuota' => 42,
-            'tahun_masuk' => '1111-11-11',
-            'tahun_keluar' => '2222-02-02',
-            'id_guru' => '1',
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt("12345"),
+            'role' => 'admin'
         ]);
 
-        siswa::create([
-            'nama' => 'satu',
-            'nisn' => '1',
-            'alamat' => 'satu jam saja',
-            'id_kelas' => 1,
-            'jk' => 'laki - laki'
+        User::create([
+            'name' => 'guru',
+            'email' => 'guru@gmail.com',
+            'password' => bcrypt("12345"),
+            'role' => 'guru'
+        ]);
+
+        User::create([
+            'name' => 'siswa',
+            'email' => 'siswa@gmail.com',
+            'password' => bcrypt("12345"),
+            'role' => 'siswa'
         ]);
     }
 }

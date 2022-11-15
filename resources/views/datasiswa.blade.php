@@ -100,6 +100,7 @@
                                 <th scope="col">NO</th>
                                 <th scope="col">NAMA</th>
                                 <th scope="col">NISN</th>
+                                <th scope="col">KELAS</th>
                                 <th scope="col">ALAMAT</th>
                                 <th scope="col">JENIS KELAMIN</th>
                                 <th scope="col">ACTION</th>
@@ -111,6 +112,7 @@
                                     <th scope="row">{{ ++$i }}</th>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->nisn }}</td>
+                                    <td>{{ $item->id_kelas }}</td>
                                     <td>{{ $item->alamat }} </td>
                                     <td>{{ $item->jk }} </td>
                                     <td>
