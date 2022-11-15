@@ -1,4 +1,3 @@
-
 <!-- Sidebar -->
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
 
@@ -35,8 +34,7 @@
             <i class="fas fa-fw fa-wrench"></i>
             <span>Manajemen Data</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pilihan Menu :</h6>
                 <a class="collapse-item" href="/datasiswa">Data Siswa</a>
@@ -47,7 +45,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/rekapdata">
+        <a class="nav-link" href="/listdata">
             <i class="fas fa-fw fa-folder-open"></i>
             <span>Rekap Data</span></a>
     </li>
@@ -120,7 +118,7 @@
                 <a class="collapse-item active" href="blank.html">Blank Page</a>
             </div>
         </div>
-    </li>--}}
+    </li> --}}
 
     <!-- Nav Item - Charts -->
     {{-- <li class="nav-item">
