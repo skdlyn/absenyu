@@ -43,13 +43,13 @@ class DataKelasController extends Controller
     {
         $message = [
             'required' => ':attribute harus diisi gaess',
-            'min' => ':attribute minimal :min karakter ya coy',
-            'max' => 'attribute makasimal :max karakter gaess',
+            // 'min' => ':attribute minimal :min karakter ya coy',
+            // 'max' => 'attribute makasimal :max karakter gaess',
         ];
 
         $this->validate($request, [
-            'nama_kelas' => 'required|min:7|max:30',
-            'kuota' => 'required|numeric',
+            'nama_kelas' => 'required',
+            'kuota' => 'required',
             'tahun_masuk' => 'required',
             'tahun_keluar' => 'required',
             'id_guru' => 'required',

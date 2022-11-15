@@ -72,6 +72,7 @@
                                     </div>
                                 </form>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -100,7 +101,7 @@
                                         <a href="{{ route('guru.edit', $item->id) }}"
                                             class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
                                         <a href="{{ route('guru.hapus', $item->id) }}"
-                                      class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                            class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                         </tbody>
@@ -110,4 +111,5 @@
             </div>
         </div>
     </div>
+
 @endsection

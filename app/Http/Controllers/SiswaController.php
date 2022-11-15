@@ -19,8 +19,9 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $data = siswa::all();
-        return view('absen', compact('data'));
+        // $kelas = kelas::all();
+        // $siswa= siswa::all();
+        // return view('datasiswa', compact('siswa','kelas'));
     }
 
     /**
@@ -30,8 +31,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        $kelas = kelas::all();
-        return view('datasiswa', compact('siswa', 'kelas'));
+        // $kelas = kelas::all();
+        // return view('datasiswa', compact('siswa', 'kelas'));
     }
     
     /**
@@ -57,6 +58,15 @@ class SiswaController extends Controller
             'jk' => 'required',
         ], $message);
 
+        // siswa::create([
+        //     'nama' => $request->nama,
+        //     'nisn' => $request->nisn,
+        //     'kelas' => $request->kelas,
+        //     'alamat' => $request->alamat,
+        //     'jk' => $request->jk
+        // ]);
+
+        // return redirect('');
         
     }
 

@@ -31,31 +31,98 @@
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="panel-heading">
-                        <h5><b> Absensi Siswa {{ ' (' . Carbon\Carbon::now('Asia/Jakarta')->format('d F Y') . ')' }}</h5>
-                    </div>
-                    <form method="post" action="{{ route('absen.store') }}">
-                        @csrf
-                        <div class="table-responsive-lg">
-                            <table class="table">
-                                <thead class="bg-primary text-white">
-                                    <tr>
-                                        <th scope="col">NO</th>
-                                        <th scope="col">NAMA</th>
-                                        <th scope="col">NISN</th>
-                                        <th scope="col">STATUS</th>
-                                        <th scope="col">KET</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($data as $i => $item)
+                        {{-- <h5><b> Absensi Siswa {{ ' (' . Carbon\Carbon::now('Asia/Jakarta')->format('d F Y') . ')' }}</h5> --}}
+                        {{-- <div class="dropdown">
+
+
+                            <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Bulan ke 
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div> --}}
+                        <form method="post" action="{{ route('absen.store') }}">
+                            @csrf
+
+                            <input type="date" id="tanggal" name="tanggal">
+
+                            <div class="table-responsive-lg">
+                                <table class="table">
+                                    <thead class="bg-primary text-white">
                                         <tr>
-                                            <th scope="row">{{ ++$i }}</th>
-                                            <td>{{ $item->nama }}</td>
-                                            <td>{{ $item->nisn }}</td>
-                                            <td>
-                                                @if ($loop->last)
-                                                    <label class="radio-inline">
-                                                        <input id="hadir" type="radio"
+                                            <th scope="col">NO</th>
+                                            <th scope="col">NAMA</th>
+                                            <th scope="col">NISN</th>
+                                            <th scope="col">STATUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($siswa as $i => $item)
+                                            <tr>
+                                                <th scope="row">{{ ++$i }}</th>
+                                                <td>{{ $item->nama }}</td>
+                                                <td>{{ $item->nisn }}</td>
+                                                <td>
+                                                    {{-- <div id="rates">
+                                                        <input type="radio" id="r1" name="rate"
+                                                            value="Fixed Rate"> Fixed Rate
+                                                        <input type="radio" id="r2" name="rate"
+                                                            value="Variable Rate"> Variable Rate
+                                                        <input type="radio" id="r3" name="rate"
+                                                            value="Multi Rate" checked="checked"> Multi Rate
+                                                    </div> --}}
+
+                                                    {{-- @if ($loop->last)
+                                                        <label class="radio-inline">
+                                                            <input id="hadir" type="radio"
+                                                                name="status[{{ $item }}]" value="Hadir"> Hadir
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input id="alfa" type="radio"
+                                                                name="status[{{ $item }}]" value="Alfa"> Alfa
+                                                        </label>
+
+                                                        <label class="radio-inline">
+                                                            <input id="izin" type="radio"
+                                                                name="status[{{ $item }}]" value="Izin"> Izin
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input id="sakit" type="radio"
+                                                                name="status[{{ $item }}]" value="Sakit"> Sakit
+                                                        </label>
+                                                    @else --}}
+                                                    @if ($loop->last)
+                                                        <div class="status-selected">
+                                                            <input type="radio" id="hadir" name="status{{ $item }}"
+                                                                value=""> hadir
+                                                            <input type="radio" id="alfa" name="status{{ $item }}"
+                                                                value=""> alfa
+                                                            <input type="radio" id="izin" name="status{{ $item }}"
+                                                                value=""> izin
+                                                            <input type="radio" id="sakit" name="status{{ $item }}"
+                                                                value=""> sakit
+                                                        </div>
+                                                    @else
+                                                        <div class="status-diselected">
+                                                            <input type="radio" id="hadir" name="status{{ $item }}"
+                                                                value=""> hadir
+                                                            <input type="radio" id="alfa" name="status{{ $item }}"
+                                                                value=""> alfa
+                                                            <input type="radio" id="izin" name="status{{ $item }}"
+                                                                value=""> izin
+                                                            <input type="radio" id="sakit" name="status{{ $item }}"
+                                                                value=""> sakit
+                                                        </div>
+                                                    @endif
+                                                    {{-- <label class="radio-inline">
+                                                            <input id="hadir" type="radio"
                                                             name="status[{{ $item }}]" value="Hadir"> Hadir
                                                     </label>
                                                     <label class="radio-inline">
@@ -63,25 +130,6 @@
                                                             name="status[{{ $item }}]" value="Alfa"> Alfa
                                                     </label>
 
-                                                    {{-- sakit & izin --}}
-                                                    <label class="radio-inline">
-                                                        <input id="pills-izin" type="radio"
-                                                            name="status[{{ $item }}]" value="Izin"> Izin
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input id="pills-sakit" type="radio"
-                                                            name="status[{{ $item }}]" value="Sakit"> Sakit
-                                                    </label>
-                                                @else
-                                                    <label class="radio-inline">
-                                                        <input id="hadir" type="radio"
-                                                            name="status[{{ $item }}]" value="Hadir"> Hadir
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input id="alfa" type="radio"
-                                                            name="status[{{ $item }}]" value="Alfa"> Alfa
-                                                    </label>
-                                                    {{-- sakit & izin --}}
                                                     <label class="radio-inline">
                                                         <input id="izin" type="radio"
                                                             name="status[{{ $item }}]" value="Izin"> Izin
@@ -89,110 +137,53 @@
                                                     <label class="radio-inline">
                                                         <input id="sakit" type="radio"
                                                             name="status[{{ $item }}]" value="Sakit"> Sakit
-                                                    </label>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if ($loop->last)
-                                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                                        <label class="nav-item" role="presentation">
-                                                            <input class="nav-link" id="home-tab" data-bs-toggle="tab"
-                                                                data-bs-target="#home" type="radio" role="tab"
-                                                                aria-controls="home" aria-selected="false">Home
-                                                        </label>
-                                                        <li class="nav-item" role="presentation">
-                                                            <input class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                                                data-bs-target="#profile" type="radio" role="tab"
-                                                                aria-controls="profile" aria-selected="false">Profile
-                                                        </li>
-                                                        <li class="nav-item" role="presentation">
-                                                            <input class="nav-link" id="messages-tab" data-bs-toggle="tab"
-                                                                data-bs-target="#messages" type="radio" role="tab"
-                                                                aria-controls="messages" aria-selected="false">Messages
-                                                        </li>
-                                                        <li class="nav-item" role="presentation">
-                                                            <input class="nav-link" id="settings-tab"
-                                                                data-bs-toggle="tab" data-bs-target="#settings"
-                                                                type="radio" role="tab" aria-controls="settings"
-                                                                aria-selected="false">Settings
-                                                        </li>
-                                                    </ul>
+                                                    </label> --}}
+                                                    {{-- @endif --}}
+                                                    {{-- @if ($loop->last)
+                                                        <div id="rates">
+                                                            <input type="radio" id="r1" name="rate"
+                                                                value="Fixed Rate"> Fixed Rate
+                                                            <input type="radio" id="r2" name="rate"
+                                                                value="Variable Rate"> Variable Rate
+                                                            <input type="radio" id="r3" name="rate"
+                                                                value="Multi Rate" checked="checked"> Multi Rate
+                                                        </div>
+                                                    @endif --}}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <input type="submit" class="btn btn-success" value="Save">
+                            {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Submit
+                            </button> --}}
 
-                                                    <div class="tab-content">
-                                                        <div class="tab-pane active" id="home" role="tabpanel"
-                                                            aria-labelledby="home-tab">1</div>
-                                                        <div class="tab-pane" id="profile" role="tabpanel"
-                                                            aria-labelledby="profile-tab">2</div>
-                                                        <div class="tab-pane" id="messages" role="tabpanel"
-                                                            aria-labelledby="messages-tab">3</div>
-                                                        <div class="tab-pane" id="settings" role="tabpanel"
-                                                            aria-labelledby="settings-tab">4</div>
-                                                    @else
-                                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                                            <label class="nav-item" role="presentation">
-                                                                <input class="nav-link" id="home-tab"
-                                                                    data-bs-toggle="tab" data-bs-target="#home"
-                                                                    type="radio" role="tab" aria-controls="home"
-                                                                    aria-selected="false">Home
-                                                            </label>
-                                                            <li class="nav-item" role="presentation">
-                                                                <input class="nav-link" id="profile-tab"
-                                                                    data-bs-toggle="tab" data-bs-target="#profile"
-                                                                    type="radio" role="tab" aria-controls="profile"
-                                                                    aria-selected="false">Profile
-                                                            </li>
-                                                            <li class="nav-item" role="presentation">
-                                                                <input class="nav-link" id="messages-tab"
-                                                                    data-bs-toggle="tab" data-bs-target="#messages"
-                                                                    type="radio" role="tab"
-                                                                    aria-controls="messages"
-                                                                    aria-selected="false">Messages
-                                                            </li>
-                                                            <li class="nav-item" role="presentation">
-                                                                <input class="nav-link" id="settings-tab"
-                                                                    data-bs-toggle="tab" data-bs-target="#settings"
-                                                                    type="radio" role="tab"
-                                                                    aria-controls="settings"
-                                                                    aria-selected="false">Settings
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-
-                            </table>
-                        </div>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Submit
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Apakah Sudah Yakin ?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <input type="submit" class="btn btn-primary" value="Save">
+                            <!-- Modal -->
+                            {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Apakah Sudah Yakin ?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <input type="submit" class="btn btn-primary" value="Save">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </form>
+                            </div> --}}
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
