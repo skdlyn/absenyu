@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SiswaController;
+// use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\LoginController;
@@ -37,23 +37,51 @@ Route::middleware('guest')->group(function () {
 
 //admin
 Route::middleware('auth')->group(function () {
-    Route::resource('dashboard', DashboardController::class);
-    Route::resource('absen', SiswaController::class);
-    Route::resource('datasiswa', DataController::class);
+    // absen
+    Route::resource('absen', AbsenController::class);
+    // route::get('absen/{id}/')
+    Route::get('list', [AbsenController::class, 'list'])->name('absen.list');
+    // Route::get('listkelas', [AbsenController::class, 'listkelas'])->name('absen.listkelas');
+    Route::get('pending', [AbsenController::class, 'pending'])->name('absen.pending');
+    // route::get('/list', function(){
+    //     return view('absen.list');
+    // });
 
+    // list kelas
+    Route::resource('showkelas', KelasController::class);
+    route::get('showkelas/{id}/hapus', [KelasController::class])->name('showkelas.hapus');
+// Route::get('showkelas', KelasController::class);
+
+
+
+    Route::resource('dashboard', DashboardController::class);
+    Route::resource('datasiswa', DataController::class);
     
     
+
+        // data kelas
+    Route::resource('datakelas', DataKelasController::class);
+    // route::get('datakelas/{id}/');
+    Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
+
 
     Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
-    Route::resource('datakelas', DataKelasController::class);
-    Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
+    
+    
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
-    Route::resource('listkelas', KelasController::class);
-    Route::resource('rekapdata', AbsenController::class);
+    
+    // route::get('/rekaplist', function(){
+    //     return view('rekaplist');
+    // });
     
 
 
     Route::post('logout', [LoginController::class, 'logout']);
     // cobaroute
+
+    // route::get('/showkelas',[DataKelasController::class]);
+    // route::get('/showkelas', function(){
+    //     return view('showkelas');
+    // });
 });

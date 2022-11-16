@@ -17,7 +17,8 @@ class DataKelasController extends Controller
      */
     public function index()
     {
-        $kelas = kelas::all();
+        // $kelas = kelas::all();
+        $kelas = kelas::with('guru')->get();
         $guru = guru::all();
         return view('datakelas', compact('kelas', 'guru'));
     }
@@ -43,13 +44,13 @@ class DataKelasController extends Controller
     {
         $message = [
             'required' => ':attribute harus diisi gaess',
-            'min' => ':attribute minimal :min karakter ya coy',
-            'max' => 'attribute makasimal :max karakter gaess',
+            // 'min' => ':attribute minimal :min karakter ya coy',
+            // 'max' => 'attribute makasimal :max karakter gaess',
         ];
 
         $this->validate($request, [
-            'nama_kelas' => 'required|min:7|max:30',
-            'kuota' => 'required|numeric',
+            'nama_kelas' => 'required',
+            'kuota' => 'required',
             'tahun_masuk' => 'required',
             'tahun_keluar' => 'required',
             'id_guru' => 'required',
@@ -76,7 +77,9 @@ class DataKelasController extends Controller
      */
     public function show($id)
     {
-        //
+        $kelas = Kelas::all ();
+        // $guru = guru::find($id);
+        return view('showkelas', compact('kelas'));
     }
 
     /**

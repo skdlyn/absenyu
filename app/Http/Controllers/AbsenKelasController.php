@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\siswa;
-use App\Models\Kelas;
-use Illuminate\Support\Facades\Session;
 
-class DataController extends Controller
+class AbsenKelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +13,7 @@ class DataController extends Controller
      */
     public function index()
     {
-        $siswa = siswa::all();
-        $kelas = Kelas::all();
-        return view('datasiswa', compact('siswa', 'kelas'));
+        //
     }
 
     /**
@@ -28,8 +23,7 @@ class DataController extends Controller
      */
     public function create()
     {
-        $kelas = Kelas::all();
-        return view('datasiswa', compact('kelas'));
+        //
     }
 
     /**
@@ -40,30 +34,7 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-        $message = [
-            'required' => ':attribute harus diisi gaess',
-        ];
-
-        $this->validate($request, [
-            'nama' => 'required',
-            'nisn' => 'required',
-            'alamat' => 'required',
-            'id_kelas' => 'required',
-            'jk' => 'required',
-        ], $message);
-
-        //insert data
-        siswa::create([
-            'nama' => $request->nama,
-            'nisn' => $request->nisn,
-            'alamat' => $request->alamat,
-            'id_kelas' => $request->id_kelas,
-            'jk' => $request->jk,
-        ]);
-
-        Session::flash('success', 'Selamat!!! Siswa Berhasil Terdata');
-        return redirect('/datasiswa');
-        // return('');
+        //
     }
 
     /**
@@ -85,8 +56,7 @@ class DataController extends Controller
      */
     public function edit($id)
     {
-        $siswa = siswa::find($id);
-        return view('datasiswa', compact('siswa'));
+        //
     }
 
     /**
@@ -98,7 +68,7 @@ class DataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**
@@ -107,15 +77,8 @@ class DataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
-        
-    }
-
-    public function hapus($id)
-    {
-        $siswa = siswa::find($id)->delete();
-        Session::flash('danger', 'Data Berhasil Dihapus');
-        return redirect('/datasiswa');
+        //
     }
 }
