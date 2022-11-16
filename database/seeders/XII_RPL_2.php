@@ -29,14 +29,14 @@ class XII_RPL_2 extends Seeder
             'kuota' => '37',
             'tahun_masuk' => '2020-12-31',
             'tahun_keluar' => '2023-12-31',
-            'id_guru' => '1',
+            'id_guru' => '2',
         ]);
 
         siswa::create([
             'nisn' => '0055606458',
             'nama' => 'Ilham bintang Herlambang',
             'alamat' => 'Jl. hayam Wuruk Baru 1 ',
-            'id_kelas' => '1',
+            'id_kelas' => '2',
             'jk' => 'laki - laki',
         ]);
 
@@ -44,7 +44,7 @@ class XII_RPL_2 extends Seeder
             'nisn' => '0055606457',
             'nama' => 'Rafli Dwi Ferdiansyah',
             'alamat' => 'Jl. ketintang ',
-            'id_kelas' => '1',
+            'id_kelas' => '2',
             'jk' => 'laki - laki',
         ]);
 
@@ -52,7 +52,7 @@ class XII_RPL_2 extends Seeder
             'nisn' => '0055606456',
             'nama' => 'Inna Filjannati Aprilia',
             'alamat' => 'Jl. nginden ',
-            'id_kelas' => '1',
+            'id_kelas' => '2',
             'jk' => 'perempuan',
         ]);
     }

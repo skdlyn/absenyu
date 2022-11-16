@@ -29,14 +29,14 @@ class XII_RPL_1 extends Seeder
             'kuota' => '36',
             'tahun_masuk' => '2020-12-31',
             'tahun_keluar' => '2023-12-31',
-            'id_guru' => '2',
+            'id_guru' => '1',
         ]);
 
         siswa::create([
             'nisn' => '0055606455',
             'nama' => 'Moreno Hernakov',
             'alamat' => 'Jl. Menanggal ',
-            'id_kelas' => '2',
+            'id_kelas' => '1',
             'jk' => 'laki - laki',
         ]);
 

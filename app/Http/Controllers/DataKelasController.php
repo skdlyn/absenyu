@@ -17,7 +17,8 @@ class DataKelasController extends Controller
      */
     public function index()
     {
-        $kelas = kelas::all();
+        // $kelas = kelas::all();
+        $kelas = kelas::with('guru')->get();
         $guru = guru::all();
         return view('datakelas', compact('kelas', 'guru'));
 
@@ -77,7 +78,9 @@ class DataKelasController extends Controller
      */
     public function show($id)
     {
-        //
+        $kelas = Kelas::all ();
+        // $guru = guru::find($id);
+        return view('showkelas', compact('kelas'));
     }
 
     /**
