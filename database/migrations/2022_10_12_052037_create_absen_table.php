@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_siswa');
             $table->foreign('id_siswa')->references('id')->on('siswa');
-            // $table->string('tanggal');
-            $table->enum('status', ['Alfa', 'Izin', 'Hadir', 'Sakit']);
+            $table->date('tanggal');
             $table->text('keterangan');
             $table->unsignedBigInteger('id_tanggal');
             $table->foreign('id_tanggal')->references('id')->on('rekapabsen')

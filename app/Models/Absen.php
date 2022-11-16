@@ -8,10 +8,18 @@ use Carbon\Carbon;
 
 class Absen extends Model
 {
+    use HasFactory;
+
+    protected $fillable = [
+    'tanggal',
+    'status',
+    'keterangan'
+    ];
+
+
     protected $table='absen';
-    protected $primaryKey = 'id_absensi';
     
-    public function siswa()
+    public function surat()
     {
         return $this->belongsToMany('App\Models\Siswa');
     }

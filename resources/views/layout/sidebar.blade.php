@@ -1,4 +1,3 @@
-
 <!-- Sidebar -->
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
 
@@ -23,31 +22,48 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1"
+            aria-expanded="true" aria-controls="collapseUtilities1">
+            <i class="fas fa-fw fa-calendar"></i>
+            <span>Absen</span>
+        </a>
+        <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Pilihan Menu :</h6>
+                <a class="collapse-item" href="/absen">Absen hari ini</a>
+                <a class="collapse-item" href="/list">List absen</a>
+                <a class="collapse-item" href="/pending">Absen Pending</a>
+            </div>
+        </div>
+    </li>
+    
+    {{-- <li class="nav-item">
         <a class="nav-link" href="/listkelas">
             <i class="fas fa-fw fa-calendar"></i>
             <span>Absen</span></a>
-    </li>
+    </li> --}}
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
+            aria-expanded="true" aria-controls="collapseUtilities2">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Manajemen Data</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pilihan Menu :</h6>
                 <a class="collapse-item" href="/datasiswa">Data Siswa</a>
                 <a class="collapse-item" href="/datakelas">Data Kelas</a>
                 <a class="collapse-item" href="/guru">Data Guru</a>
+                <a class="collapse-item" href="/listkelas">List kelas</a>
             </div>
         </div>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/listkelas2">
+        <a class="nav-link" href="/rekaplist">
             <i class="fas fa-fw fa-folder-open"></i>
             <span>Rekap Data</span></a>
     </li>
@@ -120,7 +136,7 @@
                 <a class="collapse-item active" href="blank.html">Blank Page</a>
             </div>
         </div>
-    </li>--}}
+    </li> --}}
 
     <!-- Nav Item - Charts -->
     {{-- <li class="nav-item">

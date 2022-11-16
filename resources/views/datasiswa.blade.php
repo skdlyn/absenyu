@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title', 'Data Siswa')
-@section('content-title')
+@section('content-title', 'Data Siswa')
 @section('content')
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="form-group">
                                         {{-- <input type="hidden" name="siswa_id" value="{{ $siswa->id }}"> --}}
-                                        <label for="kelas_id">Kelas</label>
+                                        <label for="id_kelas">Kelas</label>
                                         <select class="form-select form-control" id="id_kelas" name='id_kelas'>
                                             <option value="">Pilih Kelas</option>
                                             @foreach ($kelas as $item)
@@ -81,6 +81,7 @@
                                         <input type="text" class="form-control" id="alamat" name="alamat"
                                             value="{{ old('alamat') }}">
                                     </div>
+                                    
                                     <div class="modal-footer">
                                         <a href="{{ route('datasiswa.index') }}"type="button"
                                             class="btn btn-danger">Batal</a>
@@ -99,6 +100,7 @@
                                 <th scope="col">NO</th>
                                 <th scope="col">NAMA</th>
                                 <th scope="col">NISN</th>
+                                <th scope="col">KELAS</th>
                                 <th scope="col">ALAMAT</th>
                                 <th scope="col">JENIS KELAMIN</th>
                                 <th scope="col">ACTION</th>
@@ -110,6 +112,7 @@
                                     <th scope="row">{{ ++$i }}</th>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->nisn }}</td>
+                                    <td>{{ $item->id_kelas }}</td>
                                     <td>{{ $item->alamat }} </td>
                                     <td>{{ $item->jk }} </td>
                                     <td>
@@ -119,8 +122,8 @@
                                             class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
                     </table>
                 </div>
             </div>

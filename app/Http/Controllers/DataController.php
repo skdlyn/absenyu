@@ -42,13 +42,11 @@ class DataController extends Controller
     {
         $message = [
             'required' => ':attribute harus diisi gaess',
-            'min' => ':attribute minimal :min karakter ya coy',
-            'max' => 'attribute makasimal :max karakter gaess',
         ];
 
         $this->validate($request, [
-            'nama' => 'required|min:7|max:30',
-            'nisn' => 'required|numeric',
+            'nama' => 'required',
+            'nisn' => 'required',
             'alamat' => 'required',
             'id_kelas' => 'required',
             'jk' => 'required',
@@ -63,8 +61,9 @@ class DataController extends Controller
             'jk' => $request->jk,
         ]);
 
-        Session::flash('success', 'Selamat!!! Data Anda Berhasil Ditambahkan');
+        Session::flash('success', 'Selamat!!! Siswa Berhasil Terdata');
         return redirect('/datasiswa');
+        // return('');
     }
 
     /**
@@ -99,7 +98,7 @@ class DataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

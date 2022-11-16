@@ -46,6 +46,28 @@ class KelasController extends Controller
             }
             return redirect('listkelas');
         }
+        // $check = Kelas::where(['tingkat_kelas' => $request->tingkat_kelas, 'jurusan' => $request->jurusan, 'nama_kelas' => $request->nama_kelas, 'tahun_masuk' => $request->tahun_masuk, 'tahun_keluar' => $request->tahun_keluar])->get();
+        // if($check->count()>0){
+        //     Session::flash('success', 'Selamat!!! Project Anda Berhasil Ditambahkan');
+        //     return redirect('listkelas');
+        // }
+        // else{
+        //     $Kelas = new Kelas;
+        //     $Kelas->tingkat_kelas = $request->tingkat_kelas;
+        //     $Kelas->jurusan = $request->jurusan;
+        //     $Kelas->nama_kelas = $request->nama_kelas;
+        //     $Kelas->kuota = $request->kuota;
+        //     $Kelas->tahun_masuk = $request->tahun_masuk;
+        //     $Kelas->tahun_keluar = $request->tahun_keluar;
+        //     if($Kelas->save()){
+        //         Session::flash('benar', 'Selamat!!! Data Anda Berhasil Ditambahkan');
+        //     }
+        //     else{
+        //         Session::flash('gagal', 'Maaf!!! Data anda tidak dapat ditambahkan, silahkan ulangi!!!');
+        //     }
+        //     return redirect('listkelas');
+        // }
+
     }
 
 
@@ -63,6 +85,7 @@ class KelasController extends Controller
 
 
         ];
+    
     }
 
     /**
@@ -73,7 +96,8 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        //
+        $kelas = Kelas::all();
+        return view('', compact('kelas'));
     }
 
     /**
