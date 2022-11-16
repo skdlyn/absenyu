@@ -20,9 +20,11 @@
                 <strong>{{ $message }}</strong>
             </div>
         @endif
+
+        
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data kelas</li>
+                <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data Seluruh kelas</li>
                 {{-- <li class="active">  Dashboard</li> --}}
             </ol>
         </div>
@@ -31,7 +33,7 @@
             <div class="col-lg-12">
                 <div class="card shadow mb-4">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                        data-whatever>Tambah Data</button>
+                        data-whatever>Tambah Kelas</button>
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,10 +109,11 @@
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
                                         {{-- <td>{{ $item->nama_kelas }}</td> --}}
-                                        <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td>
+                                        {{-- <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td> --}}
+                                        <td><a href="{{ url('showkelas/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
                                         {{-- <td></td> --}}
                                         <td>{{ $item->kuota }}</td>
-                                        <td>{{ $item->id_guru}} </td>
+                                        <td>{{ $item->guru->nama}} </td>
                                         <td>{{ $item->tahun_masuk }}</td>
                                         <td>{{ $item->tahun_keluar }}</td>
                                         <td>

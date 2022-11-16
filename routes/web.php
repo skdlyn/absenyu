@@ -39,26 +39,29 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     // absen
     Route::resource('absen', AbsenController::class);
+    // route::get('absen/{id}/')
     Route::get('list', [AbsenController::class, 'list'])->name('absen.list');
-    Route::get('listkelas', [AbsenController::class, 'listkelas'])->name('absen.listkelas');
+    // Route::get('listkelas', [AbsenController::class, 'listkelas'])->name('absen.listkelas');
     Route::get('pending', [AbsenController::class, 'pending'])->name('absen.pending');
     // route::get('/list', function(){
     //     return view('absen.list');
     // });
 
     // list kelas
-    Route::resource('listkelas', KelasController::class);
+    Route::resource('showkelas', KelasController::class);
+    route::get('showkelas/{id}/hapus', [KelasController::class])->name('showkelas.hapus');
+// Route::get('showkelas', KelasController::class);
 
 
 
     Route::resource('dashboard', DashboardController::class);
     Route::resource('datasiswa', DataController::class);
     
-
+    
 
         // data kelas
     Route::resource('datakelas', DataKelasController::class);
-    route::get('datakelas/{}');
+    // route::get('datakelas/{id}/');
     Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
 
 
@@ -76,4 +79,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [LoginController::class, 'logout']);
     // cobaroute
+
+    // route::get('/showkelas',[DataKelasController::class]);
+    // route::get('/showkelas', function(){
+    //     return view('showkelas');
+    // });
 });
