@@ -30,6 +30,6 @@ class Kelas extends Model
     }
 
     public function guru(){
-        return $this->hasMany('App\Models\guru', 'nama');
+        return $this->belongsTo('App\Models\guru', 'id');
     }
 }

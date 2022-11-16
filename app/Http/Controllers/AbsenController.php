@@ -113,7 +113,10 @@ class AbsenController extends Controller
      */
     public function show($id)
     {
-        //
+        // return siswa::where('id_kelas');
+        $siswa = siswa::where('id_kelas', $id)->get();
+        // return $siswa;
+        return view('absenkelas', compact('siswa'));
     }
 
     /**

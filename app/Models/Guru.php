@@ -17,6 +17,6 @@ class Guru extends Model
     protected $table = 'guru';
 
     public function kelas(){
-        return $this->belongsTo('App\Models\kelas', 'id_guru');
+        return $this->hasMany('App\Models\kelas');
     }
 }
