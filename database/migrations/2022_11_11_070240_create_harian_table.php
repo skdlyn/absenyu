@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('guru', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('nip');
-            $table->string('nama');
-            // $table->primary('nama');
-            // $table->string('nip');
-            // $table->char('jenis_kelamin');
-            // $table->enum('jenis_kelamin',['L' , 'P']);
-            $table->char('jenis_kelamin');            
+        Schema::create('harian', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_kelas');
+            $table->foreign('id_kelas')->references('id')->on('kelas');
+            $table->char('status');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guru');
+        Schema::dropIfExists('harian');
     }
 };

@@ -14,10 +14,12 @@ class KelasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $kelas = kelas::paginate(4);
-        return view('listkelas', compact('kelas'));
+        // $kelas = kelas::paginate();
+        $siswa = siswa::where('id_kelas');
+        $guru = kelas::all();
+        return view('showkelas', compact('siswa', 'guru'));
     }
 
     /**
@@ -27,27 +29,27 @@ class KelasController extends Controller
      */
     public function create(Request $request)
     {
-        $check = Kelas::where(['tingkat_kelas' => $request->tingkat_kelas, 'jurusan' => $request->jurusan, 'nama_kelas' => $request->nama_kelas, 'tahun_masuk' => $request->tahun_masuk, 'tahun_keluar' => $request->tahun_keluar])->get();
-        if($check->count()>0){
-            Session::flash('success', 'Selamat!!! Project Anda Berhasil Ditambahkan');
-            return redirect('listkelas');
-        }
-        else{
-            $Kelas = new Kelas;
-            $Kelas->tingkat_kelas = $request->tingkat_kelas;
-            $Kelas->jurusan = $request->jurusan;
-            $Kelas->nama_kelas = $request->nama_kelas;
-            $Kelas->kuota = $request->kuota;
-            $Kelas->tahun_masuk = $request->tahun_masuk;
-            $Kelas->tahun_keluar = $request->tahun_keluar;
-            if($Kelas->save()){
-                Session::flash('benar', 'Selamat!!! Data Anda Berhasil Ditambahkan');
-            }
-            else{
-                Session::flash('gagal', 'Maaf!!! Data anda tidak dapat ditambahkan, silahkan ulangi!!!');
-            }
-            return redirect('listkelas');
-        }
+        // $check = Kelas::where(['tingkat_kelas' => $request->tingkat_kelas, 'jurusan' => $request->jurusan, 'nama_kelas' => $request->nama_kelas, 'tahun_masuk' => $request->tahun_masuk, 'tahun_keluar' => $request->tahun_keluar])->get();
+        // if($check->count()>0){
+        //     Session::flash('success', 'Selamat!!! Project Anda Berhasil Ditambahkan');
+        //     return redirect('listkelas');
+        // }
+        // else{
+        //     $Kelas = new Kelas;
+        //     $Kelas->tingkat_kelas = $request->tingkat_kelas;
+        //     $Kelas->jurusan = $request->jurusan;
+        //     $Kelas->nama_kelas = $request->nama_kelas;
+        //     $Kelas->kuota = $request->kuota;
+        //     $Kelas->tahun_masuk = $request->tahun_masuk;
+        //     $Kelas->tahun_keluar = $request->tahun_keluar;
+        //     if($Kelas->save()){
+        //         Session::flash('benar', 'Selamat!!! Data Anda Berhasil Ditambahkan');
+        //     }
+        //     else{
+        //         Session::flash('gagal', 'Maaf!!! Data anda tidak dapat ditambahkan, silahkan ulangi!!!');
+        //     }
+        //     return redirect('listkelas');
+        // }
 
     }
 
@@ -60,12 +62,6 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        $msg = [
-            'required' => ':attribute harus diisi',
-            'min' => ':attribute minimal :min karakter ya coy',
-            
-
-        ];
     }
 
     /**
@@ -76,7 +72,10 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        //
+        // return $id;
+        // return siswa::where('id_kelas',$id)->get();
+        $siswa = siswa::where('id_kelas', $id)->get();
+        return view('showkelas', compact('siswa'));
     }
 
     /**
@@ -111,5 +110,9 @@ class KelasController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function hapus($id)
+    {
     }
 }

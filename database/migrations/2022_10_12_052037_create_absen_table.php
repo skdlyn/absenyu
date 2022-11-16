@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_siswa');
             $table->foreign('id_siswa')->references('id')->on('siswa');
             $table->date('tanggal');
-            $table->enum('status', ['Alfa' , 'Izin' , 'Hadir' , 'Sakit']);
             $table->text('keterangan');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
