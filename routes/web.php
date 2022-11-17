@@ -10,7 +10,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RekapabsenController;
+use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +26,14 @@ use App\Http\Controllers\RekapabsenController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('landing');
 });
 //guest
 Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'authenticate']);
+    Route::get('register', [RegisterController::class, 'index'])->name('register');
+    Route::post('register', [RegisterController::class, 'authenticate']);
     // Route::get('/absen', function () {
     //     return view('absen');
     // });
@@ -52,10 +56,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('showkelas', KelasController::class);
     route::get('showkelas/{id}/hapus', [KelasController::class])->name('showkelas.hapus');
 // Route::get('showkelas', KelasController::class);
-
+    
+    //rekap
+    Route::get('rekaplist', [RekapController::class, 'index']);
+    Route::get('rekapdata', [RekapController::class, 'index']);
 
 
     Route::resource('dashboard', DashboardController::class);
+    Route::resource('dashboardsiswa', DashboardController::class);
     Route::resource('datasiswa', DataController::class);
     
     

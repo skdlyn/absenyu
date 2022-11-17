@@ -42,16 +42,13 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    data-whatever>Tambah Kelas</button>
-
-
                 <div class="card-body">
                     <table class="table">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th scope="col">NO</th>
                                 <th scope="col">KELAS</th>
+                                <th scope="col">JUMLAH SISWA</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,6 +58,7 @@
                                     {{-- <td>{{ $item->nama_kelas }}</td> --}}
                                     {{-- <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td> --}}
                                     <td><a href="{{ url('absen/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
+                                    <td>{{ $item->kuota }}</a></td>
                                     {{-- <td></td> --}}
                                 </tr>
                         </tbody>

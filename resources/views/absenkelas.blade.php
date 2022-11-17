@@ -6,30 +6,30 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
-
-                <div class="table-responsive-lg">
-                    <table class="table">
-                        <thead class="bg-primary text-white">
-                            <tr>
-                                <th scope="col">NO</th>
-                                <th scope="col">NAMA</th>
-                                <th scope="col">NISN</th>
-                                <th scope="col">STATUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- <tr>
+                <div class="card-body">
+                    <div class="table-responsive-lg">
+                        <table class="table">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th scope="col">NO</th>
+                                    <th scope="col">NAMA</th>
+                                    <th scope="col">NISN</th>
+                                    <th scope="col">STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- <tr>
                                 <td>lmao</td>
                                 <td>banget</td>
                                 <td>dek</td>
                             </tr> --}}
-                            @foreach ($siswa as $i => $item)
-                                <tr>
-                                    <th scope="row">{{ ++$i }}</th>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->nisn }}</td>
-                                    <td>
-                                        {{-- <div id="rates">
+                                @foreach ($siswa as $i => $item)
+                                    <tr>
+                                        <th scope="row">{{ ++$i }}</th>
+                                        <td>{{ $item->nama }}</td>
+                                        <td>{{ $item->nisn }}</td>
+                                        <td>
+                                            {{-- <div id="rates">
                                                         <input type="radio" id="r1" name="rate"
                                                             value="Fixed Rate"> Fixed Rate
                                                             <input type="radio" id="r2" name="rate"
@@ -38,7 +38,7 @@
                                                             value="Multi Rate" checked="checked"> Multi Rate
                                                     </div> --}}
 
-                                        {{-- @if ($loop->last)
+                                            {{-- @if ($loop->last)
                                                         <label class="radio-inline">
                                                             <input id="hadir" type="radio"
                                                                 name="status[{{ $item }}]" value="Hadir"> Hadir
@@ -57,38 +57,38 @@
                                                                 name="status[{{ $item }}]" value="Sakit"> Sakit
                                                         </label>
                                                     @else --}}
-                                        @if ($loop->last)
-                                            <div class="status-selected">
-                                                <input type="radio" id="hadir" name="status{{ $item }}"
-                                                    value="">
-                                                hadir
-                                                <input type="radio" id="alfa" name="status{{ $item }}"
-                                                    value="">
-                                                alfa
-                                                <input type="radio" id="izin" name="status{{ $item }}"
-                                                    value="">
-                                                izin
-                                                <input type="radio" id="sakit" name="status{{ $item }}"
-                                                    value="">
-                                                sakit
-                                            </div>
-                                        @else
-                                            <div class="status-diselected">
-                                                <input type="radio" id="hadir" name="status{{ $item }}"
-                                                    value="">
-                                                hadir
-                                                <input type="radio" id="alfa" name="status{{ $item }}"
-                                                    value="">
-                                                alfa
-                                                <input type="radio" id="izin" name="status{{ $item }}"
-                                                    value="">
-                                                izin
-                                                <input type="radio" id="sakit" name="status{{ $item }}"
-                                                    value="">
-                                                sakit
-                                            </div>
-                                        @endif
-                                        {{-- <label class="radio-inline">
+                                            @if ($loop->last)
+                                                <div class="status-selected">
+                                                    <input type="radio" id="hadir" name="status{{ $item }}"
+                                                        value="">
+                                                    hadir
+                                                    <input type="radio" id="alfa" name="status{{ $item }}"
+                                                        value="">
+                                                    alfa
+                                                    <input type="radio" id="izin" name="status{{ $item }}"
+                                                        value="">
+                                                    izin
+                                                    <input type="radio" id="sakit" name="status{{ $item }}"
+                                                        value="">
+                                                    sakit
+                                                </div>
+                                            @else
+                                                <div class="status-diselected">
+                                                    <input type="radio" id="hadir" name="status{{ $item }}"
+                                                        value="">
+                                                    hadir
+                                                    <input type="radio" id="alfa" name="status{{ $item }}"
+                                                        value="">
+                                                    alfa
+                                                    <input type="radio" id="izin" name="status{{ $item }}"
+                                                        value="">
+                                                    izin
+                                                    <input type="radio" id="sakit" name="status{{ $item }}"
+                                                        value="">
+                                                    sakit
+                                                </div>
+                                            @endif
+                                            {{-- <label class="radio-inline">
                                                             <input id="hadir" type="radio"
                                                             name="status[{{ $item }}]" value="Hadir"> Hadir
                                                     </label>
@@ -105,8 +105,8 @@
                                                         <input id="sakit" type="radio"
                                                             name="status[{{ $item }}]" value="Sakit"> Sakit
                                                     </label> --}}
-                                        {{-- @endif --}}
-                                        {{-- @if ($loop->last)
+                                            {{-- @endif --}}
+                                            {{-- @if ($loop->last)
                                                         <div id="rates">
                                                             <input type="radio" id="r1" name="rate"
                                                                 value="Fixed Rate"> Fixed Rate
@@ -116,15 +116,16 @@
                                                             value="Multi Rate" checked="checked"> Multi Rate
                                                         </div>
                                                     @endif --}}
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-@endsection
+    @endsection

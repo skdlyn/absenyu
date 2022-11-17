@@ -81,13 +81,6 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        $msg = [
-            'required' => ':attribute harus diisi',
-            'min' => ':attribute minimal :min karakter ya coy',
-
-
-        ];
-    
     }
 
     /**
