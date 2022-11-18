@@ -54,7 +54,7 @@
         <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pilihan Menu :</h6>
-                <a class="collapse-item" href="/datasiswa">Tambah Siswa</a>
+                <a class="collapse-item" href="{{ route('datasiswa.create') }}">Tambah Siswa</a>
                 <a class="collapse-item" href="/datakelas">Data Kelas</a>
                 <a class="collapse-item" href="/guru">Data Guru</a>
                 <a class="collapse-item" href="/listkelas">List kelas</a>

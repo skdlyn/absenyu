@@ -27,7 +27,8 @@ class DataSiswaController extends Controller
      */
     public function create()
     {
-        // 
+        $kelas = kelas::all();
+        return view('kelas.tambahsiswa', compact('kelas'));
     }
 
     /**
@@ -57,6 +58,9 @@ class DataSiswaController extends Controller
             'id_kelas' => $request-> id_kelas,
             'jk' => $request->jk
         ]);
+
+        session::flash('siswa_sismpan','Data Siswa berhasil Disimpan');
+        
     }
 
     /**

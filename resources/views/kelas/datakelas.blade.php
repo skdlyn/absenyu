@@ -20,7 +20,6 @@
                 <strong>{{ $message }}</strong>
             </div>
         @endif
-p
 
         <div class="row">
             <ol class="breadcrumb">

@@ -109,12 +109,7 @@
                     {{-- datepicker --}}
                     <div class="row">
                         <div class="col-lg-">
-                            <div class="form-group">
-                                <label for="tanggal"></label>
-                                <div class="input-group date">
-                                    
-                                </div>
-                            </div>
+                            <h1></h1>
                         </div>
                     </div>
 
@@ -138,15 +133,78 @@
                                     <td>{{ $item->alamat }}</td>
                                     <td>{{ $item->jk }}</td>
                                     <td>
-                                        <a href="{{ route('showkelas.edit', $item->id) }}"
-                                            class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-sm btn-warning btn-circle" data-toggle="modal"
+                                            data-target="#exampleModal">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
                                         <a href="{{ route('datasiswa.hapus', $item->id) }}"
                                             class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{-- modal --}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kelas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('datakelas.store') }}">
+                        @csrf
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" id="nama_kelas" name='nama_kelas'
+                                value="{{ $murid->nama }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="nisn">Nisn</label>
+                            <input type="text" class="form-control" id="nisn" name='nisn'
+                                value="{{ $murid->nisn }}">
+                        </div>
+                        <div class="form-group">
+                            {{-- <input type="hidden" name="siswa_id" value="{{ $siswa->id }}"> --}}
+                            <label for="id_kelas">Kelas</label>
+                            <select class="form-select form-control" id="id_kelas" name='id_kelas'>
+                                @foreach ($kelas as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama_kelas }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="jk">Jenis Kelamin</label>
+                            <select class="form-select form-control" id="jk" name='jk'
+                                value="{{ old('jk') }}">
+                                <option value="laki-laki" @if ($murid->jk == 'laki-laki') selected @endif>Laki-laki
+                                </option>
+                                <option value="perempuan" @if ($murid->jk == 'perempuan') selected @endif>Perempuan
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <input type="text" class="form-control" id="alamat" name="alamat"
+                                value="{{ $murid->alamat }}" placeholder="alamat">
+                        </div>
+
+                        <div class="modal-footer">
+                            <a href="" type="button" class="btn btn-danger">Batal</a>
+                            <input type="submit" class="btn btn-success" value="Simpan">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

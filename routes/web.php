@@ -10,6 +10,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\DataSiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ use App\Http\Controllers\SiswaController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('user.login');
 });
 //guest
 Route::middleware('guest')->group(function () {
@@ -55,14 +56,19 @@ Route::middleware('auth')->group(function () {
 
 
     // CRUD DATA KELAS
-    Route::resource('datasiswa', DataController::class);
-    Route::get('datasiswa/{id}', [DataController::class, 'hapus'])->name('datasiswa.hapus');
+    // Route::resource('datasiswa', DataController::class);
+    // Route::get('datasiswa/{id}', [DataController::class, 'hapus'])->name('datasiswa.hapus');
 
 
     // CRUD KELAS
     Route::resource('datakelas', DataKelasController::class);
-    Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
-
+    
+    // CRUD SISWA
+    Route::resource('datasiswa', DatasiswaController::class);
+    // route::get('/tambahsiswa',function(){
+    //     return view('kelas.tambahsiswa');
+    // });
+    route::get('datakelas/{id}/hapus', [DatasiswaController::class, 'hapus'])->name('datasiswa.hapus');
 
 
 
