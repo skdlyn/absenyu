@@ -1,16 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\siswa;
-use App\Models\Absen;
+
+use illuminate\Support\facades\session;
+use App\Models\Siswa;
 use App\Models\Kelas;
 use App\Models\Guru;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Session;
-use PDF;
-class SiswaController extends Controller
 
+class DataSiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +17,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        // $kelas = kelas::all();
-        // $siswa= siswa::all();
-        // return view('datasiswa', compact('siswa','kelas'));
+        // landing
     }
 
     /**
@@ -31,9 +27,9 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        
+        // 
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -42,31 +38,25 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $message = [
-            'required' => ':attribute harus diisi gaess',
-            'min' => ':attribute minimal :min karakter ya coy',
-            'max' => 'attribute makasimal :max karakter gaess',
-            'numeric' => ':attribute kudu diisi angka cak!!'
+        $msg =[
+            'req' => ':attribute harus diisi'
         ];
 
-        $this->validate($request, [
-            'nama' => 'required|min:7|max:30',
-            'nisn' => 'required|numeric',
-            'kelas' => 'required',
-            'alamat' => 'required',
-            'jk' => 'required',
-        ], $message);
+        $this->validate($request,[
+            'nisn' =>'req',
+            'nama' =>'req',
+            'alamat' =>'req',
+            'id_kelas' =>'req',
+            'jk' =>'req'
+        ], $msg);
 
         siswa::create([
-            'nama' => $request->nama,
-            'nisn' => $request->nisn,
-            'kelas' => $request->kelas,
-            'alamat' => $request->alamat,
+            'nisn' => $request->nisn ,
+            'nama' => $request->nama ,
+            'alamat' => $request-> alamat ,
+            'id_kelas' => $request-> id_kelas,
             'jk' => $request->jk
         ]);
-
-        // return redirect('');
-        
     }
 
     /**
@@ -77,7 +67,8 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        //
+        $siswa = siswa::find($id);
+        return view('showsiswa', compact('siswa'));
     }
 
     /**
@@ -88,10 +79,9 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        $guru = guru::all();
-        $kelas = kelas::all();
+        //
         $siswa = siswa::find($id);
-        return view ('editsiswa' ,compact('guru', 'siswa','kelas'));
+        return view('kelas.editsiswa', compact('siswa'));
     }
 
     /**
@@ -103,7 +93,28 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $msg = [
+            'req' => ':attribute harus diisi'
+        ];
+
+        $this->validate($request, [
+            'nisn' => 'req',
+            'nama' => 'req',
+            'alamat' => 'req',
+            'id_kelas' => 'req',
+            'jk' => 'req'
+        ], $msg);
+
+        $siswa = siswa::find($id);
+        $siswa->nisn =$request ->nisn;
+        $siswa-> nama = $request->nama;
+        $siswa-> alamat = $request->alamat;
+        $siswa-> id_kelas = $request->id_kelas;
+        $siswa-> jk = $request->jk;
+        $siswa -> save();
+
+        session::flash('updatesiswa', 'Data Siswa Berhasil Di Update');
+        return redirect('/datasiswa');
     }
 
     /**
@@ -119,8 +130,7 @@ class SiswaController extends Controller
 
     public function hapus($id){
         siswa::find($id)->delete();
-        session::flash('siswa',"Data Siswa Berhasil Dihapus");
-        return redirect('datakelas');
+        session::flash('hapus', 'Data Siswa Berhasil Di Hapus');
+        return redirect('/datasiswa');
     }
-    
 }

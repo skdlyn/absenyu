@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\LoginController;
@@ -38,6 +37,7 @@ Route::middleware('guest')->group(function () {
 
 //admin
 Route::middleware('auth')->group(function () {
+    Route::resource('dashboard', DashboardController::class);
     // absen
     Route::resource('absen', AbsenController::class);
     // route::get('absen/{id}/')
@@ -51,22 +51,18 @@ Route::middleware('auth')->group(function () {
     // list kelas
     Route::resource('showkelas', KelasController::class);
     route::get('showkelas/{id}/hapus', [KelasController::class])->name('showkelas.hapus');
-    // Route::get('showkelas', KelasController::class);
 
 
 
-    Route::resource('dashboard', DashboardController::class);
+    // CRUD DATA KELAS
     Route::resource('datasiswa', DataController::class);
-    // route::get('datakelas/{id}/hapus/',[DataController::class, 'hapus'])->name('datasiswa.hapus');
     Route::get('datasiswa/{id}', [DataController::class, 'hapus'])->name('datasiswa.hapus');
 
 
-
-    // data kelas
+    // CRUD KELAS
     Route::resource('datakelas', DataKelasController::class);
-    // route::get('datakelas/{id}/');
     Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
-    // Route::get('datakelas/{id_kelas}/hapus/{id}', [DataKelasController::class, 'hapussiswa'])->name('datasiswa.hapus');
+
 
 
 

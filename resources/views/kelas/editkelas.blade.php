@@ -18,7 +18,6 @@
                 {{-- <input type="hidden" name="siswa_id" value="{{ $siswa->id }}"> --}}
                 <label for="id_guru">Wali Kelas</label>
                 <select class="form-select form-control" id="id_guru" name='id_guru'>
-                    <option value="">Pilih Nama Wali Kelas</option>
                     @foreach ($guru as $item)
                         <option value="{{ $item->id }}">{{ $item->nama }}</option>
                     @endforeach

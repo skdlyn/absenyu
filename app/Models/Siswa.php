@@ -14,7 +14,7 @@ class Siswa extends Model
         'nama',
         'alamat',
         'id_kelas',
-        'jk',
+        'jk'
 
     ];
     protected $table = 'siswa';

@@ -20,7 +20,7 @@
                 <strong>{{ $message }}</strong>
             </div>
         @endif
-
+p
 
         <div class="row">
             <ol class="breadcrumb">
@@ -122,7 +122,7 @@
                                         <td>{{ $item->tahun_masuk }}</td>
                                         <td>{{ $item->tahun_keluar }}</td>
                                         <td>
-                                            <a href="{{ route('datakelas.edit', $item->id) }}"
+                                            <a href="{{ route('datasiswa.edit', $item->id) }}"
                                                 class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i>
                                             </a>
                                         </td>

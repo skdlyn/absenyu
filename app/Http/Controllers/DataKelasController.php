@@ -117,15 +117,6 @@ class DataKelasController extends Controller
         ], $message);
 
         //insert data
-        Kelas::create([
-            'nama_kelas' => $request->nama_kelas,
-            'kuota' => $request->kuota,
-            'tahun_masuk' => $request->tahun_masuk,
-            'tahun_keluar' => $request->tahun_keluar,
-            'id_guru' => $request->id_guru,
-        ]);
-
-
         $kelas = kelas::find($id);
         $kelas->nama_kelas = $request->nama_kelas;
         $kelas->kuota  = $request->kuota;

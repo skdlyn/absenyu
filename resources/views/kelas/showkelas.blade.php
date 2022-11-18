@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col-lg-">
                             <div class="form-group">
-                                <label for="tanggal">tanggal</label>
+                                <label for="tanggal"></label>
                                 <div class="input-group date">
                                     
                                 </div>
