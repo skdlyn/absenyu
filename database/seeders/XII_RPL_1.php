@@ -34,8 +34,80 @@ class XII_RPL_1 extends Seeder
 
         siswa::create([
             'nisn' => '0055606455',
-            'nama' => 'Moreno Hernakov',
-            'alamat' => 'Jl. Menanggal ',
+            'nama' => 'Abyaz Prince Muhammad',
+            'alamat' => '1 ',
+            'id_kelas' => '1',
+            'jk' => 'laki - laki',
+        ]);
+
+        siswa::create([
+            'nisn' => '0055606455',
+            'nama' => 'ach nur icrchamul',
+            'alamat' => '2 ',
+            'id_kelas' => '1',
+            'jk' => 'laki - laki',
+        ]);
+
+        siswa::create([
+            'nisn' => '0055606455',
+            'nama' => 'achmad annuru akbar',
+            'alamat' => '3 ',
+            'id_kelas' => '1',
+            'jk' => 'laki - laki',
+        ]);
+
+        siswa::create([
+            'nisn' => '0055606455',
+            'nama' => 'achmad naufal ferdiansyah',
+            'alamat' => '4',
+            'id_kelas' => '1',
+            'jk' => 'laki - laki',
+        ]);
+
+        siswa::create([
+            'nisn' => '0055606455',
+            'nama' => 'adinda jati mulia',
+            'alamat' => '5',
+            'id_kelas' => '1',
+            'jk' => 'perempuan',
+        ]);
+
+        siswa::create([
+            'nisn' => '0055606455',
+            'nama' => 'afrizaldin ananda phraqazza',
+            'alamat' => '6',
+            'id_kelas' => '1',
+            'jk' => 'laki - laki',
+        ]);
+
+        siswa::create([
+            'nisn' => '0055606455',
+            'nama' => 'aghna naufal caesaryan',
+            'alamat' => '7',
+            'id_kelas' => '1',
+            'jk' => 'laki - laki',
+        ]);
+
+        siswa::create([
+            'nisn' => '0055606455',
+            'nama' => 'ahmad zakki saputra',
+            'alamat' => '8',
+            'id_kelas' => '1',
+            'jk' => 'laki - laki',
+        ]);
+
+        siswa::create([
+            'nisn' => '0055606455',
+            'nama' => 'alan nadia bella sahira',
+            'alamat' => '9',
+            'id_kelas' => '1',
+            'jk' => 'perempuan',
+        ]);
+
+        siswa::create([
+            'nisn' => '0055606455',
+            'nama' => 'Alexander sebastian richard',
+            'alamat' => '10',
             'id_kelas' => '1',
             'jk' => 'laki - laki',
         ]);

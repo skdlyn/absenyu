@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\SiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,31 +51,33 @@ Route::middleware('auth')->group(function () {
     // list kelas
     Route::resource('showkelas', KelasController::class);
     route::get('showkelas/{id}/hapus', [KelasController::class])->name('showkelas.hapus');
-// Route::get('showkelas', KelasController::class);
+    // Route::get('showkelas', KelasController::class);
 
 
 
     Route::resource('dashboard', DashboardController::class);
     Route::resource('datasiswa', DataController::class);
-    
-    
+    // route::get('datakelas/{id}/hapus/',[DataController::class, 'hapus'])->name('datasiswa.hapus');
+    Route::get('datasiswa/{id}', [DataController::class, 'hapus'])->name('datasiswa.hapus');
 
-        // data kelas
+
+
+    // data kelas
     Route::resource('datakelas', DataKelasController::class);
     // route::get('datakelas/{id}/');
     Route::get('datakelas/{id}/hapus', [DataKelasController::class, 'hapus'])->name('datakelas.hapus');
+    // Route::get('datakelas/{id_kelas}/hapus/{id}', [DataKelasController::class, 'hapussiswa'])->name('datasiswa.hapus');
 
 
-    Route::get('datasiswa/{id_siswa}/hapus', [DataController::class, 'hapus'])->name('datasiswa.hapus');
-    
-    
+
+
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
-    
+
     // route::get('/rekaplist', function(){
     //     return view('rekaplist');
     // });
-    
+
 
 
     Route::post('logout', [LoginController::class, 'logout']);

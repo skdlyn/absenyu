@@ -114,8 +114,12 @@ class DataController extends Controller
 
     public function hapus($id)
     {
-        $siswa = siswa::find($id)->delete();
-        Session::flash('danger', 'Data Berhasil Dihapus');
-        return redirect('/datasiswa');
+        // Kelas::find($id)->delete();
+        // Session::flash('kelas', 'Data Kelas Berhasil Dihapus');
+        // return redirect('datakelas');
+
+        // siswa::find($id)->delete();
+        // Session::flash('siswa', 'Data Siswa Berhasil Dihapus');
+        // return redirect('/datakelas');
     }
 }

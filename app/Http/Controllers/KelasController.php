@@ -14,12 +14,12 @@ class KelasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
         // $kelas = kelas::paginate();
-        $siswa = siswa::where('id_kelas');
-        $guru = kelas::all();
-        return view('showkelas', compact('siswa', 'guru'));
+        // $siswa = siswa::where('id_kelas');
+        // $guru = kelas::all();
+        // return view('showkelas', compact('siswa', 'guru'));
     }
 
     /**
@@ -72,10 +72,7 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        // return $id;
-        // return siswa::where('id_kelas',$id)->get();
-        $siswa = siswa::where('id_kelas', $id)->get();
-        return view('showkelas', compact('siswa'));
+        
     }
 
     /**

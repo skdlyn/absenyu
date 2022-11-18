@@ -31,8 +31,7 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        // $kelas = kelas::all();
-        // return view('datasiswa', compact('siswa', 'kelas'));
+        
     }
     
     /**
@@ -58,13 +57,13 @@ class SiswaController extends Controller
             'jk' => 'required',
         ], $message);
 
-        // siswa::create([
-        //     'nama' => $request->nama,
-        //     'nisn' => $request->nisn,
-        //     'kelas' => $request->kelas,
-        //     'alamat' => $request->alamat,
-        //     'jk' => $request->jk
-        // ]);
+        siswa::create([
+            'nama' => $request->nama,
+            'nisn' => $request->nisn,
+            'kelas' => $request->kelas,
+            'alamat' => $request->alamat,
+            'jk' => $request->jk
+        ]);
 
         // return redirect('');
         
@@ -116,6 +115,12 @@ class SiswaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function hapus($id){
+        siswa::find($id)->delete();
+        session::flash('siswa',"Data Siswa Berhasil Dihapus");
+        return redirect('datakelas');
     }
     
 }
