@@ -78,9 +78,10 @@ class DataKelasController extends Controller
         $siswa = siswa::where('id_kelas', $id)->get();
         $guru = kelas::where('id_guru', $id)->with('guru')->get();
         $total = siswa::where('id_kelas', $id)->count();
-        $murid = siswa::find($id);
         $kelas = kelas::all();
-        return view('kelas.showkelas', compact('siswa', 'guru', 'total','murid','kelas'));
+        $murid = siswa::find($id);
+        // return $murid;
+        return view('kelas.showkelas', compact('murid','siswa', 'guru', 'total','kelas'));
     }
 
     /**

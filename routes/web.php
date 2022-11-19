@@ -41,27 +41,30 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     // absen
     Route::resource('absen', AbsenController::class);
+    route::get('absen/{absen}',[AbsenController::class,'absen'])->name('absen.tambah');
+    // route::get('list', [AbsenController::class,'list'])->name('list.absen');
+    // route::get('absen/create',[AbsenController::class, 'create'])->name('absenc.create');
     // route::get('absen/{id}/')
-    Route::get('list', [AbsenController::class, 'list'])->name('absen.list');
+    // Route::get('list', [AbsenController::class, 'list'])->name('absen.list');
     // Route::get('listkelas', [AbsenController::class, 'listkelas'])->name('absen.listkelas');
-    Route::get('pending', [AbsenController::class, 'pending'])->name('absen.pending');
+    // Route::get('pending', [AbsenController::class, 'pending'])->name('absen.pending');
     // route::get('/list', function(){
     //     return view('absen.list');
     // });
 
     // list kelas
-    Route::resource('showkelas', KelasController::class);
-    route::get('showkelas/{id}/hapus', [KelasController::class])->name('showkelas.hapus');
-
-
-
+    // Route::resource('showkelas', DataKelasController::class);
+    
+    
+    
     // CRUD DATA KELAS
     // Route::resource('datasiswa', DataController::class);
     // Route::get('datasiswa/{id}', [DataController::class, 'hapus'])->name('datasiswa.hapus');
-
-
+    
+    
     // CRUD KELAS
     Route::resource('datakelas', DataKelasController::class);
+    route::get('showkelas/{id}/hapus', [DataKelasController::class])->name('showkelas.hapus');
     
     // CRUD SISWA
     Route::resource('datasiswa', DatasiswaController::class);

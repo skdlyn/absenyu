@@ -17,7 +17,7 @@ class DataSiswaController extends Controller
      */
     public function index()
     {
-        // landing
+        return view('kelas.showkelas');
     }
 
     /**
@@ -59,8 +59,8 @@ class DataSiswaController extends Controller
             'jk' => $request->jk
         ]);
 
-        session::flash('siswa_sismpan','Data Siswa berhasil Disimpan');
-        
+        session::flash('siswa_simpan','Data Siswa berhasil Disimpan');
+        return redirect('dashboard');
     }
 
     /**
@@ -72,7 +72,7 @@ class DataSiswaController extends Controller
     public function show($id)
     {
         $siswa = siswa::find($id);
-        return view('showsiswa', compact('siswa'));
+        return view('kelas.showsiswa', compact('siswa'));
     }
 
     /**
@@ -118,7 +118,7 @@ class DataSiswaController extends Controller
         $siswa -> save();
 
         session::flash('updatesiswa', 'Data Siswa Berhasil Di Update');
-        return redirect('/datasiswa');
+        return redirect('datakelas');
     }
 
     /**
@@ -134,7 +134,7 @@ class DataSiswaController extends Controller
 
     public function hapus($id){
         siswa::find($id)->delete();
-        session::flash('hapus', 'Data Siswa Berhasil Di Hapus');
-        return redirect('/datasiswa');
+        // session::flash('hapus', 'Data Siswa Berhasil Di Hapus');
+        return back();
     }
 }

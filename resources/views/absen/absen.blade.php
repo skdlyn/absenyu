@@ -36,7 +36,7 @@
         <ol class="breadcrumb">
             <li><a href="/dashboard"><em class="fa fa-home"></em></a> Absen</li>
             {{-- <li class="active">  Dashboard</li> --}}
-        {{-- </ol>
+    {{-- </ol>
     </div> --}}
 
     <div class="row">
@@ -59,12 +59,12 @@
                                 <tr>
                                     <th scope="row">{{ ++$i }}</th>
                                     {{-- <td>{{ $item->nama_kelas }}</td> --}}
-                                    {{-- <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td> --}}
-                                    <td><a href="{{ url('absen/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
-                                    {{-- <td></td> --}}
+                                    {{-- <td><a href="{{ url('absen/' . $item->id) }}">{{ $item->nama_kelas }}</a></td> --}}
+                                    <td><a href={{ 'absen/' . $item->id }}>{{ $item->nama_kelas }}</a></td>
+                                    {{-- <td><a href="{{ route('absen.create', $item->id) }}">{{ $item->nama_kelas }}</a></td> --}}
                                 </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
                     </table>
                 </div>
             </div>

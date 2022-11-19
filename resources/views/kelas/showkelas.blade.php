@@ -15,7 +15,7 @@
         </ol> --}}
     </div>
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-xl-3 col-md-6 md-6 mb-4">
             <div class="card border-left-primary  h-100 py-2">
                 <div class="card-body">
@@ -99,19 +99,18 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
+                {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever>Tambah
+                    Data</button> --}}
                 <div class="card-body">
                     {{-- datepicker --}}
-                    <div class="row">
-                        <div class="col-lg-">
-                            <h1></h1>
-                        </div>
-                    </div>
+                    
 
                     <table class="table">
                         <thead class="bg-primary text-white">
@@ -167,15 +166,14 @@
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" class="form-control" id="nama_kelas" name='nama_kelas'
-                                value="{{ $murid->nama }}">
+                                value="{{ $murid }}">
                         </div>
                         <div class="form-group">
                             <label for="nisn">Nisn</label>
                             <input type="text" class="form-control" id="nisn" name='nisn'
-                                value="{{ $murid->nisn }}">
+                                value="{{ $murid }}">
                         </div>
                         <div class="form-group">
-                            {{-- <input type="hidden" name="siswa_id" value="{{ $siswa->id }}"> --}}
                             <label for="id_kelas">Kelas</label>
                             <select class="form-select form-control" id="id_kelas" name='id_kelas'>
                                 @foreach ($kelas as $item)
@@ -187,9 +185,9 @@
                             <label for="jk">Jenis Kelamin</label>
                             <select class="form-select form-control" id="jk" name='jk'
                                 value="{{ old('jk') }}">
-                                <option value="laki-laki" @if ($murid->jk == 'laki-laki') selected @endif>Laki-laki
+                                <option value="laki-laki" @if ($murid == 'laki-laki') selected @endif>Laki-laki
                                 </option>
-                                <option value="perempuan" @if ($murid->jk == 'perempuan') selected @endif>Perempuan
+                                <option value="perempuan" @if ($murid == 'perempuan') selected @endif>Perempuan
                                 </option>
                             </select>
                         </div>
@@ -197,7 +195,7 @@
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
                             <input type="text" class="form-control" id="alamat" name="alamat"
-                                value="{{ $murid->alamat }}" placeholder="alamat">
+                                value="{{ $murid }}" placeholder="alamat">
                         </div>
 
                         <div class="modal-footer">

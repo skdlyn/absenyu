@@ -57,7 +57,7 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <a href="{{ route('datasiswa.index') }}"type="button" class="btn btn-danger">Batal</a>
+                                    {{-- <a href="{{ route('datasiswa.index') }}"type="button" class="btn btn-danger">Batal</a> --}}
                                     <input type="submit" class="btn btn-success" value="Simpan">
                                 </div>
                             </form>

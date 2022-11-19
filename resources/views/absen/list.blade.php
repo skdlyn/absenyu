@@ -27,13 +27,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($collection as $i => $item) --}}
+                            @foreach ($collection as $i => $item)
                             <tr>
                                 <td> </td>
                                 <td> </td>
                                 <td></td>
                             </tr>
-                            {{-- @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
