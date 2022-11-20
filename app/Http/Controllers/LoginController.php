@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Register;
+use Illuminate\Support\Str;
+use App\Models\Role;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -35,6 +39,25 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
 
+    }
+    public function signup()
+    {
+        $role = role::all();
+        return view('register', compact('role'));
+    }
+
+    public function tambah(Request $request)
+    {
+        //insert data
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->passoword),
+            'id_role' => $request->id_role
+        ]);
+
+        Session::flash('registerSuccess', 'User Kelas berhasil Di data !!!');
+        return redirect('login');
     }
 }
 

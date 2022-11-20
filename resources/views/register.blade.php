@@ -8,12 +8,30 @@
 <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 <link rel="stylesheet" href="">
+@if ($message = Session::get('registerSuccess'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+@if ($message = Session::get('danger'))
+    <div class="alert alert-danger alert-block">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+@if ($message = Session::get('berhasil'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
 
 <section class="vh-100">
     <div class="container py-5 h-100" style="overflow: hidden;">
-            <a href="/" class="btn btn-primary">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            </a>
+        <a href="/" class="btn btn-primary">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </a>
         <div class="row d-flex align-items-center justify-content-center h-100">
             <div class="col-md-8 col-lg-7 col-xl-6">
                 <img src="{{ asset('template/img/login.jpeg') }}" class="img-fluid" alt="Phone image">
@@ -27,25 +45,41 @@
                             {{ session('registerError') }}
                         </div>
                     @endif
-                    <form method="post" action="login" class="user">
+                    <form method="post" action="" class="user">
                         @csrf
+                        <div class="form-outline mb-4 form-group">
+                            <input type="text" name="name" id="name" aria-describedby="nameHelp"
+                                placeholder="Nama Lengkap..." class="form-control form-control-user">
+                        </div>
                         <!-- Email input -->
                         <div class="form-outline mb-4 form-group">
-                            <input type="email" name="email" id="exampleInputEmail" aria-describedby="emailHelp"
-                                placeholder="Enter Email Address.." class="form-control form-control-user">
+                            <input type="email" name="email" id="email" aria-describedby="emailHelp"
+                                placeholder="Alamat E-Mail..." class="form-control form-control-user">
                         </div>
 
-                        <!-- Password input -->
-                        <div class="form-outline mb-4 form-group">
-                            <input type="password" name="password" id="exampleInputPassword" placeholder="Password"
-                                class="form-control form-control-user">
+                        <div class="row">
+                            <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline mb-4 form-group">
+                                    <input type="password" name="password" id="password"
+                                        aria-describedby="passwordHelp" placeholder="Password"
+                                        class="form-control form-control-user">
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline mb-4 form-group">
+                                    <input type="password" name="password2" id="password2"
+                                        aria-describedby="passwordHelp" placeholder="Confirmation Password"
+                                        class="form-control form-control-user">
+                                </div>
+                            </div>
                         </div>
+                        <!--Role Input-->
                         <div class="form-group">
                             {{-- <input type="hidden" name="siswa_id" value="{{ $siswa->id }}"> --}}
-                            <label for="id_guru">Role / Status</label>
-                            <select class="form-select form-control" id="id_guru" name='id_guru'>
+                            <label for="id_role">Role / Status</label>
+                            <select class="form-select form-control" id="id_role" name='id_role'>
                                 <option value="">Pilih Role Anda</option>
-                                @foreach ($user as $item)
+                                @foreach ($role as $item)
                                     <option value="{{ $item->id }}">{{ $item->role }}</option>
                                 @endforeach
                             </select>
@@ -53,7 +87,12 @@
                         <!-- Submit button -->
                         {{-- <input type="submit" width="" value="Login" class="btn btn-primary btn-lg btn-block">
                         <input type="submit" width="" value="Login" class="btn btn-primary btn-lg btn-block"> --}}
-                      <input type="submit" name="register" value="REGISTRASI" class="btn btn-primary w-100"id="register">
+                        <div class="form-group">
+                            <div class="col">
+                                <button type="submit" value="SIGN UP" class="btn btn w-100"
+                                    style="background:#6b5b95;"></button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -12,9 +12,10 @@ class Register extends Model
     protected $fillable = [
         'name',
         'email',
-        'role',
         'password',
+        'id_role',
     ];
+    protected $table = 'register';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -34,4 +35,8 @@ class Register extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function role()
+    {
+        return $this->hasMany('App\Models\User', 'id_role');
+    }
 }

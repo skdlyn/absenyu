@@ -45,17 +45,16 @@
                         <input type="submit" width="" value="Login" class="btn btn-primary btn-lg btn-block"> --}}
                         <div class="row">
                             <div class="col">
-                                <input type="submit" value="LOGIN" class="btn btn-primary w-100">
+                                <input type="submit" value="LOGIN" class="btn btn w-100" style="background:#6b5b95;">
                             </div>
-                            <div class="col">
-                                <a href="register" class="btn w-100">REGISTER</a>
+                        </div>
+                        <!-- Register buttons -->
+                        <div class="row">
+                            <div class="text-center col">
+                                <p>Belum Punya Akun ? <a href="register">Registrasi</a></p>
                             </div>
                         </div>
                     </form>
-                    <div class="form-group">
-                        <a href="{{ url('/dashboardsiswa') }}"
-                            class="Siswa border-0 form-control btn btn-danger  submit px-3 "> MASUK SEBAGAI SISWA/I</a>
-                    </div>
                 </div>
             </div>
         </div>
