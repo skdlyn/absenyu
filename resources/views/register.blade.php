@@ -8,12 +8,12 @@
 <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 <link rel="stylesheet" href="">
-@if ($message = Session::get('registerSuccess'))
+{{-- @if ($message = Session::get('registerSuccess'))
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert"></button>
         <strong>{{ $message }}</strong>
     </div>
-@endif
+@endif --}}
 @if ($message = Session::get('danger'))
     <div class="alert alert-danger alert-block">
         <button type="button" class="close" data-dismiss="alert"></button>
@@ -40,9 +40,9 @@
                 <div class="card-body p-5 text-center">
                     <h2 class="fw-bold mb-2 text-uppercase" style="font-family: 'Tahoma'">SELAMAT DATANG</h2>
                     <p class="text-dark-50 mb-5">Silahkan Daftarkan Akun Anda !!!</p>
-                    @if (session()->has('registerError'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{ session('registerError') }}
+                    @if (session()->has('registerSuccess'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('registerSuccess') }}
                         </div>
                     @endif
                     <form method="post" action="" class="user">
@@ -58,14 +58,14 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6 mb-4 pb-2">
+                            <div class="col-md-6 pb-2">
                                 <div class="form-outline mb-4 form-group">
                                     <input type="password" name="password" id="password"
                                         aria-describedby="passwordHelp" placeholder="Password"
                                         class="form-control form-control-user">
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-4 pb-2">
+                            <div class="col-md-6 pb-2">
                                 <div class="form-outline mb-4 form-group">
                                     <input type="password" name="password2" id="password2"
                                         aria-describedby="passwordHelp" placeholder="Confirmation Password"
@@ -87,12 +87,12 @@
                         <!-- Submit button -->
                         {{-- <input type="submit" width="" value="Login" class="btn btn-primary btn-lg btn-block">
                         <input type="submit" width="" value="Login" class="btn btn-primary btn-lg btn-block"> --}}
+                        <div class="row justify-content-center">
                         <div class="form-group">
-                            <div class="col">
-                                <button type="submit" value="SIGN UP" class="btn btn w-100"
-                                    style="background:#6b5b95;"></button>
-                            </div>
+                                <button type="submit" value="SIGN UP" class="btn text-light btn"
+                                    style="background:#6b5b95; width:350px">SIGN UP</button>
                         </div>
+                    </div>
                     </form>
                 </div>
             </div>

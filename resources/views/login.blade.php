@@ -45,7 +45,7 @@
                         <input type="submit" width="" value="Login" class="btn btn-primary btn-lg btn-block"> --}}
                         <div class="row">
                             <div class="col">
-                                <input type="submit" value="LOGIN" class="btn btn w-100" style="background:#6b5b95;">
+                                <input type="submit" value="LOGIN" class="btn btn w-100 text-light" style="background:#6b5b95;">
                             </div>
                         </div>
                         <!-- Register buttons -->

@@ -38,7 +38,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
-
+    //Register
     }
     public function signup()
     {
@@ -52,10 +52,10 @@ class LoginController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->passoword),
-            'id_role' => $request->id_role
+            'password' => bcrypt($request->password),
+            'id_role' => $request->id_role,
         ]);
-
+       
         Session::flash('registerSuccess', 'User Kelas berhasil Di data !!!');
         return redirect('login');
     }
