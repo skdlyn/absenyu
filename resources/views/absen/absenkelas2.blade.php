@@ -76,10 +76,13 @@
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                 Tanggal
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <input type="date" name="tanggal" id="tanggal" class="form-control" placeholder=""
-                                    aria-describedby="helpId">
-                            </div>
+                            {{-- <form action="{{ route('absen.store') }}" method="post">
+                                @csrf
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <input type="date" name="tanggal" id="tanggal" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                </div> --}}
+                            {{-- </form> --}}
                         </div>
                         <div class="col-auto">
 
@@ -100,6 +103,12 @@
                     {{-- datepicker --}}
 
 
+                    {{-- <form action="{{ route('absen.store') }}" method="post">
+                        @csrf --}}
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <input type="date" name="tanggal" id="tanggal" class="form-control" placeholder=""
+                            aria-describedby="helpId">
+                    </div>
                     <table class="table">
                         <thead class="bg-primary text-white">
                             <tr>
@@ -110,19 +119,23 @@
                         </thead>
                         <tbody>
                             @foreach ($siswa as $i => $item)
-                                <tr>
-                                    <th scope="row">{{ ++$i }}</th>
-                                    <td>
-                                        {{ $item->nama }}
-                                        <input type="hidden" name="siswa" value="{{ $item->id }}"> 
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('absen.store') }}" method="post">
+                                <form action="{{ route('absen.store') }}" method="post">
+                                    @csrf
+                                    <tr>
+                                        <th scope="row">{{ ++$i }}</th>
+                                        <input type="hidden" name="tanggal" id="tanggal">
+                                        <td>
+                                            {{ $item->nama }}
+                                            <input type="hidden" name="id_siswa" id="id_siswa"
+                                                value="{{ $item->id }}">
+                                        </td>
+                                        <td>
                                             @if ($loop->last)
                                                 <div class="row">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}"  id="hadir" value="hadir" checked >
+                                                            name="status {{ $item }}" id="hadir" value="hadir"
+                                                            checked>
                                                         <label class="form-check-label" for="hadir">
                                                             Hadir
                                                         </label>
@@ -143,7 +156,8 @@
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="izin" value="izin">
+                                                            name="status {{ $item }}" id="izin"
+                                                            value="izin">
                                                         <label class="form-check-label" for="izin">
                                                             Izin
                                                         </label>
@@ -153,7 +167,8 @@
                                                 <div class="row">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="hadir" value="hadir" checked>
+                                                            name="status {{ $item }}" id="hadir" value="hadir"
+                                                            checked>
                                                         <label class="form-check-label" for="hadir">
                                                             Hadir
                                                         </label>
@@ -182,19 +197,58 @@
                                                             Izin
                                                         </label>
                                                     </div>
+
+
                                                 </div>
                                             @endif
-                                        </form>
-                                    </td>
-                                </tr>
+                                            <div class="form-group">
+                                                <select class="form-select form-control" id="status" name='status'
+                                                    value="">
+                                                    <option value="hadir">hadir</option>
+                                                    <option value="alpha">alpha</option>
+                                                    <option value="sakit">sakit</option>
+                                                    <option value="izin">izin</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </form>
                             @endforeach
                         </tbody>
                     </table>
+                    {{-- <div class="d-flex flex-row-reverse">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal" data-whatever>Simpan absen</button>
+                        </div> --}}
+
+                    <div class="form-group d-flex flex-row-reverse">
+                        <input type="submit" class="btn btn-success" value="simpan">
+                    </div>
+                    {{-- modal validasi absen --}}
+                    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="submit" class="btn btn-success" value="simpan">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+
                 </div>
             </div>
         </div>
     </div>
-
 
 
 @endsection

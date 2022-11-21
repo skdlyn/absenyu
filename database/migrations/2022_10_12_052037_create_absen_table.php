@@ -29,7 +29,7 @@ return new class extends Migration
             //     ->onUpdate('cascade');
             $table->string('tanggal');
             $table->char('status');
-            $table->char('surat')->nullable();
+            // $table->char('surat')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

@@ -92,18 +92,23 @@ class AbsenController extends Controller
         ];
 
         $this->validate($request, [
+            'id_siswa'=> 'required',
             'tanggal' => 'required',
-            'status' => 'required',
-            // 'keterangan' => ''
+            'status' => 'required'
         ], $pesan);
 
-        Absen::create([
+        $absen = Absen::create([
+            'id_siswa' => $request->id_siswa,
             'tanggal' => $request->tanggal,
             'status' => $request->status,
-            // 'keterangan' => $request->keterangan,
         ]);
 
-        return redirect('list');
+        dd($request->all());
+        
+
+        // session::flash('');
+        // return back();
+        return ('ok');
     }
 
     /**

@@ -11,8 +11,8 @@ class Absen extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_siswa',
         'tanggal',
+        'id_siswa',
         'status',
         'keterangan'
     ];
