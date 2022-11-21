@@ -46,7 +46,9 @@
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
                         <div class="2">
-                            <a class="btn btn-primary w-50" href="/login">Jelajahi</a>
+                            <a href="/login" class="btn btn-dark" style="background:#6b5b95;">
+                                <i class="fa fa-arrow-left" aria-hidden="true">Jelajahi</i>
+                            </a>
                         </div>
                     </div>
                 </div>
