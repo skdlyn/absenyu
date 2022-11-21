@@ -22,7 +22,9 @@ return new class extends Migration
             $table->date('tahun_masuk');
             $table->date('tahun_keluar');
             $table->unsignedBigInteger('id_guru');
-            $table->foreign('id_guru')->references('id')->on('guru');
+            $table->foreign('id_guru')->references('id')->on('guru')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
