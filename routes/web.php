@@ -23,8 +23,8 @@ use App\Http\Controllers\DataSiswaController;
 |
 */
 
-Route::get('/', function () {
-    return view('user.login');
+Route::get('/login', function () {
+    return view('login');
 });
 //guest
 Route::middleware('guest')->group(function () {

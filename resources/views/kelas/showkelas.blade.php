@@ -15,7 +15,7 @@
         </ol> --}}
     </div>
 
-    {{-- <div class="row">
+    <div class="row">
         <div class="col-xl-3 col-md-6 md-6 mb-4">
             <div class="card border-left-primary  h-100 py-2">
                 <div class="card-body">
@@ -99,7 +99,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div> 
 
 
     <div class="row">
@@ -110,7 +110,7 @@
                     Data</button> --}}
                 <div class="card-body">
                     {{-- datepicker --}}
-                    
+
 
                     <table class="table">
                         <thead class="bg-primary text-white">

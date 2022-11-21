@@ -103,22 +103,29 @@
                     </div> --}}
 
                     {{-- <div class="col-xl-3 col-md-6 md-6 mb-4"> --}}
-                        <div class="card border-left-primary  h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
+                    <div class="card border-left-primary  h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="mb-3">
+                                        <input type="hidden" name="id_siswa" value="">
                                         <div class="form-group">
-                                            <label for="tahun_masuk">Tahun Masuk</label>
-                                            <input type="date" class="form-control" id="tahun_masuk" name="tahun_masuk"
-                                                value="{{ old('tahun_masuk') }}">
+                                            <label for="tanggal" class="form-label">Tanggal</label>
+                                            <input type="date" name="tanggal" id="tanggal" class="form-control"
+                                                placeholder="" aria-describedby="helpId">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status">status</label>
+                                            <input type="text" name="status" id="status">
                                         </div>
                                     </div>
-                                    <div class="col-auto">
-                                    </div>
+                                </div>
+                                <div class="col-auto">
                                 </div>
                             </div>
                         </div>
-                        
+                    </div>
+
                     {{-- </div> --}}
 
                     <div class="card-body">
@@ -139,8 +146,8 @@
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->nisn }}</td>
 
-                                            <td>
-                                                @if ($loop->last)
+                                            {{-- <td> --}}
+                                            {{-- @if ($loop->last)
                                                     <div class="form-group">
                                                         <input type="radio" id="hadir"
                                                             name="status{{ $item }}" value="hadir">
@@ -170,9 +177,9 @@
                                                             name="status{{ $item }}" value="sakit">
                                                         sakit
                                                     </div>
-                                                @endif
-                                                {{-- diff --}}
-                                                {{-- @if ($loop->last)
+                                                @endif --}}
+                                            {{-- diff --}}
+                                            {{-- @if ($loop->last)
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
                                                             name="flexRadioDefault" id="flexRadioDefault1">
@@ -203,7 +210,7 @@
                                                         </label>
                                                     </div>
                                                 @endif --}}
-                                            </td>
+                                            {{-- </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -11,17 +11,17 @@ class Absen extends Model
     use HasFactory;
 
     protected $fillable = [
-    'tanggal',
-    'status',
-    'keterangan'
+        'id_siswa',
+        'tanggal',
+        'status',
+        'keterangan'
     ];
 
 
-    protected $table='absen';
-    
+    protected $table = 'absen';
+
     public function surat()
     {
         return $this->belongsToMany('App\Models\Siswa');
     }
 }
-

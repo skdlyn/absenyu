@@ -125,7 +125,8 @@ class AbsenController extends Controller
         $guru = kelas::where('id_guru', $id)->with('guru')->get();
         $siswa = siswa::where('id_kelas', $id)->get();
         $total = siswa::where('id_kelas', $id)->count();
-        return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        // return $siswa;
+        return view('absen.absenkelas2', compact('siswa', 'guru', 'total'));
     }
 
     

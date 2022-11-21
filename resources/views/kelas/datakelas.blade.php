@@ -100,7 +100,7 @@
                                     {{-- <th scope="col">NAMA KELAS</th> --}}
                                     <th scope="col">KELAS</th>
                                     {{-- <th scope="col">JURUSAN</th> --}}
-                                    <th scope="col">KUOTA</th>
+                                    {{-- <th scope="col">KUOTA</th> --}}
                                     <th scope="col">WALI KELAS</th>
                                     <th scope="col">TAHUN MASUK</th>
                                     <th scope="col">TAHUN KELUAR</th>
@@ -116,7 +116,7 @@
                                         <td><a href="{{ url('datakelas/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
                                         {{-- <td><a href="{{ route('datasiswa.index',$item->id) }}">{{ $item->nama_kelas }}</a></td> --}}
                                         {{-- <td></td> --}}
-                                        <td>{{ $item->kuota }}</td>
+                                        {{-- <td>{{ $item->kuota }}</td> --}}
                                         <td>{{ $item->guru->nama }} </td>
                                         <td>{{ $item->tahun_masuk }}</td>
                                         <td>{{ $item->tahun_keluar }}</td>
