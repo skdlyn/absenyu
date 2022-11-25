@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\siswa;
 use App\Models\Kelas;
 use Illuminate\Support\Facades\Session;
+use PDF;
 
 class DataController extends Controller
 {
@@ -98,7 +99,6 @@ class DataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
     }
 
     /**
@@ -109,7 +109,6 @@ class DataController extends Controller
      */
     public function destroy()
     {
-        
     }
 
     public function hapus($id)
@@ -117,5 +116,13 @@ class DataController extends Controller
         $siswa = siswa::find($id)->delete();
         Session::flash('danger', 'Data Berhasil Dihapus');
         return redirect('/datasiswa');
+    }
+
+    public function cetakpdf()
+    {
+        $data = siswa::all();
+        view()->share('data', $data);
+        $pdf = 'PDF'::loadview('cetak');
+        return $pdf->stream('Data Siswa.pdf');
     }
 }

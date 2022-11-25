@@ -65,7 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboardsiswa', DashboardController::class);
     Route::resource('datasiswa', DataController::class);
     
-    
+    Route::get('/cetakpdf', [DataController::class, 'cetakpdf'])->name('cetakpdf');
 
         // data kelas
     Route::resource('datakelas', DataKelasController::class);

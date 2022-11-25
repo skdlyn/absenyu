@@ -120,11 +120,14 @@
                                             class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
                                         <a href="{{ route('datasiswa.hapus', $item->id) }}"
                                             class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
-                                    </td>
+                                            
+                                        </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <a href="/cetakpdf"
+                    class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
                 </div>
             </div>
         </div>
