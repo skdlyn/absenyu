@@ -81,8 +81,8 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                                     <input type="date" name="tanggal" id="tanggal" class="form-control" placeholder=""
                                         aria-describedby="helpId">
-                                </div> --}}
-                            {{-- </form> --}}
+                                </div> 
+                            </form> --}}
                         </div>
                         <div class="col-auto">
 
@@ -105,10 +105,6 @@
 
                     {{-- <form action="{{ route('absen.store') }}" method="post">
                         @csrf --}}
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <input type="date" name="tanggal" id="tanggal" class="form-control" placeholder=""
-                            aria-describedby="helpId">
-                    </div>
                     <table class="table">
                         <thead class="bg-primary text-white">
                             <tr>
@@ -118,23 +114,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($siswa as $i => $item)
-                                <form action="{{ route('absen.store') }}" method="post">
+                            <form action="{{ route('absen.store') }}" method="post">
                                     @csrf
+
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <input type="date" name="tanggal" id="tanggal" class="form-control"
+                                        aria-describedby="helpId">
+                                </div>
+                                @foreach ($siswa as $i => $item)
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
-                                        <input type="hidden" name="tanggal" id="tanggal">
+                                        {{-- <input type="hidden" name="tanggal" id="tanggal">x q --}}
                                         <td>
                                             {{ $item->nama }}
-                                            <input type="hidden" name="id_siswa" id="id_siswa"
+                                            <input type="hidden" name="id_siswa[]" id="id_siswa"
                                                 value="{{ $item->id }}">
                                         </td>
                                         <td>
-                                            @if ($loop->last)
+                                            {{-- @if ($loop->last)
                                                 <div class="row">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="hadir" value="hadir"
+                                                            name="{{ $item }}" id="hadir" value="hadir"
                                                             checked>
                                                         <label class="form-check-label" for="hadir">
                                                             Hadir
@@ -142,22 +143,21 @@
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="alpha" value="alpha">
+                                                            name="{{ $item }}" id="alpha" value="alpha">
                                                         <label class="form-check-label" for="alpha">
                                                             Alpha
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="sakit" value="sakit">
+                                                            name="{{ $item }}" id="sakit" value="sakit">
                                                         <label class="form-check-label" for="sakit">
                                                             Sakit
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="izin"
-                                                            value="izin">
+                                                            name="{{ $item }}" id="izin" value="izin">
                                                         <label class="form-check-label" for="izin">
                                                             Izin
                                                         </label>
@@ -167,7 +167,7 @@
                                                 <div class="row">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="hadir" value="hadir"
+                                                            name="{{ $item }}" id="hadir" value="hadir"
                                                             checked>
                                                         <label class="form-check-label" for="hadir">
                                                             Hadir
@@ -175,24 +175,21 @@
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="alpha"
-                                                            value="alpha">
+                                                            name="{{ $item }}" id="alpha" value="alpha">
                                                         <label class="form-check-label" for="alpha">
                                                             Alpha
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="sakit"
-                                                            value="sakit">
+                                                            name="{{ $item }}" id="sakit" value="sakit">
                                                         <label class="form-check-label" for="sakit">
                                                             Sakit
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio"
-                                                            name="status {{ $item }}" id="izin"
-                                                            value="izin">
+                                                            name="{{ $item }}" id="izin" value="izin">
                                                         <label class="form-check-label" for="izin">
                                                             Izin
                                                         </label>
@@ -200,10 +197,9 @@
 
 
                                                 </div>
-                                            @endif
+                                            @endif --}}
                                             <div class="form-group">
-                                                <select class="form-select form-control" id="status" name='status'
-                                                    value="">
+                                                <select class="form-select form-control" id="status" name='status[]'>
                                                     <option value="hadir">hadir</option>
                                                     <option value="alpha">alpha</option>
                                                     <option value="sakit">sakit</option>
@@ -212,8 +208,11 @@
                                             </div>
                                         </td>
                                     </tr>
-                                </form>
-                            @endforeach
+                                @endforeach
+                                <div class="form-group d-flex flex-row-reverse">
+                                    <input type="submit" class="btn btn-success" value="simpan">
+                                </div>
+                            </form>
                         </tbody>
                     </table>
                     {{-- <div class="d-flex flex-row-reverse">
@@ -221,9 +220,7 @@
                                 data-target="#exampleModal" data-whatever>Simpan absen</button>
                         </div> --}}
 
-                    <div class="form-group d-flex flex-row-reverse">
-                        <input type="submit" class="btn btn-success" value="simpan">
-                    </div>
+
                     {{-- modal validasi absen --}}
                     {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">

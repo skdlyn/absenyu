@@ -2,8 +2,7 @@
     <html lang="en">
 
     <head>
-
-        <title>Aplikasi Absensi RPL - @yield('title')</title>
+        <title>Absensi - @yield('title')</title>
         @include('layout.head')
     </head>
 
