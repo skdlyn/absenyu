@@ -85,31 +85,76 @@ class AbsenController extends Controller
      */
     public function store(Request $request)
     {
+   
+        
         $pesan = [
             'required' => ':attribute harus diisi gaess',
             'min' => ':attribute minimal :min karakter ya coy',
             'max' => 'attribute makasimal :max karakter gaess',
         ];
 
-        $this->validate($request, [
-            'id_siswa'=> 'required',
-            'tanggal' => 'required',
-            'status' => 'required'
-        ], $pesan);
-
-        $absen = Absen::create([
+        $data = [
             'id_siswa' => $request->id_siswa,
-            'tanggal' => $request->tanggal,
-            'status' => $request->status,
-        ]);
+            'status' => $request->status
+        ];
 
-        dd($request->all());
+        // return $data;
+        for($i=0; $i < count($data['id_siswa']); $i++) {
+            // insert tabel absen
+            absen::insert([
+                'tanggal' => $request->tanggal,
+                'id_siswa' => $data['id_siswa'][$i],
+                'status' => $data['status'][$i]
+            ]);  
+        };
+
+        return back();
+
+        // $data = $request->all();
+        // $status = $data['status'];
+        // $siswa = $data['id_siswa'];
+        // $absen = [];
+        // foreach($siswa as $s){
+        //     $absen []= [
+        //         'status' => $siswa,
+        //         'id_siswa' => $siswa
+        //     ]
+        // }
+
+        // $id = array(['id_siswa']);
+        // foreach($siswa as $s){
+        //     return $s;
+        // }
         
+        // return $siswas;
+        
+        
+
+        // $pesan = [
+        //     'required' => ':attribute harus diisi gaess',
+        //     'min' => ':attribute minimal :min karakter ya coy',
+        //     'max' => 'attribute makasimal :max karakter gaess',
+        // ];
+
+        // $this->validate($request, [
+        //     'id_siswa'=> 'required',
+        //     'tanggal' => 'required',
+        //     'status' => 'required'
+        // ], $pesan);
+
+        // $absen = Absen::create([
+        //     'id_siswa' => $request->id_siswa,
+        //     'tanggal' => $request->tanggal,
+        //     'status' => $request->status,
+        // ]);
+
+        // dd($request->all());
+        // $absen ->save();
 
         // session::flash('');
         // return back();
-        return ('ok');
-    }
+        // return ('ok');
+     }
 
     /**
      * Display the specified resource.
