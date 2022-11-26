@@ -45,7 +45,7 @@
             <span>Absen</span></a>
     </li> --}}
 
-    <li class="nav-item">
+    <li class="nav-item ">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
             aria-expanded="true" aria-controls="collapseUtilities2">
             <i class="fas fa-fw fa-wrench"></i>
@@ -54,7 +54,7 @@
         <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pilihan Menu :</h6>
-                <a class="collapse-item" href="/datasiswa">Data Siswa</a>
+                <a class="collapse-item" href="{{ route('datasiswa.create') }}">Tambah Siswa</a>
                 <a class="collapse-item" href="/datakelas">Data Kelas</a>
                 <a class="collapse-item" href="/guru">Data Guru</a>
                 <a class="collapse-item" href="/listkelas">List kelas</a>
