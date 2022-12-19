@@ -11,6 +11,7 @@ use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\DataSiswaController;
+use App\Http\Controllers\ListAbsenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,16 +43,21 @@ Route::middleware('auth')->group(function () {
     // absen
     Route::resource('absen', AbsenController::class);
     route::get('absen/{absen}',[AbsenController::class,'absen'])->name('absen.tambah');
+    // route::get('absen/{absen}/listabsen',[AbsenController::class,'listabsen'])->name('absen.list');
     // route::get('list', [AbsenController::class,'list'])->name('list.absen');
     // route::get('absen/create',[AbsenController::class, 'create'])->name('absenc.create');
     // route::get('absen/{id}/')
     // Route::get('list', [AbsenController::class, 'list'])->name('absen.list');
     // Route::get('listkelas', [AbsenController::class, 'listkelas'])->name('absen.listkelas');
     // Route::get('pending', [AbsenController::class, 'pending'])->name('absen.pending');
-    // route::get('/list', function(){
-    //     return view('absen.list');
+    // route::get('/listabsen', function(){
+    //     return view('absen.listabsen');
     // });
 
+
+    route::resource('listabsen',ListAbsenController::class);
+    // route::get('listabsen/{id_kelas}/{tanggal}', [ListAbsenController::class,'show']);
+    route::get('listabsen/{id_kelas}/{tanggal}', [ListAbsenController::class,'tanggal']);
     // list kelas
     // Route::resource('showkelas', DataKelasController::class);
     

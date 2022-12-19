@@ -19,10 +19,10 @@ return new class extends Migration
             $table->foreign('id_siswa')->references('id')->on('siswa')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            // $table->unsignedBigInteger('id_kelas');
-            // $table->foreign('id_kelas')->references('id')->on('kelas')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
+            $table->unsignedBigInteger('id_kelas');
+            $table->foreign('id_kelas')->references('id')->on('kelas')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             // $table->unsignedBigInteger('id_guru');
             // $table->foreign('id_guru')->references('id')->on('guru')
             //     ->onDelete('cascade')

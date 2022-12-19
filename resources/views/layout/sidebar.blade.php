@@ -33,7 +33,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pilihan Menu :</h6>
                 <a class="collapse-item" href="/absen">Absen hari ini</a>
-                <a class="collapse-item" href="/list">List absen</a>
+                <a class="collapse-item" href="/listabsen">List absen</a>
                 <a class="collapse-item" href="/pending">Absen Pending</a>
             </div>
         </div>

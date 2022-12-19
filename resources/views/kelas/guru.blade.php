@@ -78,7 +78,7 @@
                 </div>
 
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-striped ">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th scope="col">No.</th>
@@ -104,8 +104,8 @@
                                             class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
                     </table>
                 </div>
             </div>
