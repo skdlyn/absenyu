@@ -18,7 +18,8 @@
         rel="stylesheet">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="template/css/styles.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
@@ -47,7 +48,7 @@
                         <!-- to get an API token!-->
                         <div class="2">
                             <a href="/login" class="btn btn-dark" style="background:#6b5b95;">
-                                <i class="fa fa-arrow-left" aria-hidden="true">Jelajahi</i>
+                                <i class="fa fa-arrow-left" aria-hidden="true">Jelajahi ?</i>
                             </a>
                         </div>
                     </div>
@@ -132,8 +133,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src="template/img/pak.jpg" alt="..." />
-                        <h5>Dr. Drs. Biwara Sakti Pracihara, M.Pd</h5>
+                        <img class="img-fluid rounded-circle mb-3" src="template/img/kepsek.jpg" alt="..." />
+                        <h5>Dr. Drs. Anton Sujarwo, M.Pd</h5>
                         <p class="font-weight-light mb-0">"Kepala Sekolah SMK Negeri 1 Surabaya"</p>
                     </div>
                 </div>
@@ -153,24 +154,16 @@
             <div class="row">
                 <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                     <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="#!">About</a></li>
+                        <li class="list-inline-item"><a href="/">About</a></li>
                         <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Contact</a></li>
+                        <li class="list-inline-item"><a
+                                href="https://www.instagram.com/rekapanlunas2.smeas">Contact</a></li>
                         <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                        <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
                     </ul>
                     <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
                 </div>
                 <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item me-4">
-                            <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                        </li>
-                        <li class="list-inline-item me-4">
-                            <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                        </li>
                         <li class="list-inline-item">
                             <a href="https://www.instagram.com/rekapanlunas2.smeas/"><i
                                     class="bi-instagram fs-3"></i></a>

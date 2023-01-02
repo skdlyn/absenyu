@@ -8,6 +8,7 @@ use App\Models\Register;
 use Illuminate\Support\Str;
 use App\Models\Role;
 use App\Models\User;
+use mysqli;
 
 class LoginController extends Controller
 {
@@ -48,6 +49,19 @@ class LoginController extends Controller
 
     public function tambah(Request $request)
     {
+        $message = [
+            'required' => ':attribute harus diisi gaess',
+            'min' => ':password minimal :min karakter', 
+        ];
+
+        //validasi data
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:user',
+            'password' => 'required|min:6',
+            'id_role' => 'required',
+        ], $message);
+
         //insert data
         User::create([
             'name' => $request->name,
@@ -55,8 +69,9 @@ class LoginController extends Controller
             'password' => bcrypt($request->password),
             'id_role' => $request->id_role,
         ]);
+        
        
-        Session::flash('registerSuccess', 'User Kelas berhasil Di data !!!');
+        Session::flash('registerSuccess', 'User Berhasil Ditambahkan, Silahkan Login');
         return redirect('login');
     }
 }

@@ -37,7 +37,7 @@
                 <th scope="col">JENIS KELAMIN</th>
             </tr>
         </thead>
-        <tbody>
+        {{-- <tbody>
             @foreach ($data as $i => $item)
                 <tr>
                     <th scope="row">{{ ++$i }}</th>
@@ -48,7 +48,7 @@
                     <td>{{ $item->jk }} </td>
                 </tr>
             @endforeach
-        </tbody>
+        </tbody> --}}
     </table>
 </body>
 

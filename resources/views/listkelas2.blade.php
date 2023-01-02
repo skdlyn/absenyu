@@ -1,4 +1,4 @@
-@extends('layout.admin')
+{{-- @extends('layout.admin')
 @section('title', 'Data Guru')
 @section('content-title')
 @section('content')
@@ -46,4 +46,4 @@
         </div>
     </div>
 </div>
-        @endsection
+        @endsection --}}

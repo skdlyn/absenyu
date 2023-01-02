@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="">
 
 <section class="vh-100">
+    <!--@if (session()->has('registerSuccess'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert" >
+            {{-- <button type="button" class="btn-close" aria-label="Close"></button> --}}
+            {{ session('registerSuccess') }}
+        </div>
+    @endif-->
     <div class="container py-5 h-100" style="overflow: hidden;">
         <a href="/" class="btn btn-dark" style="background:#6b5b95;">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
@@ -45,7 +51,8 @@
                         <input type="submit" width="" value="Login" class="btn btn-primary btn-lg btn-block"> --}}
                         <div class="row">
                             <div class="col mb-3">
-                                <input type="submit" value="MASUK" class="btn btn w-100 text-light" style="background:#6b5b95;">
+                                <input type="submit" value="MASUK" class="btn btn w-100 text-light"
+                                    style="background:#6b5b95;">
                             </div>
                         </div>
                         <!-- Register buttons -->

@@ -14,7 +14,7 @@
         <strong>{{ $message }}</strong>
     </div>
 @endif --}}
-@if ($message = Session::get('danger'))
+{{-- @if ($message = Session::get('danger'))
     <div class="alert alert-danger alert-block">
         <button type="button" class="close" data-dismiss="alert"></button>
         <strong>{{ $message }}</strong>
@@ -25,7 +25,7 @@
         <button type="button" class="close" data-dismiss="alert"></button>
         <strong>{{ $message }}</strong>
     </div>
-@endif
+@endif --}}
 
 <section class="vh-100">
     <div class="container py-5 h-100" style="overflow: hidden;">
@@ -50,6 +50,11 @@
                         <div class="form-outline mb-4 form-group">
                             <input type="text" name="name" id="name" aria-describedby="nameHelp"
                                 placeholder="Nama Lengkap..." class="form-control form-control-user">
+                                @error('name')
+                                <div class="invalid-feedback">
+                                {{ $message }}.
+                                </div>
+                                @enderror
                         </div>
                         <!-- Email input -->
                         <div class="form-outline mb-4 form-group">
@@ -89,7 +94,7 @@
                         <input type="submit" width="" value="Login" class="btn btn-primary btn-lg btn-block"> --}}
                         <div class="row justify-content-center">
                             <div class="form-group">
-                                <button type="submit" value="SIGN UP" class="btn text-light btn"
+                                <button type="submit" class="btn text-light btn"
                                     style="background:#6b5b95; width:350px">DAFTAR</button>
                             </div>
                         </div>

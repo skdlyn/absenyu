@@ -11,6 +11,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\RekapabsenController;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
 
 /*
@@ -65,7 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboardsiswa', DashboardController::class);
     Route::resource('datasiswa', DataController::class);
     
-    Route::get('/cetakpdf', [DataController::class, 'cetakpdf'])->name('cetakpdf');
+    Route::get('/cetakpdf', [RekapabsenController::class, 'cetakpdf'])->name('cetakpdf');
 
         // data kelas
     Route::resource('datakelas', DataKelasController::class);

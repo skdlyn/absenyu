@@ -118,11 +118,11 @@ class DataController extends Controller
         return redirect('/datasiswa');
     }
 
-    public function cetakpdf()
-    {
-        $data = siswa::all();
-        view()->share('data', $data);
-        $pdf = 'PDF'::loadview('cetak');
-        return $pdf->stream('Data Siswa.pdf');
-    }
+    // public function cetakpdf()
+    // {
+    //     $data = siswa::all();
+    //     view()->share('data', $data);
+    //     $pdf = 'PDF'::loadview('cetak');
+    //     return $pdf->stream('Data Siswa.pdf');
+    // }
 }
