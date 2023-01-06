@@ -27,6 +27,17 @@ use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentL
 
 Route::get('/', function () {
     return view('landing');
+
+});
+
+Route::get('/siswa', function () {
+    return view('dashboard_siswa');
+    
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+    
 });
 //guest
 Route::middleware('guest')->group(function () {

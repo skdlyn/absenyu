@@ -95,6 +95,14 @@ class SiswaController extends Controller
         return view ('editsiswa' ,compact('guru', 'siswa','kelas'));
     }
 
+    public function editprofile($id)
+    {
+        $guru = guru::all();
+        $kelas = kelas::all();
+        $siswa = siswa::find($id);
+        return view ('editsiswa' ,compact('guru', 'siswa','kelas'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
