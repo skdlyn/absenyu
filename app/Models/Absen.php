@@ -24,4 +24,8 @@ class Absen extends Model
     {
         return $this->belongsToMany('App\Models\Siswa');
     }
+
+    public function siswa(){
+        return $this->hasMany('App\Models\Siswa', 'id_siswa');
+    }
 }

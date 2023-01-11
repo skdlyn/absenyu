@@ -111,12 +111,7 @@
                                 @foreach ($kelas as $i => $item)
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
-                                        {{-- <td>{{ $item->nama_kelas }}</td> --}}
-                                        {{-- <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td> --}}
                                         <td><a href="{{ url('datakelas/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
-                                        {{-- <td><a href="{{ route('datasiswa.index',$item->id) }}">{{ $item->nama_kelas }}</a></td> --}}
-                                        {{-- <td></td> --}}
-                                        {{-- <td>{{ $item->kuota }}</td> --}}
                                         <td>{{ $item->guru->nama }} </td>
                                         <td>{{ $item->tahun_masuk }}</td>
                                         <td>{{ $item->tahun_keluar }}</td>

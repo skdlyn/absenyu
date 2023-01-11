@@ -17,12 +17,9 @@ class DataKelasController extends Controller
      */
     public function index()
     {
-        // $kelas = kelas::all();
-        // $total = kelas::where('id_kelas', $id)->count();
         $kelas = kelas::with('guru')->get();
         $guru = guru::all();
-        // $total = siswa::where('id_kelas', $id)->count();
-        // return $kelas;
+
         return view('kelas.datakelas', compact('kelas', 'guru'));
     }
 
@@ -82,7 +79,7 @@ class DataKelasController extends Controller
         $total = siswa::where('id_kelas', $id)->count();
         $kelas = kelas::all();
         $murid = siswa::find($id);
-        // return $murid;
+        return $guru;
         return view('kelas.showkelas', compact('murid','siswa', 'guru', 'total','kelas'));
     }
 

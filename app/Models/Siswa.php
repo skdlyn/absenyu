@@ -25,7 +25,8 @@ class Siswa extends Model
     }
     public function absensi()
     {   
-        return $this->belongsToMany('App\Models\Kelas', 'absensi', 'id_siswa', 'id_kelas')->withPivot('status', 'tanggal', 'keterangan')->wherePivot('tanggal', Carbon::now('Asia/Jakarta'));
+        return $this->belongsTo('App\Models\Absen','id_siswa');
+        // return $this->belongsToMany('App\Models\Kelas', 'absensi', 'id_siswa', 'id_kelas')->withPivot('status', 'tanggal', 'keterangan')->wherePivot('tanggal', Carbon::now('Asia/Jakarta'));
     }
 
 }
