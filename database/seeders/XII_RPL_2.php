@@ -33,16 +33,20 @@ class XII_RPL_2 extends Seeder
         ]);
 
         siswa::create([
-            'nisn' => '0055606455',
             'nama' => 'Ibrahim',
+            'email' => 'ibrahim@gmail.com',
+            'role' => 'siswa',
+            'nisn' => '0055606455',
             'alamat' => '1',
             'id_kelas' => '2',
             'jk' => 'laki - laki',
         ]);
 
         siswa::create([
-            'nisn' => '0055606458',
             'nama' => 'Ibrahim Rizky',
+            'email' => 'rizky@gmail.com',
+            'role' => 'siswa',
+            'nisn' => '0055606458',
             'alamat' => '2 ',
             'id_kelas' => '2',
             'jk' => 'laki - laki',
