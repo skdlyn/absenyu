@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            guru_bk::class,
             userseeder::class,
             XII_RPL_1::class,
             XII_RPL_2::class

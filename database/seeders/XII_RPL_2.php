@@ -21,7 +21,8 @@ class XII_RPL_2 extends Seeder
         Guru::create([
             'nip' => '1234567890',
             'nama' => 'Lukman Sholeh',
-            'jenis_kelamin' => 'laki - laki'
+            'jenis_kelamin' => 'laki - laki',
+            'user_id' => '3'
         ]);
 
         kelas::create([
@@ -40,6 +41,7 @@ class XII_RPL_2 extends Seeder
             'alamat' => '1',
             'id_kelas' => '2',
             'jk' => 'laki - laki',
+            'user_id' => '4'
         ]);
 
         siswa::create([
@@ -50,6 +52,7 @@ class XII_RPL_2 extends Seeder
             'alamat' => '2 ',
             'id_kelas' => '2',
             'jk' => 'laki - laki',
+            'user_id' => '4'
         ]);
 
         // siswa::create([
