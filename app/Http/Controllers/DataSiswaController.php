@@ -60,7 +60,7 @@ class DataSiswaController extends Controller
             'alamat' => $request-> alamat
         ]);
 
-        session::flash('siswa_simpan','Data Siswa berhasil Disimpan');
+        // session::flash('siswa_simpan','Data Siswa berhasil Disimpan');
         return redirect('dashboard');
     }
 
