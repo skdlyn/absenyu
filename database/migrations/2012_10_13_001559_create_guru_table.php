@@ -17,11 +17,15 @@ return new class extends Migration
             $table->id('id');
             $table->string('nip');
             $table->string('nama');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             // $table->primary('nama');
             // $table->string('nip');
             // $table->char('jenis_kelamin');
             // $table->enum('jenis_kelamin',['L' , 'P']);
-            $table->char('jenis_kelamin');            
+            $table->char('jenis_kelamin');
             $table->timestamps();
         });
     }

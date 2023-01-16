@@ -34,8 +34,8 @@ class XII_RPL_1 extends Seeder
 
         siswa::create([
             'nama' => 'Abyaz Prince Muhammad',
-            'email' => 'abyaz@gmail.com',
-            'role' => 'siswa',
+            // 'email' => 'abyaz@gmail.com',
+            // 'role' => 'siswa',
             'nisn' => '0055606455',
             'id_kelas' => '1',
             'alamat' => '1 ',
@@ -44,8 +44,8 @@ class XII_RPL_1 extends Seeder
 
         siswa::create([
             'nama' => 'ach nur icrchamul',
-            'email' => 'icrchamul@gmail.com',
-            'role' => 'siswa',
+            // 'email' => 'icrchamul@gmail.com',
+            // 'role' => 'siswa',
             'nisn' => '0055606455',
             'alamat' => '2 ',
             'id_kelas' => '1',
