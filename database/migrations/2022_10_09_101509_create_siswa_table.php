@@ -15,19 +15,19 @@ return new class extends Migration
     {
         Schema::create('siswa', function (Blueprint $table) {
             $table->id('id');
-            $table->string('nama');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('role');
+            // $table->string('nama');
+            // $table->string('email')->unique();
+            // $table->string('password');
+            // $table->string('role');
             $table->char('nisn');
             $table->unsignedBigInteger('id_kelas');
             $table->foreign('id_kelas')->references('id')->on('kelas')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->string('alamat');
             $table->char('jk');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
+            // $table->timestamp('email_verified_at')->nullable();
+            // $table->rememberToken();
             $table->timestamps();
         });
     }
