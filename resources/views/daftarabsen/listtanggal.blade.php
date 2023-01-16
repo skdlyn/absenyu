@@ -62,18 +62,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($siswa as $q => $item)
+                        @foreach ($siswa as $i)
                             <tr>
-                                {{-- <td>
-                                    {{ $item->nama }}
-                                </td>
-                                @foreach ( as $stu => $st)
-                                    <td>
-                                        {{$st}}
-                                    </td> --}}
-                                {{-- @endforeach --}}
+                                <td> {{ $i->nama }}</td>
+                                @foreach ($stdnt as $q => $item)
+                                    @foreach ($item as $s)
+                                        <td>
+                                            {{ $s->status }}
+                                            {{-- <td>{{ $item }}</td> --}}
+                                            {{-- <td>{{ implode($stdnt) }}</td> --}}
+                                        </td>
+                                    @endforeach
+                                @endforeach
                             </tr>
                         @endforeach
+
+
+                   
                     </tbody>
 
 

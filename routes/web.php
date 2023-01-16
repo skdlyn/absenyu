@@ -31,6 +31,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
+route::get('/landing',function(){
+    return view('siswa.absen');
+});
+
 Route::get('/daftarabsen', function () {
     return view('daftarabsen');
 });
@@ -118,4 +122,6 @@ Route::middleware('auth')->group(function () {
     Route::prefix('list')->group(function () {
         Route::resource('kelas.tanggal', DaftarAbsenController::class);
     });
+
+   
 });

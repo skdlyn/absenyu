@@ -100,9 +100,13 @@ class DaftarAbsenController extends Controller
         $a = $absen;
         $stdnt=[];
         foreach($siswa as $std){
-            $stdnt[]=absen::where('id_siswa',$std->id)->where('id_kelas',$id)->get();
+            $stdnt[]=absen::where('id_siswa',$std->id)->where('id_kelas',$id)
+            ->get();    
+            // ->pluck('status');
         }
-        
+
+        // return $stdnt;  
+
         
         $tgl= [];
         foreach($absen as $date){

@@ -44,19 +44,20 @@ class DataSiswaController extends Controller
         ];
 
         $this->validate($request,[
-            'nisn' =>'req',
-            'nama' =>'req',
-            'alamat' =>'req',
-            'id_kelas' =>'req',
-            'jk' =>'req'
+            'nisn' =>'required',
+            'nama' =>'required',
+            'id_kelas' =>'required',
+            'jk' =>'required',
+            'alamat' =>'required'
         ], $msg);
 
-        siswa::create([
+
+        $cs = siswa::create([
             'nisn' => $request->nisn ,
             'nama' => $request->nama ,
-            'alamat' => $request-> alamat ,
             'id_kelas' => $request-> id_kelas,
-            'jk' => $request->jk
+            'jk' => $request->jk,
+            'alamat' => $request-> alamat
         ]);
 
         session::flash('siswa_simpan','Data Siswa berhasil Disimpan');
