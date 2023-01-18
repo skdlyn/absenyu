@@ -16,7 +16,7 @@ class GuruController extends Controller
     public function index()
     {
         $guru = Guru::all();
-        return view('guru', compact('guru'));
+        return view('kelas.guru', compact('guru'));
     }
 
     /**
@@ -109,7 +109,7 @@ class GuruController extends Controller
         $guru->nama = $request->nama;
         $guru->jenis_kelamin = $request->jenis_kelamin;
         $guru -> save();
-        return redirect ('guru');
+        
         Session::flash('update_guru', 'Wali kelas Berhasil Di update!!!');
         return redirect('guru');
     }
