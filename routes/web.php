@@ -15,6 +15,9 @@ use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DaftarAbsenController;
 // use App\Http\Controllers\ListAbsenController;
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +30,22 @@ use App\Http\Controllers\DaftarAbsenController;
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/', function () {
+    return view('landing');
+
+});
+
+Route::get('/siswa', function () {
+    return view('dashboard_siswa');
+    
+});
+
+Route::resource('profile', ProfileController::class);
+    
+
+Route::get('/editprofile', function () {
+    return view('editprofile');
+    
 });
 
 route::get('/landing',function(){
@@ -43,6 +60,8 @@ Route::get('/daftarabsen', function () {
 Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'authenticate']);
+    Route::get('register', [LoginController::class, 'signup'])->name('signup');
+    Route::post('register', [LoginController::class, 'tambah'])->name('tambah');;
     // Route::get('/absen', function () {
     //     return view('absen');
     // });
@@ -54,14 +73,31 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     // absen
     Route::resource('absen', AbsenController::class);
-    route::get('absen/{absen}', [AbsenController::class, 'absen'])->name('absen.tambah');
-    route::get('absen/{absen}/listabsen', [AbsenController::class, 'listabsen'])->name('absen.list');
+    // route::get('absen/{id}/')
+    Route::get('list', [AbsenController::class, 'list'])->name('absen.list');
+    // Route::get('listkelas', [AbsenController::class, 'listkelas'])->name('absen.listkelas');
+    Route::get('pending', [AbsenController::class, 'pending'])->name('absen.pending');
+    // route::get('/list', function(){
+    //     return view('absen.list');
+    // });
+
+    // list kelas
+    Route::resource('showkelas', KelasController::class);
+    route::get('showkelas/{id}/hapus', [KelasController::class])->name('showkelas.hapus');
+// Route::get('showkelas', KelasController::class);
+    
+    //rekap
+    Route::get('rekaplist', [RekapController::class, 'index']);
+    Route::get('rekapdata', [RekapController::class, 'index']);
 
 
+    Route::resource('dashboard', DashboardController::class);
+    Route::resource('dashboardsiswa', DashboardController::class);
+    Route::resource('datasiswa', DataController::class);
+    
+    Route::get('/cetakpdf', [RekapabsenController::class, 'cetakpdf'])->name('cetakpdf');
 
-    // CRUD DATA KELAS
-
-    // CRUD KELAS
+        // data kelas
     Route::resource('datakelas', DataKelasController::class);
     route::get('showkelas/{id}/hapus', [DataKelasController::class])->name('showkelas.hapus');
 
@@ -75,13 +111,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
     Route::post('logout', [LoginController::class, 'logout']);
-    route::resource('country.cities', CitiesController::class);
+    // cobaroute
 
-    route::get('list', [DaftarAbsenController::class, 'list'])->name('kelas.tanggal.daftar');
+    // route::get('/showkelas',[DataKelasController::class]);
+    // route::get('/showkelas', function(){
+    //     return view('showkelas');
+    // });
 
-    Route::prefix('list')->group(function () {
-        Route::resource('kelas.tanggal', DaftarAbsenController::class);
-    });
+    //Profile Siswa
 
-   
 });

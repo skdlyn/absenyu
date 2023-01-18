@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title', 'Data Siswa')
-@section('content-title', 'Data Siswa')
+@section('content-title')
 @section('content')
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                <button type="button" class="btn" style="background-color: #6b5b95" data-toggle="modal" data-target="#exampleModal"
                     data-whatever>Tambah Data</button>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -95,7 +95,7 @@
 
                 <div class="card-body">
                     <table class="table table-bordered">
-                        <thead class="bg-primary text-white">
+                        <thead class="text-white" style="background-color: #6b5b95">
                             <tr>
                                 <th scope="col">NO</th>
                                 <th scope="col">NAMA</th>
@@ -120,11 +120,14 @@
                                             class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
                                         <a href="{{ route('datasiswa.hapus', $item->id) }}"
                                             class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
-                                    </td>
+                                            
+                                        </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{-- <a href="/cetakpdf"
+                    class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a> --}}
                 </div>
             </div>
         </div>

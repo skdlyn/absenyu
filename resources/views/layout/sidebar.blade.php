@@ -38,7 +38,7 @@
                 <a class="collapse-item" href="/pending">Absen Pending</a>
             </div>
         </div>
-    </li>
+     </li>
     
     {{-- <li class="nav-item">
         <a class="nav-link" href="/listkelas">

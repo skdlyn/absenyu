@@ -83,4 +83,11 @@ class RekapabsenController extends Controller
     {
         //
     }
+    public function cetakpdf()
+    {
+        $data = Absen::all();
+        view()->share('data', $data);
+        $pdf = 'PDF'::loadview('cetak');
+        return $pdf->stream('Data Siswa.pdf');
+    }
 }

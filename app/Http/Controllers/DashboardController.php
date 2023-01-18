@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\Guru;
 use App\Models\Kelas;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
