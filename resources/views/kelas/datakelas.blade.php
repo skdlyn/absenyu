@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-bordered">
                             <thead class="bg-primary text-white">
                                 <tr>
                                     <th scope="col">NO</th>

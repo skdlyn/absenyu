@@ -19,8 +19,7 @@ class DataKelasController extends Controller
     {
         $kelas = kelas::with('guru')->get();
         $guru = guru::all();
-
-        return view('kelas.datakelas', compact('kelas', 'guru'));
+        return view('datakelas', compact('kelas', 'guru'));
     }
 
     /**

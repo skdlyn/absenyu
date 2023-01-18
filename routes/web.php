@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\RekapabsenController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DaftarAbsenController;
