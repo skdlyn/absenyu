@@ -20,18 +20,23 @@
                 <strong>{{ $message }}</strong>
             </div>
         @endif
+
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data kelas</li>
+                <a href="/dashboard">
+                    <li><em class="fa fa-home"></em>Dashboard</li>
+                </a>
                 {{-- <li class="active">  Dashboard</li> --}}
             </ol>
         </div>
+
+
 
         <div class="row">
             <div class="col-lg-12">
                 <div class="card shadow mb-4">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                        data-whatever>Tambah Data</button>
+                        data-whatever>Tambah Kelas</button>
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,7 +100,7 @@
                                     {{-- <th scope="col">NAMA KELAS</th> --}}
                                     <th scope="col">KELAS</th>
                                     {{-- <th scope="col">JURUSAN</th> --}}
-                                    <th scope="col">KUOTA</th>
+                                    {{-- <th scope="col">KUOTA</th> --}}
                                     <th scope="col">WALI KELAS</th>
                                     <th scope="col">TAHUN MASUK</th>
                                     <th scope="col">TAHUN KELUAR</th>
@@ -106,18 +111,14 @@
                                 @foreach ($kelas as $i => $item)
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
-                                        {{-- <td>{{ $item->nama_kelas }}</td> --}}
-                                        <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td>
-                                        {{-- <td></td> --}}
-                                        <td>{{ $item->kuota }}</td>
-                                        <td>{{ $item->id_guru}} </td>
+                                        <td><a href="{{ url('datakelas/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
+                                        <td>{{ $item->guru->nama }} </td>
                                         <td>{{ $item->tahun_masuk }}</td>
                                         <td>{{ $item->tahun_keluar }}</td>
                                         <td>
-                                            <a href="{{ route('datakelas.edit', $item->id) }}"
-                                                class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                                            <a href="{{ route('datakelas.hapus', $item->id) }}"
-                                                class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                            <a href="{{ route('datasiswa.edit', $item->id) }}"
+                                                class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i>
+                                            </a>
                                         </td>
                                     </tr>
                             </tbody>

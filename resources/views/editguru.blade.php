@@ -8,11 +8,11 @@
             @csrf
             <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" name='nama' value="{{ old('nama') }}">
+                <input type="text" class="form-control" id="nama" name='nama' value="" placeholder="{{ $guru->nama }}">
             </div>
             <div class="form-group">
                 <label for="nip">NIP</label>
-                <input type="text" class="form-control" id="nip" name='nip' value="{{ old('nip') }}">
+                <input type="text" class="form-control" id="nip" name='nip' value="" placeholder="{{ $guru->nip }}">
             </div>
 
             <div class="form-group">

@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('harian', function (Blueprint $table) {
+        Schema::create('country_cities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_kelas');
-            $table->foreign('id_kelas')->references('id')->on('kelas');
-            $table->char('status');
+            $table->string('country');
+            $table->string('cities');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('harian');
+        Schema::dropIfExists('country_cities');
     }
 };
