@@ -48,7 +48,7 @@
                     </tbody> --}}
                 </table>
                 <a href="/cetakpdf"
-                class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
+                class="btn btn-sm btn-info  btn-circle"><i class="fas fa-edit"></i></a>
             </div>
         </div>
     </div>

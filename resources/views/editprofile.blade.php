@@ -163,10 +163,6 @@
                      </ul>
                  </div>
              </div>
-             @foreach ($siswa as $item)
-             
-                 
-             @endforeach
              <div class="col-md-8">
                  <div class="card mb-3">
                      <div class="card-body">
@@ -209,7 +205,7 @@
                          <div class="row">
                              <div class="col-sm-12">
                                  <button class="btn" style="background-color: #b9b3c9" target="__blank"
-                                     href="/editprofile">Edit</button>
+                                     href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</button>
                              </div>
                          </div>
                      </div>

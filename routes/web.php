@@ -11,6 +11,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\RekapabsenController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
 
@@ -35,8 +36,11 @@ Route::get('/siswa', function () {
     
 });
 
-Route::get('/profile', function () {
-    return view('profile');
+Route::resource('profile', ProfileController::class);
+    
+
+Route::get('/editprofile', function () {
+    return view('editprofile');
     
 });
 //guest
@@ -104,4 +108,7 @@ Route::middleware('auth')->group(function () {
     // route::get('/showkelas', function(){
     //     return view('showkelas');
     // });
+
+    //Profile Siswa
+
 });

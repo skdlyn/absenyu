@@ -56,11 +56,11 @@
                             </div>
                         </div>
                         <!-- Register buttons -->
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="text-center col">
                                 <p>Belum Punya Akun ? <a href="register">Daftar</a></p>
                             </div>
-                        </div>
+                        </div> --}}
                     </form>
                 </div>
             </div>
