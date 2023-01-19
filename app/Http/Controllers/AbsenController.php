@@ -19,6 +19,7 @@ class AbsenController extends Controller
      */
     public function index()
     {
+        
         $kelas = kelas::all();
         $siswa = siswa::all();
         return view('absen.absen', compact('kelas', 'siswa'));

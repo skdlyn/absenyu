@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use App\Models\Register;
+use Illuminate\Support\Str;
+use App\Models\Role;
+use App\Models\User;
+use mysqli;
 
 class LoginController extends Controller
 {
@@ -32,8 +38,41 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/');
+    //Register
+    }
+    public function signup()
+    {
+        $role = role::all();
+        return view('register', compact('role'));
+    }
 
+    public function tambah(Request $request)
+    {
+        $message = [
+            'required' => ':attribute harus diisi gaess',
+            'min' => ':password minimal :min karakter', 
+        ];
+
+        //validasi data
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:user',
+            'password' => 'required|min:6',
+            'id_role' => 'required',
+        ], $message);
+
+        //insert data
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'id_role' => $request->id_role,
+        ]);
+        
+       
+        Session::flash('registerSuccess', 'User Berhasil Ditambahkan, Silahkan Login');
+        return redirect('login');
     }
 }
 

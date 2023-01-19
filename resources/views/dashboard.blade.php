@@ -17,7 +17,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3>
-                        <p>Selamat Datang {{Auth::user()->name}} !!!</p>
+                        <p>Selamat Datang, {{Auth::user()->name}} !!!</p>
                     </h3>
                 </div>
             </div>

@@ -5,17 +5,19 @@ use App\Http\Controllers\AbsensiController;
 use Illuminate\Http\Request;
 use App\Models\Kelas;
 use App\Models\Absen;
+use App\Models\Rekap;
 use PDF;
 
 class RekapController extends Controller
 {
     public function index(){
-        return view('layout.rekaplist');
+        $kelas = Kelas::all();
+        return view('rekaplist', compact('kelas'));
     }
     public function show($table){
         if($table=="kelas"){
             $resource = Kelas::get();
-            return view('layouts/datakelas', ['resource' => $resource]);
+            return view('datakelas', ['resource' => $resource]);
         }
     }
     public function pdf(Request $request){
@@ -43,10 +45,10 @@ class RekapController extends Controller
         }else{
             $tanggal = DATE('d F Y',strtotime($request->tgl_awal))." / ".DATE('d F Y',strtotime($request->tgl_akhir));
         }
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->setPaper('A4', 'potrait');
-        $pdf->loadHTML(view("layouts.pribadipdf",['resource'=>$resource, 'tanggal'=>$tanggal, 'alfa'=>$alfa,'izin'=>$izin,'sakit'=>$sakit]));
-        return $pdf->stream();
+        // $pdf = App::make('dompdf.wrapper');
+        // $pdf->setPaper('A4', 'potrait');
+        // $pdf->loadHTML(view("layouts.pribadipdf",['resource'=>$resource, 'tanggal'=>$tanggal, 'alfa'=>$alfa,'izin'=>$izin,'sakit'=>$sakit]));
+        // return $pdf->stream();
     }
     public function rekap($id){
         $resource = Kelas::find($id);
