@@ -18,7 +18,8 @@ class guru_bk extends Seeder
     {
         bk::create([
             'nama' => 'windy',
-            'jenis kelamin' => 'perempuan',
+            // 'email' => 'windy@gmail.com',
+            'jenis_kelamin' => 'perempuan',
             'user_id' => '1',
         ]);
     }

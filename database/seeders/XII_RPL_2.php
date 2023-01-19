@@ -31,6 +31,7 @@ class XII_RPL_2 extends Seeder
             'tahun_masuk' => '2020-12-31',
             'tahun_keluar' => '2023-12-31',
             'id_guru' => '2',
+            'id_bk' => '1'
         ]);
 
         siswa::create([

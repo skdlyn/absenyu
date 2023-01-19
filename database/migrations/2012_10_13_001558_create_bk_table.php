@@ -17,9 +17,9 @@ return new class extends Migration
         Schema::create('bk', function (Blueprint $table) {
             $table->id();
             $table->string('nama');            
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('jenis kelamin');
+            // $table->string('email')->unique();
+            // $table->string('password');
+            $table->string('jenis_kelamin');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')

@@ -28,10 +28,10 @@ return new class extends Migration
             //     ->onDelete('cascade')
             //     ->onUpdate('cascade');
             $table->string('tanggal');
-            $table->unsignedBigInteger('id_tanggal');
-            $table->foreign('id_tanggal')->references('id')->on('rekapabsen')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            // $table->unsignedBigInteger('id_tanggal');
+            // $table->foreign('id_tanggal')->references('id')->on('rekapabsen')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
             $table->char('status');
             // $table->char('surat')->nullable();
             $table->timestamp('created_at')->nullable();

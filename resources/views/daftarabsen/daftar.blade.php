@@ -21,10 +21,7 @@
                             @foreach ($kelas as $i => $item)
                                 <tr>
                                     <th scope="row">{{ ++$i }}</th>
-                                    {{-- tidak memakai controller --}}
                                     <td><a href="/list/kelas/{{ $item->id }}/tanggal">{{ $item->nama_kelas }}</a></td>
-                                    {{-- memakai controller --}}
-                                    {{-- <td><a href="{{ route('kelas.tanggal.index') }}">{{ $item->nama_kelas }}</a></td> --}}
                                     <td>{{ $item->guru->nama }} </td>
                                     <td>{{ $item->tahun_masuk }}</td>
                                     <td>{{ $item->tahun_keluar }}</td>

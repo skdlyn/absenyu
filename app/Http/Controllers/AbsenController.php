@@ -69,34 +69,23 @@ class AbsenController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
-        $pesan = [
-            'required' => ':attribute harus diisi gaess'
-        ];
 
         $data = [
             'id_siswa' => $request->id_siswa,
             'status' => $request->status
         ];
 
-        // $tanggal = Carbon::now('Asia/Jakarta')->format('Y-m-d');
-
-        // return $siswa;
         for($i=0; $i < count($data['id_siswa']); $i++) {
             // insert tabel absen
             absen::insert([
                 'tanggal' => $request->tanggal,
-                // =Carbon::now('Asia/Jakarta')->format('Y-m-d'),
                 'id_kelas'=> $request->id_kelas,
                 'id_siswa' => $data['id_siswa'][$i],
                 'status' => $data['status'][$i]
             ]);  
         };
 
-        session::flash('absen_done','absen berhasil ditambahkan');
         return back();
-        // return redirect()->route('absen.list') ;
      }
 
     /**

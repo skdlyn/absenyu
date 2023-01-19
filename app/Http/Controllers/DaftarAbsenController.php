@@ -21,27 +21,20 @@ class DaftarAbsenController extends Controller
 
     public function index($id)
     {
-        $siswa = siswa::where('id_kelas', $id)->get();
         $guru = kelas::where('id_guru', $id)->with('guru')->get();
-        $absen= Absen::where('id_kelas', $id)->get();
+        $absen = Absen::where('id_kelas', $id)->get();
+
         $a = $absen;
-        $stdnt=[];
-        foreach($siswa as $std){
-            $stdnt[]=absen::where('id_siswa',$std->id)->where('id_kelas',$id)
-            ->get();    
-            // ->pluck('status');
-        }
+        $ab = Absen::where('id_kelas', $id)->get();
 
-        // return $stdnt;  
 
-        
-        $tgl= [];
-        foreach($absen as $date){
-        $tgl[]=$date->tanggal;    
+        $tgl = [];
+        foreach ($absen as $date) {
+            $tgl[] = $date->tanggal;
         }
 
         $t = array_unique($tgl);
-        return view('daftarabsen.listtanggal',compact('t','guru', 'absen','siswa','stdnt'));
+        return view('daftarabsen.listtanggal', compact('t', 'guru', 'absen', 'ab'));
     }
 
     public function create($id)
@@ -54,7 +47,6 @@ class DaftarAbsenController extends Controller
 
     public function show($id)
     {
-
     }
 
     public function edit($id)

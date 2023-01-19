@@ -21,16 +21,20 @@ class Siswa extends Model
 
     public function kelas()
     {
-        return $this->belongsToMany('App\Models\Kelas', 'id_siswa', 'id_kelas');
+        return $this->belongsToMany('App\Models\Kelas', 'id_siswa', 'id_kelas')->withPivot('status');
     }
-    public function absensi()
-    {   
-        return $this->belongsTo('App\Models\Absen','id_siswa');
-        // return $this->belongsToMany('App\Models\Kelas', 'absensi', 'id_siswa', 'id_kelas')->withPivot('status', 'tanggal', 'keterangan')->wherePivot('tanggal', Carbon::now('Asia/Jakarta'));
-    }
+    // public function absensi()
+    // {
+    //     return $this->belongsTo('App\Models\Absen', 'id_siswa');
+    // }
 
-    public function users(){
+    public function users()
+    {
         return $this->hasMany('App\Models\User');
     }
 
+    public function nama()
+    {
+        return $this->hasMany('App\Models\Absen', 'id');
+    }
 }

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('guru', function (Blueprint $table) {
             $table->id('id');
             $table->string('nama');
-            $table->string('email')->unique();
-            $table->string('password');
+            // $table->string('email')->unique();
+            // $table->string('password');
             $table->string('nip');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')

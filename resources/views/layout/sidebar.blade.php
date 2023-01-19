@@ -34,8 +34,9 @@
                 <h6 class="collapse-header">Pilihan Menu :</h6>
                 <a class="collapse-item" href="/absen">Absen hari ini</a>
                 <a class="collapse-item" href="/listabsen">List absen</a>
-                <a class="collapse-item" href="/pending">Absen Pending</a>
-                <a class="collapse-item" href="/pending">Absen Pending</a>
+                <a class="collapse-item" href="/list">daftar absensi</a>
+                {{-- <a class="collapse-item" href="/pending">Absen Pending</a>
+                <a class="collapse-item" href="/pending">Absen Pending</a> --}}
             </div>
         </div>
      </li>
@@ -58,7 +59,6 @@
                 <a class="collapse-item" href="{{ route('datasiswa.create') }}">Tambah Siswa</a>
                 <a class="collapse-item" href="/datakelas">Data Kelas</a>
                 <a class="collapse-item" href="/guru">Data Guru</a>
-                <a class="collapse-item" href="/list">daftar absensi</a>
             </div>
         </div>
     </li>
