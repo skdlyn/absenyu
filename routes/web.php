@@ -101,7 +101,7 @@ Route::middleware('auth')->group(function () {
     
 
 
-    Route::post('logout', [LoginController::class, 'logout']);
+    Route::delete('logout', [LoginController::class, 'logout']);
     // cobaroute
 
     // route::get('/showkelas',[DataKelasController::class]);

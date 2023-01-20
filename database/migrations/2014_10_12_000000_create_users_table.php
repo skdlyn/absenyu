@@ -23,10 +23,6 @@ return new class extends Migration
             $table->foreign('id_role')->references('id')->on('role')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            // $table->unsignedBigInteger('id_siswa');
-            // $table->foreign('id_siswa')->references('id')->on('siswa')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
