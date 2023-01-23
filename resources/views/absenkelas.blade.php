@@ -15,6 +15,7 @@
                                     <th scope="col">NAMA</th>
                                     <th scope="col">NISN</th>
                                     <th scope="col">STATUS</th>
+                                    <th scope="col" id="header" class="d-flex align-middle">UPLOAD SURAT</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,31 +61,35 @@
                                             @if ($loop->last)
                                                 <div class="status-selected">
                                                     <input type="radio" id="hadir" name="status{{ $item }}"
-                                                        value="">
+                                                        value="" onclick="updateHide{{ $loop->iteration }}()">
                                                     hadir
                                                     <input type="radio" id="alfa" name="status{{ $item }}"
-                                                        value="">
+                                                        value="" onclick="updateHide{{ $loop->iteration }}()">
                                                     alfa
-                                                    <input type="radio" id="izin" name="status{{ $item }}"
-                                                        value="">
+                                                    <input type="radio" id="izin{{ $loop->iteration }}"
+                                                        name="status{{ $item }}" value="izin"
+                                                        onclick="updateShow{{ $loop->iteration }}()">
                                                     izin
-                                                    <input type="radio" id="sakit" name="status{{ $item }}"
-                                                        value="">
+                                                    <input type="radio" id="sakit{{ $loop->iteration }}"
+                                                        name="status{{ $item }}" value="sakit"
+                                                        onclick="updateShow{{ $loop->iteration }}()">
                                                     sakit
                                                 </div>
                                             @else
                                                 <div class="status-diselected">
                                                     <input type="radio" id="hadir" name="status{{ $item }}"
-                                                        value="">
+                                                        value="" onclick="updateHide{{ $loop->iteration }}()">
                                                     hadir
                                                     <input type="radio" id="alfa" name="status{{ $item }}"
-                                                        value="">
+                                                        value="" onclick="updateHide{{ $loop->iteration }}()">
                                                     alfa
-                                                    <input type="radio" id="izin" name="status{{ $item }}"
-                                                        value="">
+                                                    <input type="radio" id="izin{{ $loop->iteration }}"
+                                                        name="status{{ $item }}" value="izin"
+                                                        onclick="updateShow{{ $loop->iteration }}()">
                                                     izin
-                                                    <input type="radio" id="sakit" name="status{{ $item }}"
-                                                        value="">
+                                                    <input type="radio" id="sakit{{ $loop->iteration }}"
+                                                        name="status{{ $item }}" value="sakit"
+                                                        onclick="updateShow{{ $loop->iteration }}()">
                                                     sakit
                                                 </div>
                                             @endif
@@ -117,7 +122,37 @@
                                                         </div>
                                                     @endif --}}
                                         </td>
-                                    </tr>
+                                        <td>
+                                            <form action="" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id">
+                                                <input type="file" class="form-control form-control-sm p-0"
+                                                    id="upload{{ $loop->iteration }}" style="display: none">
+                                            </form>
+                                            <script>
+                                                function updateShow{{ $loop->iteration }}() {
+                                                    document.getElementById("upload{{ $loop->iteration }}").style.display = "inline";
+                                                    // document.getElementById("header").style.display = "block";
+                                                }
+
+                                                function updateHide{{ $loop->iteration }}() {
+                                                    document.getElementById("upload{{ $loop->iteration }}").style.display = "none";
+                                                    // document.getElementById("header").style.display = "none ";
+                                                }
+                                            </script>
+                                        </td>
+                                        {{-- <td>
+                                            <input type="submit" class="btn btn-sm btn-primary"
+                                                id="izin{{ $loop->iteration }}" style="display: none" value="sakit">
+                                            </form>
+                                            <form action="" class="action">
+                                                @csrf
+                                                <input type="hidden" name="id" id="">
+                                                <input type="submit" class="btn btn-sm btn-danger"
+                                                    id="sakit{{ $loop->iteration }}" style="display: none " value="izin">
+                                            </form>
+                                            
+                                        </td> --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -128,4 +163,4 @@
     </div>
 
 
-    @endsection
+@endsection

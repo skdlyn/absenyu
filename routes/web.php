@@ -91,7 +91,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
-    Route::post('logout', [LoginController::class, 'logout']);
+    Route::delete('logout', [LoginController::class, 'logout']);
     // cobaroute
 
 
