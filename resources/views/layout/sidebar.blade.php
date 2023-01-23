@@ -35,8 +35,6 @@
                 <a class="collapse-item" href="/absen">Absen hari ini</a>
                 <a class="collapse-item" href="/listabsen">List absen</a>
                 <a class="collapse-item" href="/list">daftar absensi</a>
-                {{-- <a class="collapse-item" href="/pending">Absen Pending</a>
-                <a class="collapse-item" href="/pending">Absen Pending</a> --}}
             </div>
         </div>
      </li>

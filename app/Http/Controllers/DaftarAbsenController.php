@@ -13,15 +13,27 @@ class DaftarAbsenController extends Controller
 {
     public function list()
     {
+      
+    }
+
+    public function index()
+    {
         $kelas = Kelas::with('guru')->get();
         $guru = guru::all();
         // return $kelas   ;
         return view('daftarabsen.daftar', compact('kelas', 'guru'));
     }
 
-    public function index($id)
+    public function create($id)
     {
-        $guru = kelas::where('id_guru', $id)->with('guru')->get();
+    }
+
+    public function store(Request $request)
+    {
+    }
+
+    public function show($id)
+    { $guru = kelas::where('id_guru', $id)->with('guru')->get();
         $absen = Absen::where('id_kelas', $id)->get();
 
         $a = $absen;
@@ -35,18 +47,6 @@ class DaftarAbsenController extends Controller
 
         $t = array_unique($tgl);
         return view('daftarabsen.listtanggal', compact('t', 'guru', 'absen', 'ab'));
-    }
-
-    public function create($id)
-    {
-    }
-
-    public function store(Request $request)
-    {
-    }
-
-    public function show($id)
-    {
     }
 
     public function edit($id)

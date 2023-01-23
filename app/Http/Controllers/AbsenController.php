@@ -117,8 +117,7 @@ class AbsenController extends Controller
 
     
     public function list($id){
-        // $kelas = kelas::where('id_guru', $id)->with('guru')->get();
-        // return view('list', compact('list'));
+        
     }
 
     /**

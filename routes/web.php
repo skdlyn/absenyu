@@ -61,8 +61,10 @@ Route::middleware('auth')->group(function () {
 
     // absen
     Route::resource('absen', AbsenController::class);
-    Route::get('list', [AbsenController::class, 'list'])->name('absen.list');
     Route::get('pending', [AbsenController::class, 'pending'])->name('absen.pending');
+
+    // daftar absen
+    route::resource('daftarabsen', DaftarAbsenController::class);
 
     // list kelas
     Route::resource('showkelas', KelasController::class);
