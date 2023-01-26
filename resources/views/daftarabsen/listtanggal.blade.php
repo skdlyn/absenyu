@@ -75,38 +75,69 @@
                         @endforeach --}}
                         {{-- @endforeach --}}
                         {{-- @endforeach --}}
-                        @foreach ($ab as $absen)
+                        @foreach ($ns as $nama)
+                            <tr>
+                                <td>
+                                    {{ $nama->nama}}
+                                </td>
+                                @foreach ($nama->absen as $a)
+                                    <td>
+                                        {{ $a->status}}
+                                    </td>
+                                @endforeach
+                            </tr>
+                        @endforeach
+
+
+                        {{-- @foreach ($ab as $absen)
                             <tr>
                                 <td>{{ $absen->nama->nama }}</td>
                                 <td>{{ $absen->status }}</td>
+                                @foreach ($ab as $a)
+                                @endforeach 
+                                <td>{{ $absen->status }}</td>
+                                <td>{{ $absen->status }}</td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
+
+
+
+
+
+                        {{-- <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="dt-buttons btn-group"> --}}
+                        {{-- gtw --}}
+                        {{-- <button class="btn btn-secondary buttons-copy buttons-htm15" tabindex="0" aria-controls="datatable-buttons">
+                                        <span>Copy</span>
+                                    </button>
+
+                                    <button class="btn btn-secondary buttons-copy buttons-htm15" tabindex="0" aria-controls="datatable-buttons">
+                                        <span>Excel</span>
+                                    </button>
+
+                                    <button class="btn btn-secondary buttons-copy buttons-htm15" tabindex="0" aria-controls="datatable-buttons">
+                                        <span>PDF</span>
+                                    </button> --}}
+
+
+
+                        {{-- @foreach ($h as $hasil)
+                            <tr>
+                                <td>
+                                    {{-- {{ $hasil->nama}} --}}
+                        {{-- @foreach ($hasil as $ha)
+                                        {{ $hasil->status }}
+                                    @endforeach --}}
+                        {{-- </td>
+                            </tr> --}}
+                        {{-- @endforeach --}}
+
 
 
                     </tbody>
 
 
-
-
-
-
-
-
-                    {{-- @foreach ($absen as $s)
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        {{ $s->id_siswa }}
-                                        <a class="avatar avatar-xs" href="profile.html"><img alt=""
-                                                src="{{ URL::to('assets/img/profiles/avatar-09.jpg') }}"></a>
-                                        <a href="profile.html">
-                                        </a>
-                                    </h2>
-                                </td>
-                                <td><a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i
-                                            class="fa fa-check text-success"></i></a></td>
-                            </tr>
-                        @endforeach --}}
 
                 </table>
             </div>

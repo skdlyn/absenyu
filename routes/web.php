@@ -47,12 +47,12 @@ route::get('/landing', function () {
 
 
 //guest
-Route::middleware('guest')->group(function () {
+// Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'authenticate']);
     // Route::get('register', [LoginController::class, 'signup'])->name('signup');
     // Route::post('register', [LoginController::class, 'tambah'])->name('tambah');;
-});
+// });
 
 
 //admin
@@ -64,7 +64,9 @@ Route::middleware('auth')->group(function () {
     Route::get('pending', [AbsenController::class, 'pending'])->name('absen.pending');
 
     // daftar absen
-    route::resource('daftarabsen', DaftarAbsenController::class);
+    route::resource('list', DaftarAbsenController::class);
+    route::get('list/{nama}/tanggal', [DaftarAbsenController::class,'show']);
+
 
     // list kelas
     Route::resource('showkelas', KelasController::class);
@@ -91,7 +93,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
-    Route::delete('logout', [LoginController::class, 'logout']);
+    // Route::delete('logout', [LoginController::class, 'logout']);
+    Route::post('logout', [LoginController::class, 'logout']);
     // cobaroute
 
 

@@ -33,8 +33,15 @@ class Siswa extends Model
         return $this->hasMany('App\Models\User');
     }
 
-    public function nama()
+    public function absen()
     {
-        return $this->hasMany('App\Models\Absen', 'id');
+        return $this->hasMany('App\Models\Absen', 'id_siswa');
     }
+
+    // public function namasiswa()
+    // {
+    //     return $this->hasMany('App\Models\Absen');
+    // }
+
+
 }

@@ -21,7 +21,7 @@
                             @foreach ($kelas as $i => $item)
                                 <tr>
                                     <th scope="row">{{ ++$i }}</th>
-                                    <td><a href="/list/kelas/{{ $item->id }}/tanggal">{{ $item->nama_kelas }}</a></td>
+                                    <td><a href="{{ route('list.show',$item->id) }}">{{ $item->nama_kelas }}</a></td>
                                     <td>{{ $item->guru->nama }} </td>
                                     <td>{{ $item->tahun_masuk }}</td>
                                     <td>{{ $item->tahun_keluar }}</td>

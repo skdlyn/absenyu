@@ -29,8 +29,14 @@ class Absen extends Model
     //     return $this->hasMany('App\Models\Siswa', 'id_siswa');
     // }
 
-    public function nama()
+    public function siswa()
     {
         return $this->belongsTo('App\Models\Siswa', 'id_siswa');
     }
+    
+    // public function siswa()
+    // {
+    //     return $this->belongsTo('App\Models\Siswa');
+    // }
+
 }

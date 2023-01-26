@@ -15,7 +15,7 @@
             </div>
             <div class="modal-body">Klik tombol "Keluar" jika anda sudah yakin.</div>
             <div class="modal-footer">
-                <form action="logout" method="DELETE">
+                <form action="logout" method="POST">
                     @csrf
                     <button class="btn btn-success" type="button" data-dismiss="modal">Batal</button>
                     <input type="submit" value="Keluar" class="btn btn-danger">

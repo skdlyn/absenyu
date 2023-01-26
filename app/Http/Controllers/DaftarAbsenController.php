@@ -11,10 +11,6 @@ use Illuminate\Support\Facades\Session;
 
 class DaftarAbsenController extends Controller
 {
-    public function list()
-    {
-      
-    }
 
     public function index()
     {
@@ -33,20 +29,29 @@ class DaftarAbsenController extends Controller
     }
 
     public function show($id)
-    { $guru = kelas::where('id_guru', $id)->with('guru')->get();
+    {
+        $guru = kelas::where('id_guru', $id)->with('guru')->get();
         $absen = Absen::where('id_kelas', $id)->get();
-
         $a = $absen;
-        $ab = Absen::where('id_kelas', $id)->get();
+        $na = absen::where('id_kelas', $id)->orderby('id_siswa', 'asc')->with('siswa')->get();
+        $nb = absen::where('id_kelas', $id)->get();
+        $ns = Siswa::where('id_kelas', $id)->with('absen')->get();
+        // return $u;
 
+        $today = today();
+        $dates = [];
+        // tanggal 1 bulan di bulan itu
+        for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
+            $dates[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y-m-d');
+        }
+        // return $dates;
 
         $tgl = [];
-        foreach ($absen as $date) {
-            $tgl[] = $date->tanggal;
+        foreach ($nb as $date) {
+            $tgl[] = $date->tanggal ;
         }
-
         $t = array_unique($tgl);
-        return view('daftarabsen.listtanggal', compact('t', 'guru', 'absen', 'ab'));
+        return view('daftarabsen.listtanggal', compact('t', 'guru', 'ns', 'a'));
     }
 
     public function edit($id)

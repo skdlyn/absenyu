@@ -30,7 +30,10 @@ class LoginController extends Controller
             return redirect()->intended('dashboard');
         }
  
-        return back()->with('loginError' , 'Login Anda Gagal');
+        return back()->withErrors([
+            'email' => 'Email atau password salah',
+        ])->onlyInput('email');
+        // return back()->with('loginError' , 'Login Anda Gagal');
     }
 
     public function logout(Request $request)
@@ -38,7 +41,7 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('/login');
     //Register
     }
     public function signup()
