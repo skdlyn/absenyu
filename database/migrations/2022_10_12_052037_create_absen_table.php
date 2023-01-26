@@ -23,15 +23,8 @@ return new class extends Migration
             $table->foreign('id_kelas')->references('id')->on('kelas')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            // $table->unsignedBigInteger('id_guru');
-            // $table->foreign('id_guru')->references('id')->on('guru')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
-            $table->string('tanggal');
-            // $table->unsignedBigInteger('id_tanggal');
-            // $table->foreign('id_tanggal')->references('id')->on('rekapabsen')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
+            // $table->string('tanggal');
+            $table->date('tanggal');
             $table->char('status');
             // $table->char('surat')->nullable();
             $table->timestamp('created_at')->nullable();

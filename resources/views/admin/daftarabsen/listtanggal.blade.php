@@ -59,6 +59,9 @@
                             @foreach ($t as $s => $i)
                                 <td>{{ $i }}</td>
                             @endforeach
+                            {{-- @foreach ($range as $d)
+                                <td>{{ $d }}</td>
+                            @endforeach --}}
                         </tr>
                     </thead>
                     <tbody>

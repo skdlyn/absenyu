@@ -19,7 +19,6 @@ class AbsenController extends Controller
      */
     public function index()
     {
-        
         $kelas = kelas::all();
         $siswa = siswa::all();
         return view('absen.absen', compact('kelas', 'siswa'));
@@ -75,18 +74,18 @@ class AbsenController extends Controller
             'status' => $request->status
         ];
 
-        for($i=0; $i < count($data['id_siswa']); $i++) {
+        for ($i = 0; $i < count($data['id_siswa']); $i++) {
             // insert tabel absen
             absen::insert([
                 'tanggal' => $request->tanggal,
-                'id_kelas'=> $request->id_kelas,
+                'id_kelas' => $request->id_kelas,
                 'id_siswa' => $data['id_siswa'][$i],
                 'status' => $data['status'][$i]
-            ]);  
+            ]);
         };
 
-        return back();
-     }
+        return redirect('absen');
+    }
 
     /**
      * Display the specified resource.
@@ -99,21 +98,31 @@ class AbsenController extends Controller
         $guru = kelas::where('id_guru', $id)->with('guru')->get();
         $siswa = siswa::where('id_kelas', $id)->get();
         $total = siswa::where('id_kelas', $id)->count();
-        // return $siswa;
+        $absen = absen::where('id_kelas', $id)->orderby('tanggal', 'desc')->first('tanggal');
+        // return $absen;
+        $today = today()->format("Y-m-d");
+        
+        if ($absen == null) {
+            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        }
+        if ($absen->tanggal == $today) {
+            return redirect()->back()->with('status', 'kamu sudah absen');
+        }
         return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
     }
 
-    public function listabsen($id){
+    public function listabsen($id)
+    {
         $guru = kelas::where('id_guru', $id)->with('guru')->get();
         $siswa = siswa::where('id_kelas', $id)->get();
         $total = siswa::where('id_kelas', $id)->count();
         // return $siswa;
-        return view('absen.listabsen',compact('siswa','guru','total'));
+        return view('absen.listabsen', compact('siswa', 'guru', 'total'));
     }
 
-    
-    public function list($id){
-        
+
+    public function list($id)
+    {
     }
 
     /**
@@ -127,7 +136,7 @@ class AbsenController extends Controller
         //
     }
 
-    
+
     /**
      * Update the specified resource in storage.
      *

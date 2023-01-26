@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             userseeder::class,
             guru_bk::class,
             XII_RPL_1::class,
-            XII_RPL_2::class
+            XII_RPL_2::class,
         ]);
 
         

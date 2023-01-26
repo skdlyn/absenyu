@@ -6,6 +6,8 @@ use App\Models\Absen;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use App\Models\Guru;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -17,7 +19,7 @@ class DaftarAbsenController extends Controller
         $kelas = Kelas::with('guru')->get();
         $guru = guru::all();
         // return $kelas   ;
-        return view('daftarabsen.daftar', compact('kelas', 'guru'));
+        return view('admin.daftarabsen.daftar', compact('kelas', 'guru'));
     }
 
     public function create($id)
@@ -31,27 +33,28 @@ class DaftarAbsenController extends Controller
     public function show($id)
     {
         $guru = kelas::where('id_guru', $id)->with('guru')->get();
-        $absen = Absen::where('id_kelas', $id)->get();
-        $a = $absen;
-        $na = absen::where('id_kelas', $id)->orderby('id_siswa', 'asc')->with('siswa')->get();
+        $a = Absen::where('id_kelas', $id)->get();
         $nb = absen::where('id_kelas', $id)->get();
         $ns = Siswa::where('id_kelas', $id)->with('absen')->get();
-        // return $u;
-
-        $today = today();
-        $dates = [];
+       
+        
         // tanggal 1 bulan di bulan itu
-        for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
-            $dates[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y-m-d');
-        }
-        // return $dates;
+        // $today = today();
+        // $a ='First day : ' . date("Y-m-01", strtotime($today)) . ' - Last day : ' . date("Y-m-t", strtotime($today));
+        // $awal = date('y-m-01',strtotime($today));
+        // $akhir = date('t',strtotime($today)); 
+        // $range = [];
+        // for ($i = 1;$i<= $akhir; $i++ ){
+        //     $range[]= $i;
+        // }
+        // return $range;
 
         $tgl = [];
         foreach ($nb as $date) {
             $tgl[] = $date->tanggal ;
         }
         $t = array_unique($tgl);
-        return view('daftarabsen.listtanggal', compact('t', 'guru', 'ns', 'a'));
+        return view('admin.daftarabsen.listtanggal', compact('t', 'guru', 'ns', 'a'));
     }
 
     public function edit($id)

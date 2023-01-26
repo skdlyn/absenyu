@@ -14,6 +14,7 @@ use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DaftarAbsenController;
 use App\Http\Controllers\dashboardcontroller;
 
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
@@ -34,12 +35,12 @@ Route::get('/', function () {
 });
 
 // profile
-Route::get('/siswadashboardiswa', function () {
+Route::get('/   ', function () {
     return view('dashboard_siswa');
 });
 Route::resource('profile', ProfileController::class);
 Route::get('/editprofile', function () {
-    return view('editprofile');
+     
 });
 route::get('/landing', function () {
     return view('siswa.absen');
@@ -47,12 +48,12 @@ route::get('/landing', function () {
 
 
 //guest
-// Route::middleware('guest')->group(function () {
+Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'authenticate']);
     // Route::get('register', [LoginController::class, 'signup'])->name('signup');
     // Route::post('register', [LoginController::class, 'tambah'])->name('tambah');;
-// });
+});
 
 
 //admin
@@ -94,8 +95,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
     // Route::delete('logout', [LoginController::class, 'logout']);
-    Route::post('logout', [LoginController::class, 'logout']);
-    // cobaroute
+    Route::post('/logout', [LoginController::class, 'logout']);
+    // cobaroutex
 
 
     //Profile Siswa
