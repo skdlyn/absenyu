@@ -21,14 +21,10 @@ class dashboardcontroller extends Controller
         $jumlah2 = siswa::all()->count();
         $jumlah3 = kelas::all()->count();
 
-        if (auth()->user()->role =='admin') {
+        if (auth()->user()->role == 'siswa') {
             return view('dashboard', compact('jumlah', 'jumlah2', 'jumlah3'));
-        }else if(auth()->user()->role =='sekertaris'){
-            return 'sekre';
-        }else if(auth()->user()->role =='bk'){
-            return 'bk';
-        }else{
-            return view('dashboard',compact('jumlah', 'jumlah2', 'jumlah3'));
+        } else {    
+            return view('dashboard', compact('jumlah', 'jumlah2', 'jumlah3'));
         }
     }
 }

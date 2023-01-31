@@ -17,9 +17,18 @@ class DataKelasController extends Controller
      */
     public function index()
     {
+        $id = Auth()->user()->id;   
+        $sg = kelas::where('id_guru',[0])->get();
         $kelas = kelas::with('guru')->get();
         $guru = guru::all();
-        return view('kelas.datakelas', compact('kelas', 'guru'));
+        return $sg;
+        if(auth()->user()->role =='admin'){
+            return view('kelas.datakelas', compact('kelas', 'guru'));
+        }
+        else{
+        return view('kelas.datakelas',compact('kelas','guru'));
+
+        }
     }
 
     /**

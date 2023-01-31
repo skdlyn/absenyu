@@ -19,7 +19,7 @@ class DaftarAbsenController extends Controller
         $kelas = Kelas::with('guru')->get();
         $guru = guru::all();
         // return $kelas   ;
-        return view('admin.daftarabsen.daftar', compact('kelas', 'guru'));
+        return view('daftarabsen.daftar', compact('kelas', 'guru'));
     }
 
     public function create($id)
@@ -54,7 +54,7 @@ class DaftarAbsenController extends Controller
             $tgl[] = $date->tanggal ;
         }
         $t = array_unique($tgl);
-        return view('admin.daftarabsen.listtanggal', compact('t', 'guru', 'ns', 'a'));
+        return view('daftarabsen.listtanggal', compact('t', 'guru', 'ns', 'a'));
     }
 
     public function edit($id)
