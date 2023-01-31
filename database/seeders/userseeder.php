@@ -45,12 +45,27 @@ class userseeder extends Seeder
             'password' => bcrypt("12345"),
             'role' => 'siswa'
         ]);
-
+        
         User::create([
             'name' => 'rafli',
             'email' => 'rafli@gmail.com',
             'password' => bcrypt("12345"),
             'role' => 'sekertaris'
         ]);
+
+        User::create([
+            'name' => 'muin',
+            'email' => 'muin@gmail.com',
+            'password' => bcrypt("12345"),
+            'role' => 'guru'
+        ]);
+
+        User::create([
+            'name' => 'abyaz',
+            'email' => 'abyaz@gmail.com',
+            'password' => bcrypt("12345"),
+            'role' => 'guru'
+        ]);
+
     }
 }

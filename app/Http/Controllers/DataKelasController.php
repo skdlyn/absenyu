@@ -15,13 +15,19 @@ class DataKelasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct($id)
+    {   
+        
+    }
+
     public function index()
     {
-        $id = Auth()->user()->id;   
+        $id = Auth()->user()->id;
         $sg = kelas::where('id_guru',[0])->get();
         $kelas = kelas::with('guru')->get();
         $guru = guru::all();
-        return $sg;
+        // return $id;
         if(auth()->user()->role =='admin'){
             return view('kelas.datakelas', compact('kelas', 'guru'));
         }
