@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('absen', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_siswa');
-            $table->foreign('id_siswa')->references('id')->on('siswa')
+            $table->unsignedBigInteger('siswa_id');
+            $table->foreign('siswa_id')->references('id')->on('siswa')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->unsignedBigInteger('id_kelas');
-            $table->foreign('id_kelas')->references('id')->on('kelas')
+            $table->unsignedBigInteger('kelas_id');
+            $table->foreign('kelas_id')->references('id')->on('kelas')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             // $table->string('tanggal');

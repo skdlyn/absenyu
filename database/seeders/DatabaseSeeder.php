@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            userseeder::class,
-            coba::class
-            // guru_bk::class,
-            // XII_RPL_1::class,
-            // XII_RPL_2::class,
+            // userseeder::class,
+            coba::class,
+            guru_bk::class,
+            XII_RPL_1::class,
+            XII_RPL_2::class,
         ]);
 
         

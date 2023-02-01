@@ -20,13 +20,13 @@ class coba extends Seeder
         bk::create([
             'nama' => 'windy',
             'jenis_kelamin' => 'perempuan',
-            'user_id' => '1',
+            // 'user_id' => '1',
         ]);
         Guru::create([
             'nip' => '987654321',
             'nama' => 'lukman',
             'jenis_kelamin' => 'laki - laki',
-            'user_id' => '3'
+            // 'user_id' => '3'
         ]);
 
         kelas::create([
@@ -44,14 +44,14 @@ class coba extends Seeder
             'id_kelas' => '1',
             'alamat' => '1 ',
             'jk' => 'laki - laki',
-            'user_id' => '7'
+            // 'user_id' => '7'
         ]);
 // ===========================================================================
         Guru::create([
             'nip' => '23829018',
             'nama' => 'asmuin',
             'jenis_kelamin' => 'laki - laki',
-            'user_id' => '6'
+            // 'user_id' => '6'
         ]);
 
         kelas::create([
@@ -69,7 +69,7 @@ class coba extends Seeder
             'id_kelas' => '2',
             'alamat' => 'jalanin aja ',
             'jk' => 'laki - laki',
-            'user_id' => '4'
+            // 'user_id' => '4'
         ]);
     }
 }

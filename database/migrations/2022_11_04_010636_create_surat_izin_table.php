@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('surat_izin', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_siswa');
-            $table->foreign('id_absen')->references('id')->on('absen')
+            $table->unsignedBigInteger('absen_id');
+            $table->foreign('absen_id')->references('id')->on('absen')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->unsignedBigInteger('id_absen');
-            $table->foreign('id_siswa')->references('id')->on('siswa')
+            $table->unsignedBigInteger('siswa_id');
+            $table->foreign('siswa_id')->references('id')->on('siswa')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->char('dokumen');

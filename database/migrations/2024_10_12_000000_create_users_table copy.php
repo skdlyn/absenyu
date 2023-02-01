@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->unsignedBigInteger('data_id');
+            $table->foreign('data_id')->references('id')->on('data');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('role')->index('role');
             $table->rememberToken();

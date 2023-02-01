@@ -20,16 +20,16 @@ return new class extends Migration
             // $table->string('password');
             // $table->string('role');
             $table->char('nisn');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->unsignedBigInteger('id_kelas');
-            $table->foreign('id_kelas')->references('id')->on('kelas')
+            // $table->unsignedBigInteger('user_id');
+            // $table->foreign('user_id')->references('id')->on('users')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
+            $table->unsignedBigInteger('kelas_id');
+            $table->foreign('kelas_id')->references('id')->on('kelas')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->string('alamat');
-            $table->char('jk');
+            $table->char('jenis_kelamin');
             // $table->timestamp('email_verified_at')->nullable();
             // $table->rememberToken();
             $table->timestamps();
