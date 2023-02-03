@@ -18,54 +18,62 @@ class userseeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'windy',
-            'email' => 'windy@gmail.com',
-            'password' => bcrypt("12345"),
-            'role' => 'bk'
-        ]);
+        // User::create([
+        //     'name' => 'windy',
+        //     'email' => 'windy@gmail.com',
+        //     'password' => bcrypt("12345"),
+        //     'role' => 'bk'
+        // ]);
 
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt("12345"),
-            'role' => 'admin'
-        ]);
+        // User::create([
+        //     'name' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => bcrypt("12345"),
+        //     'role' => 'admin'
+        // ]);
 
-        User::create([
-            'name' => 'lukman',
-            'email' => 'lukman@gmail.com',
-            'password' => bcrypt("12345"),
-            'role' => 'guru'
-        ]);
+        // User::create([
+        //     'name' => 'lukman',
+        //     'email' => 'lukman@gmail.com',
+        //     'password' => bcrypt("12345"),
+        //     'role' => 'guru'
+        // ]);
 
-        User::create([
-            'name' => 'ilham',
-            'email' => 'ilham@gmail.com',
-            'password' => bcrypt("12345"),
-            'role' => 'siswa'
-        ]);
+        // User::create([
+        //     'name' => 'ilham',
+        //     'email' => 'ilham@gmail.com',
+        //     'password' => bcrypt("12345"),
+        //     'role' => 'siswa'
+        // ]);
         
-        User::create([
-            'name' => 'rafli',
-            'email' => 'rafli@gmail.com',
-            'password' => bcrypt("12345"),
-            'role' => 'sekertaris'
-        ]);
+        // User::create([
+        //     'name' => 'rafli',
+        //     'email' => 'rafli@gmail.com',
+        //     'password' => bcrypt("12345"),
+        //     'role' => 'sekertaris'
+        // ]);
 
-        User::create([
-            'name' => 'muin',
-            'email' => 'muin@gmail.com',
-            'password' => bcrypt("12345"),
-            'role' => 'guru'
-        ]);
+        // User::create([
+        //     'name' => 'muin',
+        //     'email' => 'muin@gmail.com',
+        //     'password' => bcrypt("12345"),
+        //     'role' => 'guru'
+        // ]);
 
-        User::create([
-            'name' => 'abyaz',
-            'email' => 'abyaz@gmail.com',
-            'password' => bcrypt("12345"),
-            'role' => 'guru'
-        ]);
+        // User::create([
+        //     'name' => 'abyaz',
+        //     'email' => 'abyaz@gmail.com',
+        //     'password' => bcrypt("12345"),
+        //     'role' => 'guru'
+        // ]);
+
+            user::create([
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('12345'),
+                // 'kelas_id' => '',
+                'role' => 'admin'
+            ]);
 
     }
 }

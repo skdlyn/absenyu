@@ -20,8 +20,10 @@ return new class extends Migration
             $table->string('password');
             // $table->unsignedBigInteger('data_id');
             // $table->foreign('data_id')->references('id')->on('data');
-            $table->unsignedBigInteger('kelas_id');
-            $table->foreign('kelas_id')->references('id')->on('kelas');
+            $table->unsignedBigInteger('kelas_id')->nullable();
+            $table->foreign('kelas_id')->references('id')->on('kelas')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('role')->index('role');
             $table->rememberToken();

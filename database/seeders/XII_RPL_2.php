@@ -22,16 +22,17 @@ class XII_RPL_2 extends Seeder
             'nip' => '1234567890',
             'nama' => 'Lukman Sholeh',
             'jenis_kelamin' => 'laki - laki',
-            'user_id' => '3'
         ]);
+
+
 
         kelas::create([
             'nama_kelas' => 'XII RPL 2',
             'kuota' => '37',
             'tahun_masuk' => '2020-12-31',
             'tahun_keluar' => '2023-12-31',
-            'id_guru' => '2',
-            'id_bk' => '1'
+            'guru_id' => '2',
+            'bk_id' => '1'
         ]);
 
         siswa::create([
@@ -40,9 +41,9 @@ class XII_RPL_2 extends Seeder
             // 'role' => 'siswa',
             'nisn' => '0055606455',
             'alamat' => '1',
-            'id_kelas' => '2',
-            'jk' => 'laki - laki',
-            'user_id' => '4'
+            'kelas_id' => '2',
+            'jenis_kelamin' => 'laki - laki',
+            // 'user_id' => '4'
         ]);
 
         siswa::create([
@@ -51,9 +52,9 @@ class XII_RPL_2 extends Seeder
             // 'role' => 'siswa',
             'nisn' => '0055606458',
             'alamat' => '2 ',
-            'id_kelas' => '2',
-            'jk' => 'laki - laki',
-            'user_id' => '4'
+            'kelas_id' => '2',
+            'jenis_kelamin' => 'laki - laki',
+            // 'user_id' => '4'
         ]);
 
         // siswa::create([

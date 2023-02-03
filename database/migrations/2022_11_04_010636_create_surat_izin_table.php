@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('siswa_id');
             $table->foreign('siswa_id')->references('id')->on('siswa')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->unsignedBigInteger('absen_id');
             $table->foreign('absen_id')->references('id')->on('absen')
-            ->onDelete('cascade')
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->char('dokumen');
             $table->timestamps();

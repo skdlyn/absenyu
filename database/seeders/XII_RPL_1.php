@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Guru;
 use App\Models\Kelas;
 use App\Models\Siswa;
+use App\Models\bk;
 
 class XII_RPL_1 extends Seeder
 {
@@ -19,10 +20,14 @@ class XII_RPL_1 extends Seeder
     {
 
         Guru::create([
-            'nip' => '987654321',
             'nama' => 'Asmuin',
+            'nip' => '987654321',
             'jenis_kelamin' => 'laki - laki',
-            'user_id' => '3'
+        ]);
+
+        bk::create([
+            'nama' => 'windy',
+            'jenis_kelamin' => 'perempuan'
         ]);
 
         kelas::create([
@@ -30,8 +35,8 @@ class XII_RPL_1 extends Seeder
             'kuota' => '36',
             'tahun_masuk' => '2020-12-31',
             'tahun_keluar' => '2023-12-31',
-            'id_guru' => '1',
-            'id_bk' => '1'
+            'guru_id' => '1',
+            'bk_id' => '1'
         ]);
 
         siswa::create([
@@ -39,10 +44,10 @@ class XII_RPL_1 extends Seeder
             // 'email' => 'abyaz@gmail.com',
             // 'role' => 'siswa',
             'nisn' => '0055606455',
-            'id_kelas' => '1',
-            'alamat' => '1 ',
-            'jk' => 'laki - laki',
-            'user_id' => '4'
+            'kelas_id' => '1',
+            'alamat' => 'jalanin aja dl ',
+            'jenis_kelamin' => 'laki - laki',
+            // 'user_id' => '4'
         ]);
 
         siswa::create([
@@ -50,10 +55,10 @@ class XII_RPL_1 extends Seeder
             // 'email' => 'icrchamul@gmail.com',
             // 'role' => 'siswa',
             'nisn' => '0055606455',
-            'alamat' => '2 ',
-            'id_kelas' => '1',
-            'jk' => 'laki - laki',
-            'user_id' => '4'
+            'alamat' => 'malas jalan',
+            'kelas_id' => '1',
+            'jenis_kelamin' => 'laki - laki',
+            // 'user_id' => '4' 
         ]);
 
         // siswa::create([
