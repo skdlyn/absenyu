@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('data', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('siswa_id');
-            $table->foreign('siswa_id')->references('id')->on('siswa')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('guru_id');
-            $table->foreign('guru_id')->references('id')->on('guru')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('bk_id');
-            $table->foreign('bk_id')->references('id')->on('bk')->onUpdate('cascade')->onDelete('cascade');
+            // $table->unsignedBigInteger('siswa_id');
+            // $table->foreign('siswa_id')->references('id')->on('siswa')->onUpdate('cascade')->onDelete('cascade');
+            // $table->unsignedBigInteger('guru_id');
+            // $table->foreign('guru_id')->references('id')->on('guru')->onUpdate('cascade')->onDelete('cascade');
+            // $table->unsignedBigInteger('bk_id');
+            // $table->foreign('bk_id')->references('id')->on('bk')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
