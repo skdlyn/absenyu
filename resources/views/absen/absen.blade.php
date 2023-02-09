@@ -25,10 +25,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($kelas as $i => $item)
+                        @foreach ($kelas as $k)
                             <tr>
-                                <th scope="row">{{ ++$i }}</th>
-                                <td><a href={{ 'absen/' . $item->id }}>{{ $item->nama_kelas }}</a></td>
+                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td><a href={{ 'absen/' . $k->id }}>{{ $k->nama_kelas }}</a></td>
                             </tr>
                         @endforeach
                     </tbody>

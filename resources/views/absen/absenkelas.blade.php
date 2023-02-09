@@ -10,6 +10,7 @@
         </div>
     @endif
 
+    
     <div class="row">
         <div class="col-xl-3 col-md-6 md-6 mb-4">
             <div class="card border-left-primary  h-100 py-2">
@@ -128,10 +129,10 @@
                                         <th scope="row">{{ ++$i }}</th>
                                         <td>
                                             {{ $item->nama }}
-                                            <input type="hidden" name="id_siswa[]" id="id_siswa"
+                                            <input type="hidden" name="siswa_id[]" id="siswa_id"
                                                 value="{{ $item->id }}">
-                                            <input type="hidden" name="id_kelas" id="id_kelas" class="form-control"
-                                                value="{{ $item->id_kelas }}">
+                                            <input type="hidden" name="kelas_id" id="kelas_id" class="form-control"
+                                                value="{{ $item->kelas_id }}">
                                         </td>
                                         <td>
                                             <div class="form-group">

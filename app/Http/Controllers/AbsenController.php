@@ -21,6 +21,7 @@ class AbsenController extends Controller
     {
         $kelas = kelas::all();
         $siswa = siswa::all();
+        // return $kelas;
         return view('absen.absen', compact('kelas', 'siswa'));
     }
 
@@ -95,28 +96,29 @@ class AbsenController extends Controller
      */
     public function show($id)
     {
-        $guru = kelas::where('id_guru', $id)->with('guru')->get();
-        $siswa = siswa::where('id_kelas', $id)->get();
-        $total = siswa::where('id_kelas', $id)->count();
-        $absen = absen::where('id_kelas', $id)->orderby('tanggal', 'desc')->first('tanggal');
-        // return $absen;
+        $guru = kelas::where('guru_id', $id)->with('guru')->get();
+        $siswa = siswa::where('kelas_id', $id)->get();
+        $total = siswa::where('kelas_id', $id)->count();
+        // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
+        // return $guru;
         $today = today()->format("Y-m-d");
         
-        if ($absen == null) {
-            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
-        }
-        if ($absen->tanggal == $today) {
-            return redirect()->back()->with('status', 'kamu sudah absen');
-        }
+        // if ($absen == null) {
+        //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        // }
+        // if ($absen->tanggal == $today) {
+        //     return redirect()->back()->with('status', 'kamu sudah absen');
+        // }
         return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        // return view('absenkelas', compact('siswa', 'guru', 'total'));
     }
 
     public function listabsen($id)
     {
-        $guru = kelas::where('id_guru', $id)->with('guru')->get();
-        $siswa = siswa::where('id_kelas', $id)->get();
-        $total = siswa::where('id_kelas', $id)->count();
-        // return $siswa;
+        $guru = kelas::where('guru_id', $id)->with('guru')->get();
+        $siswa = siswa::where('kelas_id', $id)->get();
+        $total = siswa::where('kelas_id', $id)->count();
+        return $guru;
         return view('absen.listabsen', compact('siswa', 'guru', 'total'));
     }
 
@@ -158,9 +160,5 @@ class AbsenController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function hapus($id)
-    {
-    }
+    }   
 }

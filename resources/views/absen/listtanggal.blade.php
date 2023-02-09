@@ -78,7 +78,7 @@
                         @endforeach --}}
                         {{-- @endforeach --}}
                         {{-- @endforeach --}}
-                        @foreach ($ns as $nama)
+                        {{-- @foreach ($ns as $nama)
                             <tr>
                                 <td>
                                     {{ $nama->nama}}
@@ -89,8 +89,14 @@
                                     </td>
                                 @endforeach
                             </tr>
-                        @endforeach
+                        @endforeach --}}
 
+                        @foreach ($a as $absen)
+                            <tr>
+                                <td>{{ $absen->nama }}</td>
+                                <td>{{ $absen->status }}</td>
+                            </tr>
+                        @endforeach
 
                         {{-- @foreach ($ab as $absen)
                             <tr>

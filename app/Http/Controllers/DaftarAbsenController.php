@@ -18,12 +18,13 @@ class DaftarAbsenController extends Controller
     {
         $kelas = Kelas::with('guru')->get();
         $guru = guru::all();
-        // return $kelas   ;
-        return view('daftarabsen.daftar', compact('kelas', 'guru'));
+        // return $kelas;
+        return view('absen.daftar', compact('kelas', 'guru'));
     }
 
     public function create($id)
     {
+
     }
 
     public function store(Request $request)
@@ -32,29 +33,23 @@ class DaftarAbsenController extends Controller
 
     public function show($id)
     {
-        $guru = kelas::where('id_guru', $id)->with('guru')->get();
-        $a = Absen::where('id_kelas', $id)->get();
-        $nb = absen::where('id_kelas', $id)->get();
-        $ns = Siswa::where('id_kelas', $id)->with('absen')->get();
-       
-        
-        // tanggal 1 bulan di bulan itu
-        // $today = today();
-        // $a ='First day : ' . date("Y-m-01", strtotime($today)) . ' - Last day : ' . date("Y-m-t", strtotime($today));
-        // $awal = date('y-m-01',strtotime($today));
-        // $akhir = date('t',strtotime($today)); 
-        // $range = [];
-        // for ($i = 1;$i<= $akhir; $i++ ){
-        //     $range[]= $i;
-        // }
-        // return $range;
-
+        $guru = kelas::where('guru_id', $id)->with('guru')->get();
+        // $a = Absen::where('kelas_id', $id)->get();
+        // $nb = absen::where('kelas_id', $id)->get();
+        // $ns = Siswa::where('kelas_id', $id)->with('absen')->get();
+        // $a = absen::where('siswa_id', $id)->with('siswa')->get();
+        $a = Absen::where('kelas_id',$id)
+        ->join('siswa', 'siswa.id', '=', 'siswa_id')
+        ->get();
+        // return $a;
+        // dd($a)
         $tgl = [];
-        foreach ($nb as $date) {
+        foreach ($a as $date) {
             $tgl[] = $date->tanggal ;
         }
         $t = array_unique($tgl);
-        return view('daftarabsen.listtanggal', compact('t', 'guru', 'ns', 'a'));
+        return view('absen.listtanggal', compact('t', 'guru', 'a'));
+        // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 
     public function edit($id)
@@ -69,3 +64,16 @@ class DaftarAbsenController extends Controller
     {
     }
 }
+
+
+   
+        // tanggal 1 bulan di bulan itu
+        // $today = today();
+        // $a ='First day : ' . date("Y-m-01", strtotime($today)) . ' - Last day : ' . date("Y-m-t", strtotime($today));
+        // $awal = date('y-m-01',strtotime($today));
+        // $akhir = date('t',strtotime($today)); 
+        // $range = [];
+        // for ($i = 1;$i<= $akhir; $i++ ){
+        //     $range[]= $i;
+        // }
+        // return $range;

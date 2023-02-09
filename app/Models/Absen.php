@@ -14,29 +14,40 @@ class Absen extends Model
         'tanggal',
         'id_siswa',
         'status',
-        'keterangan'
+        'dokumen'
     ];
 
 
     protected $table = 'absen';
 
-    public function surat()
-    {
-        return $this->belongsToMany('App\Models\Siswa');
-    }
+    // public function surat()
+    // {
+    //     return $this->belongsToMany('App\Models\Siswa');
+    // }
 
     // public function siswa(){
     //     return $this->hasMany('App\Models\Siswa', 'id_siswa');
     // }
 
-    public function siswa()
-    {
-        return $this->belongsTo('App\Models\Siswa', 'id_siswa');
-    }
+    // public function siswa()
+    // {
+    //     return $this->belongsTo('App\Models\Siswa', 'id_siswa');
+    // }
     
     // public function siswa()
     // {
     //     return $this->belongsTo('App\Models\Siswa');
     // }
+
+    public function siswa()
+    {
+        return $this->belongsTo(siswa::class);
+    }
+
+    public function kelas()
+    {
+        // return $this->belongsTo(siswa::class, 'kelas_id');
+        return $this->belongsTo('App\Models\Siswa', 'kelas_id');
+    }
 
 }

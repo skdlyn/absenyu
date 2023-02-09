@@ -27,6 +27,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->char('status');
             // $table->char('surat')->nullable();
+            $table->char('dokumen')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

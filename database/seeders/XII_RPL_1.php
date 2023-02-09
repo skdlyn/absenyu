@@ -60,6 +60,17 @@ class XII_RPL_1 extends Seeder
             'jenis_kelamin' => 'laki - laki',
             // 'user_id' => '4' 
         ]);
+        
+        siswa::create([
+            'nama' => 'BILQIST ALMA FADHILAH',
+            // 'email' => 'icrchamul@gmail.com',
+            // 'role' => 'siswa',
+            'nisn' => '0055606455',
+            'alamat' => 'jalan kaki',
+            'kelas_id' => '1',
+            'jenis_kelamin' => 'perempuan',
+            // 'user_id' => '4' 
+        ]);
 
         // siswa::create([
         //     'nisn' => '0055606455',

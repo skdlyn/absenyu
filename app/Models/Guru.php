@@ -16,11 +16,8 @@ class Guru extends Model
     ];
     protected $table = 'guru';
 
-    public function kelas(){
-        return $this->hasMany('App\Models\kelas');
-    }
-
-    public function users(){
-        return $this->hasMany('App\Models\User');
+    public function kelas()
+    {
+        return $this->hasMany(kelas::class);
     }
 }
