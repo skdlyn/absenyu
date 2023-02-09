@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Absen;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class RekapabsenController extends Controller
 {
@@ -47,7 +49,7 @@ class RekapabsenController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

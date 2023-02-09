@@ -19,8 +19,7 @@ class DashboardController extends Controller
     {
         $jumlah = guru::all()->count();
         $jumlah2 = siswa::all()->count();
-        $jumlah3 = kelas::all()->count();
-        // return ($jumlah);
+        $jumlah3 = kelas::all()->count(); 
         return view('dashboard', compact('jumlah', 'jumlah2', 'jumlah3'));
     }
 

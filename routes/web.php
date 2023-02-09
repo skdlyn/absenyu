@@ -28,7 +28,14 @@ use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentL
 
 Route::get('/', function () {
     return view('landing');
+});
 
+Route::get('/Dashboard_Siswa', function () {
+    return view('dashsiswa');
+});
+
+Route::get('/rekapsiswa', function () {
+    return view('persiswa');
 });
 
 Route::get('/siswa', function () {

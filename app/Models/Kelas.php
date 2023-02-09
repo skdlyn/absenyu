@@ -32,4 +32,5 @@ class Kelas extends Model
     public function guru(){
         return $this->belongsTo('App\Models\guru', 'id');
     }
+    
 }
