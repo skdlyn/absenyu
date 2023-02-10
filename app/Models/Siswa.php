@@ -21,7 +21,7 @@ class Siswa extends Model
 
     public function kelas()
     {
-        return $this->belongsToMany('App\Models\Kelas', 'id_siswa', 'id_kelas')->withPivot('status');
+        return $this->belongsTo(kelas::class);
     }
     // public function absensi()
     // {
@@ -30,12 +30,13 @@ class Siswa extends Model
 
     public function users()
     {
-        return $this->hasMany('App\Models\User');
+        return $this->hasOne(User::class);
     }
 
     public function absen()
     {
-        return $this->hasMany('App\Models\Absen', 'id_siswa');
+        // return $this->hasMany('App\Models\Absen', 'id_siswa');
+        return $this->hasMany(Absen::class);
     }
 
     // public function namasiswa()

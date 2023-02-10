@@ -19,4 +19,8 @@ class bk extends Model
         return $this->hasMany('App\Models\User');
     }
 
+    public function kelas(){
+        return $this->hasMany(kelas::class);
+    }
+
 }

@@ -18,6 +18,6 @@ class Guru extends Model
 
     public function kelas()
     {
-        return $this->hasMany(kelas::class);
+        return $this->hasOne(kelas::class);
     }
 }

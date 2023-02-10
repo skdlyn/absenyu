@@ -43,15 +43,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function bk(){
-        return $this->belongsTo('App\Models\bk');
-    }
+    // public function bk(){
+    //     return $this->belongsTo(bk::class);
+    // }
 
-    public function guru(){
-        return $this->belongsTo('App\Models\guru');
-    }
+    // public function guru(){
+    //     return $this->belongsTo(guru::class);
+    // }
 
     public function siswa (){
-        return $this->belongsTo('App\Models\siswa');
+        return $this->belongsTo(Siswa::class);
     }
 }
