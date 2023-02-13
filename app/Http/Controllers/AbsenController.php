@@ -90,7 +90,7 @@ class AbsenController extends Controller
         for ($i = 0; $i < count($d['']); $i++){
             absen::create([
                 'tanggal' => $request->tanggal,
-                'kelas' => $request->kelas_id,
+                // 'kelas' => $request->kelas_id,
                 'siswa' => $request->user_id,
                 'status' => $d['status'][$i]
             ]);
