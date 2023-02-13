@@ -124,8 +124,8 @@
                                             {{ $item->name }}
                                             <input type="hidden" name="siswa_id[]" id="siswa_id"
                                                 value="{{ $item->id }}">
-                                            <input type="hidden" name="kelas_id" id="kelas_id" class="form-control"
-                                                value="{{ $item->kelas_id }}">
+                                            {{-- <input type="hidden" name="kelas_id" id="kelas_id" class="form-control"
+                                                value="{{ $item->kelas_id }}"> --}}
                                         </td>
                                         <td>
                                             <div class="form-group">

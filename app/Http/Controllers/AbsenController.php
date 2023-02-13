@@ -83,26 +83,20 @@ class AbsenController extends Controller
             'status' => $request->status
         ];
 
-        $today = today()->format('d m Y');
-        return $d;
+        // $today = today()->format('Y-m-d');
+        $today = today()->format('d-m-Y');
 
-        for ($i = 0; $i < count($d['siswa_id']); $i++) {
-            //   'siswa_id' =>$f;
-        }
-
+        // return $d;
         // return $f;
-        // for ($i = 0; $i < count($d['siswa_id']); $i++) {
-        //     absen::create([
-        //         $today=> $request->tanggal,
-        //         // 'kelas' => $request->kelas_siswa_id,
-        //         'siswa_id' => $d['siswa_id'][$i],
-        //         'status' => $d['status'][$i]
-        //         // 'siswa_id' => $request->siswa_id,
-        //         // 'status' => $request->status
-        //     ]);
-        // }
-
-        return redirect('absen');
+        for ($i = 0; $i < count($d['siswa_id']); $i++) {
+            absen::insert([
+                'tanggal'=> $today,
+                'siswa_id' => $d['siswa_id'][$i],
+                'status' => $d['status'][$i],
+            ]);
+        }
+        return redirect()->back();   
+        // return redirect('absen');
     }
 
     /**

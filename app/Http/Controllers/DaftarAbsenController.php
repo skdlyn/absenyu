@@ -9,6 +9,7 @@ use App\Models\Guru;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 class DaftarAbsenController extends Controller
@@ -16,15 +17,12 @@ class DaftarAbsenController extends Controller
 
     public function index()
     {
-        $kelas = Kelas::with('guru')->get();
-        $guru = guru::all();
-        // return $kelas;
-        return view('absen.daftar', compact('kelas', 'guru'));
+        $kelas = user::where('role', 'guru')->get();
+        return view('absen.daftar', compact('kelas'));
     }
 
     public function create($id)
     {
-
     }
 
     public function store(Request $request)
@@ -33,19 +31,19 @@ class DaftarAbsenController extends Controller
 
     public function show($id)
     {
-        $guru = kelas::where('guru_id', $id)->with('guru')->get();
-        // $a = Absen::where('kelas_id', $id)->get();
-        // $nb = absen::where('kelas_id', $id)->get();
-        // $ns = Siswa::where('kelas_id', $id)->with('absen')->get();
-        // $a = absen::where('siswa_id', $id)->with('siswa')->get();
-        $a = Absen::where('kelas_id',$id)
-        ->join('siswa', 'siswa.id', '=', 'siswa_id')
-        ->get();
-        // return $a;
-        // dd($a)
+        // $guru = kelas::where('guru_id', $id)->with('guru')->get();
+        // $a = Absen::where('kelas_id', $id)->join('siswa', 'siswa.id', '=', 'siswa_id')->get();
+        $guru = user::where('role', 'guru')->where('kelas_id',$id)->get();
+        $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
+        $today = today()->format('m');
+        foreach ($variable as $key => $value) {
+            # code...
+        }
+        // return $today;
+        
         $tgl = [];
         foreach ($a as $date) {
-            $tgl[] = $date->tanggal ;
+            $tgl[] = $date->tanggal;
         }
         $t = array_unique($tgl);
         return view('absen.listtanggal', compact('t', 'guru', 'a'));

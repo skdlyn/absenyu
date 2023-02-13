@@ -26,7 +26,7 @@ return new class extends Migration
             // $table->string('tanggal');
             $table->unsignedBigInteger('siswa_id');
             $table->foreign('siswa_id')->references('id')->on('users');
-            $table->date('tanggal');
+            $table->string('tanggal');
             $table->char('status');
             // $table->char('surat')->nullable();
             $table->char('dokumen')->nullable();
