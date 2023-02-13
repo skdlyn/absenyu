@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Guru;
 use App\Models\Kelas;
 use App\Models\Siswa;
+use App\Models\User;
 
 class XII_RPL_2 extends Seeder
 {
@@ -18,43 +19,50 @@ class XII_RPL_2 extends Seeder
     public function run()
     {
         //
-        Guru::create([
-            'nip' => '1234567890',
-            'nama' => 'Lukman Sholeh',
-            'jenis_kelamin' => 'laki - laki',
-        ]);
-
+        // Guru::create([
+        //     'nip' => '1234567890',
+        //     'nama' => 'Lukman Sholeh',
+        //     'jenis_kelamin' => 'laki - laki',
+        // ]);
 
 
         kelas::create([
             'nama_kelas' => 'XII RPL 2',
-            'kuota' => '37',
             'tahun_masuk' => '2020-12-31',
             'tahun_keluar' => '2023-12-31',
-            'guru_id' => '2',
-            'bk_id' => '1'
         ]);
 
-        siswa::create([
-            'nama' => 'Ibrahim',
-            // 'email' => 'ibrahim@gmail.com',
-            // 'role' => 'siswa',
-            'nisn' => '0055606455',
-            'alamat' => '1',
+        user::create([
+            'name' => 'lukman',
+            'email' => 'lukman@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606440',
             'kelas_id' => '2',
+            'alamat' => 'jalanin aja dl ',
             'jenis_kelamin' => 'laki - laki',
-            // 'user_id' => '4'
+            'role' => 'guru'
         ]);
 
-        siswa::create([
-            'nama' => 'Ibrahim Rizky',
-            // 'email' => 'rizky@gmail.com',
-            // 'role' => 'siswa',
-            'nisn' => '0055606458',
-            'alamat' => '2 ',
+        user::create([
+            'name' => 'iksan arya dinata',
+            'email' => 'iksan@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606440',
             'kelas_id' => '2',
+            'alamat' => 'jalanin aja dl ',
             'jenis_kelamin' => 'laki - laki',
-            // 'user_id' => '4'
+            'role' => 'siswa'
+        ]);
+
+        user::create([
+            'name' => 'ilham bintang herlambang',
+            'email' => 'ilham@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606441',
+            'kelas_id' => '2',
+            'alamat' => 'jalanin aja dl ',
+            'jenis_kelamin' => 'laki - laki',
+            'role' => 'siswa'
         ]);
 
         // siswa::create([

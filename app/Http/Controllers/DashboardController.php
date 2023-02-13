@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Absen;
 use Illuminate\Http\Request;
 
+
 class dashboardcontroller extends Controller
 {
     // public function __construct()
@@ -19,20 +20,14 @@ class dashboardcontroller extends Controller
 
     public function dash()
     {
-        $jumlah = guru::all()->count();
-        $jumlah2 = siswa::all()->count();
-        $jumlah3 = kelas::all()->count();
-        $a = auth()->user()->id;
-        $k = siswa::where('kelas_id')->get();
-        // $s = siswa::all();
-        // $k = kelas::find(1)->with('siswa');
-        // return $k;   
-        // return true;
-
+        $k = kelas::all()->count();
+        $s = user::where('role', 'siswa')->count();
+        $g = user::where('role', 'guru')->count();
+     
         if (auth()->user()->role == 'siswa') {
-            return view('dashboard', compact('jumlah', 'jumlah2', 'jumlah3'));
+            return view('dashboard',compact('k','s','g'));    
         } else {    
-            return view('dashboard', compact('jumlah', 'jumlah2', 'jumlah3'));
+            return view('dashboard',compact('k','s','g'));        
         }
     }
 }

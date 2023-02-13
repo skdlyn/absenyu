@@ -82,7 +82,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cetakpdf', [RekapabsenController::class, 'cetakpdf'])->name('cetakpdf');
 
     // data kelas
-    Route::resource('datakelas', DataKelasController::class);
+    Route::resource('s', DataKelasController::class);
     route::get('showkelas/{id}/hapus', [DataKelasController::class])->name('showkelas.hapus');
 
     // CRUD SISWA

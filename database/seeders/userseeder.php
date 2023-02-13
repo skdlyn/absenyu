@@ -45,7 +45,7 @@ class userseeder extends Seeder
         //     'password' => bcrypt("12345"),
         //     'role' => 'siswa'
         // ]);
-        
+
         // User::create([
         //     'name' => 'rafli',
         //     'email' => 'rafli@gmail.com',
@@ -66,22 +66,49 @@ class userseeder extends Seeder
         //     'password' => bcrypt("12345"),
         //     'role' => 'guru'
         // ]);
+        user::create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606458',
+            // 'kelas_id' => '1',
+            'alamat' => 'jalan jalan',
+            'jenis_kelamin' => 'laki - laki',
+            'role' => 'admin'
+        ]);
 
-            user::create([
-                'name' => 'admin',
-                'email' => 'admin@gmail.com',
-                'password' => bcrypt('12345'),
-                // 'siswa_id' => '1',
-                'role' => 'admin'
-            ]);
-            
-            user::create([
-                'name' => 'admin2',
-                'email' => 'admin2@gmail.com',
-                'password' => bcrypt('12345'),
-                // 'siswa_id' => '2',
-                'role' => 'admin'
-            ]);
+        user::create([
+            'name' => 'admin2',
+            'email' => 'admin2@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606457',
+            // 'kelas_id' => '1',
+            'alamat' => 'jalan kaki',
+            'jenis_kelamin' => 'laki - laki',
+            'role' => 'admin'
+        ]);
 
+     
+        // user::create([
+        //     'name' => 'ach nur icrchamul',
+        //     'email' => 'icrchamul@gmail.com',
+        //     'password' => bcrypt('12345'),
+        //     'nomor_induk' => '0055606455',
+        //     'alamat' => 'malas jalan',
+        //     'kelas_id' => '2',
+        //     'jenis_kelamin' => 'laki - laki',
+        //     'role' => 'siswa'
+        // ]);
+
+        // user::create([
+        //     'name' => 'BILQIST ALMA FADHILAH',
+        //     'email' => 'bilqis@gmail.com',
+        //     'password' => bcrypt('12345'),
+        //     'nomor_induk' => '0055606455',
+        //     'alamat' => 'jalan kaki',
+        //     'kelas_id' => '2',
+        //     'jenis_kelamin' => 'perempuan',
+        //     'role' => 'siswa'
+        // ]);
     }
 }

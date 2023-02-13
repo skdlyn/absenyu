@@ -51,7 +51,12 @@ class User extends Authenticatable
     //     return $this->belongsTo(guru::class);
     // }
 
-    public function siswa (){
-        return $this->belongsTo(Siswa::class);
+    // public function siswa (){
+    //     return $this->belongsTo(Siswa::class);
+    // }
+
+    public function kelas()
+    {
+        return $this->belongsTo(kelas::class);
     }
 }

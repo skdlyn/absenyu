@@ -34,14 +34,19 @@ class Kelas extends Model
     //     return $this->belongsTo('App\Models\guru', 'id');
     // }
 
-    public function guru()
-    {
-        return $this->belongsTo(guru::class);
-    }
+    // public function guru()
+    // {
+    //     return $this->belongsTo(guru::class);
+    // }
 
-    public function bk()
+    // public function bk()
+    // {
+    //     return $this->belongsTo(guru_bk::class);
+    // }
+
+    public function user()
     {
-        return $this->belongsTo(guru_bk::class);
+        return $this->hasMany(user::class);
     }
 
     // public function siswa()
