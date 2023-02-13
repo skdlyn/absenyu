@@ -65,33 +65,29 @@ class AbsenController extends Controller
     {
 
         // $data = [
-        //     'id_siswa' => $request->id_siswa,
+        //     'siswa_id' => $request->siswa_id,
         //     'status' => $request->status
         // ];
 
-        // // foreach
-
-
-        // for ($i = 0; $i < count($data['id_siswa']); $i++) {
+        // for ($i = 0; $i < count($data['siswa_id']); $i++) {
         //     // insert tabel absen
         //     absen::insert([
         //         'tanggal' => $request->tanggal,
-        //         'id_kelas' => $request->id_kelas,
-        //         'id_siswa' => $data['id_siswa'][$i],
+        //         // 'kelas_id' => $request->kelas_id,
+        //         'siswa_id' => $data['siswa_id'][$i],
         //         'status' => $data['status'][$i]
         //     ]);
-        // };
 
         $d = [
-            'siswa' => $request->user_id,
+            'siswa' => $request->id,
             'status' => $request->status
         ];
 
-        for ($i = 0; $i < count($d['']); $i++){
+        for ($i = 0; $i < count($d['id']); $i++){
             absen::create([
                 'tanggal' => $request->tanggal,
                 // 'kelas' => $request->kelas_id,
-                'siswa' => $request->user_id,
+                'siswa' => $d['id'][$i],
                 'status' => $d['status'][$i]
             ]);
         }
@@ -108,13 +104,10 @@ class AbsenController extends Controller
      */
     public function show($id)
     {
-        // $guru = kelas::where('guru_id', $id)->with('guru')->get();
-        // $siswa = siswa::where('kelas_id', $id)->get();
-        // $total = siswa::where('kelas_id', $id)->count();
         $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
         $siswa = user::where('role', 'siswa')->where('kelas_id', $id)->get();
         $total = user::where('role', 'siswa')->where('kelas_id', $id)->count();
-        // return $guru;
+        return $siswa;
         $today = today()->format("Y-m-d");
         // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
 
