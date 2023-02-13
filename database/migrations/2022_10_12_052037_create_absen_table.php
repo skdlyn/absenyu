@@ -24,8 +24,8 @@ return new class extends Migration
             //     ->onDelete('cascade')
             //     ->onUpdate('cascade');
             // $table->string('tanggal');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('siswa_id');
+            $table->foreign('siswa_id')->references('id')->on('users');
             $table->date('tanggal');
             $table->char('status');
             // $table->char('surat')->nullable();
