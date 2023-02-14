@@ -8,8 +8,8 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
-use App\Http\Controllers\RekapabsenController;
-use App\Http\Controllers\SiswaController;
+// use App\Http\Controllers\RekapabsenController;
+
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DaftarAbsenController;
 use App\Http\Controllers\dashboardcontroller;
@@ -79,10 +79,10 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('datasiswa', DataController::class);
 
-    Route::get('/cetakpdf', [RekapabsenController::class, 'cetakpdf'])->name('cetakpdf');
+    Route::get('/cetakpdf', [RekapController::class, 'cetakpdf'])->name('cetakpdf');
 
     // data kelas
-    Route::resource('s', DataKelasController::class);
+    Route::resource('datakelas', DataKelasController::class);
     route::get('showkelas/{id}/hapus', [DataKelasController::class])->name('showkelas.hapus');
 
     // CRUD SISWA

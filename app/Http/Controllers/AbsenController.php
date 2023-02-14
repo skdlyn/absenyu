@@ -95,7 +95,7 @@ class AbsenController extends Controller
                 'status' => $d['status'][$i],
             ]);
         }
-        return redirect()->back();   
+        return redirect('absen')->with('status', 'kelas anda telah diabsen!');   
         // return redirect('absen');
     }
 
@@ -112,15 +112,17 @@ class AbsenController extends Controller
         $total = user::where('role', 'siswa')->where('kelas_id', $id)->count();
         // return $siswa;
 
-        // $today = today()->format("Y-m-d");
+        $today = today()->format("Y-m-d");
         // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
+        $absen = absen::all();
+        return $absen;
 
-        // if ($absen == null) {
-        //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
-        // }
-        // if ($absen->tanggal == $today) {
-        //     return redirect()->back()->with('status', 'kamu sudah absen');
-        // }
+        if ($absen == null) {
+            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        }
+        if ($absen->tanggal == $today) {
+            return redirect()->back()->with('status', 'kamu sudah absen');
+        }
         return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
     }
 

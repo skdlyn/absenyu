@@ -55,8 +55,12 @@ class User extends Authenticatable
     //     return $this->belongsTo(Siswa::class);
     // }
 
-    public function kelas()
+    // public function kelas()
+    // {
+    //     return $this->belongsTo(kelas::class);
+    // }
+    public function absen()
     {
-        return $this->belongsTo(kelas::class);
+        return $this->hasmany(absen::class);
     }
 }

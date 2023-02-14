@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\siswa;
-use App\Models\Guru;
+// use App\Models\Guru;
 use App\Models\Kelas;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class DataKelasController extends Controller
 {
@@ -24,17 +25,20 @@ class DataKelasController extends Controller
     public function index()
     {
         $id = Auth()->user()->id;
-        $sg = kelas::where('id_guru',[0])->get();
-        $kelas = kelas::with('guru')->get();
-        $guru = guru::all();
-        // return $id;
-        // if(auth()->user()->role =='admin'){
-        //     return view('kelas.datakelas', compact('kelas', 'guru'));
-        // }
-        // else{
-        // return view('kelas.datakelas',compact('kelas','guru'));
+        // $sg = kelas::where('id_guru',[0])->get();
+        // $kelas = kelas::with('guru')->get();
+        // $kelas = user::where('role', 'guru')->where('kelas_id')
+        // $kelas = 'l';
+        // $guru = guru::all();
+        $guru = user::where('role', 'guru')->get();
+        // return $guru;
+        if(auth()->user()->role =='admin'){
+            return view('kelas.datakelas', compact( 'guru'));
+        }
+        else{
+        return view('kelas.datakelas',compact('guru'));
 
-        // }
+        }
     }
 
     /**
@@ -88,13 +92,18 @@ class DataKelasController extends Controller
      */
     public function show($id)
     {
-        $siswa = siswa::where('id_kelas', $id)->get();
-        $guru = kelas::where('id_guru', $id)->with('guru')->get();
-        $total = siswa::where('id_kelas', $id)->count();
-        $kelas = kelas::all();
-        $murid = siswa::find($id);
+        // $siswa = siswa::where('id_kelas', $id)->get();
+        // $guru = kelas::where('id_guru', $id)->with('guru')->get();
+        // $kelas = kelas::all();
+        // $murid = siswa::find($id);
+        $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
+        $siswa = user::where('role', 'siswa')->where('kelas_id', $id)->get();
+        $total= user::where('role', 'siswa')->where('kelas_id', $id)->count();
+        // return $total;
+
         // return $guru;
-        return view('kelas.showkelas', compact('murid','siswa', 'guru', 'total','kelas'));
+        // return view('kelas.showkelas', compact('murid','siswa', 'guru', 'total','kelas'));
+        return view('kelas.showkelas', compact('siswa', 'guru', 'total'));
     }
 
     /**
@@ -105,7 +114,7 @@ class DataKelasController extends Controller
      */
     public function edit($id)
     {
-        $guru = guru::all();
+        // $guru = guru::all();
         $pguru = kelas::where('id_guru', $id)->with('guru')->get();
         $kelas = kelas::find($id);
         return view('kelas.editkelas', compact('guru', 'kelas','pguru'));

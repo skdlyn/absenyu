@@ -55,11 +55,11 @@
                 <table class="table table-striped-columns mb-0">
                     <thead>
                         <tr>
-                            {{-- <td>absen </td> --}}
                             <td>Nama siswa</td>
-                            {{-- @foreach ($t as $s)
+                            {{-- <td>absen </td> --}}
+                            @foreach ($t as $s)
                                 <td>{{ $s }}</td>
-                            @endforeach --}}
+                            @endforeach
                             {{-- @foreach ($range as $d)
                                 <td>{{ $d }}</td>
                             @endforeach --}}

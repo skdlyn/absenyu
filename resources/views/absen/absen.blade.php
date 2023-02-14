@@ -7,14 +7,12 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
 
-    @if (session('status'))
-        <div class="alert alert-danger" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-
-
     <div class="col-lg-12">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
         <div class="card shadow mb-4">
             <div class="card-body">
                 <table class="table">
