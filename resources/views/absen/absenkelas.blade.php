@@ -113,8 +113,8 @@
                             <form action="{{ route('absen.store') }}" method="post">
                                 @csrf
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    {{-- <input type="date" name="tanggal" id="tanggal" class="form-control"
-                                        aria-describedby="helpId"> --}}
+                                    <input type="date" name="tanggal" id="tanggal" class="form-control"
+                                        aria-describedby="helpId">
                                 </div>
 
                                 @foreach ($siswa as $i => $item)

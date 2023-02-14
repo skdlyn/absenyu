@@ -36,9 +36,6 @@ class DaftarAbsenController extends Controller
         $guru = user::where('role', 'guru')->where('kelas_id',$id)->get();
         $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
         $today = today()->format('m');
-        // foreach ($variable as $key => $value) {
-        //     # code...
-        // }
         // return $today;
         
         $tgl = [];

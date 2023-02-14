@@ -58,7 +58,9 @@
                             <td>Nama siswa</td>
                             {{-- <td>absen </td> --}}
                             @foreach ($t as $s)
-                                <td>{{ $s }}</td>
+                                <td>
+                                    {{ $s }}
+                                </td>
                             @endforeach
                             {{-- @foreach ($range as $d)
                                 <td>{{ $d }}</td>
@@ -70,6 +72,7 @@
                         @foreach ($a as $absen)
                             <tr>
                                 {{-- <td>{{ $loop->iteration }}</td> --}}
+                                {{-- <td>2</td> --}}
                                 <td>{{ $absen->name }}</td>
                                 <td>{{ $absen->status }}</td>
                             </tr>
