@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\Rules\Unique;
 
 class DaftarAbsenController extends Controller
 {
@@ -38,17 +39,36 @@ class DaftarAbsenController extends Controller
         // $nb = absen::where('kelas_id', $id)->get();
         // $ns = Siswa::where('kelas_id', $id)->with('absen')->get();
         // $a = absen::where('siswa_id', $id)->with('siswa')->get();
-        $a = Absen::where('kelas_id',$id)
+        $siswa = Absen::where('kelas_id',$id)
         ->join('siswa', 'siswa.id', '=', 'siswa_id')
         ->get();
-        // return $a;
-        // dd($a)
+        // return $siswa;
+        $nama = [];
+        foreach ($siswa as $s ) {
+            $nama[] = $s->nama;
+            
+        }
+        $ua = array_unique($nama);
+        
+        $status= [];
+        foreach ($siswa as $s ) {
+            $status[] = [$s->siswa_id,$s->status];
+        }
+        // return true;
+        $us = array_unique($status);
+        return $status;
+        
+        
+        // return $ua;
+
         $tgl = [];
-        foreach ($a as $date) {
+        foreach ($siswa as $date) {
             $tgl[] = $date->tanggal ;
         }
         $t = array_unique($tgl);
-        return view('absen.listtanggal', compact('t', 'guru', 'a'));
+
+        
+        return view('absen.listtanggal', compact('t', 'guru', 'siswa', 'ua', 'status'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 
