@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Guru;
+use App\Models\User;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use App\Models\bk;
@@ -19,58 +20,67 @@ class XII_RPL_1 extends Seeder
     public function run()
     {
 
-        Guru::create([
-            'nama' => 'Asmuin',
-            'nip' => '987654321',
-            'jenis_kelamin' => 'laki - laki',
-        ]);
+        // Guru::create([
+        //     'nama' => 'Asmuin',
+        //     'nip' => '987654321',
+        //     'jenis_kelamin' => 'laki - laki',
+        // ]);
 
-        bk::create([
-            'nama' => 'windy',
-            'jenis_kelamin' => 'perempuan'
-        ]);
+        // bk::create([
+        //     'nama' => 'windy',
+        //     'jenis_kelamin' => 'perempuan'
+        // ]);
 
         kelas::create([
             'nama_kelas' => 'XII RPL 1',
-            'kuota' => '36',
             'tahun_masuk' => '2020-12-31',
             'tahun_keluar' => '2023-12-31',
-            'guru_id' => '1',
-            'bk_id' => '1'
         ]);
 
-        siswa::create([
-            'nama' => 'Abyaz Prince Muhammad',
-            // 'email' => 'abyaz@gmail.com',
-            // 'role' => 'siswa',
-            'nisn' => '0055606455',
+        user::create([
+            'name' => 'asmuin',
+            'email' => 'asmuin@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606455',
             'kelas_id' => '1',
             'alamat' => 'jalanin aja dl ',
             'jenis_kelamin' => 'laki - laki',
-            // 'user_id' => '4'
+            'role' => 'guru'
         ]);
 
-        siswa::create([
-            'nama' => 'ach nur icrchamul',
-            // 'email' => 'icrchamul@gmail.com',
-            // 'role' => 'siswa',
-            'nisn' => '0055606455',
-            'alamat' => 'malas jalan',
+        user::create([
+            'name' => 'Abyaz Prince Muhammad',
+            'email' => 'abyaz@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606455',
             'kelas_id' => '1',
+            'alamat' => 'jalanin aja dl ',
             'jenis_kelamin' => 'laki - laki',
-            // 'user_id' => '4' 
+            'role' => 'siswa'
         ]);
-        
-        siswa::create([
-            'nama' => 'BILQIST ALMA FADHILAH',
-            // 'email' => 'icrchamul@gmail.com',
-            // 'role' => 'siswa',
-            'nisn' => '0055606455',
-            'alamat' => 'jalan kaki',
+
+        user::create([
+            'name' => 'ach nur ichamul',
+            'email' => 'achnur@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606453',
             'kelas_id' => '1',
-            'jenis_kelamin' => 'perempuan',
-            // 'user_id' => '4' 
+            'alamat' => 'jalanin aja dl anjeng',
+            'jenis_kelamin' => 'laki - laki',
+            'role' => 'siswa'
         ]);
+
+        user::create([
+            'name' => 'achmad annuru akbar',
+            'email' => 'akbar@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606451',
+            'kelas_id' => '1',
+            'alamat' => 'jalanin aja dl ',
+            'jenis_kelamin' => 'laki - laki',
+            'role' => 'siswa'
+        ]);
+
 
         // siswa::create([
         //     'nisn' => '0055606455',

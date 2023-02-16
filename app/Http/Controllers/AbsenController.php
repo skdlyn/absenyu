@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use App\Models\Siswa;
+use App\Models\User;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class AbsenController extends Controller
@@ -20,9 +21,8 @@ class AbsenController extends Controller
     public function index()
     {
         $kelas = kelas::all();
-        $siswa = siswa::all();
         // return $kelas;
-        return view('absen.absen', compact('kelas', 'siswa'));
+        return view('absen.absen', compact('kelas'));
     }
 
     public function tanggal(request $request)
@@ -44,8 +44,6 @@ class AbsenController extends Controller
                 // return redirect('listkelas');
             }
         }
-
-        // return redirect('absen');
     }
 
     /**
@@ -55,10 +53,6 @@ class AbsenController extends Controller
      */
     public function create($id)
     {
-        // $guru = kelas::where('id_guru', $id)->with('guru')->get();
-        // $siswa = siswa::where('id_kelas', $id)->get();
-        // $total = siswa::where('id_kelas', $id)->count();
-        // return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
     }
 
     /**
@@ -70,27 +64,40 @@ class AbsenController extends Controller
     public function store(Request $request)
     {
 
-        $data = [
+        // $data = [
+        //     'siswa_id' => $request->siswa_id,
+        //     'status' => $request->status
+        // ];
+
+        // for ($i = 0; $i < count($data['siswa_id']); $i++) {
+        //     // insert tabel absen
+        //     absen::insert([
+        //         'tanggal' => $request->tanggal,
+        //         // 'kelas_id' => $request->kelas_id,
+        //         'siswa_id' => $data['siswa_id'][$i],
+        //         'status' => $data['status'][$i]
+        //     ]);
+
+        $d = [
             'siswa_id' => $request->siswa_id,
             'status' => $request->status
         ];
 
-        // return $data;
-        // $today = today()->format('d-m-Y');
-        $today = today()->format('Y-m-d');
+        // $today = today()->format('Y-m-d');
+        $today = today()->format('d-m-Y');
 
-        for ($i = 0; $i < count($data['siswa_id']); $i++) {
-            // insert tabel absen
+        // return $d;
+        // return $f;
+        for ($i = 0; $i < count($d['siswa_id']); $i++) {
             absen::insert([
                 // 'tanggal'=> $today,
-                'tanggal'=> $request->tanggal,
-                // 'kelas_id' => $request->kelas_id,
-                'siswa_id' => $data['siswa_id'][$i],
-                'status' => $data['status'][$i]
+                'tanggal' => $request->tanggal,
+                'siswa_id' => $d['siswa_id'][$i],
+                'status' => $d['status'][$i],
             ]);
-        };
-
-        return redirect('absen');
+        }
+        return redirect('absen')->with('status', 'kelas anda telah diabsen!');   
+        // return redirect('absen');
     }
 
     /**
@@ -101,13 +108,18 @@ class AbsenController extends Controller
      */
     public function show($id)
     {
-        $guru = kelas::where('guru_id', $id)->with('guru')->get();
-        $siswa = siswa::where('kelas_id', $id)->get();
-        $total = siswa::where('kelas_id', $id)->count();
-        // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
+        $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
         // return $guru;
+        $siswa = user::where('role', 'siswa')->where('kelas_id', $id)->get();
+        $total = user::where('role', 'siswa')->where('kelas_id', $id)->count();
+        // return $siswa;
+
         $today = today()->format("Y-m-d");
-        
+        // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
+        $absen= user::where('role', 'siswa')->where('kelas_id', $id)->get();
+        // $absen = absen::all();
+        // return $absen;
+
         // if ($absen == null) {
         //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
         // }
@@ -115,7 +127,6 @@ class AbsenController extends Controller
         //     return redirect()->back()->with('status', 'kamu sudah absen');
         // }
         return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
-        // return view('absenkelas', compact('siswa', 'guru', 'total'));
     }
 
     public function listabsen($id)
@@ -165,5 +176,5 @@ class AbsenController extends Controller
     public function destroy($id)
     {
         //
-    }   
+    }
 }

@@ -9,6 +9,7 @@ use App\Models\Guru;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rules\Unique;
 
@@ -17,15 +18,12 @@ class DaftarAbsenController extends Controller
 
     public function index()
     {
-        $kelas = Kelas::with('guru')->get();
-        $guru = guru::all();
-        // return $kelas;
-        return view('absen.daftar', compact('kelas', 'guru'));
+        $kelas = user::where('role', 'guru')->get();
+        return view('absen.daftar', compact('kelas'));
     }
 
     public function create($id)
     {
-
     }
 
     public function store(Request $request)
@@ -34,36 +32,16 @@ class DaftarAbsenController extends Controller
 
     public function show($id)
     {
-        $guru = kelas::where('guru_id', $id)->with('guru')->get();
-        // $a = Absen::where('kelas_id', $id)->get();
-        // $nb = absen::where('kelas_id', $id)->get();
-        // $ns = Siswa::where('kelas_id', $id)->with('absen')->get();
-        // $a = absen::where('siswa_id', $id)->with('siswa')->get();
-        $siswa = Absen::where('kelas_id',$id)
-        ->join('siswa', 'siswa.id', '=', 'siswa_id')
-        ->get();
-        // return $siswa;
-        $nama = [];
-        foreach ($siswa as $s ) {
-            $nama[] = $s->nama;
-            
-        }
-        $ua = array_unique($nama);
+        // $guru = kelas::where('guru_id', $id)->with('guru')->get();
+        // $a = Absen::where('kelas_id', $id)->join('siswa', 'siswa.id', '=', 'siswa_id')->get();
+        $guru = user::where('role', 'guru')->where('kelas_id',$id)->get();
+        $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
+        $today = today()->format('m');
+        // return $today;
         
-        $status= [];
-        foreach ($siswa as $s ) {
-            $status[] = [$s->siswa_id,$s->status];
-        }
-        // return true;
-        $us = array_unique($status);
-        return $status;
-        
-        
-        // return $ua;
-
         $tgl = [];
-        foreach ($siswa as $date) {
-            $tgl[] = $date->tanggal ;
+        foreach ($a as $date) {
+            $tgl[] = $date->tanggal;
         }
         $t = array_unique($tgl);
 

@@ -54,4 +54,9 @@ class Absen extends Model
         return $this->belongsTo('App\Models\Siswa', 'kelas_id');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(user::class);
+    }
+
 }

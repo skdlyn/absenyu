@@ -18,13 +18,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($kelas as $i => $item)
+                            @foreach ($kelas as $item )
                                 <tr>
-                                    <th scope="row">{{ ++$i }}</th>
-                                    <td><a href="{{ route('list.show',$item->id) }}">{{ $item->nama_kelas }}</a></td>
-                                    <td>{{ $item->guru->nama }} </td>
-                                    <td>{{ $item->tahun_masuk }}</td>
-                                    <td>{{ $item->tahun_keluar }}</td>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td><a href="{{ route('list.show',$item->kelas->id) }}">{{ $item->kelas->nama_kelas}}</a></td>
+                                    <td>{{ $item->name}}</td>
+                                    <td>{{ $item->kelas->tahun_masuk }}</td>
+                                    <td>{{ $item->kelas->tahun_keluar }}</td> 
                                 </tr>
                             @endforeach
                         </tbody>

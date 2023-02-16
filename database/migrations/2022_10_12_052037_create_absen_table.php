@@ -15,16 +15,18 @@ return new class extends Migration
     {
         Schema::create('absen', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('siswa_id');
-            $table->foreign('siswa_id')->references('id')->on('siswa')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            // $table->unsignedBigInteger('siswa_id');
+            // $table->foreign('siswa_id')->references('id')->on('siswa')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
             // $table->unsignedBigInteger('kelas_id');
             // $table->foreign('kelas_id')->references('id')->on('kelas')
             //     ->onDelete('cascade')
             //     ->onUpdate('cascade');
             // $table->string('tanggal');
-            $table->date('tanggal');
+            $table->unsignedBigInteger('siswa_id');
+            $table->foreign('siswa_id')->references('id')->on('users');
+            $table->string('tanggal');
             $table->char('status');
             // $table->char('surat')->nullable();
             $table->char('dokumen')->nullable();

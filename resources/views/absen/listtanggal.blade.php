@@ -56,8 +56,11 @@
                     <thead>
                         <tr>
                             <td>Nama siswa</td>
-                            @foreach ($t as $s => $i)
-                                <td>{{ $i }}</td>
+                            {{-- <td>absen </td> --}}
+                            @foreach ($t as $s)
+                                <td>
+                                    {{ $s }}
+                                </td>
                             @endforeach
                             {{-- @foreach ($range as $d)
                                 <td>{{ $d }}</td>
@@ -65,104 +68,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($siswa as $i) --}}
-                        {{-- @foreach ($stdnt as $q => $item) --}}
-                        {{-- @dd($item) --}}
-                        {{-- <td> {{ $item[0]->siswa->nama}}</td> --}}
-                        {{-- @foreach ($item as $s)
-                            <tr>
-                                <td>
-                                    {{ $s->status }}
-                                </td>
-                            </tr>
-                        @endforeach --}}
-                        {{-- @endforeach --}}
-                        {{-- @endforeach --}}
-                        {{-- @foreach ($ns as $nama)
-                            <tr>
-                                <td>
-                                    {{ $nama->nama}}
-                                </td>
-                                @foreach ($nama->absen as $a)
-                                    <td>
-                                        {{ $a->status}}
-                                    </td>
-                                @endforeach
-                            </tr>
-                        @endforeach --}}
 
 
                         {{-- @foreach ($ua as $item)
                             <tr>
-                                <td>{{ $item }}</td>
-
-                                @foreach ($siswa as $absen)
-                                    <td>{{ $absen->status }}</td>
-                                @endforeach
-
-                            </tr>
-                        @endforeach --}}
-
-                        {{-- @if ($siswa->nama == $siswa->nama)
-                            
-                        @else
-                            
-                        @endif --}}
-                        {{-- @foreach ($siswa as $item)
-                            <tr>
-                                <td>{{ $item->nama }}</td>
-                                <td>{{ $item->status }}</td>
-                            </tr>
-                        @endforeach --}}
-
-                        {{-- @foreach ($ua->unique('nama') as $nama) --}}
-                        @foreach ($ua as $item)
-                            <tr>
-                                <td>{{ $item }}</td>
-                                @foreach ($status as $s)
-                                    <td>{{ $s }}</td>
-                                @endforeach
+                                {{-- <td>{{ $loop->iteration }}</td> --}}
+                                {{-- <td>2</td> --}}
+                                <td>{{ $absen->name }}</td>
+                                <td>{{ $absen->status }}</td>
                             </tr>
                         @endforeach
 
-                        {{-- @endforeach --}}
-
-
-                        {{-- <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="dt-buttons btn-group"> --}}
-                        {{-- gtw --}}
-                        {{-- <button class="btn btn-secondary buttons-copy buttons-htm15" tabindex="0" aria-controls="datatable-buttons">
-                                        <span>Copy</span>
-                                    </button>
-
-                                    <button class="btn btn-secondary buttons-copy buttons-htm15" tabindex="0" aria-controls="datatable-buttons">
-                                        <span>Excel</span>
-                                    </button>
-
-                                    <button class="btn btn-secondary buttons-copy buttons-htm15" tabindex="0" aria-controls="datatable-buttons">
-                                        <span>PDF</span>
-                                    </button> --}}
-
-
-
-                        {{-- @foreach ($h as $hasil)
-                            <tr>
-                                <td>
-                                    {{-- {{ $hasil->nama}} --}}
-                        {{-- @foreach ($hasil as $ha)
-                                        {{ $hasil->status }}
-                                    @endforeach --}}
-                        {{-- </td>
-                            </tr> --}}
-                        {{-- @endforeach --}}
-
-
-
                     </tbody>
-
-
-
                 </table>
             </div>
         </div>

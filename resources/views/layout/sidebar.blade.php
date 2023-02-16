@@ -29,16 +29,16 @@
             <i class="fas fa-fw fa-calendar"></i>
             <span>Absen</span>
         </a>
-        <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pilihan Menu :</h6>
                 <a class="collapse-item" href="/absen">Absen hari ini</a>
-            {{-- <a class="collapse-item" href="/listabsen">List absen</a> --}}
                 <a class="collapse-item" href="/list">daftar absensi</a>
             </div>
         </div>
-     </li>
-    
+    </li>
+
     {{-- <li class="nav-item">
         <a class="nav-link" href="/listkelas">
             <i class="fas fa-fw fa-calendar"></i>
@@ -51,7 +51,8 @@
             <i class="fas fa-fw fa-wrench"></i>
             <span>Manajemen Data</span>
         </a>
-        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pilihan Menu :</h6>
                 {{-- <a class="collapse-item" href="{{ route('datasiswa.create') }}">Tambah Siswa</a> --}}
@@ -67,7 +68,7 @@
             <span>Rekap Data</span></a>
     </li>
 
- 
+
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

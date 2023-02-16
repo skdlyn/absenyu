@@ -26,7 +26,7 @@
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 @foreach ($guru as $g)
-                                    {{ $g->nama_kelas }}
+                                    {{ $g->kelas->nama_kelas }}
                                 @endforeach
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 @foreach ($guru as $g)
-                                    {{ $g->guru->nama }}
+                                    {{ $g->name }}
                                 @endforeach
                             </div>
                         </div>
@@ -127,10 +127,10 @@
                             @foreach ($siswa as $i => $item)
                                 <tr>
                                     <th scope="row">{{ ++$i }}</th>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->nisn }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->nomor_induk }}</td>
                                     <td>{{ $item->alamat }}</td>
-                                    <td>{{ $item->jk }}</td>
+                                    <td>{{ $item->jenis_kelamin }}</td>
                                     <td>
                                         <a class="btn btn-sm btn-warning btn-circle" data-toggle="modal"
                                             data-target="#exampleModal">
@@ -150,7 +150,7 @@
 
 
     {{-- modal --}}
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -206,7 +206,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 

@@ -22,7 +22,7 @@
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 @foreach ($guru as $g)
-                                    {{ $g->nama_kelas }}
+                                    {{ $g->kelas->nama_kelas }}
                                 @endforeach
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 @foreach ($guru as $g)
-                                    {{ $g->guru->nama }}
+                                    {{ $g->name }}
                                 @endforeach
                             </div>
                         </div>
@@ -84,13 +84,6 @@
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                 Tanggal
                             </div>
-                            {{-- <form action="{{ route('absen.store') }}" method="post">
-                                @csrf
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <input type="date" name="tanggal" id="tanggal" class="form-control" placeholder=""
-                                        aria-describedby="helpId">
-                                </div> 
-                            </form> --}}
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 {{ Carbon\Carbon::now('Asia/Jakarta')->format('d F Y') }}
                             </div>
@@ -128,7 +121,7 @@
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
                                         <td>
-                                            {{ $item->nama }}
+                                            {{ $item->name }}
                                             <input type="hidden" name="siswa_id[]" id="siswa_id"
                                                 value="{{ $item->id }}">
                                             {{-- <input type="hidden" name="kelas_id" id="kelas_id" class="form-control"

@@ -108,21 +108,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($kelas as $i => $item)
+                                @foreach ($guru  as $item)
                                     <tr>
-                                        <th scope="row">{{ ++$i }}</th>
-                                        <td><a href="{{ url('datakelas/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
-                                        <td>{{ $item->guru->nama }} </td>
-                                        <td>{{ $item->tahun_masuk }}</td>
-                                        <td>{{ $item->tahun_keluar }}</td>
+                                        <th scope="row">{{ $loop->iteration}}</th>
+                                        {{-- <td>{{ $item->kelas->nama_kelas}}</td> --}}
+                                        <td><a href="{{ url('datakelas/' . $item->kelas->id) }}">{{ $item->kelas->nama_kelas }}</a></td>
+                                        <td>{{ $item->name}} </td>
+                                        <td>{{ $item->kelas->tahun_masuk}}</td>
+                                        <td>{{ $item->kelas->tahun_keluar}}</td>
                                         <td>
                                             <a href="{{ route('datasiswa.edit', $item->id) }}"
                                                 class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i>
                                             </a>
                                         </td>
                                     </tr>
-                            </tbody>
-                            @endforeach
+                                    @endforeach
+                                </tbody>
                         </table>
                     </div>
                 </div>

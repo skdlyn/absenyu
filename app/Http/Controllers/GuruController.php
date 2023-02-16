@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Guru;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 class GuruController extends Controller
@@ -15,7 +16,9 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $guru = Guru::all();
+        // $guru = Guru::all();
+        $guru = user::where('role', 'guru')->get();
+        // return $guru;
         return view('kelas.guru', compact('guru'));
     }
 
