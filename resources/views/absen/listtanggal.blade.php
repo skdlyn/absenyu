@@ -91,26 +91,41 @@
                             </tr>
                         @endforeach --}}
 
-                        @foreach ($a as $absen)
-                            <tr>
-                                <td>{{ $absen->nama }}</td>
-                                <td>{{ $absen->status }}</td>
-                            </tr>
-                        @endforeach
 
-                        {{-- @foreach ($ab as $absen)
+                        {{-- @foreach ($ua as $item)
                             <tr>
-                                <td>{{ $absen->nama->nama }}</td>
-                                <td>{{ $absen->status }}</td>
-                                @foreach ($ab as $a)
-                                @endforeach 
-                                <td>{{ $absen->status }}</td>
-                                <td>{{ $absen->status }}</td>
+                                <td>{{ $item }}</td>
+
+                                @foreach ($siswa as $absen)
+                                    <td>{{ $absen->status }}</td>
+                                @endforeach
+
                             </tr>
                         @endforeach --}}
 
+                        {{-- @if ($siswa->nama == $siswa->nama)
+                            
+                        @else
+                            
+                        @endif --}}
+                        {{-- @foreach ($siswa as $item)
+                            <tr>
+                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->status }}</td>
+                            </tr>
+                        @endforeach --}}
 
+                        {{-- @foreach ($ua->unique('nama') as $nama) --}}
+                        @foreach ($ua as $item)
+                            <tr>
+                                <td>{{ $item }}</td>
+                                @foreach ($status as $s)
+                                    <td>{{ $s }}</td>
+                                @endforeach
+                            </tr>
+                        @endforeach
 
+                        {{-- @endforeach --}}
 
 
                         {{-- <div class="row">

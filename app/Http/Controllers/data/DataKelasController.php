@@ -16,10 +16,10 @@ class DataKelasController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct($id)
-    {   
+    // public function __construct($id)
+    // {   
         
-    }
+    // }
 
     public function index()
     {
@@ -28,13 +28,13 @@ class DataKelasController extends Controller
         $kelas = kelas::with('guru')->get();
         $guru = guru::all();
         // return $id;
-        if(auth()->user()->role =='admin'){
-            return view('kelas.datakelas', compact('kelas', 'guru'));
-        }
-        else{
-        return view('kelas.datakelas',compact('kelas','guru'));
+        // if(auth()->user()->role =='admin'){
+        //     return view('kelas.datakelas', compact('kelas', 'guru'));
+        // }
+        // else{
+        // return view('kelas.datakelas',compact('kelas','guru'));
 
-        }
+        // }
     }
 
     /**

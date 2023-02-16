@@ -24,6 +24,10 @@ return new class extends Migration
             $table->foreign('kelas_id')->references('id')->on('kelas')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+            // $table->unsignedBigInteger('siswa_id')->nullable();
+            // $table->foreign('siswa_id')->references('id')->on('siswa')
+            // ->onUpdate('cascade')
+            // ->onDelete('cascade');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('role')->index('role');
             $table->rememberToken();

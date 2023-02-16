@@ -32,6 +32,16 @@ use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentL
 
 Route::get('/', function () {
     return view('landing');
+<<<<<<< HEAD
+=======
+});
+
+Route::get('/Dashboard_Siswa', function () {
+    return view('dashsiswa');
+});
+Route::get('/rekapsiswa', function () {
+    return view('persiswa');
+>>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
 });
 
 // profile

@@ -44,9 +44,22 @@ class Kelas extends Model
         return $this->belongsTo(guru_bk::class);
     }
 
+<<<<<<< HEAD
     public function Siswa()
     {
         return $this->hasManyThrough(siswa::class, absen::class);
     }
 
+=======
+    // public function siswa()
+    // {
+    //     return $this->hasManyThrough(siswa::class, absen::class);
+    // }
+    
+
+    // public function user(){
+    //     return $this->
+    // }
+    
+>>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
 }
