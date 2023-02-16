@@ -19,32 +19,15 @@ class AbsenController extends Controller
      */
     public function index()
     {
-
         $kelas = kelas::all();
         $siswa = siswa::all();
-        return view('absen', compact('kelas', 'siswa'));
-    }
-
-    public function list()
-    {
-        $kelas = kelas::all();
-        return view('list', compact('kelas'));
-    }
-
-    public function listkelas()
-    {
-        $kelas = kelas::all();
-        return view('listkelas', compact('kelas'));
-    }
-
-    public function pending()
-    {
-        $kelas = kelas::all();
-        return view('pending', compact('kelas'));
+        // return $kelas;
+        return view('absen.absen', compact('kelas', 'siswa'));
     }
 
     public function tanggal(request $request)
     {
+
         for ($i = 0; $i < count($request->siswa); $i++) {
 
             $check = Absen::where(['id' => $request->siswa[$i], 'id' => $request->kelas, 'tanggal' => Carbon::now('Asia/Jakarta')->format('Y-m-d')])->get();
@@ -57,11 +40,12 @@ class AbsenController extends Controller
                 $absen->keterangan = $request->status[$i];
                 $absen->save();
 
-                Session::flash('berhasil', 'Selamat!!! Data Anda Berhasil Diupdate');
-                return redirect('listkelas');
+                // Session::flash('berhasil', 'Selamat!!! Data Anda Berhasil Diupdate');
+                // return redirect('listkelas');
             }
         }
-        return redirect('absen');
+
+        // return redirect('absen');
     }
 
     /**
@@ -69,11 +53,12 @@ class AbsenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $kelas = Kelas::all();
-        $absen = absen::all();
-        return view('rekapdata', compact('kelas', 'absen'));
+        // $guru = kelas::where('id_guru', $id)->with('guru')->get();
+        // $siswa = siswa::where('id_kelas', $id)->get();
+        // $total = siswa::where('id_kelas', $id)->count();
+        // return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
     }
 
     /**
@@ -84,25 +69,23 @@ class AbsenController extends Controller
      */
     public function store(Request $request)
     {
-        $pesan = [
-            'required' => ':attribute harus diisi gaess',
-            'min' => ':attribute minimal :min karakter ya coy',
-            'max' => 'attribute makasimal :max karakter gaess',
+
+        $data = [
+            'id_siswa' => $request->id_siswa,
+            'status' => $request->status
         ];
 
-        $this->validate($request, [
-            'tanggal' => 'required',
-            'status' => 'required',
-            'keterangan' => 'required'
-        ], $pesan);
+        for ($i = 0; $i < count($data['id_siswa']); $i++) {
+            // insert tabel absen
+            absen::insert([
+                'tanggal' => $request->tanggal,
+                'id_kelas' => $request->id_kelas,
+                'id_siswa' => $data['id_siswa'][$i],
+                'status' => $data['status'][$i]
+            ]);
+        };
 
-        Absen::create([
-            'tanggal' => $request->tanggal,
-            'status' => $request->status,
-            'keterangan' => $request->keterangan,
-        ]);
-
-        return ('ok');
+        return redirect('absen');
     }
 
     /**
@@ -113,10 +96,35 @@ class AbsenController extends Controller
      */
     public function show($id)
     {
-        // return siswa::where('id_kelas');
-        $siswa = siswa::where('id_kelas', $id)->get();
-        // return $siswa;
-        return view('absenkelas', compact('siswa'));
+        $guru = kelas::where('guru_id', $id)->with('guru')->get();
+        $siswa = siswa::where('kelas_id', $id)->get();
+        $total = siswa::where('kelas_id', $id)->count();
+        // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
+        // return $guru;
+        $today = today()->format("Y-m-d");
+        
+        // if ($absen == null) {
+        //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        // }
+        // if ($absen->tanggal == $today) {
+        //     return redirect()->back()->with('status', 'kamu sudah absen');
+        // }
+        return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        // return view('absenkelas', compact('siswa', 'guru', 'total'));
+    }
+
+    public function listabsen($id)
+    {
+        $guru = kelas::where('guru_id', $id)->with('guru')->get();
+        $siswa = siswa::where('kelas_id', $id)->get();
+        $total = siswa::where('kelas_id', $id)->count();
+        return $guru;
+        return view('absen.listabsen', compact('siswa', 'guru', 'total'));
+    }
+
+
+    public function list($id)
+    {
     }
 
     /**
@@ -129,6 +137,7 @@ class AbsenController extends Controller
     {
         //
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -151,9 +160,5 @@ class AbsenController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function hapus($id)
-    {
-    }
+    }   
 }

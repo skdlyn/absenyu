@@ -2,10 +2,6 @@
 @section('title', 'Data Siswa')
 @section('content-title')
 @section('content')
-    @extends('layout.admin')
-@section('title', 'Data Siswa')
-@section('content-title')
-@section('content')
 
     <div class="card-body">
         <form method="post" action="">

@@ -13,18 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('id_role');
-            $table->foreign('id_role')->references('id')->on('role')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+            // $table->unsignedBigInteger('data_id');
+            // $table->foreign('data_id')->references('id')->on('data');
+            $table->unsignedBigInteger('kelas_id')->nullable();
+            $table->foreign('kelas_id')->references('id')->on('kelas')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('role')->index('role');
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

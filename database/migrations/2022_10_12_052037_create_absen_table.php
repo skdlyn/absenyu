@@ -15,14 +15,19 @@ return new class extends Migration
     {
         Schema::create('absen', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_siswa');
-            $table->foreign('id_siswa')->references('id')->on('siswa');
-            $table->date('tanggal');
-            $table->text('keterangan');
-            $table->unsignedBigInteger('id_tanggal');
-            $table->foreign('id_tanggal')->references('id')->on('rekapabsen')
+            $table->unsignedBigInteger('siswa_id');
+            $table->foreign('siswa_id')->references('id')->on('siswa')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            // $table->unsignedBigInteger('kelas_id');
+            // $table->foreign('kelas_id')->references('id')->on('kelas')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
+            // $table->string('tanggal');
+            $table->date('tanggal');
+            $table->char('status');
+            // $table->char('surat')->nullable();
+            $table->char('dokumen')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

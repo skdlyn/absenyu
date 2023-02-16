@@ -15,8 +15,9 @@
             </div>
             <div class="modal-body">Klik tombol "Keluar" jika anda sudah yakin.</div>
             <div class="modal-footer">
-                <form action="logout" method="DELETE">
+                <form action="/logout" method="POST">
                     @csrf
+                    {{-- @method('put') --}}
                     <button class="btn btn-success" type="button" data-dismiss="modal">Batal</button>
                     <input type="submit" value="Keluar" class="btn btn-danger">
                 </form>
@@ -35,4 +36,3 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{ asset('template/js/sb-admin-2.min.js') }}"></script>
-

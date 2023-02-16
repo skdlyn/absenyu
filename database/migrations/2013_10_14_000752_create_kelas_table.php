@@ -21,8 +21,14 @@ return new class extends Migration
             $table->integer('kuota');
             $table->date('tahun_masuk');
             $table->date('tahun_keluar');
-            $table->unsignedBigInteger('id_guru');
-            $table->foreign('id_guru')->references('id')->on('guru');
+            $table->unsignedBigInteger('guru_id');
+            $table->foreign('guru_id')->references('id')->on('guru')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->unsignedBigInteger('bk_id');
+            $table->foreign('bk_id')->references('id')->on('bk')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

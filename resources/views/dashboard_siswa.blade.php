@@ -47,31 +47,29 @@
         </div>
 
 
-    {{-- ppp --}}
-    <div class="row w-75">
-        <div class="col-6">
-            <div class="card" style="background-color: #c05d72">
-                <div class="card-body">
-                    <h4>Okiye</h4>
+        {{-- ppp --}}
+        <div class="row w-75">
+            <div class="col-6">
+                <div class="card" style="background-color: #c05d72">
+                    <div class="card-body">
+                        <h4>Okiye</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card" style="background-color: #01ff23">
+                    <div class="card-body">
+                        <h4 style="text">aidiaw</h4>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <div class="card" style="background-color: #01ff23">
-                <div class="card-body">
-                    <h4 style="text">aidiaw</h4>
-                </div>
-            </div>
-        </div>
-    </div>
 
     </div>
 
     <style>
-        body{
+        body {
             background-color: #b9b3c9
         }
-     </style>
+    </style>
 @endsection
-
-

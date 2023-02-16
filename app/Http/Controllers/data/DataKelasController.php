@@ -15,13 +15,26 @@ class DataKelasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct($id)
+    {   
+        
+    }
+
     public function index()
     {
-        // $kelas = kelas::all();
+        $id = Auth()->user()->id;
+        $sg = kelas::where('id_guru',[0])->get();
         $kelas = kelas::with('guru')->get();
         $guru = guru::all();
-        return view('datakelas', compact('kelas', 'guru'));
+        // return $id;
+        if(auth()->user()->role =='admin'){
+            return view('kelas.datakelas', compact('kelas', 'guru'));
+        }
+        else{
+        return view('kelas.datakelas',compact('kelas','guru'));
 
+        }
     }
 
     /**
@@ -31,8 +44,7 @@ class DataKelasController extends Controller
      */
     public function create()
     {
-        // $guru = guru::all();
-        // return view('datasiswa', compact('guru'));
+        // sudah pakai modal
     }
 
     /**
@@ -45,8 +57,6 @@ class DataKelasController extends Controller
     {
         $message = [
             'required' => ':attribute harus diisi gaess',
-            // 'min' => ':attribute minimal :min karakter ya coy',
-            // 'max' => 'attribute makasimal :max karakter gaess',
         ];
 
         $this->validate($request, [
@@ -78,9 +88,13 @@ class DataKelasController extends Controller
      */
     public function show($id)
     {
-        $kelas = Kelas::all ();
-        // $guru = guru::find($id);
-        return view('showkelas', compact('kelas'));
+        $siswa = siswa::where('id_kelas', $id)->get();
+        $guru = kelas::where('id_guru', $id)->with('guru')->get();
+        $total = siswa::where('id_kelas', $id)->count();
+        $kelas = kelas::all();
+        $murid = siswa::find($id);
+        // return $guru;
+        return view('kelas.showkelas', compact('murid','siswa', 'guru', 'total','kelas'));
     }
 
     /**
@@ -92,7 +106,9 @@ class DataKelasController extends Controller
     public function edit($id)
     {
         $guru = guru::all();
-        return view('editkelas', compact('guru'));
+        $pguru = kelas::where('id_guru', $id)->with('guru')->get();
+        $kelas = kelas::find($id);
+        return view('kelas.editkelas', compact('guru', 'kelas','pguru'));
     }
 
     /**
@@ -104,7 +120,29 @@ class DataKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $message = [
+            'required' => ':attribute harus diisi gaess',
+        ];
+
+        $this->validate($request, [
+            'nama_kelas' => 'required',
+            'kuota' => 'required',
+            'tahun_masuk' => 'required',
+            'tahun_keluar' => 'required',
+            'id_guru' => 'required',
+        ], $message);
+
+        //insert data
+        $kelas = kelas::find($id);
+        $kelas->nama_kelas = $request->nama_kelas;
+        $kelas->kuota  = $request->kuota;
+        $kelas->tahun_masuk  = $request->tahun_masuk;
+        $kelas->tahun_keluar  = $request->tahun_keluar;
+        $kelas->id_guru = $request->id_guru;
+        $kelas->save();
+
+        Session::flash('success', 'Selamat!!! Data Anda Berhasil Ditambahkan');
+        return redirect('/datakelas');
     }
 
     /**
@@ -121,7 +159,8 @@ class DataKelasController extends Controller
     public function hapus($id)
     {
         Kelas::find($id)->delete();
-        Session::flash('danger', 'Data Berhasil Dihapus');
+        Session::flash('kelas', 'Data Kelas Berhasil Dihapus');
         return redirect('datakelas');
     }
+
 }

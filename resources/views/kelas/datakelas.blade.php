@@ -21,13 +21,16 @@
             </div>
         @endif
 
-        
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data Seluruh kelas</li>
+                <a href="/dashboard">
+                    <li><em class="fa fa-home"></em>Dashboard</li>
+                </a>
                 {{-- <li class="active">  Dashboard</li> --}}
             </ol>
         </div>
+
+
 
         <div class="row">
             <div class="col-lg-12">
@@ -97,7 +100,7 @@
                                     {{-- <th scope="col">NAMA KELAS</th> --}}
                                     <th scope="col">KELAS</th>
                                     {{-- <th scope="col">JURUSAN</th> --}}
-                                    <th scope="col">KUOTA</th>
+                                    {{-- <th scope="col">KUOTA</th> --}}
                                     <th scope="col">WALI KELAS</th>
                                     <th scope="col">TAHUN MASUK</th>
                                     <th scope="col">TAHUN KELUAR</th>
@@ -108,19 +111,14 @@
                                 @foreach ($kelas as $i => $item)
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
-                                        {{-- <td>{{ $item->nama_kelas }}</td> --}}
-                                        {{-- <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td> --}}
-                                        <td><a href="{{ url('showkelas/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
-                                        {{-- <td></td> --}}
-                                        <td>{{ $item->kuota }}</td>
-                                        <td>{{ $item->guru->nama}} </td>
+                                        <td><a href="{{ url('datakelas/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
+                                        <td>{{ $item->guru->nama }} </td>
                                         <td>{{ $item->tahun_masuk }}</td>
                                         <td>{{ $item->tahun_keluar }}</td>
                                         <td>
-                                            <a href="{{ route('datakelas.edit', $item->id) }}"
-                                                class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                                            <a href="{{ route('datakelas.hapus', $item->id) }}"
-                                                class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                            <a href="{{ route('datasiswa.edit', $item->id) }}"
+                                                class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i>
+                                            </a>
                                         </td>
                                     </tr>
                             </tbody>
