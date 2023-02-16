@@ -56,7 +56,7 @@ class DaftarAbsenController extends Controller
         }
         // return true;
         $us = array_unique($status);
-        return $status;
+        // return $status;
         
         
         // return $ua;

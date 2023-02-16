@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    
+
     <div class="row">
         <div class="col-xl-3 col-md-6 md-6 mb-4">
             <div class="card border-left-primary  h-100 py-2">
@@ -139,8 +139,8 @@
                                                 <select class="form-select form-control" id="status" name='status[]'>
                                                     <option value="hadir">hadir</option>
                                                     <option value="alpha">alpha</option>
-                                                    <option value="sakit">sakit</option>
-                                                    <option value="izin">izin</option>
+                                                    <option id="surat" value="sakit">sakit</option>
+                                                    <option id="surat" value="izin">izin</option>
                                                 </select>
                                             </div>
                                         </td>
