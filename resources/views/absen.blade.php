@@ -59,7 +59,6 @@
                                     {{-- <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td> --}}
                                     <td><a href="{{ url('absen/' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
                                     <td>{{ $item->kuota }}</a></td>
-                                    <td><input type="file" class="form-control" onchange="update{{ $loop->iteration }}()"></td>
                                 </tr>
                         </tbody>
 

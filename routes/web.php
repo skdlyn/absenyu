@@ -34,6 +34,13 @@ Route::get('/', function () {
     return view('landing');
 });
 
+Route::get('/Dashboard_Siswa', function () {
+    return view('dashsiswa');
+});
+Route::get('/rekapsiswa', function () {
+    return view('persiswa');
+});
+
 // profile
 Route::get('/   ', function () {
     return view('dashboard_siswa');
