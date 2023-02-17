@@ -75,22 +75,11 @@
                         </tr>
                     </thead>
                     <tbody>
-
-
-                        {{-- @foreach ($a as $item)
+                        @foreach ($b as $sis)
                             <tr>
-                                <td>{{ $absen->name }}</td>
-                                <td>{{ $absen->status }}</td>
+                                <td>{{ $sis->name }}</td>
                             </tr>
-                        @endforeach --}}
-
-
-                        <tr>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

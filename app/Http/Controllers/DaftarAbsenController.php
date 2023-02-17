@@ -35,30 +35,58 @@ class DaftarAbsenController extends Controller
         // $guru = kelas::where('guru_id', $id)->with('guru')->get();
         // $a = Absen::where('kelas_id', $id)->join('siswa', 'siswa.id', '=', 'siswa_id')->get();
         $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
-        $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
-
+        // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
+        $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
+        // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('status');
+        $b = $a->unique('name');
+        // return $b;
+        
+        $coba = user::where('role', 'siswa')->where('kelas_id', $id)->get();
+        // return $coba;
+        foreach ($coba as $c) {
+            $datas[] =  $c->id;
+        }
+        
+        $stats = absen::where('siswa_id','4')->get('status');
+        // return $stats;
+        // $u = array_unique($b);
+        // return $u;
         $today = today();
         $dates = [];
         for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
             $d[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('d');
-            $m= \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
-            $y= \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
+            $m = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
+            $y = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
             // eak
 
         }
-     
-        $coba = user::where('role','siswa')->where('kelas_id',$id)->get();
-        foreach ($coba as $c ) {
-            $f[] = [
-                $c->name,
-                $c->name,
-                $c->name,
 
-            ];
-                
-        }
-        return $coba;
-        return $f;
+        // $stats1 = absen::where('siswa_id', '4')->get();
+        // $stats2 = absen::where('siswa_id', '5')->get();
+        // $stats3 = absen::where('siswa_id', '6')->get();
+        // $stats4 = absen::where('siswa_id', '7')->get();
+        // $stats5 = absen::where('siswa_id', '8')->get();
+        // $stats = [$stats1, $stats2, $stats3, $stats4, $stats5];
+        // $c = [$b, $stats];
+        // foreach ($b as $b) {
+        //     $a3[] = [$b,$stats];
+        // }
+        // return $a3;
+
+        // return $c;
+        // $stats = absen::whereIn('siswa_id', $datas)->get();
+        // return $data3;
+        // return $stats;   
+        // for($i = 0;$i < count($datas); $i++){
+        // $stats[] = absen::whereIn('siswa_id',$datas)->get();
+        // }
+
+        // foreach ($stats as $sts ) {
+        //     $ha[] = $sts;
+        // }
+        // return $ha;
+        // return $coba;
+        // return $f;
         // return $tahun;  
 
         // $tgl = [];
@@ -66,7 +94,7 @@ class DaftarAbsenController extends Controller
         //     $tgl[] = $date->d$d;
         // }
         // $t = array_unique($tgl);
-        return view('absen.listtanggal', compact('d', 'm','y', 'guru', 'a'));
+        return view('absen.listtanggal', compact('d', 'm', 'y', 'guru', 'a', 'b', 'stats', 'c'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 
