@@ -37,17 +37,27 @@ class DaftarAbsenController extends Controller
         $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
         // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
         $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
+        $b = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
         // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('status');
-        $b = $a->unique('name');
+        // $b = $a->unique('name');
         // return $b;
         
-        $coba = user::where('role', 'siswa')->where('kelas_id', $id)->get();
-        // return $coba;
-        foreach ($coba as $c) {
-            $datas[] =  $c->id;
+        $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
+        foreach($coba as $c){
+            $stats[] = [
+                $c->name,
+                $sts = $c->absen,
+            ];
         }
+        // return $sts;
+        // return $stats;
+        // return $coba;   
+        // foreach ($coba as $c) {
+        //     $datas[] =  $c->id;
+        // }
+        // return $datas;
         
-        $stats = absen::where('siswa_id','4')->get('status');
+        // $stats = absen::where('siswa_id','4')->get();
         // return $stats;
         // $u = array_unique($b);
         // return $u;
@@ -88,13 +98,17 @@ class DaftarAbsenController extends Controller
         // return $coba;
         // return $f;
         // return $tahun;  
-
-        // $tgl = [];
-        // foreach ($a as $date) {
-        //     $tgl[] = $date->d$d;
-        // }
-        // $t = array_unique($tgl);
-        return view('absen.listtanggal', compact('d', 'm', 'y', 'guru', 'a', 'b', 'stats', 'c'));
+        // return $a;
+        // return $b;
+        $tgl = array();
+        foreach ($b as $date) {
+            $tgl[] = $date->tanggal;
+        }
+        $t = array_unique($tgl);
+        // $z[] = $coba->absen;
+        // return $t;
+        // dd($coba[0]->absen);
+        return view('absen.listtanggal', compact('d','t', 'm', 'y', 'guru', 'a' ,'coba'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 

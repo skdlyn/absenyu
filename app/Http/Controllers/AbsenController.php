@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use App\Models\Siswa;
 use App\Models\User;
+use App\Models\tanggal;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class AbsenController extends Controller
@@ -72,7 +73,9 @@ class AbsenController extends Controller
         // return $data;
         // $today = today()->format('d-m-Y');
         $today = today()->format('Y-m-d');
+        
 
+        
         $data = array();
         for ($i = 0; $i < count($d['siswa_id']); $i++) {
             $d[] =

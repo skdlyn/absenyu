@@ -62,6 +62,6 @@ class User extends Authenticatable
 
     public function absen()
     {
-        return $this->hasmany(absen::class);
+        return $this->hasmany(absen::class, 'siswa_id');
     }
 }

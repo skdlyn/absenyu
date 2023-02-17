@@ -28,6 +28,7 @@ class dashboardcontroller extends Controller
      
         if (auth()->user()->role == 'siswa') {
             return view('dashsiswa',compact('k','s','g','user'));    
+            // return view('dashboard',compact('k','s','g','user'));    
         } else {    
             return view('dashboard',compact('k','s','g','user'));        
         }

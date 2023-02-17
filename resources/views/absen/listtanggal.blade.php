@@ -63,21 +63,29 @@
                     <thead>
                         <tr>
                             <td>Nama siswa</td>
-                            {{-- <td>absen </td> --}}
-                            @foreach ($d as $s)
+                            {{-- @foreach ($coba as $i)
+                                @foreach ($i->absen->unique('tanggal') as $it)
+                                    <td>
+                                        {{ $it->tanggal }}
+                                    </td>
+                                @endforeach
+                            @endforeach --}}
+                            @foreach ($t as $s)
                                 <td>
                                     {{ $s }}
                                 </td>
                             @endforeach
-                            {{-- @foreach ($range as $d)
-                                <td>{{ $d }}</td>
-                            @endforeach --}}
                         </tr>
+
                     </thead>
                     <tbody>
-                        @foreach ($b as $sis)
+                        @foreach ($coba as $s)
                             <tr>
-                                <td>{{ $sis->name }}</td>
+                                <td>{{ $s->name }}</td>
+                                {{-- <td>{{ $s->absen }}</td> --}}
+                                @foreach ($s->absen as $a)
+                                    <td>{{ $a->status }}</td>
+                                @endforeach
                             </tr>
                         @endforeach
                     </tbody>
