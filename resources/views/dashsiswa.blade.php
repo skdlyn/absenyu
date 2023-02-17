@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('profile/css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('profile/images/smeas2.png') }}" />
+    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
 </head>
 
 <body>
@@ -47,13 +48,16 @@
                                 <i class="ti-settings text-primary"></i>
                                 Settings
                             </a>
+
                             <form action="/logout" method="post">
                                 @csrf
-                                <button class="dropdown-item" type="button">
+                                <button class="dropdown-item" type="submit">
                                     <i class="ti-power-off text-primary"></i>
                                     Logout
                                 </button>
+
                             </form>
+
                         </div>
                     </li>
                 </ul>
@@ -101,12 +105,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('akun.index') }}">
-                            <i class="icon-grid menu-icon"></i>
+                            <i class="fas fa-user"></i>
                             <span class="menu-title">Profile</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="/pdfsiswa">
                             <i class="icon-paper menu-icon"></i>
                             <span class="menu-title">Documentation</span>
                         </a>
@@ -227,6 +231,7 @@
 
     <!-- plugins:js -->
     <script src="{{ asset('profile/vendors/js/vendor.bundle.base.js') }}"></script>
+    <script src="{{asset('https://kit.fontawesome.com/yourcode.js')}}" crossorigin="anonymous"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="{{ asset('profile/vendors/chart.js/Chart.min.js') }}"></script>

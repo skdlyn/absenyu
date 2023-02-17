@@ -24,16 +24,16 @@
 
 <body>
 
-    <h2>HTML Table</h2>
+    <h4>Nama Siswa    : {{ $u->name }}</h4>
+    <h4>Kelas         : {{ $u->kelas->nama_kelas}}</h4>
+    <h4>Jenis Kelamin : {{ $u->jenis_kelamin}}</h4>
 
     <table class="table table-bordered">
         <thead class="bg-primary text-white">
             <tr>
                 <th scope="col">NO</th>
-                <th scope="col">NAMA</th>
-                <th scope="col">NISN</th>
-                <th scope="col">KELAS</th>
-                <th scope="col">ALAMAT</th>
+                <th scope="col">TANGGAL</th>
+                <th scope="col">STATUS</th>
                 <th scope="col">JENIS KELAMIN</th>
             </tr>
         </thead>

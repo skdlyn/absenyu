@@ -21,11 +21,12 @@
                     <button class="btn btn-success" type="button" data-dismiss="modal">Batal</button>
                     <input type="submit" value="Keluar" class="btn btn-danger">
                 </form>
-
             </div>
         </div>
     </div>
 </div>
+
+
 
 <!-- Bootstrap core JavaScript-->
 <script src="{{ asset('template/vendor/jquery/jquery.min.js') }} "></script>

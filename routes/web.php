@@ -5,6 +5,7 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\RekapabsenController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
@@ -48,7 +49,7 @@ Route::get('/rekapsiswa', function () {
 // });
 // Route::resource('profile', ProfileController::class);
 // Route::get('/editprofile', function () {
-     
+
 // });
 route::get('/landing', function () {
     return view('landing');
@@ -74,7 +75,7 @@ Route::middleware('auth')->group(function () {
 
     // daftar absen
     route::resource('list', DaftarAbsenController::class);
-    route::get('list/{nama}/tanggal', [DaftarAbsenController::class,'show']);
+    route::get('list/{nama}/tanggal', [DaftarAbsenController::class, 'show']);
 
 
     // list kelas
@@ -87,7 +88,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('datasiswa', DataController::class);
 
-    Route::get('/cetakpdf', [RekapController::class, 'cetakpdf'])->name('cetakpdf');
+    Route::get('/pdfsiswa', [RekapabsenController::class, 'cetakpdf'])->name('cetakpdf');
 
     // data kelas
     Route::resource('datakelas', DataKelasController::class);
@@ -114,5 +115,3 @@ Route::middleware('auth')->group(function () {
     // Route::resource('Profile', ProfileController::class);
     route::resource('akun', AkunController::class);
 });
-
-
