@@ -70,19 +70,21 @@ class AbsenController extends Controller
             'status'
         ];
 
+        // return $data;
+        // $today = today()->format('d-m-Y');
+        $today = today()->format('Y-m-d');
 
-        $today = today()->format('d-m-Y');
-
-        for ($i = 0; $i < count($d['siswa_id']); $i++) {
+        for ($i = 0; $i < count($data['siswa_id']); $i++) {
+            // insert tabel absen
             absen::insert([
                 // 'tanggal'=> $today,
                 'tanggal' => $request->tanggal,
                 'siswa_id' => $d['siswa_id'][$i],
                 'status' => $d['status'][$i],
             ]);
-        }
-        return redirect('absen')->with('status', 'kelas anda telah diabsen!');
-        // return redirect('absen');
+        };
+
+        return redirect('absen');
     }
 
     /**

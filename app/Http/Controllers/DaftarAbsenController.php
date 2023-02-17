@@ -39,6 +39,17 @@ class DaftarAbsenController extends Controller
         $today = today()->format('m');
         // return $today;
         
+        $status= [];
+        foreach ($siswa as $s ) {
+            $status[] = [$s->siswa_id,$s->status];
+        }
+        // return true;
+        $us = array_unique($status);
+        // return $status;
+        
+        
+        // return $ua;
+
         $tgl = [];
         foreach ($a as $date) {
             $tgl[] = $date->tanggal;
