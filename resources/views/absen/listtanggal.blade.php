@@ -11,7 +11,7 @@
                 <label class="focus-label">Employee Name</label>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+        {{-- <div class="col-sm-6 col-md-3">
             <div class="form-group form-focus select-focus">
                 <select class="select floating">
                     <option>-</option>
@@ -43,6 +43,13 @@
                 </select>
                 <label class="focus-label">Select Year</label>
             </div>
+        </div> --}}
+
+        <div>
+            <ul style="display: none">
+                <li>bulan : {{ $m }}</li>
+                <li>tahun : {{ $y }}</li>
+            </ul>
         </div>
         <div class="col-sm-6 col-md-3">
             <a href="#" class="btn btn-success btn-block"> Search </a>
@@ -57,7 +64,7 @@
                         <tr>
                             <td>Nama siswa</td>
                             {{-- <td>absen </td> --}}
-                            @foreach ($t as $s)
+                            @foreach ($d as $s)
                                 <td>
                                     {{ $s }}
                                 </td>
@@ -70,15 +77,20 @@
                     <tbody>
 
 
-                        {{-- @foreach ($ua as $item)
+                        {{-- @foreach ($a as $item)
                             <tr>
-                                {{-- <td>{{ $loop->iteration }}</td> --}}
-                                {{-- <td>2</td> --}}
                                 <td>{{ $absen->name }}</td>
                                 <td>{{ $absen->status }}</td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
 
+
+                        <tr>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

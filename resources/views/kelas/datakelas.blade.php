@@ -35,8 +35,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card shadow mb-4">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                        data-whatever>Tambah Kelas</button>
+                    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        data-whatever>Tambah Kelas</button> --}}
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,7 +68,7 @@
                                             <select class="form-select form-control" id="id_guru" name='id_guru'>
                                                 <option value="">Pilih Nama Wali Kelas</option>
                                                 @foreach ($guru as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -104,7 +104,7 @@
                                     <th scope="col">WALI KELAS</th>
                                     <th scope="col">TAHUN MASUK</th>
                                     <th scope="col">TAHUN KELUAR</th>
-                                    <th scope="col">ACTION</th>
+                                    {{-- <th scope="col">ACTION</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -116,11 +116,11 @@
                                         <td>{{ $item->name}} </td>
                                         <td>{{ $item->kelas->tahun_masuk}}</td>
                                         <td>{{ $item->kelas->tahun_keluar}}</td>
-                                        <td>
-                                            <a href="{{ route('datasiswa.edit', $item->id) }}"
+                                        {{-- <td>
+                                            <a href="{{ route('datakelas.edit', $item->id) }}"
                                                 class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i>
                                             </a>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -81,6 +81,28 @@ class XII_RPL_1 extends Seeder
             'role' => 'siswa'
         ]);
 
+        user::create([
+            'name' => 'haissh',
+            'email' => 'hoek@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606451',
+            'kelas_id' => '1',
+            'alamat' => 'jalanin aja dl ',
+            'jenis_kelamin' => 'laki - laki',
+            'role' => 'siswa'
+        ]);
+
+        user::create([
+            'name' => 'duarr',
+            'email' => 'duarr@gmail.com',
+            'password' => bcrypt('12345'),
+            'nomor_induk' => '0055606451',
+            'kelas_id' => '1',
+            'alamat' => 'jalanin aja dl ',
+            'jenis_kelamin' => 'laki - laki',
+            'role' => 'siswa'
+        ]);
+
 
         // siswa::create([
         //     'nisn' => '0055606455',

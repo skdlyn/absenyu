@@ -34,30 +34,39 @@ class DaftarAbsenController extends Controller
     {
         // $guru = kelas::where('guru_id', $id)->with('guru')->get();
         // $a = Absen::where('kelas_id', $id)->join('siswa', 'siswa.id', '=', 'siswa_id')->get();
-        $guru = user::where('role', 'guru')->where('kelas_id',$id)->get();
+        $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
         $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
-        $today = today()->format('m');
-        // return $today;
-        
-        $status= [];
-        foreach ($siswa as $s ) {
-            $status[] = [$s->siswa_id,$s->status];
-        }
-        // return true;
-        $us = array_unique($status);
-        // return $status;
-        
-        
-        // return $ua;
 
-        $tgl = [];
-        foreach ($a as $date) {
-            $tgl[] = $date->tanggal;
-        }
-        $t = array_unique($tgl);
+        $today = today();
+        $dates = [];
+        for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
+            $d[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('d');
+            $m= \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
+            $y= \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
+            // eak
 
-        
-        return view('absen.listtanggal', compact('t', 'guru', 'siswa', 'ua', 'status'));
+        }
+     
+        $coba = user::where('role','siswa')->where('kelas_id',$id)->get();
+        foreach ($coba as $c ) {
+            $f[] = [
+                $c->name,
+                $c->name,
+                $c->name,
+
+            ];
+                
+        }
+        return $coba;
+        return $f;
+        // return $tahun;  
+
+        // $tgl = [];
+        // foreach ($a as $date) {
+        //     $tgl[] = $date->d$d;
+        // }
+        // $t = array_unique($tgl);
+        return view('absen.listtanggal', compact('d', 'm','y', 'guru', 'a'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 

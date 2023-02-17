@@ -120,7 +120,7 @@
                                 <th scope="col">NISN</th>
                                 <th scope="col">ALAMAT</th>
                                 <th scope="col">JENIS KELAMIN</th>
-                                <th scope="col">ACTION</th>
+                                {{-- <th scope="col">ACTION</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -131,14 +131,14 @@
                                     <td>{{ $item->nomor_induk }}</td>
                                     <td>{{ $item->alamat }}</td>
                                     <td>{{ $item->jenis_kelamin }}</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-warning btn-circle" data-toggle="modal"
+                                    {{-- <td>
+                                        <a href="{{ route('datasiswa.show', $item->id) }}" class="btn btn-sm btn-warning btn-circle" data-toggle="modal"
                                             data-target="#exampleModal">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <a href="{{ route('datasiswa.hapus', $item->id) }}"
                                             class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         </tbody>
