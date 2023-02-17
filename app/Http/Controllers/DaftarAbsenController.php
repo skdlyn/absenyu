@@ -37,7 +37,7 @@ class DaftarAbsenController extends Controller
         $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
         $today = today()->format('m');
         // return $today;
-        
+        // return $a;
         $tgl = [];
         foreach ($a as $date) {
             $tgl[] = $date->tanggal;

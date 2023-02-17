@@ -82,7 +82,15 @@ class GuruController extends Controller
      */
     public function edit($id)
     {
-        $guru = guru::find($id);
+        $guru = user::where('role', 'guru')->where('id',$id)->get();
+    //    foreach ($guru as $g) {
+    //     $nama = $g->name;
+    //     $nomor = $g->nomor_induk; 
+    //     $jk= $g->jenis_kelamin;
+    //    }
+
+    //    return $nomor_in;
+        // return $guru;
         return view('editguru', compact('guru'));
     }
 
