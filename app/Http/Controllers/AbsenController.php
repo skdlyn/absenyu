@@ -74,7 +74,7 @@ class AbsenController extends Controller
         // $today = today()->format('d-m-Y');
         $today = today()->format('Y-m-d');
 
-        for ($i = 0; $i < count($data['siswa_id']); $i++) {
+        for ($i = 0; $i < count($d['siswa_id']); $i++) {
             // insert tabel absen
             absen::insert([
                 // 'tanggal'=> $today,
