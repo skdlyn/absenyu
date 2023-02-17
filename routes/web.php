@@ -8,6 +8,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\AkunController;
 // use App\Http\Controllers\RekapabsenController;
 
 use App\Http\Controllers\DataSiswaController;
@@ -42,15 +43,15 @@ Route::get('/rekapsiswa', function () {
 });
 
 // profile
-Route::get('/', function () {
-    return view('dashboard_siswa');
-});
+// Route::get('/', function () {
+//     return view('dashsiswa');
+// });
 // Route::resource('profile', ProfileController::class);
 // Route::get('/editprofile', function () {
      
 // });
 route::get('/landing', function () {
-    return view('siswa.absen');
+    return view('landing');
 });
 
 
@@ -110,8 +111,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/uploadsurat', [AbsenController::class, 'surat'])->name('surat');
 
-    Route::resource('profile', [ProfileController::class]);
-
+    // Route::resource('Profile', ProfileController::class);
+    route::resource('akun', AkunController::class);
 });
 
 

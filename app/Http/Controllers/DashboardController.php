@@ -21,13 +21,15 @@ class dashboardcontroller extends Controller
     public function dash()
     {
         $k = kelas::all()->count();
+        $user = auth()->user();
+        // return $user;
         $s = user::where('role', 'siswa')->count();
         $g = user::where('role', 'guru')->count();
      
         if (auth()->user()->role == 'siswa') {
-            return view('dashboard',compact('k','s','g'));    
+            return view('dashsiswa',compact('k','s','g','user'));    
         } else {    
-            return view('dashboard',compact('k','s','g'));        
+            return view('dashboard',compact('k','s','g','user'));        
         }
     }
 }

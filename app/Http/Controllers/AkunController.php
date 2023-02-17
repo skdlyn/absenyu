@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\siswa;
-use App\Models\Guru;
-use App\Models\Kelas;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
-
-class ProfileController extends Controller
+class AkunController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +13,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        // $siswa = siswa::where('na');
-        
-        return view('profile');
+        //
+        // return true;
+        $u = auth()->user();
+        // return $u;
+        return view('profile',compact('u'));
     }
 
     /**
@@ -63,7 +60,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        return view('editprofile');
+        //
     }
 
     /**
@@ -75,7 +72,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**

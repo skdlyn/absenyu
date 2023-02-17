@@ -91,19 +91,19 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="/dashboard">
                             <i class="icon-grid menu-icon"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="profile">
+                        <a class="nav-link" href="{{ route('akun.index')}}">
                             <i class="icon-grid menu-icon"></i>
                             <span class="menu-title">Profile</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/documentation/documentation.html">
+                        <a class="nav-link" href="">
                             <i class="icon-paper menu-icon"></i>
                             <span class="menu-title">Documentation</span>
                         </a>
@@ -117,7 +117,7 @@
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Welcome, Rafli Dwi Ferdiansyah</h3>
+                                    <h3 class="font-weight-bold">Welcome, {{$user->name}}</h3>
                                     {{-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have
                                         <span class="text-primary">3 unread alerts!</span></h6> --}}
                                 </div>

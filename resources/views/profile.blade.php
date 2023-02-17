@@ -78,7 +78,7 @@
          <!-- Breadcrumb -->
          <nav aria-label="breadcrumb" class="main-breadcrumb">
              <ol class="breadcrumb">
-                 <li class="breadcrumb-item"><a href="/siswa">Home</a></li>
+                 <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
                  <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
                  <li class="breadcrumb-item active" aria-current="page">User Profile</li>
              </ol>
@@ -93,9 +93,9 @@
                              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
                                  class="rounded-circle" width="150">
                              <div class="mt-3">
-                                 <h4>Rafli Dwi</h4>
-                                 <p class="text-secondary mb-1">12 RPL 2</p>
-                                 <p class="text-muted font-size-sm">Kendung I-C no 124B</p>
+                                 <h4>{{ $u->name}}</h4>
+                                 <p class="text-secondary mb-1">{{ $u->kelas->nama_kelas}}</p>
+                                 <p class="text-muted font-size-sm">{{ $u->alamat}}</p>
 
                              </div>
                          </div>
@@ -163,10 +163,10 @@
                      </ul>
                  </div>
              </div>
-             @foreach ($siswa as $item)
+             {{-- @foreach ($siswa as $item)
              
                  
-             @endforeach
+             @endforeach --}}
              <div class="col-md-8">
                  <div class="card mb-3">
                      <div class="card-body">
@@ -175,8 +175,8 @@
                                  <h6 class="mb-0">Nama Lengkap</h6>
                              </div>
                              <div class="col-sm-9 text-secondary">
-                                 Rafli Dwi Ferdiansyah
-                             </div>
+                                {{$u->name}}     
+                            </div>
                          </div>
                          <hr>
                          <div class="row">
@@ -184,16 +184,16 @@
                                  <h6 class="mb-0">Email</h6>
                              </div>
                              <div class="col-sm-9 text-secondary">
-                                 rafli.dwiferdiansyah01@gmail.com
-                             </div>
+                                {{ $u->email}}     
+                            </div>
                          </div>
                          <hr>
                          <div class="row">
                              <div class="col-sm-3">
-                                 <h6 class="mb-0">Nomor Telepon</h6>
+                                 <h6 class="mb-0">Nomor Induk</h6>
                              </div>
                              <div class="col-sm-9 text-secondary">
-                                 0881036786057
+                                 {{  $u->nomor_induk }}
                              </div>
                          </div>
                          <hr>
@@ -202,7 +202,7 @@
                                  <h6 class="mb-0">Alamat</h6>
                              </div>
                              <div class="col-sm-9 text-secondary">
-                                Kendung I-C No 124B
+                                {{ $u->alamat }}
                              </div>
                          </div>
                          <hr>
