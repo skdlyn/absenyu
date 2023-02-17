@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Absen;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -87,9 +88,11 @@ class RekapabsenController extends Controller
     }
     public function cetakpdf()
     {
+        $u = auth()->user();
+        // return view('pdfsiswa', compact('user'));
         $data = Absen::all();
         view()->share('data', $data);
-        $pdf = 'PDF'::loadview('cetak');
-        return $pdf->stream('Data Siswa.pdf');
+        $pdf = 'PDF'::loadview('pdfsiswa', compact('u'));
+        return $pdf->stream();
     }
 }

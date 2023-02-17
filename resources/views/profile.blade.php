@@ -206,12 +206,12 @@
                              </div>
                          </div>
                          <hr>
-                         <div class="row">
+                         {{-- <div class="row">
                              <div class="col-sm-12">
                                  <button class="btn" style="background-color: #b9b3c9" target="__blank"
                                      href="/editprofile">Edit</button>
                              </div>
-                         </div>
+                         </div> --}}
                      </div>
                  </div>
                  {{-- 
