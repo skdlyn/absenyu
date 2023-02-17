@@ -76,7 +76,8 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($a as $absen)
+
+                        {{-- @foreach ($ua as $item)
                             <tr>
                                 {{-- <td>{{ $loop->iteration }}</td> --}}
                                 {{-- <td>2</td> --}}

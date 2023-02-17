@@ -64,30 +64,15 @@ class AbsenController extends Controller
     public function store(Request $request)
     {
 
-        // $data = [
-        //     'siswa_id' => $request->siswa_id,
-        //     'status' => $request->status
-        // ];
-
-        // for ($i = 0; $i < count($data['siswa_id']); $i++) {
-        //     // insert tabel absen
-        //     absen::insert([
-        //         'tanggal' => $request->tanggal,
-        //         // 'kelas_id' => $request->kelas_id,
-        //         'siswa_id' => $data['siswa_id'][$i],
-        //         'status' => $data['status'][$i]
-        //     ]);
-
         $d = [
             'siswa_id' => $request->siswa_id,
-            'status' => $request->status
+            'status' => $request->hadir,
+            'status'
         ];
 
-        // $today = today()->format('Y-m-d');
+
         $today = today()->format('d-m-Y');
 
-        // return $d;
-        // return $f;
         $data = array();
         for ($i = 0; $i < count($d['siswa_id']); $i++) {
             $d[] =
@@ -199,5 +184,26 @@ class AbsenController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function surat()
+    {
+        return view('absen.uploadsurat');
+    }
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $carisurat = $request->cari;
+
+        // mengambil data dari table reservasi sesuai pencarian data
+        // $carisurat = absen::where('siswa_id', 'like', "%" . $carisurat . "%")
+        //     ->orWhere('status', 'like', '%' . $carisurat . '%')
+        //     ->paginate();
+
+        $carisurat = absen::where('role', '')->get();
+        // mengirim data reservasi ke view index
+        $carisurat = Absen::paginate(5);
+        return view('absen.uploadsurat', compact('carisurat'));
     }
 }

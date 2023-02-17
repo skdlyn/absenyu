@@ -16,8 +16,7 @@ class Absen extends Model
         'status',
         'dokumen'
     ];
-
-
+    
     protected $table = 'absen';
 
     // public function surat()

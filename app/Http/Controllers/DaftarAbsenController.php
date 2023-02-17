@@ -11,6 +11,7 @@ use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\Rules\Unique;
 
 class DaftarAbsenController extends Controller
 {
