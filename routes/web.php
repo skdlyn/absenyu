@@ -45,10 +45,10 @@ Route::get('/rekapsiswa', function () {
 Route::get('/   ', function () {
     return view('dashboard_siswa');
 });
-Route::resource('profile', ProfileController::class);
-Route::get('/editprofile', function () {
+// Route::resource('profile', ProfileController::class);
+// Route::get('/editprofile', function () {
      
-});
+// });
 route::get('/landing', function () {
     return view('siswa.absen');
 });
@@ -109,6 +109,8 @@ Route::middleware('auth')->group(function () {
     //Profile Siswa
 
     Route::get('/uploadsurat', [AbsenController::class, 'surat'])->name('surat');
+
+    Route::resource('/profile', [ProfileController::class]);
 
 });
 

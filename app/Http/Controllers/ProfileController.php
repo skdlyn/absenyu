@@ -18,9 +18,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $siswa = siswa::where('na');
+        // $siswa = siswa::where('na');
         
-        return view('profile', compact('siswa'));
+        return view('profile');
     }
 
     /**

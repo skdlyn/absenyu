@@ -97,6 +97,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="profile">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="pages/documentation/documentation.html">
                             <i class="icon-paper menu-icon"></i>
                             <span class="menu-title">Documentation</span>
