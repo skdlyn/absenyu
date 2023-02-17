@@ -49,13 +49,6 @@ class Kelas extends Model
         return $this->hasMany(user::class);
     }
 
-<<<<<<< HEAD
-    public function Siswa()
-    {
-        return $this->hasManyThrough(siswa::class, absen::class);
-    }
-
-=======
     // public function siswa()
     // {
     //     return $this->hasManyThrough(siswa::class, absen::class);
@@ -66,5 +59,4 @@ class Kelas extends Model
     //     return $this->
     // }
     
->>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
 }

@@ -16,12 +16,7 @@ class Absen extends Model
         'status',
         'dokumen'
     ];
-<<<<<<< HEAD
-
-
-=======
     
->>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
     protected $table = 'absen';
 
     // public function surat()

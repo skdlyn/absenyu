@@ -33,8 +33,9 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pilihan Menu :</h6>
-                <a class="collapse-item" href="/absen">Absen hari ini</a>
-                <a class="collapse-item" href="/list">daftar absensi</a>
+                <a class="collapse-item" href="/absen">Absen Hari Ini</a>
+                <a class="collapse-item" href="/list">Daftar Absensi</a>
+                <a class="collapse-item" href="/uploadsurat">Upload Surat</a>
             </div>
         </div>
     </li>

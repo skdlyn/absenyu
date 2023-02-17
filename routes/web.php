@@ -12,7 +12,7 @@ use App\Http\Controllers\AbsenController;
 
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DaftarAbsenController;
-use App\Http\Controllers\dashboardcontroller;
+use App\Http\Controllers\Dashboardcontroller;
 
 
 use App\Http\Controllers\ProfileController;
@@ -32,8 +32,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentL
 
 Route::get('/', function () {
     return view('landing');
-<<<<<<< HEAD
-=======
 });
 
 Route::get('/Dashboard_Siswa', function () {
@@ -41,7 +39,6 @@ Route::get('/Dashboard_Siswa', function () {
 });
 Route::get('/rekapsiswa', function () {
     return view('persiswa');
->>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
 });
 
 // profile
@@ -110,6 +107,8 @@ Route::middleware('auth')->group(function () {
 
 
     //Profile Siswa
+
+    Route::get('/uploadsurat', [AbsenController::class, 'surat'])->name('surat');
 
 });
 
