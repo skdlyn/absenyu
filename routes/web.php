@@ -42,7 +42,7 @@ Route::get('/rekapsiswa', function () {
 });
 
 // profile
-Route::get('/   ', function () {
+Route::get('/', function () {
     return view('dashboard_siswa');
 });
 // Route::resource('profile', ProfileController::class);
@@ -110,7 +110,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/uploadsurat', [AbsenController::class, 'surat'])->name('surat');
 
-    Route::resource('/profile', [ProfileController::class]);
+    Route::resource('profile', [ProfileController::class]);
 
 });
 
