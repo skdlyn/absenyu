@@ -69,8 +69,9 @@ class AbsenController extends Controller
             'status' => $request->status,
         ];
 
-
-        $today = today()->format('d-m-Y');
+        // return $data;
+        // $today = today()->format('d-m-Y');
+        $today = today()->format('Y-m-d');
 
         $data = array();
         for ($i = 0; $i < count($d['siswa_id']); $i++) {
