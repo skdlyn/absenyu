@@ -129,7 +129,7 @@
                                         </td>
                                         <td>
 
-                                            @if ($loop->last)
+                                            {{-- @if ($loop->last)
                                                 <div class="status-selected">
                                                     <input type="radio" id="hadir" name="status[{{ $item->id}}]"
                                                         value="hadir" onclick="updateHide{{ $loop->iteration }}()">
@@ -163,7 +163,14 @@
                                                         onclick="updateShow{{ $loop->iteration }}()">
                                                     Sakit
                                                 </div>
-                                            @endif
+                                            @endif --}}
+                                            <select class="form-select form-control" id="status" name='status[]'>
+                                                <option value="hadir">hadir</option>
+                                                <option value="alpha">alpha</option>
+                                                <option value="sakit">sakit</option>
+                                                <option value="izin">izin</option>
+                                            </select>
+
                                             <input type="hidden" name="id">
                                             <input type="file" class="form-control form-control-sm p-0"
                                                 id="upload{{ $loop->iteration }}" style="display: none; width:203px">
@@ -190,8 +197,6 @@
                 </form>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 
 

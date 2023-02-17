@@ -77,15 +77,20 @@
                     <tbody>
 
 
-                        {{-- @foreach ($ua as $item)
+                        {{-- @foreach ($a as $item)
                             <tr>
-                                {{-- <td>{{ $loop->iteration }}</td> --}}
-                                {{-- <td>2</td> --}}
                                 <td>{{ $absen->name }}</td>
                                 <td>{{ $absen->status }}</td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
 
+
+                        <tr>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

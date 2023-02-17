@@ -45,6 +45,19 @@ class DaftarAbsenController extends Controller
             $y= \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
 
         }
+     
+        $coba = user::where('role','siswa')->where('kelas_id',$id)->get();
+        foreach ($coba as $c ) {
+            $f[] = [
+                $c->name,
+                $c->name,
+                $c->name,
+
+            ];
+                
+        }
+        return $coba;
+        return $f;
         // return $tahun;  
 
         // $tgl = [];

@@ -66,8 +66,7 @@ class AbsenController extends Controller
 
         $d = [
             'siswa_id' => $request->siswa_id,
-            'status' => $request->hadir,
-            'status'
+            'status' => $request->status,
         ];
 
 
@@ -91,19 +90,19 @@ class AbsenController extends Controller
             }   
             // return $dara;
             // return implode($dara);
-            $i = 'izin';
-            $iz = array($i);
-            $s = 'sakit';
-            $sa = array($s);
+            // $i = 'izin';
+            // $iz = array($i);
+            // $s = 'sakit';
+            // $sa = array($s);
 
-            if ($dara == $sa || $dara == $iz ) {
-                // return true;
-            } else {
-                // return '2';
-            }
+            // if ($dara == $sa || $dara == $iz ) {
+            //     // return true;
+            // } else {
+            //     // return '2';
+            // }
             
         }
-        return 'view surat';
+        // return 'view surat';
         return redirect('absen')->with('status', 'kelas anda telah diabsen!');
         // return redirect('absen');
     }
