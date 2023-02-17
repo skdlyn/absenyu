@@ -43,6 +43,7 @@ class DaftarAbsenController extends Controller
             $d[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('d');
             $m= \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
             $y= \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
+            // eak
 
         }
      
