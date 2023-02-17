@@ -73,25 +73,25 @@ class AbsenController extends Controller
         // return $data;
         // $today = today()->format('d-m-Y');
         $today = today()->format('Y-m-d');
-        
 
-        
+
+
         $data = array();
         for ($i = 0; $i < count($d['siswa_id']); $i++) {
             $d[] =
-             absen::insert([
-                // 'tanggal'=> $today,
-                'tanggal' => $request->tanggal,
-                'siswa_id' => $d['siswa_id'][$i],
-                'status' => $d['status'][$i],
-            ]);
+                absen::insert([
+                    'tanggal' => $today,
+                    // 'tanggal' => $request->tanggal,
+                    'siswa_id' => $d['siswa_id'][$i],
+                    'status' => $d['status'][$i],
+                ]);
 
             // return $d;
             $dt = array();
             $dara = array();
-            foreach($d['status'] as $dta){
+            foreach ($d['status'] as $dta) {
                 $dara[] = $dta;
-            }   
+            }
             // return $dara;
             // return implode($dara);
             // $i = 'izin';
@@ -104,7 +104,7 @@ class AbsenController extends Controller
             // } else {
             //     // return '2';
             // }
-            
+
         }
         // return 'view surat';
         return redirect('absen')->with('status', 'kelas anda telah diabsen!');
@@ -127,15 +127,30 @@ class AbsenController extends Controller
 
         $today = today()->format("Y-m-d");
         // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
-        $absen = user::where('role', 'siswa')->where('kelas_id', $id)->get();
+        // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
+        $absen = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
+        return $absen;
+        foreach ($absen as $a) {
+            $hasilny = $a->absen;
+        }
+        // return $hasilny;
+
+        foreach ($hasilny as $h) {
+            $hasilny2 = $h;
+        }
+        return $hasilny2;
         // $absen = absen::all();
         // return $absen;
 
-        // if ($absen == null) {
-        //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
-        // }
+        if (empty($hasilny)) {
+            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        } else if ($hasilny2 == $today) {
+            return redirect()->back()->with('status', 'kamu sudah absen');
+        } else {
+
+            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        }
         // if ($absen->tanggal == $today) {
-        //     return redirect()->back()->with('status', 'kamu sudah absen');
         // }
         return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
     }
