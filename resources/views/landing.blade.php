@@ -65,7 +65,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           
-          <li><a class="nav-link scrollto" href="#portfolio">Kelas</a></li>
+          {{-- <li><a class="nav-link scrollto" href="#portfolio">Kelas</a></li> --}}
           <li><a class="nav-link scrollto" href="#team">Kepengurusan</a></li>
           {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -195,7 +195,7 @@
     </section><!-- End Counts Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
+    {{-- <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -245,7 +245,7 @@
               <a href="{{asset('bizland/img/portfolio/portfolio-3.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
-          </div>
+          </div> --}}
 
           {{-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <img src="{{asset('bizland/img/portfolio/portfolio-4.jpg')}}" class="img-fluid" alt="">
@@ -257,7 +257,7 @@
             </div>
           </div> --}}
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          {{-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <img src="{{asset('bizland/img/portfolio/portfolio-7.jpg')}}" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>11 RPL 1</h4>
@@ -289,8 +289,8 @@
 
         </div>
 
-      </div>
-    </section><!-- End Portfolio Section -->
+      </div> --}}
+    {{-- </section><!-- End Portfolio Section --> --}}
 
     <!-- ======= Kepengurusan ======= -->
     <section id="team" class="team section-bg">

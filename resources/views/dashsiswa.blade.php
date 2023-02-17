@@ -27,10 +27,10 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{{ asset('profile/images/smeas.png') }}"
-                        class="mr-2" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('profile/images/smeas-mini.svg') }}"
-                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo mr-5" href="index.html"><img
+                        src="{{ asset('profile/images/smeas.png') }}" class="mr-2" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img
+                        src="{{ asset('profile/images/smeas-mini.svg') }}" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -47,10 +47,13 @@
                                 <i class="ti-settings text-primary"></i>
                                 Settings
                             </a>
-                            <a class="dropdown-item">
-                                <i class="ti-power-off text-primary"></i>
-                                Logout
-                            </a>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button class="dropdown-item" type="button">
+                                    <i class="ti-power-off text-primary"></i>
+                                    Logout
+                                </button>
+                            </form>
                         </div>
                     </li>
                 </ul>
@@ -60,7 +63,7 @@
                 </button>
             </div>
         </nav>
-        
+
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_settings-panel.html -->
@@ -91,13 +94,19 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="/dashboard">
                             <i class="icon-grid menu-icon"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/documentation/documentation.html">
+                        <a class="nav-link" href="{{ route('akun.index') }}">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
                             <i class="icon-paper menu-icon"></i>
                             <span class="menu-title">Documentation</span>
                         </a>
@@ -111,7 +120,7 @@
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Welcome, Rafli Dwi Ferdiansyah</h3>
+                                    <h3 class="font-weight-bold">Welcome, {{ $user->name }}</h3>
                                     {{-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have
                                         <span class="text-primary">3 unread alerts!</span></h6> --}}
                                 </div>
@@ -140,7 +149,8 @@
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card tale-bg">
                                 <div class="card-people mt-auto">
-                                    <img src="{{asset('profile/images/login.jpeg')}}" style="background-size: cover" alt="people">
+                                    <img src="{{ asset('profile/images/login.jpeg') }}"
+                                        style="background-size: cover" alt="people">
                                     <div class="weather-info">
                                         <div class="d-flex">
 
