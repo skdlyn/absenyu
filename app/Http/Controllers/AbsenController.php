@@ -80,7 +80,7 @@ class AbsenController extends Controller
         for ($i = 0; $i < count($d['siswa_id']); $i++) {
             $d[] =
                 absen::insert([
-                    'tanggal' => $today,
+                    'tanggal' => $today,    
                     // 'tanggal' => $request->tanggal,
                     'siswa_id' => $d['siswa_id'][$i],
                     'status' => $d['status'][$i],
@@ -129,27 +129,27 @@ class AbsenController extends Controller
         // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         $absen = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        return $absen;
+        // return $absen;
         foreach ($absen as $a) {
             $hasilny = $a->absen;
         }
         // return $hasilny;
 
         foreach ($hasilny as $h) {
-            $hasilny2 = $h;
+            $hasilny2 = $h->tanggal;
         }
-        return $hasilny2;
+        // return $hasilny2;
         // $absen = absen::all();
         // return $absen;
 
-        if (empty($hasilny)) {
-            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
-        } else if ($hasilny2 == $today) {
-            return redirect()->back()->with('status', 'kamu sudah absen');
-        } else {
-
-            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
-        }
+        // if (empty($hasilny)) {
+        //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        // } else 
+        if ($hasilny2 == $today) {
+            return redirect()->back()->with('absen', 'kamu sudah absen');
+        } 
+        //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        // }
         // if ($absen->tanggal == $today) {
         // }
         return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
