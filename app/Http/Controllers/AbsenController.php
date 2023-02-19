@@ -142,6 +142,12 @@ class AbsenController extends Controller
         // $absen = absen::all();
         // return $absen;
 
+        if ($absen == null) {
+            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        }
+        if ($absen->tanggal == $today) {
+            return redirect()->back()->with('status', 'kamu sudah absen');
+        }
         
         // if (empty($hasilny)) {
         //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
