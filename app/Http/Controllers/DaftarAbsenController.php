@@ -38,6 +38,8 @@ class DaftarAbsenController extends Controller
         // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
         $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
         $b = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
+        // $a = user::where('role', 'siswa')->where('kelas_id', $id)->get();
+        // return $a;
         // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('status');
         // $b = $a->unique('name');
         // return $b;

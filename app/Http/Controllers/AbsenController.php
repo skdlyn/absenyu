@@ -129,7 +129,7 @@ class AbsenController extends Controller
         // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         $absen = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        // return $absen;
+        return $absen;
         foreach ($absen as $a) {
             $hasilny = $a->absen;
         }
@@ -142,12 +142,13 @@ class AbsenController extends Controller
         // $absen = absen::all();
         // return $absen;
 
+        
         // if (empty($hasilny)) {
         //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
         // } else 
-        if ($hasilny2 == $today) {
-            return redirect()->back()->with('absen', 'kamu sudah absen');
-        } 
+        // if ($hasilny2 == $today) {
+        //     return redirect()->back()->with('absen', 'kamu sudah absen');
+        // } 
         //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
         // }
         // if ($absen->tanggal == $today) {

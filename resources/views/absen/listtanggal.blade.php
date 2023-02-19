@@ -70,11 +70,11 @@
                                     </td>
                                 @endforeach
                             @endforeach --}}
-                            @foreach ($t as $s)
+                            {{-- @foreach ($t as $s)
                                 <td>
                                     {{ $s }}
                                 </td>
-                            @endforeach
+                            @endforeach --}}
                         </tr>
 
                     </thead>
