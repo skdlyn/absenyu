@@ -72,36 +72,6 @@ class DaftarAbsenController extends Controller
             // eak
 
         }
-
-        // $stats1 = absen::where('siswa_id', '4')->get();
-        // $stats2 = absen::where('siswa_id', '5')->get();
-        // $stats3 = absen::where('siswa_id', '6')->get();
-        // $stats4 = absen::where('siswa_id', '7')->get();
-        // $stats5 = absen::where('siswa_id', '8')->get();
-        // $stats = [$stats1, $stats2, $stats3, $stats4, $stats5];
-        // $c = [$b, $stats];
-        // foreach ($b as $b) {
-        //     $a3[] = [$b,$stats];
-        // }
-        // return $a3;
-
-        // return $c;
-        // $stats = absen::whereIn('siswa_id', $datas)->get();
-        // return $data3;
-        // return $stats;   
-        // for($i = 0;$i < count($datas); $i++){
-        // $stats[] = absen::whereIn('siswa_id',$datas)->get();
-        // }
-
-        // foreach ($stats as $sts ) {
-        //     $ha[] = $sts;
-        // }
-        // return $ha;
-        // return $coba;
-        // return $f;
-        // return $tahun;  
-        // return $a;
-        // return $b;
         $tgl = array();
         foreach ($b as $date) {
             $tgl[] = $date->tanggal;
