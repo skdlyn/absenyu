@@ -76,19 +76,19 @@ class AbsenController extends Controller
         $data = array();
         for ($i = 0; $i < count($d['siswa_id']); $i++) {
             $d[] =
-             absen::insert([
-                // 'tanggal'=> $today,
-                'tanggal' => $request->tanggal,
-                'siswa_id' => $d['siswa_id'][$i],
-                'status' => $d['status'][$i],
-            ]);
+                absen::insert([
+                    // 'tanggal'=> $today,
+                    'tanggal' => $request->tanggal,
+                    'siswa_id' => $d['siswa_id'][$i],
+                    'status' => $d['status'][$i],
+                ]);
 
             // return $d;
             $dt = array();
             $dara = array();
-            foreach($d['status'] as $dta){
+            foreach ($d['status'] as $dta) {
                 $dara[] = $dta;
-            }   
+            }
             // return $dara;
             // return implode($dara);
             // $i = 'izin';
@@ -101,7 +101,7 @@ class AbsenController extends Controller
             // } else {
             //     // return '2';
             // }
-            
+
         }
         // return 'view surat';
         return redirect('absen')->with('status', 'kelas anda telah diabsen!');
@@ -188,7 +188,9 @@ class AbsenController extends Controller
 
     public function surat()
     {
-        return view('absen.uploadsurat');
+        $a = absen::where('status', 'izin')->get();
+        return view('absen.uploadsurat', compact('a'));
+        // return $a;
     }
 
     public function cari(Request $request)
@@ -201,7 +203,7 @@ class AbsenController extends Controller
         //     ->orWhere('status', 'like', '%' . $carisurat . '%')
         //     ->paginate();
 
-        $carisurat = absen::where('role', '')->get();
+        $carisurat = User::where('role', 'siswa')->get();
         // mengirim data reservasi ke view index
         $carisurat = Absen::paginate(5);
         return view('absen.uploadsurat', compact('carisurat'));

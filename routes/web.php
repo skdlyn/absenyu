@@ -110,7 +110,7 @@ Route::middleware('auth')->group(function () {
 
     //Profile Siswa
 
-    Route::get('/uploadsurat', [AbsenController::class, 'surat'])->name('surat');
+    Route::get('/uploadsurat{id}', [AbsenController::class, 'surat'])->name('surat');
 
     // Route::resource('Profile', ProfileController::class);
     route::resource('akun', AkunController::class);

@@ -24,6 +24,11 @@
 </head>
 
 <body>
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
+            @yield('content')
+        </div>
+    </section>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
