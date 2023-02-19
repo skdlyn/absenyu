@@ -128,8 +128,9 @@ class AbsenController extends Controller
         $today = today()->format("Y-m-d");
         // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
-        $absen = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        return $absen;
+        // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
+        // $absen = absen::where
+        // return $absen;
         foreach ($absen as $a) {
             $hasilny = $a->absen;
         }
