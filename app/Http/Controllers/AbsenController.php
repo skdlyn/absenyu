@@ -81,7 +81,7 @@ class AbsenController extends Controller
             $d[] =
                 absen::insert([
                     'tanggal' => $today,    
-                    // 'tanggal' => $request->tanggal,
+                // 'tanggal' => $request->tanggal,
                     'siswa_id' => $d['siswa_id'][$i],
                     'status' => $d['status'][$i],
                 ]);
@@ -128,39 +128,18 @@ class AbsenController extends Controller
         $today = today()->format("Y-m-d");
         // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
-        // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        // $absen = absen::where
+        // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->first();
+        $s = user::where('role', 'siswa')->where('kelas_id', $id)->first();
+        $absen = absen::where('siswa_id',$s->id)->orderby('tanggal','desc')->first();
         // return $absen;
-        foreach ($absen as $a) {
-            $hasilny = $a->absen;
-        }
-        // return $hasilny;
-
-        foreach ($hasilny as $h) {
-            $hasilny2 = $h->tanggal;
-        }
-        // return $hasilny2;
-        // $absen = absen::all();
-        // return $absen;
-
         if ($absen == null) {
             return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
         }
         if ($absen->tanggal == $today) {
-            return redirect()->back()->with('status', 'kamu sudah absen');
+            return redirect()->back()->with('absen', 'kamu sudah absen');
         }
         
-        // if (empty($hasilny)) {
-        //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
-        // } else 
-        // if ($hasilny2 == $today) {
-        //     return redirect()->back()->with('absen', 'kamu sudah absen');
-        // } 
-        //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
-        // }
-        // if ($absen->tanggal == $today) {
-        // }
-        return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        // return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
     }
 
     public function listabsen($id)
