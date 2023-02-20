@@ -115,15 +115,18 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                                     {{-- <input type="date" name="tanggal" id="tanggal" class="form-control"
                                         aria-describedby="helpId"> --}}
-                                </div>
-
-                                @foreach ($siswa as $i => $item)
+                                        {{-- <h5 >{{ $siswa }}</h5> --}}
+                                    </div>
+                                    
+                                    @foreach ($siswa as $i => $item)
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
                                         <td>
                                             {{ $item->name }}
                                             <input type="hidden" name="siswa_id[]" id="siswa_id"
                                                 value="{{ $item->id }}">
+                                            <input type="hidden" name="kelas_id[]" id="kelas"
+                                                value="{{ $item->kelas_id }}">
                                             {{-- <input type="hidden" name=["kelas_id" id="kelas_id" class="form-control"
                                                 value="{{ $item->kelas_id }]}"> --}}
                                         </td>

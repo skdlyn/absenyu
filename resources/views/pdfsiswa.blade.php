@@ -24,32 +24,55 @@
 
 <body>
 
-    <h4>Nama Siswa    : {{ $u->name }}</h4>
-    <h4>Kelas         : {{ $u->kelas->nama_kelas}}</h4>
-    <h4>Jenis Kelamin : {{ $u->jenis_kelamin}}</h4>
 
-    <table class="table table-bordered">
-        <thead class="bg-primary text-white">
-            <tr>
-                <th scope="col">NO</th>
-                <th scope="col">TANGGAL</th>
-                <th scope="col">STATUS</th>
-                <th scope="col">JENIS KELAMIN</th>
-            </tr>
-        </thead>
-        {{-- <tbody>
-            @foreach ($data as $i => $item)
-                <tr>
-                    <th scope="row">{{ ++$i }}</th>
-                    <td>{{ $item->nama }}</td>
-                    <td>{{ $item->nisn }}</td>
-                    <td>{{ $item->id_kelas }}</td>
-                    <td>{{ $item->alamat }} </td>
-                    <td>{{ $item->jk }} </td>
-                </tr>
-            @endforeach
-        </tbody> --}}
-    </table>
+    <center>
+        <h1 style="font-family:Arial, Helvetica, sans-serif" class="text-center">Rekap Absensi Siswa</h1>
+        <hr>
+    </center>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-start">
+                <div class="card">
+                    <h5>NAMA SISWA : {{ $u->name }}</h5>
+                    <h5>NISN : {{ $u->nomor_induk }}</h5>
+                    <h5>JENIS KELAMIN : {{ $u->jenis_kelamin }}</h5>
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <table class="table table-striped">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th style="background-color:gray">Bulan</th>
+                                        <th style="background-color: gray">Tanggal Cetak</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">Januari</td>
+                                        <td>20 2020</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th scope="col">NO</th>
+                        <th scope="col">TANGGAL</th>
+                        <th scope="col">STATUS</th>
+                        <th scope="col">JENIS KELAMIN</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>

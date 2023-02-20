@@ -35,7 +35,8 @@
                 <h6 class="collapse-header">Pilihan Menu :</h6>
                 <a class="collapse-item" href="/absen">Absen Hari Ini</a>
                 <a class="collapse-item" href="/list">Daftar Absensi</a>
-                <a class="collapse-item" href="/uploadsurat">Upload Surat</a>
+                {{-- <a class="collapse-item" href="/uploadsurat">Upload Surat</a> --}}
+                <a class="collapse-item" href="/surat">Upload Surat</a>
             </div>
         </div>
     </li>

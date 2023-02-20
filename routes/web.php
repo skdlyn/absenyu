@@ -10,6 +10,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\SuratController;
 // use App\Http\Controllers\RekapabsenController;
 
 use App\Http\Controllers\DataSiswaController;
@@ -110,7 +111,9 @@ Route::middleware('auth')->group(function () {
 
     //Profile Siswa
 
-    Route::get('/uploadsurat', [AbsenController::class, 'surat'])->name('surat');
+    // Route::get('/uploadsurat{id}', [AbsenController::class, 'surat'])->name('surat');
+    // Route::get('/uploadsurat', [AbsenController::class, 'surat'])->name('surat');
+    Route::resource('surat', suratController::class);
 
     // Route::resource('Profile', ProfileController::class);
     route::resource('akun', AkunController::class);
