@@ -41,61 +41,38 @@
                             <th>UPLOAD SURAT</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @if ($s->isempty())
-                            <tr>
-                                <td>tidak ada siswa yang sakit</td>
-                            </tr>
-                        @else
-                            @foreach ($s as $sakit)
-                                <tr>
-                                    <td scope="col">{{ $loop->iteration }}</td>
-                                    <td>{{ $sakit->user->name }}</td>
-                                    {{-- {{-- <td scope="row">{{ $b->id }}">{{ $b->name }}</td> --}}
-                                    <td scope="row">{{ $sakit   ->status }}</td> 
-                                    <td>
-                                        <input type="file" id="surat" name="surat">
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
+                    @foreach ($stat as $s)
+                        <form method="POST" action="{{ route('surat.update', $s->id) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            @method('put')
+                            <tbody>
+                                @if ($stat->isempty())
+                                    <tr>
+                                        <td>tidak ada siswa yang sakit</td>
+                                    </tr>
+                                @else
+                                    {{-- @foreach ($stat as $status) --}}
+                                        <tr>
+                                            <td scope="col">{{ $loop->iteration }}</td>
+                                            <td>{{ $s->user->name }}</td>
+                                            {{-- {{-- <td scope="row">{{ $b->id }}">{{ $b->name }}</td> --}}
+                                            <td scope="row">{{ $s->status }}</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <input type="file" id="surat" name="surat_sakit"
+                                                        class="form-control-file">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {{-- @endforeach --}}
+                                @endif
+                                <div class="row justify-content-end mx-2">
+                                    <input type="submit" class="btn btn-sm btn-success" value="Simpan">
+                                </div>
+                        </form>
+                    @endforeach
                 </table>
-            </div>
-            <div class="container">
-                Upload Sakit
-                <table class="table table-bordered">
-                    <thead class="bg-primary text-white">
-                        <tr>
-                            <th>NO</th>
-                            <th>NAMA SISWA</th>
-                            <th>STATUS</th>
-                            <th>UPLOAD SURAT</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($i->isempty())
-                            <tr>
-                                <td>tidak ada siswa yang izin</td>
-                            </tr>
-                        @else
-                            @foreach ($i as $izin)
-                                <tr>
-                                    <td scope="col">{{ $loop->iteration }}</td>
-                                    <td>{{ $izin->user->name }}</td>
-                                    {{-- {{-- <td scope="row">{{ $b->id }}">{{ $b->name }}</td> --}}
-                                    <td scope="row">{{ $izin->status }}</td> 
-                                    <td>
-                                        <input type="file" id="surat" name="surat">
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
-                <div class="row justify-content-end mx-2">
-                    <input type="submit" class="btn btn-sm btn-success" value="Simpan">
-                </div>
             </div>
         </div>
     </div>

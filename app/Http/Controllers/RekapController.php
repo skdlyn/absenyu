@@ -67,7 +67,7 @@ class RekapController extends Controller
         view()->share('data', $data);
         $pdf = 'PDF'::loadview('cetak');
         return $pdf->stream('Data Siswa.pdf');
-    }
+    }   
 
     public function rekap($id)
     {
