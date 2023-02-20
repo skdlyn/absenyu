@@ -51,7 +51,7 @@ class Absen extends Model
 
     public function user()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(user::class, 'siswa_id');
     }
 
     public function tanggal()

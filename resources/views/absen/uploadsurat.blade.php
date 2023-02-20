@@ -26,7 +26,7 @@
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
-                        </div>
+                    </div>
                     </form>
                 </div>
             </div>
@@ -42,18 +42,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($a as $b)
+                        @if ($s->isempty())
                             <tr>
-                                <td scope="col">{{ $loop->iteration }}</td>
-                                <td scope="row">{{ $b->id }}">{{ $b->name }}</td>
-                                <td scope="row">{{ $b->status }}</td>
-                                <td>
-                                    <input type="file" id="surat" name="surat">
-                                </td>
+                                <td>tidak ada siswa yang sakit</td>
                             </tr>
+                        @else
+                            @foreach ($s as $sakit)
+                                <tr>
+                                    <td scope="col">{{ $loop->iteration }}</td>
+                                    <td>{{ $sakit->user->name }}</td>
+                                    {{-- {{-- <td scope="row">{{ $b->id }}">{{ $b->name }}</td> --}}
+                                    <td scope="row">{{ $sakit   ->status }}</td> 
+                                    <td>
+                                        <input type="file" id="surat" name="surat">
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
-                    @endforeach
-                </table>            
+                </table>
             </div>
             <div class="container">
                 Upload Sakit
@@ -67,18 +74,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($a as $b)
+                        @if ($i->isempty())
                             <tr>
-                                <td scope="col">{{ $loop->iteration }}</td>
-                                <td scope="row">{{ $b->id }}">{{ $b->name }}</td>
-                                <td scope="row">{{ $b->status }}</td>
-                                <td>
-                                    <input type="file" id="surat" name="surat">
-                                </td>
+                                <td>tidak ada siswa yang izin</td>
                             </tr>
+                        @else
+                            @foreach ($i as $izin)
+                                <tr>
+                                    <td scope="col">{{ $loop->iteration }}</td>
+                                    <td>{{ $izin->user->name }}</td>
+                                    {{-- {{-- <td scope="row">{{ $b->id }}">{{ $b->name }}</td> --}}
+                                    <td scope="row">{{ $izin->status }}</td> 
+                                    <td>
+                                        <input type="file" id="surat" name="surat">
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
-                    @endforeach
-                </table>            
+                </table>
                 <div class="row justify-content-end mx-2">
                     <input type="submit" class="btn btn-sm btn-success" value="Simpan">
                 </div>

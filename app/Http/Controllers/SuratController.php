@@ -57,10 +57,17 @@ class SuratController extends Controller
     public function show($id)
     {
         //
-        return true;
+        // return true;
         // return $id;
 
-        $a = absen::where('status','sakit')->where('kelas_id')->get();
+        // $a = absen::where('status','sakit')->where('kelas_id')->get();
+        $today = today()->format("Y-m-d");
+        // $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
+        $s = absen::where('status','sakit')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
+        $i = absen::where('status','izin')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
+        // return $s;
+        return view('absen.uploadsurat', compact('s','i'));
+        
         // $s = user::where('role', 'siswa')->where('kelas_id', $id)->get();
         // $s = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
         // // return $s;
@@ -94,12 +101,14 @@ class SuratController extends Controller
      */
     public function edit($id)
     {
-        $today = today()->format("Y-m-d");
-        // $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        $s = absen::where('status','sakit')->where('kelas_id',$id)->where('tanggal',$today)->get();
-        $i = absen::where('status','izin')->where('kelas_id',$id)->where('tanggal',$today)->get();
-        // $stat = [$s, $i];
-        // return $stat
+        // $today = today()->format("Y-m-d");
+        // // $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
+        // $s = absen::where('status','sakit')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
+        // $i = absen::where('status','izin')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
+        // return $i;
+        // return view('absen.uploadsurat', compact('s','i'));
+        // // $stat = [$s, $i];
+        // return $s;
         // $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
         // return $coba;
         // foreach ($coba as $c) {
@@ -109,7 +118,6 @@ class SuratController extends Controller
         // }
         // return $semp;
         // return $stats;
-        return view('absen.uploadsurat', compact('s','i'));
     }
 
     /**
