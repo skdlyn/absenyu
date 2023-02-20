@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title', 'Absen')
-@section('content-title', 'list untuk absen kelas')
+@section('content-title')
 @section('content')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
@@ -17,7 +17,14 @@
                 {{ session('absen') }}
             </div>
         @endif
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="/dashboard"><em class="fa fa-home"></em></a> Absen Hari Ini</li>
+                {{-- <li class="active">  Dashboard</li> --}}
+            </ol>
+        </div>
         <div class="card shadow mb-4">
+            
             <div class="card-body">
                 <table class="table">
                     <thead class="bg-primary text-white">

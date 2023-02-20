@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Models\Siswa;
 use App\Models\User;
 use App\Models\tanggal;
+use Illuminate\Support\Facades\DB;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class AbsenController extends Controller
@@ -124,13 +125,15 @@ class AbsenController extends Controller
         if ($absen == null) {
             return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
         }
-        if ($absen->tanggal == $today) {
-            return redirect()->back()->with('absen', 'kamu sudah absen');
-        }
+        // if ($absen->tanggal == $today) {
+        //     return redirect()->back()->with('absen', 'Sudah Melakukan Absensi');
+        // }
         else{
+
             return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
         }
-
+        
+        // return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
     }
 
     public function listabsen($id)
@@ -190,18 +193,17 @@ class AbsenController extends Controller
     }
 
     public function cari(Request $request)
-    {
-        // menangkap data pencarian
-        $carisurat = $request->cari;
-
-        // mengambil data dari table reservasi sesuai pencarian data
-        // $carisurat = absen::where('siswa_id', 'like', "%" . $carisurat . "%")
-        //     ->orWhere('status', 'like', '%' . $carisurat . '%')
-        //     ->paginate();
-
-        $carisurat = User::where('role', 'siswa')->get();
-        // mengirim data reservasi ke view index
-        $carisurat = Absen::paginate(5);
-        return view('absen.uploadsurat', compact('carisurat'));
-    }
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$user = DB::table('user')
+		->where('name','like',"%".$cari."%");
+ 
+    		// mengirim data pegawai ke view index
+            
+		return view('absen.listtanggal',['user' => $cari], compact('user'));
+ 
+	}
 }

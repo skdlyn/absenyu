@@ -44,7 +44,7 @@ class XII_RPL_2 extends Seeder
         ]);
 
         user::create([
-            'name' => 'iksan arya dinata',
+            'name' => 'Iksan Arya Dinata',
             'email' => 'iksan@gmail.com',
             'password' => bcrypt('12345'),
             'nomor_induk' => '0055606440',
@@ -55,7 +55,7 @@ class XII_RPL_2 extends Seeder
         ]);
 
         user::create([
-            'name' => 'ilham bintang herlambang',
+            'name' => 'Ilham Bintang Herlambang',
             'email' => 'ilham@gmail.com',
             'password' => bcrypt('12345'),
             'nomor_induk' => '0055606441',

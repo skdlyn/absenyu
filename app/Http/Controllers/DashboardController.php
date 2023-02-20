@@ -25,12 +25,16 @@ class dashboardcontroller extends Controller
         // return $user;
         $s = user::where('role', 'siswa')->count();
         $g = user::where('role', 'guru')->count();
-     
+        $h = Absen::where('siswa_id', $user->id)->where('status', 'hadir')->count();
+        $i = Absen::where('siswa_id', $user->id)->where('status', 'izin')->count();
+        $sk = Absen::where('siswa_id', $user->id)->where('status', 'sakit')->count();
+        $a = Absen::where('siswa_id', $user->id)->where('status', 'alpha')->count();
+
         if (auth()->user()->role == 'siswa') {
-            return view('dashsiswa',compact('k','s','g','user'));    
+            return view('dashsiswa', compact('k', 's', 'g', 'user', 'h', 'i', 'sk', 'a'));
             // return view('dashboard',compact('k','s','g','user'));    
-        } else {    
-            return view('dashboard',compact('k','s','g','user'));        
+        } else {
+            return view('dashboard', compact('k', 's', 'g', 'user'));
         }
     }
 }

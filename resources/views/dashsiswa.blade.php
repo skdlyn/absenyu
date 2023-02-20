@@ -20,15 +20,11 @@
     <link rel="stylesheet" href="{{ asset('profile/css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('profile/images/smeas2.png') }}" />
-    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet"
+        href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
 </head>
 
 <body>
-    <section id="hero" class="d-flex align-items-center">
-        <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
-            @yield('content')
-        </div>
-    </section>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -123,17 +119,17 @@
                 </ul>
             </nav>
             <!-- partial -->
-            <div class="main-panel">
-                <div class="content-wrapper">
-                    <div class="row">
-                        <div class="col-md-12 grid-margin">
+                    <div class="main-panel">
+                        <div class="content-wrapper">
                             <div class="row">
-                                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Welcome, {{ $user->name }}</h3>
-                                    {{-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have
+                                <div class="col-md-12 grid-margin">
+                                    <div class="row">
+                                        <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                                            <h3 class="font-weight-bold">Welcome, {{ $user->name }}</h3>
+                                            {{-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have
                                         <span class="text-primary">3 unread alerts!</span></h6> --}}
-                                </div>
-                                {{-- <div class="col-12 col-xl-4">
+                                        </div>
+                                        {{-- <div class="col-12 col-xl-4">
                                     <div class="justify-content-end d-flex">
                                         <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                                             <button class="btn btn-sm btn-light bg-white dropdown-toggle"
@@ -151,111 +147,112 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 grid-margin stretch-card">
-                            <div class="card tale-bg">
-                                <div class="card-people mt-auto">
-                                    <img src="{{ asset('profile/images/login.jpeg') }}"
-                                        style="background-size: cover" alt="people">
-                                    <div class="weather-info">
-                                        <div class="d-flex">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 grid-margin transparent">
-                            <div class="row">
-                                <div class="col-md-6 mb-4 stretch-card transparent">
-                                    <div class="card card-tale">
-                                        <div class="card-body">
-                                            <p class="mb-4">Kehadiraan</p>
-                                            <p class="fs-30 mb-2">4006</p>
-                                            <p>(30 days)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4 stretch-card transparent">
-                                    <div class="card card-dark-blue">
-                                        <div class="card-body">
-                                            <p class="mb-4">Sakit</p>
-                                            <p class="fs-30 mb-2">61344</p>
-                                            <p>(30 days)</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                                    <div class="card card-light-blue">
-                                        <div class="card-body">
-                                            <p class="mb-4">Izin</p>
-                                            <p class="fs-30 mb-2">34040</p>
-                                            <p>(30 days)</p>
+                                <div class="col-md-6 grid-margin stretch-card">
+                                    <div class="card tale-bg">
+                                        <div class="card-people mt-auto">
+                                            <img src="{{ asset('profile/images/login.jpeg') }}"
+                                                style="background-size: cover" alt="people">
+                                            <div class="weather-info">
+                                                <div class="d-flex">
+
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 stretch-card transparent">
-                                    <div class="card card-light-danger">
-                                        <div class="card-body">
-                                            <p class="mb-4">Alpha</p>
-                                            <p class="fs-30 mb-2">47033</p>
-                                            <p>(30 days)</p>
+                                <div class="col-md-6 grid-margin transparent">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4 stretch-card transparent">
+                                            <div class="card card-tale">
+                                                <div class="card-body">
+                                                    <p class="mb-4">Kehadiraan</p>
+                                                    <p class="fs-30 mb-2">{{ $h }}</p>
+                                                    <p>Hari</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4 stretch-card transparent">
+                                            <div class="card card-dark-blue">
+                                                <div class="card-body">
+                                                    <p class="mb-4">Sakit</p>
+                                                    <p class="fs-30 mb-2">{{ $sk }}</p>
+                                                    <p>Hari</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                                            <div class="card card-light-blue">
+                                                <div class="card-body">
+                                                    <p class="mb-4">Izin</p>
+                                                    <p class="fs-30 mb-2">{{ $i }}</p>
+                                                    <p>Hari</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 stretch-card transparent">
+                                            <div class="card card-light-danger">
+                                                <div class="card-body">
+                                                    <p class="mb-4">Alpha</p>
+                                                    <p class="fs-30 mb-2">{{ $a }}</p>
+                                                    <p>Hari</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
+
                         </div>
-                    </div>
-
-
-
-                </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-                <footer class="footer">
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        {{-- <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2023.
+                        <!-- content-wrapper ends -->
+                        <!-- partial:partials/_footer.html -->
+                        <footer class="footer">
+                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                                {{-- <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2023.
                             Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin
                                 template</a> from BootstrapDash. All rights reserved.</span> --}}
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Ilham & Rafli made
-                            with <i class="ti-heart text-danger ml-1"></i></span>
+                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Ilham & Rafli
+                                    made
+                                    with <i class="ti-heart text-danger ml-1"></i></span>
+                            </div>
+                        </footer>
+                        <!-- partial -->
                     </div>
-                </footer>
-                <!-- partial -->
-            </div>
-            <!-- main-panel ends -->
+                    <!-- main-panel ends -->
+                </div>
+                <!-- page-body-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
+        <!-- container-scroller -->
 
-    <!-- plugins:js -->
-    <script src="{{ asset('profile/vendors/js/vendor.bundle.base.js') }}"></script>
-    <script src="{{asset('https://kit.fontawesome.com/yourcode.js')}}" crossorigin="anonymous"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="{{ asset('profile/vendors/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('profile/vendors/datatables.net/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('profile/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{ asset('profile/js/dataTables.select.min.js') }}"></script>
+        <!-- plugins:js -->
+        <script src="{{ asset('profile/vendors/js/vendor.bundle.base.js') }}"></script>
+        <script src="{{ asset('https://kit.fontawesome.com/yourcode.js') }}" crossorigin="anonymous"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="{{ asset('profile/vendors/chart.js/Chart.min.js') }}"></script>
+        <script src="{{ asset('profile/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('profile/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+        <script src="{{ asset('profile/js/dataTables.select.min.js') }}"></script>
 
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    {{-- <script src="{{ asset('profile/js/off-canvas.js') }}"></script>
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        {{-- <script src="{{ asset('profile/js/off-canvas.js') }}"></script>
     <script src="{{ asset('profile/js/hoverable-collapse.js') }}"></script>
     <script src="{{ asset('profile/js/template.js') }}"></script>
     <script src="{{ asset('profile/js/settings.js') }}"></script>
     <script src="{{ asset('profile/js/todolist.js') }}"></script> --}}
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    {{-- <script src="{{ asset('profile/js/dashboard.js') }}"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page-->
+        {{-- <script src="{{ asset('profile/js/dashboard.js') }}"></script>
     <script src="{{ asset('profile/js/Chart.roundedBarCharts.js') }}"></script> --}}
-    <!-- End custom js for this page-->
+        <!-- End custom js for this page-->
 </body>
 
 </html>
