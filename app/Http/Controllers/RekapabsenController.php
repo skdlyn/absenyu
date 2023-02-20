@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Absen;
+use App\Models\User;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -18,8 +19,8 @@ class RekapabsenController extends Controller
      */
     public function index()
     {
-        $absen = Absen::all();
-        return view('rekapdata', compact('absen'));
+        $kelas = Kelas::all();
+        return view('rekaplist', compact('kelas'));
     }
 
     /**
@@ -51,7 +52,6 @@ class RekapabsenController extends Controller
      */
     public function show($id)
     {
-        
     }
 
     /**
@@ -113,6 +113,24 @@ class RekapabsenController extends Controller
         $data = Absen::all();
         view()->share('data', $data);
         $pdf = 'PDF'::loadview('pdfsiswa', compact('user', 'h', 'i', 'sk', 'a', 'm', 'tanggal'));
+        return $pdf->stream();
+    }
+
+    public function pdfkelas($id)
+    {
+        $siswa = User::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
+        foreach ($siswa as $s) {
+            $sis[]=$s;
+        }
+        return $sis;
+
+        $tanggal = today()->format('Y m d');
+
+        // return view('pdfsiswa', compact('user'));
+        $data = Absen::all();
+        view()->share('data', $data);
+        // return $tanggal;
+        $pdf = 'PDF'::loadview('pdfkelas', compact('user', 'h', 'i', 'sk', 'a', 'tanggal', 'siswa'))->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 }

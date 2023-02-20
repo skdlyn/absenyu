@@ -42,7 +42,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($a as $b)
+                        @foreach ($s as $b)
                             <tr>
                                 <td scope="col">{{ $loop->iteration }}</td>
                                 <td scope="row">{{ $b->id }}">{{ $b->name }}</td>
@@ -56,7 +56,7 @@
                 </table>            
             </div>
             <div class="container">
-                Upload Sakit
+                Upload Izin
                 <table class="table table-bordered">
                     <thead class="bg-primary text-white">
                         <tr>
@@ -78,10 +78,10 @@
                             </tr>
                     </tbody>
                     @endforeach
-                </table>            
-                <div class="row justify-content-end mx-2">
-                    <input type="submit" class="btn btn-sm btn-success" value="Simpan">
-                </div>
+                </table>           
+                    <div class="row justify-content-end mx-2" style="margin-bottom: 2%">
+                        <input type="submit" class="btn btn-sm btn-success" value="Simpan">
+                    </div>
             </div>
         </div>
     </div>
