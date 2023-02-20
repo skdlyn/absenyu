@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use App\Models\Siswa;
 use App\Models\User;
+use App\Models\tanggal;
+use Illuminate\Support\Facades\DB;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class AbsenController extends Controller
@@ -73,12 +75,14 @@ class AbsenController extends Controller
         // $today = today()->format('d-m-Y');
         $today = today()->format('Y-m-d');
 
+
+
         $data = array();
         for ($i = 0; $i < count($d['siswa_id']); $i++) {
             $d[] =
                 absen::insert([
-                    // 'tanggal'=> $today,
-                    'tanggal' => $request->tanggal,
+                    'tanggal' => $today,    
+                // 'tanggal' => $request->tanggal,
                     'siswa_id' => $d['siswa_id'][$i],
                     'status' => $d['status'][$i],
                 ]);
@@ -124,17 +128,22 @@ class AbsenController extends Controller
 
         $today = today()->format("Y-m-d");
         // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
-        $absen = user::where('role', 'siswa')->where('kelas_id', $id)->get();
-        // $absen = absen::all();
+        // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
+        // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->first();
+        $s = user::where('role', 'siswa')->where('kelas_id', $id)->first();
+        $absen = absen::where('siswa_id',$s->id)->orderby('tanggal','desc')->first();
         // return $absen;
-
-        // if ($absen == null) {
-        //     return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
-        // }
+        if ($absen == null) {
+            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        }
         // if ($absen->tanggal == $today) {
-        //     return redirect()->back()->with('status', 'kamu sudah absen');
+        //     return redirect()->back()->with('absen', 'Sudah Melakukan Absensi');
         // }
-        return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        else{
+
+            return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
+        }
+        
     }
 
     public function listabsen($id)
@@ -194,18 +203,17 @@ class AbsenController extends Controller
     }
 
     public function cari(Request $request)
-    {
-        // menangkap data pencarian
-        $carisurat = $request->cari;
-
-        // mengambil data dari table reservasi sesuai pencarian data
-        // $carisurat = absen::where('siswa_id', 'like', "%" . $carisurat . "%")
-        //     ->orWhere('status', 'like', '%' . $carisurat . '%')
-        //     ->paginate();
-
-        $carisurat = User::where('role', 'siswa')->get();
-        // mengirim data reservasi ke view index
-        $carisurat = Absen::paginate(5);
-        return view('absen.uploadsurat', compact('carisurat'));
-    }
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$user = DB::table('user')
+		->where('name','like',"%".$cari."%");
+ 
+    		// mengirim data pegawai ke view index
+            
+		return view('absen.listtanggal',['user' => $cari], compact('user'));
+ 
+	}
 }

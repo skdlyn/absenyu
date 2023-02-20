@@ -34,9 +34,9 @@
         <div class="row">
             <div class="col text-start">
                 <div class="card">
-                    <h5>NAMA SISWA : {{ $u->name }}</h5>
-                    <h5>NISN : {{ $u->nomor_induk }}</h5>
-                    <h5>JENIS KELAMIN : {{ $u->jenis_kelamin }}</h5>
+                    <h5>NAMA SISWA : {{ $user->name }}</h5>
+                    <h5>NISN : {{ $user->nomor_induk }}</h5>
+                    <h5>JENIS KELAMIN : {{ $user->jenis_kelamin }}</h5>
                     <div class="row text-center">
                         <div class="col-md-6">
                             <table class="table table-striped">
@@ -48,8 +48,8 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td scope="row">Januari</td>
-                                        <td>20 2020</td>
+                                        <td scope="row">{{ $m }}</td>
+                                        <td>{{ $tanggal }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -64,12 +64,16 @@
             <table class="table table-bordered">
                 <thead class="bg-primary text-white">
                     <tr>
-                        <th scope="col">NO</th>
-                        <th scope="col">TANGGAL</th>
-                        <th scope="col">STATUS</th>
-                        <th scope="col">JENIS KELAMIN</th>
+                        <th scope="col">HADIR</th>
+                        <th scope="col">IZIN</th>
+                        <th scope="col">SAKIT</th>
+                        <th scope="col">ALPHA</th>
                     </tr>
                 </thead>
+                        <td>{{ $h}}</td>
+                        <td>{{ $sk }}</td>
+                        <td>{{ $i }}</td>
+                        <td>{{ $a }}</td>
             </table>
         </div>
     </div>

@@ -35,38 +35,52 @@ class DaftarAbsenController extends Controller
         // $guru = kelas::where('guru_id', $id)->with('guru')->get();
         // $a = Absen::where('kelas_id', $id)->join('siswa', 'siswa.id', '=', 'siswa_id')->get();
         $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
-        $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
-
+        // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
+        $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
+        $b = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
+        // $a = user::where('role', 'siswa')->where('kelas_id', $id)->get();
+        // return $a;
+        // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('status');
+        // $b = $a->unique('name');
+        // return $b;
+        
+        $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
+        foreach($coba as $c){
+            $stats[] = [
+                $c->name,
+                $sts = $c->absen,
+            ];
+        }
+        // return $sts;
+        // return $stats;
+        // return $coba;   
+        // foreach ($coba as $c) {
+        //     $datas[] =  $c->id;
+        // }
+        // return $datas;
+        
+        // $stats = absen::where('siswa_id','4')->get();
+        // return $stats;
+        // $u = array_unique($b);
+        // return $u;
         $today = today();
         $dates = [];
         for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
             $d[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('d');
-            $m= \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
-            $y= \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
+            $m = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
+            $y = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
             // eak
 
         }
-     
-        $coba = user::where('role','siswa')->where('kelas_id',$id)->get();
-        foreach ($coba as $c ) {
-            $f[] = [
-                $c->name,
-                $c->name,
-                $c->name,
-
-            ];
-                
+        $tgl = array();
+        foreach ($b as $date) {
+            $tgl[] = $date->tanggal;
         }
-        return $coba;
-        return $f;
-        // return $tahun;  
-
-        // $tgl = [];
-        // foreach ($a as $date) {
-        //     $tgl[] = $date->d$d;
-        // }
-        // $t = array_unique($tgl);
-        return view('absen.listtanggal', compact('d', 'm','y', 'guru', 'a'));
+        $t = array_unique($tgl);
+        // $z[] = $coba->absen;
+        // return $t;
+        // dd($coba[0]->absen);
+        return view('absen.listtanggal', compact('d','t', 'm', 'y', 'guru', 'a' ,'coba'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 

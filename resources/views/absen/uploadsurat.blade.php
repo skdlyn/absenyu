@@ -31,6 +31,7 @@
                 </div>
             </div>
             <div class="container">
+                <h6>Upload Sakit</h6>
                 <table class="table table-bordered">
                     <thead class="bg-primary text-white">
                         <tr>
@@ -51,8 +52,33 @@
                                 </td>
                             </tr>
                     </tbody>
-                </table>
-                @endforeach
+                    @endforeach
+                </table>            
+            </div>
+            <div class="container">
+                Upload Sakit
+                <table class="table table-bordered">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>NO</th>
+                            <th>NAMA SISWA</th>
+                            <th>STATUS</th>
+                            <th>UPLOAD SURAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($a as $b)
+                            <tr>
+                                <td scope="col">{{ $loop->iteration }}</td>
+                                <td scope="row">{{ $b->id }}">{{ $b->name }}</td>
+                                <td scope="row">{{ $b->status }}</td>
+                                <td>
+                                    <input type="file" id="surat" name="surat">
+                                </td>
+                            </tr>
+                    </tbody>
+                    @endforeach
+                </table>            
                 <div class="row justify-content-end mx-2">
                     <input type="submit" class="btn btn-sm btn-success" value="Simpan">
                 </div>
