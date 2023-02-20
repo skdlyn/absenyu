@@ -52,14 +52,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($kelas as $i => $item)
+                            @foreach ($kelas as $k)
                                 <tr>
-                                    <th scope="row">{{ ++$i }}</th>
-                                    {{-- <td>{{ $item->nama_kelas }}</td> --}}
-                                    {{-- <td><a href="{{ url('absen' . $item->id_kelas) }}">{{ $item->nama_kelas }}</a></td> --}}
-                                    <td><a href="{{ url('rekapdata' . $item->id) }}">{{ $item->nama_kelas }}</a></td>
-                                    <td>{{ $item->kuota }}</a></td>
-                                    {{-- <td></td> --}}
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td><a href="{{ route('pdfkelas', $k->id )}}">{{ $k->nama_kelas }}</a></td>
                                 </tr>
                         </tbody>
                         @endforeach

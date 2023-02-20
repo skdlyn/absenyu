@@ -188,7 +188,8 @@ class AbsenController extends Controller
     public function surat()
     {
         $a = absen::where('status', 'izin')->get();
-        return view('absen.uploadsurat', compact('a'));
+        $s = absen::where('status', 'sakit')->get();
+        return view('absen.uploadsurat', compact('a', 's'));
         // return $a;
     }
 

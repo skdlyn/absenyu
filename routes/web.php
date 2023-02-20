@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
-use App\Http\Controllers\RekapController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\RekapabsenController;
@@ -44,14 +43,6 @@ Route::get('/rekapsiswa', function () {
     return view('persiswa');
 });
 
-// profile
-// Route::get('/', function () {
-//     return view('dashsiswa');
-// });
-// Route::resource('profile', ProfileController::class);
-// Route::get('/editprofile', function () {
-
-// });
 route::get('/landing', function () {
     return view('landing');
 });
@@ -66,8 +57,7 @@ Route::middleware('guest')->group(function () {
 });
 
 
-//admin
-Route::middleware('auth')->group(function () {
+//admin Route::middleware('auth')->group(function () 
     Route::get('dashboard', [dashboardcontroller::class, 'dash']);
 
     // absen
@@ -83,13 +73,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('showkelas', KelasController::class);
     route::get('showkelas/{id}/hapus', [KelasController::class])->name('showkelas.hapus');
 
-    //rekap
-    Route::get('rekaplist', [RekapController::class, 'index']);
-    Route::get('rekapdata', [RekapController::class, 'index']);
-
     Route::resource('datasiswa', DataController::class);
 
+    Route::resource('/rekaplist', RekapabsenController::class);
     Route::get('/pdfsiswa', [RekapabsenController::class, 'cetakpdf'])->name('cetakpdf');
+    Route::get('/pdfkelas', [RekapabsenController::class, 'pdfkelas'])->name('pdfkelas');
 
     // data kelas
     Route::resource('datakelas', DataKelasController::class);
@@ -98,9 +86,6 @@ Route::middleware('auth')->group(function () {
     // CRUD SISWA
     Route::resource('datasiswa', DatasiswaController::class);
     route::get('datakelas/{id}/hapus', [DatasiswaController::class, 'hapus'])->name('datasiswa.hapus');
-
-
-
 
     Route::resource('guru', GuruController::class);
     Route::get('guru/{nama}/hapus', [GuruController::class, 'hapus'])->name('guru.hapus');
@@ -117,4 +102,4 @@ Route::middleware('auth')->group(function () {
 
     // Route::resource('Profile', ProfileController::class);
     route::resource('akun', AkunController::class);
-});
+
