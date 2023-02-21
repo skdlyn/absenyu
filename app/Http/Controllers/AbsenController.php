@@ -83,8 +83,8 @@ class AbsenController extends Controller
         for ($i = 0; $i < count($d['siswa_id']); $i++) {
             $d[] =
                 absen::insert([
-                    'tanggal' => $today,
-                    // 'tanggal' => $request->tanggal,
+                    // 'tanggal' => $today,
+                    'tanggal' => $request->tanggal,
                     'kelas_id'=>$kel,
                     'siswa_id' => $d['siswa_id'][$i],
                     'status' => $d['status'][$i],

@@ -55,20 +55,37 @@ class SuratController extends Controller
      */
     public function show($id)
     {
-        //
-        // return true;
         // return $id;
-
-        // $a = absen::where('status','sakit')->where('kelas_id')->get();
+        // return 'bener';
+        // return $request;  
+        // return true;
         $today = today()->format("Y-m-d");
-        // $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        // $s = absen::where('status','sakit')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
-        // $i = absen::where('status','izin')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
-        $stat = absen::where('status','izin')->orwhere('status','sakit')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
-        $kelas = kelas::find($id);
+        // $stat = absen::where('status', 'izin')->orwhere('status', 'sakit')->with('user')->get();
+        // $stat = absen::where('dokumen',null)->where('status','sakit')->where('status','izin')->get();
+        $s = [
+            'izin','sakit'
+        ];
+        // $stat = absen::where('dokumen',null)->where('status','sakit')->orwhere('status','izin')->get();
+        // $stat = absen::where('status', 'izin')->where('dokumen',null)->where('kelas_id', $id)->
+        // orwhere('status', 'sakit')->where('kelas_id', $id)->where('dokumen', null)->with('user')->get();
+        $stat = absen::whereIn('status',$s)->where('dokumen',null)->where('tanggal', $today)->with('user')->get();
+        // return $s;
+        // $stat = absen::where('status', 'izin')->orwhere('status', 'sakit')->with('user');
+        // $stat->where('dokumen',null)->where('kelas_id', $id)->where('dokumen', null)->where('tanggal', $today)->get();
         // return $stat;
         // dd($stat);
-        return view('absen.uploadsurat', compact('stat','kelas'));
+        // $s = absen::where('status', 'izin')->where('kelas_id',$id)->where('dokumen', null)->where('tanggal',$today)->with('user')->get();
+        // $i = absen::where('status', 'sakit')->where('kelas_id',$id)->where('dokumen', null)->where('tanggal',$today)->with('user')->get();
+        // return $stat;
+        return view('absen.uploadsurat', compact('stat'));
+    }
+
+    public function surat($id)
+    {
+        // $today = today()->format("Y-m-d");
+        // $stat = absen::where('status', 'izin')->orwhere('status', 'sakit')->where('kelas_id', $id)->where('tanggal', $today)->with('user')->get();
+        // // $kelas = kelas::find($id);
+        // return view('absen.uploadsurat', compact('stat'));
     }
 
     /**
@@ -79,23 +96,7 @@ class SuratController extends Controller
      */
     public function edit($id)
     {
-        // $today = today()->format("Y-m-d");
-        // // $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        // $s = absen::where('status','sakit')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
-        // $i = absen::where('status','izin')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
-        // return $i;
-        // return view('absen.uploadsurat', compact('s','i'));
-        // // $stat = [$s, $i];
-        // return $s;
-        // $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        // return $coba;
-        // foreach ($coba as $c) {
-        //     $stats[] = [
-        //             $c->absen,
-        //     ];
-        // }
-        // return $semp;
-        // return $stats;
+    
     }
 
     /**
@@ -109,23 +110,36 @@ class SuratController extends Controller
     {
         // $update =
         $today = today();
-        $stat = absen::where('status','izin')->orwhere('status','sakit')->where('kelas_id',$id)->where('tanggal',$today)->with('user')->get();
-        // $eo =$stat->update($request->all());
+        // $stat = absen::where('status', 'izin')->orwhere('status', 'sakit')->where('kelas_id', $id)->where('tanggal', $today)->with('user')->get();
+        $stat = absen::where('status', 'izin')->orwhere('status', 'sakit')->where('tanggal', $today)->with('user')->get();
+        // $stat = absen::where('status', 'izin')->orwhere('status', 'sakit')->with('user')->get();
+        // // $eo =$stat->update($request->all());
         // return $request;
-        
-        
+
+
         $file = $request->file('surat');
-        return $file;
+        // return $file;
 
         $nama_file = time() . "_" . $file->getClientOriginalName();
         $tujuan_upload = './template/img';
         $file->move($tujuan_upload, $nama_file);
 
-        return $nama_file;
+        // return $id;
+        // return $nama_file;
+        // $u = absen::find($id);
+    //    $u = absen::where('id',$id)->where('status', 'izin')->orwhere('status', 'sakit')->where('tanggal', $today)->with('user')->get();
+       $u = absen::find($id);
+        // return $u;
+        // $u->update(
+        //     $request->nama_file
+        // );
+        $u->update([
+            'dokumen' => $nama_file
+        ]);
 
         return view('absen.hasil');
         // $i->update($req->);
-        
+
     }
 
     /**

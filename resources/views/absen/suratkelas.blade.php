@@ -19,7 +19,8 @@
                                 @foreach ($kelas as $k)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
-                                        <td><a href={{'surat/' .$k->id }}>{{ $k->nama_kelas }}</a></td>
+                                        {{-- <td>{{ $k }}</td> --}}
+                                        <td><a href="{{route('surat.show', $k->id) }}">{{ $k->nama_kelas }}</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

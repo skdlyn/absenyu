@@ -2,111 +2,111 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AbsensiController;
 use Illuminate\Http\Request;
 use App\Models\Kelas;
+use App\Models\User;
 use App\Models\Absen;
-use App\Models\Rekap;
-use PDF;
+
 
 class RekapController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
+        //
         $kelas = Kelas::all();
-        return view('rekaplist', compact('kelas'));
-    }
-    public function show($table)
-    {
-        if ($table == "kelas") {
-            $resource = Kelas::get();
-            return view('datakelas', ['resource' => $resource]);
-        }
-    }
-    public function pdf(Request $request)
-    {
-        $resource = Kelas::find($request->id);
-        foreach ($resource->siswa as $index => $res) {
-            $alfa = Absen::where(['siswa_id' => $res->id_siswa])->where('status', 'Alfa');
-            $izin = Absen::where(['siswa_id' => $res->id_siswa])->where('status', 'Izin');
-            $sakit = Absen::where(['siswa_id' => $res->id_siswa])->where('status', 'Sakit');
-            if ($request->tanggal_awal != 0) {
-                $alfa = $alfa->where('tanggal', '>=', $request->tanggal_awal);
-                $izin = $izin->where('tanggal', '>=', $request->tanggal_awal);
-                $sakit = $sakit->where('tanggal', '>=', $request->tanggal_awal);
-            }
-            if ($request->tanggal_akhir != 0) {
-                $alfa = $alfa->where('tanggal', '<=', $request->tanggal_akhir);
-                $izin = $izin->where('tanggal', '<=', $request->tanggal_akhir);
-                $sakit = $sakit->where('tanggal', '<=', $request->tanggal_akhir);
-            }
-            $alfa = $alfa->get();
-            $izin = $izin->get();
-            $sakit = $sakit->get();
-        }
-        if ($request->tgl_awal == $request->tgl_akhir || $request->tgl_awal == "" || $request->tgl_akhir == "") {
-            $tanggal = "-";
-        } else {
-            $tanggal = DATE('d F Y', strtotime($request->tgl_awal)) . " / " . DATE('d F Y', strtotime($request->tgl_akhir));
-        }
-        // $pdf = App::make('dompdf.wrapper');
-        // $pdf->setPaper('A4', 'potrait');
-        // $pdf->loadHTML(view("layouts.pribadipdf",['resource'=>$resource, 'tanggal'=>$tanggal, 'alfa'=>$alfa,'izin'=>$izin,'sakit'=>$sakit]));
-        // return $pdf->stream();
+        return view('absen.hasil', compact('kelas'));
+    
     }
 
-    public function indexabsen()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $absen = Absen::all();
-        return view('rekapdata', compact('absen'));
+        //
     }
 
-    public function cetakpdf()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+    public function cetak(Request $id)
+    {
+        // return request();
+        // dd($id);
+        $siswa = User::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
+        foreach ($siswa as $s) {
+            $sis[]=$s;
+        }
+        return $sis;
+
+        $tanggal = today()->format('Y m d');
+
+        // return view('pdfsiswa', compact('user'));
         $data = Absen::all();
         view()->share('data', $data);
-        $pdf = 'PDF'::loadview('cetak');
-        return $pdf->stream('Data Siswa.pdf');
-    }   
-
-    public function rekap($id)
-    {
-        $resource = Kelas::find($id);
-        return view('admin/rekapAbsen', ['resource' => $resource]);
-    }
-
-
-    public function hitung(Request $request)
-    {
-        $resource = Kelas::find($request->id);
-        foreach ($resource->siswa as $index => $res) {
-            $alfa = Absen::where(['siswa_id' => $res->id_siswa])->where('status', 'Alfa');
-            $izin = Absen::where(['siswa_id' => $res->id_siswa])->where('status', 'Izin');
-            $sakit = Absen::where(['siswa_id' => $res->id_siswa])->where('status', 'Sakit');
-            if ($request->tanggal_awal != 0) {
-                $alfa = $alfa->where('tanggal', '>=', $request->tanggal_awal);
-                $izin = $izin->where('tanggal', '>=', $request->tanggal_awal);
-                $sakit = $sakit->where('tanggal', '>=', $request->tanggal_awal);
-            }
-            if ($request->tanggal_akhir != 0) {
-                $alfa = $alfa->where('tanggal', '<=', $request->tanggal_akhir);
-                $izin = $izin->where('tanggal', '<=', $request->tanggal_akhir);
-                $sakit = $sakit->where('tanggal', '<=', $request->tanggal_akhir);
-            }
-            $alfa = $alfa->get();
-            $izin = $izin->get();
-            $sakit = $sakit->get();
-?>
-            <tr>
-                <td class="text-center"><?php echo $index + 1 ?></td>
-                <td><?php echo $res->nis ?></td>
-                <td><?php echo $res->nama ?></td>
-                <td><?php echo count($alfa) ?></td>
-                <td><?php echo count($izin) ?></td>
-                <td><?php echo count($sakit) ?></td>
-            </tr>
-<?php
-
-        }
+        // return $tanggal;
+        $pdf = 'PDF'::loadview('pdfkelas', compact('user', 'h', 'i', 'sk', 'a', 'tanggal', 'siswa'))->setPaper('a4', 'landscape');
+        return $pdf->stream();
+    
     }
 }

@@ -52,6 +52,7 @@ class RekapabsenController extends Controller
      */
     public function show($id)
     {
+        // return true;
     }
 
     /**
