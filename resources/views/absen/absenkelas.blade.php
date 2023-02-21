@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title', 'Absen')
-@section('content-title', 'Lakukan Absen')
+@section('content-title')
 @section('content')
 
     @if ($pesan = Session::get('absen_done'))
@@ -11,6 +11,7 @@
     @endif
 
 
+    <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="text-dark">Lakukan Absen</h3>
     <div class="row">
         <div class="col-xl-3 col-md-6 md-6 mb-4">
             <div class="card border-left-primary  h-100 py-2">
@@ -18,7 +19,8 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                kelas
+                                <i class="fas fa-home"></i>
+                                Kelas
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 @foreach ($guru as $g)
@@ -40,6 +42,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                <i class="fas fa-user"></i>
                                 Wali Kelas
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -62,6 +65,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                                <i class="fas fa-users"></i>
                                 Total siswa
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -82,6 +86,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                <i class="fas fa-calendar"></i>
                                 Tanggal
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -102,7 +107,7 @@
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <table class="table table-bordered">
-                        <thead class="bg-primary text-white">
+                        <thead class="text-white" style="background-color: #6b5b95">
                             <tr>
                                 <th scope="col">NO</th>
                                 <th scope="col">NAMA</th>
@@ -195,7 +200,7 @@
                     </table>
                 </div>
                 <div class="form-group d-flex flex-row-reverse mx-3">
-                    <input type="submit" class="btn btn-success" value="simpan">
+                    <input type="submit" class="btn btn-success" value="SIMPAN">
                 </div>
                 </form>
             </div>

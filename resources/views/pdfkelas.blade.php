@@ -49,7 +49,7 @@
                                 <tbody>
                                     <tr>
                                         <td scope="row"></td>
-                                        <td></td>
+                                        <td>{{ $tanggal }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -64,16 +64,22 @@
             <table class="table table-bordered">
                 <thead class="bg-primary text-white">
                     <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">NAMA SISWA</th>
                         <th scope="col">HADIR</th>
                         <th scope="col">IZIN</th>
                         <th scope="col">SAKIT</th>
                         <th scope="col">ALPHA</th>
                     </tr>
                 </thead>
-                        <td>{{ $h}}</td>
-                        <td>{{ $sk }}</td>
-                        <td>{{ $i }}</td>
-                        <td>{{ $a }}</td>
+                {{-- @foreach ($user as $u) --}}
+                    <td>{{ $loop->iteration }}</td>
+                    {{-- <td>{{ $user }}</td> --}}
+                    <td>{{ $h }}</td>
+                    <td>{{ $sk }}</td>
+                    <td>{{ $i }}</td>
+                    <td>{{ $a }}</td>
+                {{-- @endforeach --}}
             </table>
         </div>
     </div>

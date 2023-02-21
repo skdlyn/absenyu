@@ -63,10 +63,17 @@ class DaftarAbsenController extends Controller
         foreach($coba as $cok){
             $awikwok[] = [$cok->absen];
         }
+        // return $coba;
         // return $awikwok;    
         return view('absen.listtanggal', compact('d', 'm', 'y', 'guru', 'coba'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
+
+    public function surat()
+    {
+        // return true;
+    }
+
 
     public function edit($id)
     {

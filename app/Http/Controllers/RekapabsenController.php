@@ -119,19 +119,18 @@ class RekapabsenController extends Controller
 
     public function pdfkelas($id)
     {
-        $siswa = User::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        foreach ($siswa as $s) {
-            $sis[]=$s;
-        }
-        return $sis;
-
+        $user = User::where('kelas_id', $id);
+        $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
         $tanggal = today()->format('Y m d');
 
         // return view('pdfsiswa', compact('user'));
-        $data = Absen::all();
-        view()->share('data', $data);
+        $h = Absen::where('siswa_id', $user->id)->where('status', 'hadir')->count();
+        $i = Absen::where('siswa_id', $user->id)->where('status', 'izin')->count();
+        $sk = Absen::where('siswa_id', $user->id)->where('status', 'sakit')->count();
+        $a = Absen::where('siswa_id', $user->id)->where('status', 'alpha')->count();
+
         // return $tanggal;
-        $pdf = 'PDF'::loadview('pdfkelas', compact('user', 'h', 'i', 'sk', 'a', 'tanggal', 'siswa'))->setPaper('a4', 'landscape');
+        $pdf = 'PDF'::loadview('pdfkelas', compact('tanggal', 'user', 'h', 'i', 'sk', 'a'))->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 }
