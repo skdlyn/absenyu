@@ -22,7 +22,7 @@
                 <div id="content">
 
                     <!-- Topbar -->
-                    @include('layout.topbar')
+                    {{-- @include('layout.topbar') --}}
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->

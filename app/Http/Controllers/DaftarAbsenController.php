@@ -36,7 +36,7 @@ class DaftarAbsenController extends Controller
         // $a = Absen::where('kelas_id', $id)->join('siswa', 'siswa.id', '=', 'siswa_id')->get();
         $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
         // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
-        $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
+        // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
         $b = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
         // $a = user::where('role', 'siswa')->where('kelas_id', $id)->get();
         // return $a;
@@ -72,15 +72,20 @@ class DaftarAbsenController extends Controller
             // eak
 
         }
-        $tgl = array();
-        foreach ($b as $date) {
-            $tgl[] = $date->tanggal;
-        }
-        $t = array_unique($tgl);
+        // $tgl = array();
+        // foreach ($b as $date) {
+        //     $tgl[] = $date->tanggal;
+        // }
+        // $t = array_unique($tgl);
         // $z[] = $coba->absen;
         // return $t;
         // dd($coba[0]->absen);
-        return view('absen.listtanggal', compact('d','t', 'm', 'y', 'guru', 'a' ,'coba'));
+        foreach($coba as $cok){
+            $a[] = [$cok->absen];
+        }
+        // return $a;
+        return $coba;
+        return view('absen.listtanggal', compact('d', 'm', 'y', 'guru', 'a' ,'coba'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 

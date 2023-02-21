@@ -7,12 +7,11 @@
     <div class="row filter-row">
         <div class="col-sm-6 col-md-3">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" placeholder="Nama Siswa">
+                
                 {{-- <label class="focus-label">Employee Name</label> --}}
             </div>
         </div>
-    
-        
+            
         
         <div>
             <ul style="display:none ">
@@ -22,8 +21,10 @@
         </div>
     </div>
 
+
     <table class="table table-striped table-responsive" style="flex-wrap: wrap">
-        <thead class="bg-primary text-white">
+        <a href="{{ route('pdfkelas')}}" class="btn btn-sm btn-outline-danger mb-20px">PDF</a>
+        <thead class="text-white" style="background-color: #6b5b95">
             <tr>
                 <th>NO</th>
                 <th>NAMA SISWA</th>
@@ -42,7 +43,7 @@
             </tr>
         </thead>
 
-        <tbody>
+        <tbody id="tableData">
             @foreach ($coba as $s)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
@@ -71,6 +72,7 @@
             <div class="table-responsive">
                 <table class="table table-striped" style="flex-wrap: wrap">
                     <thead>
+                    </div>
                         <tr>
                             <td>No</td>
                             <td>Nama Siswa</td>
@@ -106,5 +108,5 @@
             </div>
         </div>
     </div> --}}
-
+   
 @endsection

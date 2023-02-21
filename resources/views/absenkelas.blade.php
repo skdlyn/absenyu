@@ -111,51 +111,12 @@
                         </thead>
 
                             <tbody>
-<<<<<<< HEAD
-                                {{-- <tr>
-                                <td>lmao</td>
-                                <td>banget</td>
-                                <td>dek</td>
-                            </tr> --}}
-=======
->>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
                                 @foreach ($siswa as $i => $item)
                                     <tr>
                                         <th scope="row">{{ ++$i }}</th>
                                         <td>{{ $item->nama }}</td>
                                         <td>{{ $item->nisn }}</td>
                                         <td>
-<<<<<<< HEAD
-                                            {{-- <div id="rates">
-                                                        <input type="radio" id="r1" name="rate"
-                                                            value="Fixed Rate"> Fixed Rate
-                                                            <input type="radio" id="r2" name="rate"
-                                                            value="Variable Rate"> Variable Rate
-                                                        <input type="radio" id="r3" name="rate"
-                                                            value="Multi Rate" checked="checked"> Multi Rate
-                                                    </div> --}}
-
-                                            {{-- @if ($loop->last)
-                                                        <label class="radio-inline">
-                                                            <input id="hadir" type="radio"
-                                                                name="status[{{ $item }}]" value="Hadir"> Hadir
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input id="alfa" type="radio"
-                                                            name="status[{{ $item }}]" value="Alfa"> Alfa
-                                                        </label>
-
-                                                        <label class="radio-inline">
-                                                            <input id="izin" type="radio"
-                                                                name="status[{{ $item }}]" value="Izin"> Izin
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input id="sakit" type="radio"
-                                                                name="status[{{ $item }}]" value="Sakit"> Sakit
-                                                        </label>
-                                                    @else --}}
-=======
->>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
                                             @if ($loop->last)
                                                 <div class="status-selected">
                                                     <input type="radio" id="hadir" name="status{{ $item }}"
@@ -191,37 +152,6 @@
                                                     sakit
                                                 </div>
                                             @endif
-<<<<<<< HEAD
-                                            {{-- <label class="radio-inline">
-                                                            <input id="hadir" type="radio"
-                                                            name="status[{{ $item }}]" value="Hadir"> Hadir
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input id="alfa" type="radio"
-                                                            name="status[{{ $item }}]" value="Alfa"> Alfa
-                                                    </label>
-
-                                                    <label class="radio-inline">
-                                                        <input id="izin" type="radio"
-                                                            name="status[{{ $item }}]" value="Izin"> Izin
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input id="sakit" type="radio"
-                                                            name="status[{{ $item }}]" value="Sakit"> Sakit
-                                                    </label> --}}
-                                            {{-- @endif --}}
-                                            {{-- @if ($loop->last)
-                                                        <div id="rates">
-                                                            <input type="radio" id="r1" name="rate"
-                                                                value="Fixed Rate"> Fixed Rate
-                                                            <input type="radio" id="r2" name="rate"
-                                                                value="Variable Rate"> Variable Rate
-                                                            <input type="radio" id="r3" name="rate"
-                                                            value="Multi Rate" checked="checked"> Multi Rate
-                                                        </div>
-                                                    @endif --}}
-=======
->>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
                                         </td>
                                         <td>
                                             <form action="" method="POST">
@@ -235,9 +165,6 @@
                                                     document.getElementById("upload{{ $loop->iteration }}").style.display = "inline";
                                                     // document.getElementById("header").style.display = "block";
                                                 }
-<<<<<<< HEAD
-
-=======
                                 <form action="{{ route('absen.store') }}" method="POST">
                                     @csrf
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -321,31 +248,10 @@
                 </div>
             </div>
         </div>
->>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
                                                 function updateHide{{ $loop->iteration }}() {
                                                     document.getElementById("upload{{ $loop->iteration }}").style.display = "none";
                                                     // document.getElementById("header").style.display = "none ";
                                                 }
-<<<<<<< HEAD
-                                            </script>
-                                        </td>
-                                        {{-- <td>
-                                            <input type="submit" class="btn btn-sm btn-primary"
-                                                id="izin{{ $loop->iteration }}" style="display: none" value="sakit">
-                                            </form>
-                                            <form action="" class="action">
-                                                @csrf
-                                                <input type="hidden" name="id" id="">
-                                                <input type="submit" class="btn btn-sm btn-danger"
-                                                    id="sakit{{ $loop->iteration }}" style="display: none " value="izin">
-                                            </form>
-                                            
-                                        </td> --}}
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-=======
                                     </script>
                                  </td>
                             @endforeach
@@ -472,7 +378,6 @@
                         </form>
                         </tbody>
                     </table>
->>>>>>> be46e3ebc55eece5beeb6d0978055c629396a28a
                 </div>
             </div>
         </div>

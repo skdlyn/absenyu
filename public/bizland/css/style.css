@@ -478,7 +478,11 @@ h6 {
 
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(
+    to left,
+    rgba(12, 11, 11, 0.5),
+    rgb(0 0 0 / 0)
+  );
   position: absolute;
   bottom: 0;
   top: 0;
@@ -495,12 +499,12 @@ h6 {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: #222222;
+  color: #381d7c;
   font-family: "Poppins", sans-serif;
 }
 
 #hero h1 span {
-  color: #6b5b95;
+  color: #f3eef8;
 }
 
 #hero h2 {
@@ -597,6 +601,11 @@ section {
 }
 
 .section-bg {
+  background: linear-gradient(
+    to right, 
+    rgb(0 0 0 / 0.5),
+    rgb(0 0 0/ 0)
+  ) ;
   background-color: #f6f9fe;
 }
 

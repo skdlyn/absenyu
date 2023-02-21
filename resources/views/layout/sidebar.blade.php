@@ -1,8 +1,8 @@
 <!-- Sidebar -->
-<ul class="navbar-nav sidebar sidebar-dark accordion bg-primary" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #6b5b95;">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center side" href="/dashboard">
         <div class="sidebar-brand-icon">
             <i class="fas fa-desktop"></i>
         </div>
@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard">
+        <a class="nav-link side" href="/dashboard">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -24,7 +24,7 @@
 
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1"
+        <a class="nav-link collapsed side" href="#" data-toggle="collapse" data-target="#collapseUtilities1"
             aria-expanded="true" aria-controls="collapseUtilities1">
             <i class="fas fa-fw fa-calendar"></i>
             <span>Absen</span>
@@ -47,7 +47,7 @@
     </li> --}}
 
     <li class="nav-item ">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
+        <a class="nav-link collapsed side" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
             aria-expanded="true" aria-controls="collapseUtilities2">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Manajemen Data</span>
@@ -64,7 +64,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/rekaplist">
+        <a class="nav-link side" href="/rekaplist">
             <i class="fas fa-fw fa-folder-open"></i>
             <span>Rekap Data</span></a>
     </li>
@@ -72,9 +72,17 @@
 
 
     <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    <div class="text-center d-none d-md-inline mt-3">
+        <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#logoutModal">
+            Logout
+        </a>
     </div>
 
 </ul>
+
+<style>
+    a.side:hover {
+        background-color: blueviolet;
+    }
+</style>
 <!-- End of Sidebar -->

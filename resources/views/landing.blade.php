@@ -98,7 +98,7 @@
       <h1>Selamat Datang<span> Peserta Didik</span></h1>
       <h2>SMK NEGERI 1 SURABAYA</h2>
       <div class="d-flex">
-        <a href="/login" class="btn-get-started scrollto">Jelajahi</a>
+        <a href="/login" class="btn-get-started scrollto">  Jelajahi</a>
         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"></a>
       </div>
     </div>

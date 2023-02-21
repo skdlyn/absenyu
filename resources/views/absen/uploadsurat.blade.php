@@ -33,7 +33,7 @@
             <div class="container">
                 <h6>Upload Sakit</h6>
                 <table class="table table-bordered">
-                    <thead class="bg-primary text-white">
+                    <thead class="text-white" style="background-color: #6b5b95">
                         <tr>
                             <th>NO</th>
                             <th>NAMA SISWA</th>
@@ -79,7 +79,7 @@
                     </tbody>
                     @endforeach
                 </table>           
-                    <div class="row justify-content-end mx-2" style="margin-bottom: 2%">
+                    <div class="row justify-content-end mx-2" style="margin-bottom: 2">
                         <input type="submit" class="btn btn-sm btn-success" value="Simpan">
                     </div>
             </div>
