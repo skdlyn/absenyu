@@ -23,7 +23,7 @@ return new class extends Migration
             // $table->foreign('kelas_id')->references('id')->on('kelas')
             //     ->onDelete('cascade')
             //     ->onUpdate('cascade');
-            // $table->string('tanggal');
+            $table->string('kelas_id');
             $table->unsignedBigInteger('siswa_id');
             $table->foreign('siswa_id')->references('id')->on('users');
             $table->string('tanggal');

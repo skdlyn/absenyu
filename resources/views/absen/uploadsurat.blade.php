@@ -26,62 +26,56 @@
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
-                        </div>
+                    </div>
                     </form>
                 </div>
             </div>
             <div class="container">
-                <h6>Upload Sakit</h6>
                 <table class="table table-bordered">
                     <thead class="text-white" style="background-color: #6b5b95">
                         <tr>
                             <th>NO</th>
                             <th>NAMA SISWA</th>
+                            <th>TANGGAL </th>
                             <th>STATUS</th>
                             <th>UPLOAD SURAT</th>
+                            <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($s as $b)
+                        @if ($stat->isempty())
                             <tr>
-                                <td scope="col">{{ $loop->iteration }}</td>
-                                <td scope="row">{{ $b->id }}">{{ $b->name }}</td>
-                                <td scope="row">{{ $b->status }}</td>
-                                <td>
-                                    <input type="file" id="surat" name="surat">
-                                </td>
+                                <td colspan="6" class="text-center">tidak ada Informasi</td>
                             </tr>
-                    </tbody>
-                    @endforeach
-                </table>            
-            </div>
-            <div class="container">
-                Upload Izin
-                <table class="table table-bordered">
-                    <thead class="bg-primary text-white">
-                        <tr>
-                            <th>NO</th>
-                            <th>NAMA SISWA</th>
-                            <th>STATUS</th>
-                            <th>UPLOAD SURAT</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($a as $b)
-                            <tr>
-                                <td scope="col">{{ $loop->iteration }}</td>
-                                <td scope="row">{{ $b->id }}">{{ $b->name }}</td>
-                                <td scope="row">{{ $b->status }}</td>
-                                <td>
-                                    <input type="file" id="surat" name="surat">
-                                </td>
-                            </tr>
-                    </tbody>
-                    @endforeach
-                </table>           
-                    <div class="row justify-content-end mx-2" style="margin-bottom: 2">
-                        <input type="submit" class="btn btn-sm btn-success" value="Simpan">
-                    </div>
+                        @else
+                            @foreach ($stat as $s)
+                                <form method="POST" action="{{ route('surat.update',$s->id) }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('put')
+                                    <tr>
+                                        {{-- <td>{{ $s }}</td> --}}
+                                        <td scope="col">{{ $loop->iteration }}</td>
+                                        <td>{{ $s->user->name }}</td>
+                                        <td scope="row">{{ $s->tanggal}}</td>
+                                        {{-- {{-- <td scope="row">{{ $b->id }}">{{ $b->name }}</td> --}}
+                                        <td scope="row">{{ $s->status }}</td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="hidden" name="kelas_id" value="{{ $s->kelas_id }}">
+                                                <input type="hidden" name="id[]" value="{{ $s->id }}">
+                                                <input type="file" id="surat" name="surat"
+                                                    class="form-control-file">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="submit" class="btn btn-sm btn-success" value="Simpan">
+                                        </td>
+                                    </tr>
+                                </form>
+                            @endforeach
+                        @endif
+                </table>
             </div>
         </div>
     </div>

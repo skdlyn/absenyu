@@ -3,7 +3,7 @@
 @section('content-title')
 @section('content')
 
-
+<h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="text-dark">Riwayat Absens {{ $kls->kelas->name_kelas }}</h3>
     <div class="row filter-row">
         <div class="col-sm-6 col-md-3">
             <div class="form-group form-focus">
@@ -23,7 +23,7 @@
 
 
     <table class="table table-striped table-responsive" style="flex-wrap: wrap">
-        <a href="{{ route('pdfkelas')}}" class="btn btn-sm btn-outline-danger mb-20px">PDF</a>
+        <a href="/pdfkelas" class="btn btn-sm btn-outline-danger mb-20px">PDF</a>
         <thead class="text-white" style="background-color: #6b5b95">
             <tr>
                 <th>NO</th>

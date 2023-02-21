@@ -9,12 +9,13 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\SuratController;   
 // use App\Http\Controllers\RekapabsenController;
 
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DaftarAbsenController;
 use App\Http\Controllers\Dashboardcontroller;
-
+use App\Http\Controllers\RekapController;
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -74,9 +75,12 @@ Route::middleware('guest')->group(function () {
 
     Route::resource('datasiswa', DataController::class);
 
-    Route::resource('/rekaplist', RekapabsenController::class);
+    // rekap
+    // Route::resource('/rekaplist', RekapabsenController::class);
     Route::get('/pdfsiswa', [RekapabsenController::class, 'cetakpdf'])->name('cetakpdf');
     Route::get('/pdfkelas', [RekapabsenController::class, 'pdfkelas'])->name('pdfkelas');
+    Route::resource('rekap', rekapController::class);
+    Route::get('cetak', [rekapController::class,'cetak'])->name('rekap.cetak');
 
     // data kelas
     Route::resource('datakelas', DataKelasController::class);
@@ -95,7 +99,10 @@ Route::middleware('guest')->group(function () {
 
     //Profile Siswa
 
-    Route::get('/uploadsurat', [AbsenController::class, 'surat'])->name('surat');
+    // Route::get('/uploadsurat{id}', [AbsenController::class, 'surat'])->name('surat');
+    // Route::get('/uploadsurat', [AbsenController::class, 'surat'])->name('surat');
+    Route::resource('surat', suratController::class);
+    Route::get('uploadsurat/{id}', [suratController::class,'surat'])->name('surat.upload');
 
     // Route::resource('Profile', ProfileController::class);
     route::resource('akun', AkunController::class);

@@ -36,7 +36,7 @@
         <ol class="breadcrumb">
             <li><a href="/dashboard"><em class="fa fa-home"></em></a> Absen</li>
             {{-- <li class="active">  Dashboard</li> --}}
-        {{-- </ol>
+    {{-- </ol>
     </div> --}}
 
     <div class="row">
@@ -55,10 +55,11 @@
                             @foreach ($kelas as $k)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
-                                    <td><a href="{{ route('pdfkelas', $k->id )}}">{{ $k->nama_kelas }}</a></td>
+                                    {{-- <td><a href="{{ route('pdfkelas', $k->id) }}">{{ $k->nama_kelas }}</a></td> --}}
+                                    <td><a href="{{ route('rekap.cetak', $k->id) }}">{{ $k->nama_kelas }}</a></td>
                                 </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
                     </table>
                 </div>
             </div>

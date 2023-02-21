@@ -52,6 +52,7 @@ class RekapabsenController extends Controller
      */
     public function show($id)
     {
+        // return true;
     }
 
     /**
@@ -93,7 +94,7 @@ class RekapabsenController extends Controller
         $dates = [];
         $user = auth()->user();
         $h = Absen::where('siswa_id', $user->id)->where('status', 'hadir')->count();
-        $i = Absen::where('siswa_id', $user->id)->where('status', 'izin')->count();
+        $iz = Absen::where('siswa_id', $user->id)->where('status', 'izin')->count();
         $sk = Absen::where('siswa_id', $user->id)->where('status', 'sakit')->count();
         $a = Absen::where('siswa_id', $user->id)->where('status', 'alpha')->count();
 
@@ -109,10 +110,12 @@ class RekapabsenController extends Controller
 
         $tanggal = \Carbon\Carbon::now('Asia/Jakarta')->format('d F Y');
 
+        // return $sk;
+        // return $i;
         // return view('pdfsiswa', compact('user'));
         $data = Absen::all();
         view()->share('data', $data);
-        $pdf = 'PDF'::loadview('pdfsiswa', compact('user', 'h', 'i', 'sk', 'a', 'm', 'tanggal'));
+        $pdf = 'PDF'::loadview('pdfsiswa', compact('user', 'h', 'iz', 'sk', 'a', 'm', 'tanggal'));
         return $pdf->stream();
     }
 

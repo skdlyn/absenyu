@@ -37,32 +37,22 @@ class DaftarAbsenController extends Controller
         $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
         // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
         // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('name');
-        $b = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
+        // $b = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get();
         // $a = user::where('role', 'siswa')->where('kelas_id', $id)->get();
         // return $a;
         // $a = absen::where('kelas_id', $id)->join('users', 'users.id', '=', 'siswa_id')->get('status');
         // $b = $a->unique('name');
         // return $b;
-        
+
         $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        foreach($coba as $c){
+        foreach ($coba as $c) {
             $stats[] = [
                 $c->name,
+                $kls = $c->kelas_id,
                 $sts = $c->absen,
             ];
         }
-        // return $sts;
-        // return $stats;
-        // return $coba;   
-        // foreach ($coba as $c) {
-        //     $datas[] =  $c->id;
-        // }
-        // return $datas;
-        
-        // $stats = absen::where('siswa_id','4')->get();
-        // return $stats;
-        // $u = array_unique($b);
-        // return $u;
+        // return $kls;
         $today = today();
         $dates = [];
         for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
@@ -70,22 +60,13 @@ class DaftarAbsenController extends Controller
             $m = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
             $y = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
             // eak
+        }
 
-        }
-        // $tgl = array();
-        // foreach ($b as $date) {
-        //     $tgl[] = $date->tanggal;
-        // }
-        // $t = array_unique($tgl);
-        // $z[] = $coba->absen;
-        // return $t;
-        // dd($coba[0]->absen);
         foreach($coba as $cok){
-            $a[] = [$cok->absen];
+            $awikwok[] = [$cok->absen];
         }
-        // return $a;
-        return $coba;
-        return view('absen.listtanggal', compact('d', 'm', 'y', 'guru', 'a' ,'coba'));
+        // return $awikwok;    
+        return view('absen.listtanggal', compact('d', 'm', 'y', 'guru', 'coba','kls'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 

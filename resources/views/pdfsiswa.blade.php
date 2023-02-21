@@ -70,11 +70,11 @@
                         <th scope="col">ALPHA</th>
                     </tr>
                 </thead>
-                        <td>{{ $h}}</td>
-                        <td>{{ $sk }}</td>
-                        <td>{{ $i }}</td>
-                        <td>{{ $a }}</td>
-            </table>
+                <th>{{ $h }}</th>
+                <th>{{ $iz }}</th>
+                <th>{{ $sk }}</th>
+                <th>{{ $a }}</th>
+             </table>
         </div>
     </div>
 </body>

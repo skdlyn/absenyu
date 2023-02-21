@@ -70,46 +70,36 @@ class AbsenController extends Controller
             'siswa_id' => $request->siswa_id,
             'status' => $request->status,
         ];
+        $stat = $request->status;
+        $k = $request->kelas_id;
+        $kelas = array_unique($k);
+        $kel = implode($kelas);
+        // return $kel;
 
-        // return $data;
-        // $today = today()->format('d-m-Y');
+
+        // tgl hari ini
         $today = today()->format('Y-m-d');
-
-
-
-        $data = array();
+        // store seluruh siswa dalam sekelas
         for ($i = 0; $i < count($d['siswa_id']); $i++) {
             $d[] =
                 absen::insert([
-                    'tanggal' => $today,    
-                // 'tanggal' => $request->tanggal,
+                    // 'tanggal' => $today,
+                    'tanggal' => $request->tanggal,
+                    'kelas_id'=>$kel,
                     'siswa_id' => $d['siswa_id'][$i],
                     'status' => $d['status'][$i],
                 ]);
-
-            // return $d;
-            $dt = array();
-            $dara = array();
-            foreach ($d['status'] as $dta) {
-                $dara[] = $dta;
-            }
-            // return $dara;
-            // return implode($dara);
-            // $i = 'izin';
-            // $iz = array($i);
-            // $s = 'sakit';
-            // $sa = array($s);
-
-            // if ($dara == $sa || $dara == $iz ) {
-            //     // return true;
-            // } else {
-            //     // return '2';
-            // }
-
         }
-        // return 'view surat';
-        return redirect('absen')->with('status', 'kelas anda telah diabsen!');
-        // return redirect('absen');
+
+        // jika ada yang sakit / izin maka setelah upload lgsg redirect ke up surat
+
+        if (in_array("sakit", $stat)) {
+            return redirect(route('surat.edit', $kelas));
+        } elseif (in_array("izin", $stat)) {
+            return redirect(route('surat.edit', $kelas));
+        } else {
+            return redirect('absen')->with('status', 'kelas anda telah diabsen!');
+        }
     }
 
     /**
@@ -121,17 +111,16 @@ class AbsenController extends Controller
     public function show($id)
     {
         $guru = user::where('role', 'guru')->where('kelas_id', $id)->get();
-        // return $guru;
         $siswa = user::where('role', 'siswa')->where('kelas_id', $id)->get();
         $total = user::where('role', 'siswa')->where('kelas_id', $id)->count();
-        // return $siswa;
 
         $today = today()->format("Y-m-d");
         // $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         // $absen = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->first();
+
         $s = user::where('role', 'siswa')->where('kelas_id', $id)->first();
-        $absen = absen::where('siswa_id',$s->id)->orderby('tanggal','desc')->first();
+        $absen = absen::where('siswa_id', $s->id)->orderby('tanggal', 'desc')->first();
         // return $absen;
         if ($absen == null) {
             return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
@@ -144,6 +133,7 @@ class AbsenController extends Controller
             return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
         }
         
+        // return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
     }
 
     public function listabsen($id)
