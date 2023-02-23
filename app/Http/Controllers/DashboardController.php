@@ -34,7 +34,7 @@ class dashboardcontroller extends Controller
             return view('dashsiswa', compact('k', 's', 'g', 'user', 'h', 'i', 'sk', 'a'));
             // return view('dashboard',compact('k','s','g','user'));    
         } else {
-            return view('DashAlip', compact('k', 's', 'g', 'user'));
+            return view('dashboard', compact('k', 's', 'g', 'user'));
         }
     }
 }
