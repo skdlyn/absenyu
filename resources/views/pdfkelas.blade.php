@@ -34,8 +34,9 @@
         <div class="row">
             <div class="col text-start">
                 <div class="card">
-                    <h5>NAMA KELAS : XII RPL 1</h5>
-                    <h5>WALI KELAS : ASMU'IN</h5>
+                    {{-- <h5>WALI KELAS : {{ $guru->name }}</h5> --}}
+                    <h5>KELAS : {{ $guru[0]->kelas->nama_kelas }}</h5>
+                    <h5 style="text-transform: uppercase">NAMA KELAS : {{ $guru[0]->name }}</h5>
                     <h5>JUMLAH SISWA : 38 SISWA</h5>
                     <div class="row text-center">
                         <div class="col-md-6">
@@ -48,7 +49,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td scope="row"></td>
+                                        <td scope="row">{{ $bulan }}</td>
                                         <td>{{ $tanggal }}</td>
                                     </tr>
                                 </tbody>
@@ -67,9 +68,9 @@
                         <th scope="col">No</th>
                         <th scope="col">NAMA SISWA</th>
                         <th scope="col">HADIR</th>
+                        <th scope="col">ALPHA</th>
                         <th scope="col">IZIN</th>
                         <th scope="col">SAKIT</th>
-                        <th scope="col">ALPHA</th>
                     </tr>
                 </thead>
                 @foreach ($user as $u)
@@ -79,8 +80,8 @@
                         <td>{{ $u->name }}</td>
                         <td>{{ App\Models\Absen::where('siswa_id', $u->id)->where('status', 'hadir')->count() }}</td>
                         <td>{{ App\Models\Absen::where('siswa_id', $u->id)->where('status', 'alpha')->count() }}</td>
-                        <td>{{ App\Models\Absen::where('siswa_id', $u->id)->where('status', 'sakit')->count() }}</td>
                         <td>{{ App\Models\Absen::where('siswa_id', $u->id)->where('status', 'izin')->count() }}</td>
+                        <td>{{ App\Models\Absen::where('siswa_id', $u->id)->where('status', 'sakit')->count() }}</td>
                     </tr>
                 @endforeach
                 {{-- @foreach ($siswa as $i)

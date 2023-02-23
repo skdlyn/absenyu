@@ -166,12 +166,16 @@ class RekapabsenController extends Controller
 
         // return $sat;
         $tanggal = today()->format('Y m d');
-        return $kelas;
+        $bulan = today()->format('F');
+        // return $bulan;
+        // $kelas = kelas::where('id',$kls)->with('user')->get();
+        $guru = user::where('kelas_id',$kls)->where('role','guru')->with('kelas')->get();
+        // return $guru;
         // return view('pdfsiswa', compact('user'));
 
         // return $tanggal;
         // $pdf = 'PDF'::loadview('pdfkelas', compact('tanggal', 'user', 'h', 'i', 'sk', 'a', 'siswa'))->setPaper('a4', 'landscape');
-        $pdf = 'PDF'::loadview('pdfkelas', compact('tanggal', 'user'))->setPaper('a4', 'landscape');
+        $pdf = 'PDF'::loadview('pdfkelas', compact('tanggal', 'user','guru','bulan'))->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 }
