@@ -31,7 +31,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $g }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-user-circle fa-2x text-gray-300"></i>
+                                <i class="fas fa-user-circle fa-2x text-warning"></i>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $s }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                                <i class="fas fa-users fa-2x text-success"></i>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $k }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-home fa-2x text-gray-300"></i>
+                                <i class="fas fa-home fa-2x text-secondary"></i>
                             </div>
                         </div>
                     </div>

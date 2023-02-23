@@ -43,11 +43,11 @@ class Absen extends Model
     //     return $this->belongsTo(siswa::class);
     // }
 
-    // public function kelas()
-    // {
-    //     // return $this->belongsTo(siswa::class, 'kelas_id');
-    //     return $this->belongsTo('App\Models\Siswa', 'kelas_id');
-    // }
+    public function kelas()
+    {
+        return $this->belongsTo(siswa::class, 'kelas_id');
+        // return $this->belongsTo('App\Models\Siswa', 'kelas_id');
+    }
 
     public function user()
     {

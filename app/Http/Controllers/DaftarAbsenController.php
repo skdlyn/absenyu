@@ -48,9 +48,11 @@ class DaftarAbsenController extends Controller
         foreach ($coba as $c) {
             $stats[] = [
                 $c->name,
+                $kls = $c->kelas_id,
                 $sts = $c->absen,
             ];
         }
+        // return $kls;
         $today = today();
         $dates = [];
         for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
@@ -63,9 +65,8 @@ class DaftarAbsenController extends Controller
         foreach($coba as $cok){
             $awikwok[] = [$cok->absen];
         }
-        // return $coba;
         // return $awikwok;    
-        return view('absen.listtanggal', compact('d', 'm', 'y', 'guru', 'coba'));
+        return view('absen.listtanggal', compact('d', 'm', 'y', 'guru', 'coba','kls'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 

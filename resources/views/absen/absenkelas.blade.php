@@ -19,17 +19,16 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <i class="fas fa-home"></i>
                                 Kelas
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <div class="h6 mb-0 font-weight-bold text-primary">
                                 @foreach ($guru as $g)
                                     {{ $g->kelas->nama_kelas }}
                                 @endforeach
                             </div>
                         </div>
                         <div class="col-auto">
-
+                            <i class="fas fa-home fa-2x text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -42,17 +41,16 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                <i class="fas fa-user"></i>
                                 Wali Kelas
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <div class="h6 mb-0 font-weight-bold text-success">
                                 @foreach ($guru as $g)
                                     {{ $g->name }}
                                 @endforeach
                             </div>
                         </div>
                         <div class="col-auto">
-
+                            <i class="fas fa-user fa-2x text-success"></i>
                         </div>
                     </div>
                 </div>
@@ -64,16 +62,15 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                                <i class="fas fa-users"></i>
+                            <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
                                 Total siswa
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <div class="h6 mb-0 font-weight-bold text-secondary">
                                 {{ $total }}
                             </div>
                         </div>
                         <div class="col-auto">
-
+                            <i class="fas fa-users fa-2x text-secondary"></i>
                         </div>
                     </div>
                 </div>
@@ -86,15 +83,14 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                <i class="fas fa-calendar"></i>
                                 Tanggal
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <div class="h6 mb-0 font-weight-bold text-info">
                                 {{ Carbon\Carbon::now('Asia/Jakarta')->format('d F Y') }}
                             </div>
                         </div>
                         <div class="col-auto">
-
+                            <i class="fas fa-calendar fa-2x text-info"></i>
                         </div>
                     </div>
                 </div>

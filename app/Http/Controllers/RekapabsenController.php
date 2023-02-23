@@ -94,7 +94,7 @@ class RekapabsenController extends Controller
         $dates = [];
         $user = auth()->user();
         $h = Absen::where('siswa_id', $user->id)->where('status', 'hadir')->count();
-        $i = Absen::where('siswa_id', $user->id)->where('status', 'izin')->count();
+        $iz = Absen::where('siswa_id', $user->id)->where('status', 'izin')->count();
         $sk = Absen::where('siswa_id', $user->id)->where('status', 'sakit')->count();
         $a = Absen::where('siswa_id', $user->id)->where('status', 'alpha')->count();
 
@@ -110,27 +110,68 @@ class RekapabsenController extends Controller
 
         $tanggal = \Carbon\Carbon::now('Asia/Jakarta')->format('d F Y');
 
+        // return $sk;
+        // return $i;
         // return view('pdfsiswa', compact('user'));
         $data = Absen::all();
         view()->share('data', $data);
-        $pdf = 'PDF'::loadview('pdfsiswa', compact('user', 'h', 'i', 'sk', 'a', 'm', 'tanggal'));
+        $pdf = 'PDF'::loadview('pdfsiswa', compact('user', 'h', 'iz', 'sk', 'a', 'm', 'tanggal'));
         return $pdf->stream();
     }
 
-    public function pdfkelas($id)
+    public function t($request)
     {
-        $user = User::where('kelas_id', $id);
-        $coba = user::where('role', 'siswa')->where('kelas_id', $id)->with('absen')->get();
-        $tanggal = today()->format('Y m d');
+        return $request;
+        return redirect()->route('pdfkelas');
+    }
 
+    public function pdfkelas($kls)
+    {
+        // return $kls;
+        // $user = User::where('kelas_id', $id);
+        $user = user::where('role', 'siswa')->where('kelas_id', $kls)->with('absen')->get();
+        // $user = user::where('role','siswa')->where('kelas_id', $kls)->where('siswa_id','4')->with('absen')->get();
+        // return $user;
+        // foreach ($user as $us) {
+        //     // $ua[] = $us->id;
+        //     // $siswa[] = [
+        //     //     $us,
+        //     //     // $h[] = Absen::where('siswa_id', $us->id)->where('status', 'hadir')->count(),
+        //     //     // $i[] = Absen::where('siswa_id', $us->id)->where('status', 'izin')->count(),
+        //     //     // $sk[] = Absen::where('siswa_id', $us->id)->where('status', 'sakit')->count(),
+        //     //     // $a[] = Absen::where('siswa_id', $us->id)->where('status', 'alpha')->count()
+        //     //     // // return $ua;
+        //     // ];
+
+        // }
+        // return $h;
+        // $ass = $h->count;
+        // return $siswa;
+        // dd($siswa);
+        // $h = Absen::where('siswa_id', $ua)->where('status', 'hadir')->count();
+        // $i = Absen::where('siswa_id', $ua)->where('status', 'izin')->count();
+        // $sk = Absen::where('siswa_id', $ua)->where('status', 'sakit')->count();
+        // $a = Absen::where('siswa_id', $ua)->where('status', 'alpha')->count();
+        // $coba = Absen::where('siswa_id', '8')->where('status', 'alpha')->count();
+        // $c = '4';
+        // $i = 'a';
+        // $sk = 'a';
+        // return $coba;
+        // $u = $user->id;
+        // return $ua;
+        // $h = Absen::where('siswa_id', $user->id)->where('status', 'hadir')->count();
+        // foreach($user as $s){
+        //     $sat[] /=
+        // }
+
+        // return $sat;
+        $tanggal = today()->format('Y m d');
+        return $kelas;
         // return view('pdfsiswa', compact('user'));
-        $h = Absen::where('siswa_id', $user->id)->where('status', 'hadir')->count();
-        $i = Absen::where('siswa_id', $user->id)->where('status', 'izin')->count();
-        $sk = Absen::where('siswa_id', $user->id)->where('status', 'sakit')->count();
-        $a = Absen::where('siswa_id', $user->id)->where('status', 'alpha')->count();
 
         // return $tanggal;
-        $pdf = 'PDF'::loadview('pdfkelas', compact('tanggal', 'user', 'h', 'i', 'sk', 'a'))->setPaper('a4', 'landscape');
+        // $pdf = 'PDF'::loadview('pdfkelas', compact('tanggal', 'user', 'h', 'i', 'sk', 'a', 'siswa'))->setPaper('a4', 'landscape');
+        $pdf = 'PDF'::loadview('pdfkelas', compact('tanggal', 'user'))->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 }

@@ -3,16 +3,16 @@
 @section('content-title')
 @section('content')
 
-
+    <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="text-dark">Riwayat Absens </h3>
     <div class="row filter-row">
         <div class="col-sm-6 col-md-3">
             <div class="form-group form-focus">
-                
+
                 {{-- <label class="focus-label">Employee Name</label> --}}
             </div>
         </div>
-            
-        
+
+
         <div>
             <ul style="display:none ">
                 <li>bulan : {{ $m }}</li>
@@ -23,7 +23,11 @@
 
 
     <table class="table table-striped table-responsive" style="flex-wrap: wrap">
-        <a href="{{ route('pdfkelas')}}" class="btn btn-sm btn-outline-danger mb-20px">PDF</a>
+        {{-- <a href="{{ route('pdfkelas') }}" class="btn btn-sm btn-outline-danger mb-20px">PDF</a> --}}
+        <form method="POST" action="{{ route('pdfkelas',$kls) }}">
+            @csrf   
+            <input type="submit" value="pdf">
+        </form>
         <thead class="text-white" style="background-color: #6b5b95">
             <tr>
                 <th>NO</th>
@@ -108,5 +112,5 @@
             </div>
         </div>
     </div> --}}
-   
+
 @endsection
