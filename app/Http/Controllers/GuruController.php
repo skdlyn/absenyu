@@ -74,7 +74,7 @@ class GuruController extends Controller
         // return $id;
         //
         $guru = user::find($id);
-        return view('kelas.dataguru', compact('guru'));
+        return view('kelas.guru', compact('guru'));
         // $guru = user::where('role', 'guru')->with('kelas')->get();
 
     }
