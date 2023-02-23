@@ -1,12 +1,10 @@
-@extends('layout.admin')
+@extends('admin.body')
 
 @section('content')
 @section('title', 'Upload Surat')
 <div class="container">
     <div class="col-lg-12">
         <h4>Daftar Kelas</h4>
-        <div class="card shadow mb-4">
-            <div class="card-body">
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <table class="table">

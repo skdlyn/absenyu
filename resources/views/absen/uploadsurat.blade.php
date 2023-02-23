@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('admin.body')
 
 @section('content')
 @section('title', 'Upload Surat')

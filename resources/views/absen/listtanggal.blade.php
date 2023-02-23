@@ -1,9 +1,9 @@
-@extends('layout.admin')
+@extends('admin.body')
 @section('title', 'daftar absen')
-@section('content-title')
+@section('content-title', 'Riwayat Absen')
 @section('content')
 
-    <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="text-dark">Riwayat Absens </h3>
+    <h3 st  yle="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="text-dark">Riwayat Absens </h3>
     <div class="row filter-row">
         <div class="col-sm-6 col-md-3">
             <div class="form-group form-focus">
@@ -26,7 +26,10 @@
         {{-- <a href="{{ route('pdfkelas') }}" class="btn btn-sm btn-outline-danger mb-20px">PDF</a> --}}
         <form method="POST" action="{{ route('pdfkelas',$kls) }}">
             @csrf   
-            <input type="submit" value="pdf">
+            {{-- <input type="submit" class="btn btn-danger"> --}}
+            <button type="submit" class="btn btn-danger" target="__blank">
+                <i class="fa fa-print" aria-hidden="true"></i>
+            </button>
         </form>
         <thead class="text-white" style="background-color: #6b5b95">
             <tr>

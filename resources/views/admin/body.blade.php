@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title>@yield('tab')</title>
+    @include('admin.css')
 
-@include('admin.css')
 </head>
 
 <body>
-    <script src="assets/js/initTheme.js"></script>
     <div id="app">
         <div id="sidebar" class="active">
             @include('admin.sidebar')
-            
+
         </div>
 
 

@@ -1,28 +1,17 @@
-@extends('layout.admin')
-@section('title', 'list rekap')
-@section('content-title')
+@extends('admin.body')
+@section('header', 'Data Kelas')
+@section('tab', 'List Rekap')
+
 @section('content')
 
     <div class="row">
-        <ol class="breadcrumb mx-2">
-            <a href="/datakelas">
-                <li><em class="fa fa-home"></em> Data Kelas</li>
-            </a>
-        </ol>
-
-        {{-- <ol class="breadcrumb mx-2">
-            <li><a href="/datakelas"><i class="bi bi-arrow-return-left"></i></a> Data Kelas</li>
-        </ol> --}}
-    </div>
-
-    <div class="row">
-        <div class="col-xl-3 col-md-6 md-6 mb-4">
-            <div class="card border-left-primary  h-100 py-2">
+        <div class="col-xl-3 col-md-6 md-6">
+            <div class="card border-left-primary ">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                kelas
+                                Kelas
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 @foreach ($guru as $g)
@@ -31,15 +20,15 @@
                             </div>
                         </div>
                         <div class="col-auto">
-
+                            <i class="fa fa-book" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 md-6 mb-4">
-            <div class="card border-left-success  h-100 py-2">
+        <div class="col-xl-3 col-md-6 md-6">
+            <div class="card border-left-success ">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -53,47 +42,47 @@
                             </div>
                         </div>
                         <div class="col-auto">
-
+                            <i class="fa fa-user fa-lg" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 md-6 mb-4">
-            <div class="card border-left-dark  h-100 py-2">
+        <div class="col-xl-3 col-md-6 md-6">
+            <div class="card border-left-dark ">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                                Total siswa
+                                Total Siswa
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 {{ $total }}
                             </div>
                         </div>
                         <div class="col-auto">
-
+                            <i class="fa fa-users fa-lg" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 md-6 mb-4">
-            <div class="card border-left-info  h-100 py-2">
+        <div class="col-xl-3 col-md-6 md-6">
+            <div class="card border-left-info ">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                 Tanggal
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <div class="mb-0 font-weight-bold text-gray-800">
                                 {{ Carbon\Carbon::now('Asia/Jakarta')->format('d F Y') }}
                             </div>
                         </div>
                         <div class="col-auto">
-
+                            <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -101,9 +90,8 @@
         </div>
     </div> 
 
-
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col">
             <div class="card shadow mb-4">
                 {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                     data-whatever>Tambah

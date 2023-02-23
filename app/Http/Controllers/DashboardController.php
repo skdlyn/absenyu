@@ -31,7 +31,7 @@ class dashboardcontroller extends Controller
         $a = Absen::where('siswa_id', $user->id)->where('status', 'alpha')->count();
 
         if (auth()->user()->role == 'siswa') {
-            return view('DashAlip', compact('k', 's', 'g', 'user', 'h', 'i', 'sk', 'a'));
+            return view('dashsiswa', compact('k', 's', 'g', 'user', 'h', 'i', 'sk', 'a'));
             // return view('dashboard',compact('k','s','g','user'));    
         } else {
             return view('DashAlip', compact('k', 's', 'g', 'user'));

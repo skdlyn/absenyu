@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('admin.body')
 @section('title', 'Data Guru')
 @section('content-title')
 @section('content')
@@ -20,12 +20,6 @@
             <strong>{{ $message }}</strong>
         </div>
     @endif
-    <div class="row">
-        <ol class="breadcrumb">
-            <li><a href="/dashboard"><em class="fa fa-home"></em></a> Data Guru</li>
-            {{-- <li class="active">  Dashboard</li> --}}
-        </ol>
-    </div>
 
     <div class="row">
         <div class="col-lg-12">
@@ -99,7 +93,7 @@
                                     <td>{{ $item->jenis_kelamin }} </td>
                                     <td>
                                         <a type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#show{{$item->id}}" data-whatever="@mdo"><i class="fas fa-info"></i></a>
+                                            data-target="#show{{$item->id}}" data-whatever="@mdo"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                                     </td>
 
 
