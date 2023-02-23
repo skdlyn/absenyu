@@ -64,11 +64,11 @@
         </div>
     </li>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link side" href="/rekaplist">
             <i class="fas fa-fw fa-folder-open"></i>
             <span>Rekap Data</span></a>
-    </li>
+    </li> --}}
 
 
 

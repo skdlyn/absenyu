@@ -113,7 +113,7 @@
 
 
                     <table class="table">
-                        <thead class="bg-primary text-white">
+                        <thead class="text-white" style="background-color: #6b5b95">
                             <tr>
                                 <th scope="col">NO</th>
                                 <th scope="col">NAMA</th>

@@ -79,7 +79,7 @@
 
                 <div class="card-body">
                     <table class="table table-striped ">
-                        <thead class="bg-primary text-white">
+                        <thead class="text-white" style="background-color: #6b5b95">
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">NIP</th>
