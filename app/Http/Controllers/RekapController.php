@@ -109,4 +109,10 @@ class RekapController extends Controller
         return $pdf->stream();
     
     }
+    
+    public function kelas($id)
+    {
+        $k = Kelas::find($id);
+        return redirect('liskelassurat', compact('k'));
+    }
 }
