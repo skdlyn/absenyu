@@ -94,9 +94,9 @@ class AbsenController extends Controller
         // jika ada yang sakit / izin maka setelah upload lgsg redirect ke up surat
 
         if (in_array("sakit", $stat)) {
-            return redirect(route('surat.edit', $kelas));
+            return redirect(route('surat.show', $kelas));
         } elseif (in_array("izin", $stat)) {
-            return redirect(route('surat.edit', $kelas));
+            return redirect(route('surat.show', $kelas));
         } else {
             return redirect('absen')->with('status', 'kelas anda telah diabsen!');
         }

@@ -17,7 +17,7 @@ class GuruController extends Controller
     public function index()
     {
         // $guru = Guru::all();
-        $guru = user::where('role', 'guru')->get();
+        $guru = user::where('role', 'guru')->with('kelas')->get();
         // return $guru;
         return view('kelas.guru', compact('guru'));
     }
@@ -71,7 +71,12 @@ class GuruController extends Controller
      */
     public function show($id)
     {
+        // return $id;
         //
+        $guru = user::find($id);
+        return view('kelas.dataguru', compact('guru'));
+        // $guru = user::where('role', 'guru')->with('kelas')->get();
+
     }
 
     /**
@@ -82,14 +87,14 @@ class GuruController extends Controller
      */
     public function edit($id)
     {
-        $guru = user::where('role', 'guru')->where('id',$id)->get();
-    //    foreach ($guru as $g) {
-    //     $nama = $g->name;
-    //     $nomor = $g->nomor_induk; 
-    //     $jk= $g->jenis_kelamin;
-    //    }
+        $guru = user::where('role', 'guru')->where('id', $id)->get();
+        //    foreach ($guru as $g) {
+        //     $nama = $g->name;
+        //     $nomor = $g->nomor_induk; 
+        //     $jk= $g->jenis_kelamin;
+        //    }
 
-    //    return $nomor_in;
+        //    return $nomor_in;
         // return $guru;
         return view('editguru', compact('guru'));
     }
@@ -119,8 +124,8 @@ class GuruController extends Controller
         $guru->nip = $request->nip;
         $guru->nama = $request->nama;
         $guru->jenis_kelamin = $request->jenis_kelamin;
-        $guru -> save();
-        
+        $guru->save();
+
         Session::flash('update_guru', 'Wali kelas Berhasil Di update!!!');
         return redirect('guru');
     }
@@ -139,7 +144,7 @@ class GuruController extends Controller
     public function hapus($id)
     {
         $guru = Guru::find($id)->delete();
-        Session::flash('hapus_guru','Wali kelas Berhasil Di hapus!!!');
+        Session::flash('hapus_guru', 'Wali kelas Berhasil Di hapus!!!');
         return redirect('guru');
     }
 }

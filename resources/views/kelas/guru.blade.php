@@ -84,7 +84,7 @@
                                 <th scope="col">No.</th>
                                 <th scope="col">NIP</th>
                                 <th scope="col">NAMA</th>
-                                {{-- <th scope="col"></th> --}}
+                                <th scope="col">KELAS</th>
                                 <th scope="col">JENIS KELAMIN</th>
                                 <th scope="col">ACTION</th>
                             </tr>
@@ -95,13 +95,13 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->nomor_induk }}</td>
-                                    {{-- <td>{{ $item->alamat }} </td> --}}
+                                    <td>{{ $item->kelas->nama_kelas}} </td>
                                     <td>{{ $item->jenis_kelamin }} </td>
                                     <td>
-                                        <a href="{{ route('guru.edit', $item->id) }}"
-                                            class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('guru.hapus', $item->id) }}"
-                                            class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                        <a href="{{ route('guru.show', $item->id) }}"
+                                            class="btn btn-sm btn-primary btn-circle"><i class="fas fa-info"></i></a>
+                                        {{-- <a href="{{ route('guru.hapus', $item->id) }}"
+                                            class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a> --}}
                                     </td>
                                 </tr>
                             @endforeach
