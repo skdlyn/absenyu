@@ -77,8 +77,9 @@ Route::middleware('guest')->group(function () {
 
     // rekap
     // Route::resource('/rekaplist', RekapabsenController::class);
+    route::get('t',[RekapabsenController::class,'t'])->name('t');
     Route::get('/pdfsiswa', [RekapabsenController::class, 'cetakpdf'])->name('cetakpdf');
-    Route::get('/pdfkelas', [RekapabsenController::class, 'pdfkelas'])->name('pdfkelas');
+    Route::post('/pdfkelas/{kelas}', [RekapabsenController::class, 'pdfkelas'])->name('pdfkelas');
     Route::resource('rekap', rekapController::class);
     Route::get('cetak', [rekapController::class,'cetak'])->name('rekap.cetak');
 

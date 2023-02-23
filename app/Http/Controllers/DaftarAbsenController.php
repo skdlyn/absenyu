@@ -70,6 +70,12 @@ class DaftarAbsenController extends Controller
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 
+    public function surat()
+    {
+        // return true;
+    }
+
+
     public function edit($id)
     {
     }

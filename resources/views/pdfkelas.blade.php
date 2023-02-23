@@ -72,14 +72,22 @@
                         <th scope="col">ALPHA</th>
                     </tr>
                 </thead>
-                {{-- @foreach ($user as $u) --}}
-                    <td>{{ $loop->iteration }}</td>
-                    {{-- <td>{{ $user }}</td> --}}
-                    <td>{{ $h }}</td>
-                    <td>{{ $sk }}</td>
+                @foreach ($user as $u)
+                    {{-- @dd($u) --}}
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $u->name }}</td>
+                        <td>{{ App\Models\Absen::where('siswa_id', $u->id)->where('status', 'hadir')->count() }}</td>
+                        <td>{{ App\Models\Absen::where('siswa_id', $u->id)->where('status', 'alpha')->count() }}</td>
+                        <td>{{ App\Models\Absen::where('siswa_id', $u->id)->where('status', 'sakit')->count() }}</td>
+                        <td>{{ App\Models\Absen::where('siswa_id', $u->id)->where('status', 'izin')->count() }}</td>
+                    </tr>
+                @endforeach
+                {{-- @foreach ($siswa as $i)
+                <tr>
                     <td>{{ $i }}</td>
-                    <td>{{ $a }}</td>
-                {{-- @endforeach --}}
+                </tr>
+                @endforeach --}}
             </table>
         </div>
     </div>
